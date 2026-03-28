@@ -1,0 +1,1943 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Refrigerator
+  description: tag for Refrigerator
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesRefrigerator
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/quickFreeze:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Quick freeze function setting'
+      operationId: getDevicesPropertiesQuickFreezeRefrigerator
+      description: '取得: 急速冷凍動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/quickFreezeRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Quick freeze function setting'
+      operationId: putDevicesPropertiesQuickFreezeRefrigerator
+      description: '設定: 急速冷凍動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/quickFreezeRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/quickFreezeRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/quickRefrigeration:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Quick refrigeration function setting'
+      operationId: getDevicesPropertiesQuickRefrigerationRefrigerator
+      description: '取得: 急速冷蔵動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/quickRefrigerationRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Quick refrigeration function setting'
+      operationId: putDevicesPropertiesQuickRefrigerationRefrigerator
+      description: '設定: 急速冷蔵動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/quickRefrigerationRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/quickRefrigerationRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/icemaker:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Icemaker setting'
+      operationId: getDevicesPropertiesIcemakerRefrigerator
+      description: '取得: 製氷許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/icemakerRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Icemaker setting'
+      operationId: putDevicesPropertiesIcemakerRefrigerator
+      description: '設定: 製氷許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/icemakerRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/icemakerRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/icemakerStatus:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Icemaker operation status'
+      operationId: getDevicesPropertiesIcemakerStatusRefrigerator
+      description: '取得: 製氷動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/icemakerStatusRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/icemakerTankStatus:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Icemaker tank status'
+      operationId: getDevicesPropertiesIcemakerTankStatusRefrigerator
+      description: '取得: 製氷用給水タンク状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/icemakerTankStatusRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/refrigeratorHumidification:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Refrigerator compartment humidification function setting'
+      operationId: getDevicesPropertiesRefrigeratorHumidificationRefrigerator
+      description: '取得: 冷蔵室加湿動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refrigeratorHumidificationRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Refrigerator compartment humidification function setting'
+      operationId: putDevicesPropertiesRefrigeratorHumidificationRefrigerator
+      description: '設定: 冷蔵室加湿動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/refrigeratorHumidificationRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refrigeratorHumidificationRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/vegetableHumidification:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Vegetable compartment humidification function setting'
+      operationId: getDevicesPropertiesVegetableHumidificationRefrigerator
+      description: '取得: 野菜室加湿動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vegetableHumidificationRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Vegetable compartment humidification function setting'
+      operationId: putDevicesPropertiesVegetableHumidificationRefrigerator
+      description: '設定: 野菜室加湿動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vegetableHumidificationRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vegetableHumidificationRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/deodorization:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Deodorization function setting'
+      operationId: getDevicesPropertiesDeodorizationRefrigerator
+      description: '取得: 脱臭動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deodorizationRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Deodorization function setting'
+      operationId: putDevicesPropertiesDeodorizationRefrigerator
+      description: '設定: 脱臭動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deodorizationRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deodorizationRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/doorOpenCloseStatus:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Door open/close status'
+      operationId: getDevicesPropertiesDoorOpenCloseStatusRefrigerator
+      description: '取得: ドア開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doorOpenCloseStatusRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/doorOpenWarning:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Door open warning'
+      operationId: getDevicesPropertiesDoorOpenWarningRefrigerator
+      description: '取得: ドア開放警告状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doorOpenWarningRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/refrigeratorCompartmentDoorStatus:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Refrigerator compartment door status'
+      operationId: getDevicesPropertiesRefrigeratorCompartmentDoorStatusRefrigerator
+      description: '取得: 冷蔵室ドア開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refrigeratorCompartmentDoorStatusRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/freezerCompartmentDoorStatus:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Freezer compartment door status'
+      operationId: getDevicesPropertiesFreezerCompartmentDoorStatusRefrigerator
+      description: '取得: 冷凍室ドア開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/freezerCompartmentDoorStatusRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/iceCompartmentDoorStatus:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Ice compartment door status'
+      operationId: getDevicesPropertiesIceCompartmentDoorStatusRefrigerator
+      description: '取得: 氷温室ドア開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/iceCompartmentDoorStatusRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/vegetableCompartmentDoorStatus:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Vegetable compartment door status'
+      operationId: getDevicesPropertiesVegetableCompartmentDoorStatusRefrigerator
+      description: '取得: 野菜室ドア開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vegetableCompartmentDoorStatusRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/multiModeCompartmentDoorStatus:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Multi-refrigerating mode compartment door status'
+      operationId: getDevicesPropertiesMultiModeCompartmentDoorStatusRefrigerator
+      description: '取得: 切換室ドア開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/multiModeCompartmentDoorStatusRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measuredRefrigeratorTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Measured refrigerator compartment temperature'
+      operationId: getDevicesPropertiesMeasuredRefrigeratorTemperatureRefrigerator
+      description: '取得: 冷蔵室温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measuredRefrigeratorTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measuredFreezerTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Measured freezer compartment temperature'
+      operationId: getDevicesPropertiesMeasuredFreezerTemperatureRefrigerator
+      description: '取得: 冷凍室温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measuredFreezerTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measuredIceTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Measured subzero-fresh compartment temperature'
+      operationId: getDevicesPropertiesMeasuredIceTemperatureRefrigerator
+      description: '取得: 氷温室温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measuredIceTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measuredVegetableTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Measured vegetable compartment temperature'
+      operationId: getDevicesPropertiesMeasuredVegetableTemperatureRefrigerator
+      description: '取得: 野菜室温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measuredVegetableTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measuredMultiModeTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Measured multi-refrigerating mode compartment temperature'
+      operationId: getDevicesPropertiesMeasuredMultiModeTemperatureRefrigerator
+      description: '取得: 切換室温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measuredMultiModeTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/compressorRotationSpeed:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Compressor rotation speed'
+      operationId: getDevicesPropertiesCompressorRotationSpeedRefrigerator
+      description: '取得: 圧縮機回転数レベル'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/compressorRotationSpeedRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/electricCurrentConsumption:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Measured electric current consumption'
+      operationId: getDevicesPropertiesElectricCurrentConsumptionRefrigerator
+      description: '取得: 消費電流計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/electricCurrentConsumptionRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedPowerConsumption:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Rated power consumption'
+      operationId: getDevicesPropertiesRatedPowerConsumptionRefrigerator
+      description: '取得: 定格消費電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedPowerConsumptionRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/maximumAllowableTemperatureLevel:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Maximum allowable temperature setting level'
+      operationId: getDevicesPropertiesMaximumAllowableTemperatureLevelRefrigerator
+      description: '取得: 設定可能温度レベル最大値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/maximumAllowableTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/refrigeratorTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Refrigerator compartment temperature setting'
+      operationId: getDevicesPropertiesRefrigeratorTemperatureRefrigerator
+      description: '取得: 冷蔵室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refrigeratorTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Refrigerator compartment temperature setting'
+      operationId: putDevicesPropertiesRefrigeratorTemperatureRefrigerator
+      description: '設定: 冷蔵室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/refrigeratorTemperatureRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refrigeratorTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/freezerTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Freezer compartment temperature setting'
+      operationId: getDevicesPropertiesFreezerTemperatureRefrigerator
+      description: '取得: 冷凍室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/freezerTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Freezer compartment temperature setting'
+      operationId: putDevicesPropertiesFreezerTemperatureRefrigerator
+      description: '設定: 冷凍室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/freezerTemperatureRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/freezerTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/iceTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Ice compartment temperature setting'
+      operationId: getDevicesPropertiesIceTemperatureRefrigerator
+      description: '取得: 氷温室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/iceTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Ice compartment temperature setting'
+      operationId: putDevicesPropertiesIceTemperatureRefrigerator
+      description: '設定: 氷温室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/iceTemperatureRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/iceTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/vegetableTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Vegetable compartment temperature setting'
+      operationId: getDevicesPropertiesVegetableTemperatureRefrigerator
+      description: '取得: 野菜室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vegetableTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Vegetable compartment temperature setting'
+      operationId: putDevicesPropertiesVegetableTemperatureRefrigerator
+      description: '設定: 野菜室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vegetableTemperatureRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vegetableTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/multiModeTemperature:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Multi-refrigerating mode compartment temperature setting'
+      operationId: getDevicesPropertiesMultiModeTemperatureRefrigerator
+      description: '取得: 切換室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/multiModeTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Multi-refrigerating mode compartment temperature setting'
+      operationId: putDevicesPropertiesMultiModeTemperatureRefrigerator
+      description: '設定: 切換室温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/multiModeTemperatureRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/multiModeTemperatureRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/refrigeratorTemperatureLevel:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Refrigerator compartment temperature level setting'
+      operationId: getDevicesPropertiesRefrigeratorTemperatureLevelRefrigerator
+      description: '取得: 冷蔵室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refrigeratorTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Refrigerator compartment temperature level setting'
+      operationId: putDevicesPropertiesRefrigeratorTemperatureLevelRefrigerator
+      description: '設定: 冷蔵室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/refrigeratorTemperatureLevelRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refrigeratorTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/freezerTemperatureLevel:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Freezer compartment temperature level setting'
+      operationId: getDevicesPropertiesFreezerTemperatureLevelRefrigerator
+      description: '取得: 冷凍室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/freezerTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Freezer compartment temperature level setting'
+      operationId: putDevicesPropertiesFreezerTemperatureLevelRefrigerator
+      description: '設定: 冷凍室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/freezerTemperatureLevelRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/freezerTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/iceTemperatureLevel:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Ice compartment temperature level setting'
+      operationId: getDevicesPropertiesIceTemperatureLevelRefrigerator
+      description: '取得: 氷温室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/iceTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Ice compartment temperature level setting'
+      operationId: putDevicesPropertiesIceTemperatureLevelRefrigerator
+      description: '設定: 氷温室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/iceTemperatureLevelRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/iceTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/vegetableTemperatureLevel:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Vegetable compartment temperature level setting'
+      operationId: getDevicesPropertiesVegetableTemperatureLevelRefrigerator
+      description: '取得: 野菜室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vegetableTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Vegetable compartment temperature level setting'
+      operationId: putDevicesPropertiesVegetableTemperatureLevelRefrigerator
+      description: '設定: 野菜室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vegetableTemperatureLevelRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vegetableTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/multiModeTemperatureLevel:
+    get:
+      tags:
+      - Refrigerator
+      summary: 'Get: Multi-refrigerating mode compartment temperature level setting'
+      operationId: getDevicesPropertiesMultiModeTemperatureLevelRefrigerator
+      description: '取得: 切換室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/multiModeTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Refrigerator
+      summary: 'Set: Multi-refrigerating mode compartment temperature level setting'
+      operationId: putDevicesPropertiesMultiModeTemperatureLevelRefrigerator
+      description: '設定: 切換室温度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/multiModeTemperatureLevelRefrigerator'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/multiModeTemperatureLevelRefrigerator'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesRefrigerator:
+      description: propertiesRefrigerator
+      type: object
+      properties:
+        quickFreeze:
+          type: string
+          enum:
+          - normal
+          - quick
+          - standby
+          description: '[ja: 急速冷凍動作設定, en: Quick freeze function setting] _normal
+            (ja: 通常冷凍, en: Normal operation) quick (ja: 急速冷凍, en: Quick freeze) standby
+            (ja: 急速冷凍待機, en: Standby for quick freezing) '
+        quickRefrigeration:
+          type: string
+          enum:
+          - normal
+          - quick
+          - standby
+          description: '[ja: 急速冷蔵動作設定, en: Quick refrigeration function setting] _normal
+            (ja: 通常冷蔵, en: Normal operation) quick (ja: 急速冷蔵, en: Quick refrigeration)
+            standby (ja: 急速冷蔵待機, en: Standby for quick refrigeration) '
+        icemaker:
+          type: string
+          enum:
+          - enable
+          - disable
+          - standby
+          description: '[ja: 製氷許可設定, en: Icemaker setting] _enable (ja: 製氷許可, en:
+            Enable icemaker) disable (ja: 製氷禁止, en: Disable icemaker) standby (ja:
+            製氷一定時間禁止, en: Temporarily disable icemaker) '
+        icemakerStatus:
+          type: string
+          enum:
+          - running
+          - stopped
+          description: '[ja: 製氷動作状態, en: Icemaker operation status] _running (ja:
+            運転中, en: Ice-making in progress) stopped (ja: 停止中, en: Ice-making stopped.) '
+        icemakerTankStatus:
+          type: string
+          enum:
+          - normal
+          - warning
+          description: '[ja: 製氷用給水タンク状態, en: Icemaker tank status] _normal (ja: タンク水あり,
+            en: Icemaker tank contains water.) warning (ja: タンクなし or 水なし, en: There
+            is no water left in the icemaker tank or the icemaker tank has not been
+            positioned correctly in the refrigerator.) '
+        refrigeratorHumidification:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 冷蔵室加湿動作設定, en: Refrigerator compartment humidification
+            function setting] _on (ja: 加湿ON, en: ON) off (ja: 加湿OFF, en: OFF) '
+        vegetableHumidification:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 野菜室加湿動作設定, en: Vegetable compartment humidification function
+            setting] _on (ja: 加湿ON, en: ON) off (ja: 加湿OFF, en: OFF) '
+        deodorization:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 脱臭動作設定, en: Deodorization function setting] _on (ja:
+            脱臭ON, en: ON) off (ja: 脱臭OFF, en: OFF) '
+        doorOpenCloseStatus:
+          type: string
+          enum:
+          - anyOpen
+          - allClose
+          description: '[ja: ドア開閉状態, en: Door open/close status] _anyOpen (ja: ドア開,
+            en: Door open) allClose (ja: ドア閉, en: Door close) '
+        doorOpenWarning:
+          type: boolean
+          description: '[ja: ドア開放警告状態, en: Door open warning] _True (ja: ドア開放警告有,
+            en: Door open warning found) False (ja: ドア開放警告無, en: Door open warning
+            not found) '
+        refrigeratorCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 冷蔵室ドア開閉状態, en: Refrigerator compartment door status]
+            _open (ja: ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+        freezerCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 冷凍室ドア開閉状態, en: Freezer compartment door status] _open
+            (ja: ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+        iceCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 氷温室ドア開閉状態, en: Ice compartment door status] _open (ja:
+            ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+        vegetableCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 野菜室ドア開閉状態, en: Vegetable compartment door status] _open
+            (ja: ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+        multiModeCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 切換室ドア開閉状態, en: Multi-refrigerating mode compartment door
+            status] _open (ja: ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+        measuredRefrigeratorTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 冷蔵室温度計測値, en: Measured refrigerator compartment temperature] '
+        measuredFreezerTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 冷凍室温度計測値, en: Measured freezer compartment temperature] '
+        measuredIceTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 氷温室温度計測値, en: Measured subzero-fresh compartment temperature] '
+        measuredVegetableTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 野菜室温度計測値, en: Measured vegetable compartment temperature] '
+        measuredMultiModeTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 切換室温度計測値, en: Measured multi-refrigerating mode compartment
+            temperature] '
+        compressorRotationSpeed:
+          type: object
+          properties:
+            maximumRotationSpeed:
+              type: number
+              minimum: 1
+              maximum: 255
+              description: '[ja: 最大回転数レベル, en: Maximum rotation speed level] _'
+            rotationSpeed:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 回転数レベル(0は停止を示す), en: Rotation speed level(Value 0
+                represents Stop)] _'
+          description: '[ja: 圧縮機回転数レベル, en: Compressor rotation speed] '
+        electricCurrentConsumption:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 消費電流計測値, en: Measured electric current consumption] '
+        ratedPowerConsumption:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 定格消費電力値, en: Rated power consumption] '
+        maximumAllowableTemperatureLevel:
+          type: object
+          properties:
+            refrigeratorCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 冷蔵室, en: Refrigerator compartment] _'
+            freezerCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 冷凍室, en: Freezer compartment] _'
+            iceCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 氷温室, en: Subzero-fresh compartment] _'
+            vegetableCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 野菜室, en: Vegetable compartment] _'
+            multiModeCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 切換室, en: Multi-refrigerating mode compartment] _'
+          description: '[ja: 設定可能温度レベル最大値, en: Maximum allowable temperature setting
+            level] '
+        refrigeratorTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 冷蔵室温度設定値, en: Refrigerator compartment temperature setting] '
+        freezerTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 冷凍室温度設定値, en: Freezer compartment temperature setting] '
+        iceTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 氷温室温度設定値, en: Ice compartment temperature setting] '
+        vegetableTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 野菜室温度設定値, en: Vegetable compartment temperature setting] '
+        multiModeTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 切換室温度設定値, en: Multi-refrigerating mode compartment temperature
+            setting] '
+        refrigeratorTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 冷蔵室温度レベル設定, en: Refrigerator compartment temperature
+            level setting] '
+        freezerTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 冷凍室温度レベル設定, en: Freezer compartment temperature level
+            setting] '
+        iceTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 氷温室温度レベル設定, en: Ice compartment temperature level setting] '
+        vegetableTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 野菜室温度レベル設定, en: Vegetable compartment temperature level
+            setting] '
+        multiModeTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 切換室温度レベル設定, en: Multi-refrigerating mode compartment
+            temperature level setting] '
+    quickFreezeRefrigerator:
+      description: '[ja: 急速冷凍動作設定, en: Quick freeze function setting]'
+      type: object
+      properties:
+        quickFreeze:
+          type: string
+          enum:
+          - normal
+          - quick
+          - standby
+          description: '[ja: 急速冷凍動作設定, en: Quick freeze function setting] _normal
+            (ja: 通常冷凍, en: Normal operation) quick (ja: 急速冷凍, en: Quick freeze) standby
+            (ja: 急速冷凍待機, en: Standby for quick freezing) '
+    quickRefrigerationRefrigerator:
+      description: '[ja: 急速冷蔵動作設定, en: Quick refrigeration function setting]'
+      type: object
+      properties:
+        quickRefrigeration:
+          type: string
+          enum:
+          - normal
+          - quick
+          - standby
+          description: '[ja: 急速冷蔵動作設定, en: Quick refrigeration function setting] _normal
+            (ja: 通常冷蔵, en: Normal operation) quick (ja: 急速冷蔵, en: Quick refrigeration)
+            standby (ja: 急速冷蔵待機, en: Standby for quick refrigeration) '
+    icemakerRefrigerator:
+      description: '[ja: 製氷許可設定, en: Icemaker setting]'
+      type: object
+      properties:
+        icemaker:
+          type: string
+          enum:
+          - enable
+          - disable
+          - standby
+          description: '[ja: 製氷許可設定, en: Icemaker setting] _enable (ja: 製氷許可, en:
+            Enable icemaker) disable (ja: 製氷禁止, en: Disable icemaker) standby (ja:
+            製氷一定時間禁止, en: Temporarily disable icemaker) '
+    icemakerStatusRefrigerator:
+      description: '[ja: 製氷動作状態, en: Icemaker operation status]'
+      type: object
+      properties:
+        icemakerStatus:
+          type: string
+          enum:
+          - running
+          - stopped
+          description: '[ja: 製氷動作状態, en: Icemaker operation status] _running (ja:
+            運転中, en: Ice-making in progress) stopped (ja: 停止中, en: Ice-making stopped.) '
+    icemakerTankStatusRefrigerator:
+      description: '[ja: 製氷用給水タンク状態, en: Icemaker tank status]'
+      type: object
+      properties:
+        icemakerTankStatus:
+          type: string
+          enum:
+          - normal
+          - warning
+          description: '[ja: 製氷用給水タンク状態, en: Icemaker tank status] _normal (ja: タンク水あり,
+            en: Icemaker tank contains water.) warning (ja: タンクなし or 水なし, en: There
+            is no water left in the icemaker tank or the icemaker tank has not been
+            positioned correctly in the refrigerator.) '
+    refrigeratorHumidificationRefrigerator:
+      description: '[ja: 冷蔵室加湿動作設定, en: Refrigerator compartment humidification function
+        setting]'
+      type: object
+      properties:
+        refrigeratorHumidification:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 冷蔵室加湿動作設定, en: Refrigerator compartment humidification
+            function setting] _on (ja: 加湿ON, en: ON) off (ja: 加湿OFF, en: OFF) '
+    vegetableHumidificationRefrigerator:
+      description: '[ja: 野菜室加湿動作設定, en: Vegetable compartment humidification function
+        setting]'
+      type: object
+      properties:
+        vegetableHumidification:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 野菜室加湿動作設定, en: Vegetable compartment humidification function
+            setting] _on (ja: 加湿ON, en: ON) off (ja: 加湿OFF, en: OFF) '
+    deodorizationRefrigerator:
+      description: '[ja: 脱臭動作設定, en: Deodorization function setting]'
+      type: object
+      properties:
+        deodorization:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 脱臭動作設定, en: Deodorization function setting] _on (ja:
+            脱臭ON, en: ON) off (ja: 脱臭OFF, en: OFF) '
+    doorOpenCloseStatusRefrigerator:
+      description: '[ja: ドア開閉状態, en: Door open/close status]'
+      type: object
+      properties:
+        doorOpenCloseStatus:
+          type: string
+          enum:
+          - anyOpen
+          - allClose
+          description: '[ja: ドア開閉状態, en: Door open/close status] _anyOpen (ja: ドア開,
+            en: Door open) allClose (ja: ドア閉, en: Door close) '
+    doorOpenWarningRefrigerator:
+      description: '[ja: ドア開放警告状態, en: Door open warning]'
+      type: object
+      properties:
+        doorOpenWarning:
+          type: boolean
+          description: '[ja: ドア開放警告状態, en: Door open warning] _True (ja: ドア開放警告有,
+            en: Door open warning found) False (ja: ドア開放警告無, en: Door open warning
+            not found) '
+    refrigeratorCompartmentDoorStatusRefrigerator:
+      description: '[ja: 冷蔵室ドア開閉状態, en: Refrigerator compartment door status]'
+      type: object
+      properties:
+        refrigeratorCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 冷蔵室ドア開閉状態, en: Refrigerator compartment door status]
+            _open (ja: ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+    freezerCompartmentDoorStatusRefrigerator:
+      description: '[ja: 冷凍室ドア開閉状態, en: Freezer compartment door status]'
+      type: object
+      properties:
+        freezerCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 冷凍室ドア開閉状態, en: Freezer compartment door status] _open
+            (ja: ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+    iceCompartmentDoorStatusRefrigerator:
+      description: '[ja: 氷温室ドア開閉状態, en: Ice compartment door status]'
+      type: object
+      properties:
+        iceCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 氷温室ドア開閉状態, en: Ice compartment door status] _open (ja:
+            ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+    vegetableCompartmentDoorStatusRefrigerator:
+      description: '[ja: 野菜室ドア開閉状態, en: Vegetable compartment door status]'
+      type: object
+      properties:
+        vegetableCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 野菜室ドア開閉状態, en: Vegetable compartment door status] _open
+            (ja: ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+    multiModeCompartmentDoorStatusRefrigerator:
+      description: '[ja: 切換室ドア開閉状態, en: Multi-refrigerating mode compartment door
+        status]'
+      type: object
+      properties:
+        multiModeCompartmentDoorStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 切換室ドア開閉状態, en: Multi-refrigerating mode compartment door
+            status] _open (ja: ドア開, en: Open) close (ja: ドア閉, en: Closed) '
+    measuredRefrigeratorTemperatureRefrigerator:
+      description: '[ja: 冷蔵室温度計測値, en: Measured refrigerator compartment temperature]'
+      type: object
+      properties:
+        measuredRefrigeratorTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 冷蔵室温度計測値, en: Measured refrigerator compartment temperature] '
+    measuredFreezerTemperatureRefrigerator:
+      description: '[ja: 冷凍室温度計測値, en: Measured freezer compartment temperature]'
+      type: object
+      properties:
+        measuredFreezerTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 冷凍室温度計測値, en: Measured freezer compartment temperature] '
+    measuredIceTemperatureRefrigerator:
+      description: '[ja: 氷温室温度計測値, en: Measured subzero-fresh compartment temperature]'
+      type: object
+      properties:
+        measuredIceTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 氷温室温度計測値, en: Measured subzero-fresh compartment temperature] '
+    measuredVegetableTemperatureRefrigerator:
+      description: '[ja: 野菜室温度計測値, en: Measured vegetable compartment temperature]'
+      type: object
+      properties:
+        measuredVegetableTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 野菜室温度計測値, en: Measured vegetable compartment temperature] '
+    measuredMultiModeTemperatureRefrigerator:
+      description: '[ja: 切換室温度計測値, en: Measured multi-refrigerating mode compartment
+        temperature]'
+      type: object
+      properties:
+        measuredMultiModeTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 切換室温度計測値, en: Measured multi-refrigerating mode compartment
+            temperature] '
+    compressorRotationSpeedRefrigerator:
+      description: '[ja: 圧縮機回転数レベル, en: Compressor rotation speed]'
+      type: object
+      properties:
+        compressorRotationSpeed:
+          type: object
+          properties:
+            maximumRotationSpeed:
+              type: number
+              minimum: 1
+              maximum: 255
+              description: '[ja: 最大回転数レベル, en: Maximum rotation speed level] _'
+            rotationSpeed:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 回転数レベル(0は停止を示す), en: Rotation speed level(Value 0
+                represents Stop)] _'
+          description: '[ja: 圧縮機回転数レベル, en: Compressor rotation speed] '
+    electricCurrentConsumptionRefrigerator:
+      description: '[ja: 消費電流計測値, en: Measured electric current consumption]'
+      type: object
+      properties:
+        electricCurrentConsumption:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 消費電流計測値, en: Measured electric current consumption] '
+    ratedPowerConsumptionRefrigerator:
+      description: '[ja: 定格消費電力値, en: Rated power consumption]'
+      type: object
+      properties:
+        ratedPowerConsumption:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 定格消費電力値, en: Rated power consumption] '
+    maximumAllowableTemperatureLevelRefrigerator:
+      description: '[ja: 設定可能温度レベル最大値, en: Maximum allowable temperature setting level]'
+      type: object
+      properties:
+        maximumAllowableTemperatureLevel:
+          type: object
+          properties:
+            refrigeratorCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 冷蔵室, en: Refrigerator compartment] _'
+            freezerCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 冷凍室, en: Freezer compartment] _'
+            iceCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 氷温室, en: Subzero-fresh compartment] _'
+            vegetableCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 野菜室, en: Vegetable compartment] _'
+            multiModeCompartmentLevel:
+              type: number
+              minimum: 0
+              maximum: 255
+              description: '[ja: 切換室, en: Multi-refrigerating mode compartment] _'
+          description: '[ja: 設定可能温度レベル最大値, en: Maximum allowable temperature setting
+            level] '
+    refrigeratorTemperatureRefrigerator:
+      description: '[ja: 冷蔵室温度設定値, en: Refrigerator compartment temperature setting]'
+      type: object
+      properties:
+        refrigeratorTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 冷蔵室温度設定値, en: Refrigerator compartment temperature setting] '
+    freezerTemperatureRefrigerator:
+      description: '[ja: 冷凍室温度設定値, en: Freezer compartment temperature setting]'
+      type: object
+      properties:
+        freezerTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 冷凍室温度設定値, en: Freezer compartment temperature setting] '
+    iceTemperatureRefrigerator:
+      description: '[ja: 氷温室温度設定値, en: Ice compartment temperature setting]'
+      type: object
+      properties:
+        iceTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 氷温室温度設定値, en: Ice compartment temperature setting] '
+    vegetableTemperatureRefrigerator:
+      description: '[ja: 野菜室温度設定値, en: Vegetable compartment temperature setting]'
+      type: object
+      properties:
+        vegetableTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 野菜室温度設定値, en: Vegetable compartment temperature setting] '
+    multiModeTemperatureRefrigerator:
+      description: '[ja: 切換室温度設定値, en: Multi-refrigerating mode compartment temperature
+        setting]'
+      type: object
+      properties:
+        multiModeTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          description: '[ja: 切換室温度設定値, en: Multi-refrigerating mode compartment temperature
+            setting] '
+    refrigeratorTemperatureLevelRefrigerator:
+      description: '[ja: 冷蔵室温度レベル設定, en: Refrigerator compartment temperature level
+        setting]'
+      type: object
+      properties:
+        refrigeratorTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 冷蔵室温度レベル設定, en: Refrigerator compartment temperature
+            level setting] '
+    freezerTemperatureLevelRefrigerator:
+      description: '[ja: 冷凍室温度レベル設定, en: Freezer compartment temperature level setting]'
+      type: object
+      properties:
+        freezerTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 冷凍室温度レベル設定, en: Freezer compartment temperature level
+            setting] '
+    iceTemperatureLevelRefrigerator:
+      description: '[ja: 氷温室温度レベル設定, en: Ice compartment temperature level setting]'
+      type: object
+      properties:
+        iceTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 氷温室温度レベル設定, en: Ice compartment temperature level setting] '
+    vegetableTemperatureLevelRefrigerator:
+      description: '[ja: 野菜室温度レベル設定, en: Vegetable compartment temperature level setting]'
+      type: object
+      properties:
+        vegetableTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 野菜室温度レベル設定, en: Vegetable compartment temperature level
+            setting] '
+    multiModeTemperatureLevelRefrigerator:
+      description: '[ja: 切換室温度レベル設定, en: Multi-refrigerating mode compartment temperature
+        level setting]'
+      type: object
+      properties:
+        multiModeTemperatureLevel:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 切換室温度レベル設定, en: Multi-refrigerating mode compartment
+            temperature level setting] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

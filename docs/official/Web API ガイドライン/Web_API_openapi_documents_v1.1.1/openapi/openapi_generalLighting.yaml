@@ -1,0 +1,1520 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: GeneralLighting
+  description: tag for General lighting
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesGeneralLighting
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservation:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: ON timer reservation setting'
+      operationId: getDevicesPropertiesOnTimerReservationGeneralLighting
+      description: '取得: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: ON timer reservation setting'
+      operationId: putDevicesPropertiesOnTimerReservationGeneralLighting
+      description: '設定: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservationGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerTime:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: ON timer setting'
+      operationId: getDevicesPropertiesOnTimerTimeGeneralLighting
+      description: '取得: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerTimeGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: ON timer setting'
+      operationId: putDevicesPropertiesOnTimerTimeGeneralLighting
+      description: '設定: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerTimeGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerTimeGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/offTimerReservation:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: OFF timer reservation setting'
+      operationId: getDevicesPropertiesOffTimerReservationGeneralLighting
+      description: '取得: OFFタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: OFF timer reservation setting'
+      operationId: putDevicesPropertiesOffTimerReservationGeneralLighting
+      description: '設定: OFFタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offTimerReservationGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOffTimer:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Time set by OFF timer'
+      operationId: getDevicesPropertiesTimeOfOffTimerGeneralLighting
+      description: '取得: OFFタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Time set by OFF timer'
+      operationId: putDevicesPropertiesTimeOfOffTimerGeneralLighting
+      description: '設定: OFFタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOffTimerGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightLevel:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light level'
+      operationId: getDevicesPropertiesLightLevelGeneralLighting
+      description: '取得: 照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light level'
+      operationId: putDevicesPropertiesLightLevelGeneralLighting
+      description: '設定: 照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightLevelGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightColor:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light color setting'
+      operationId: getDevicesPropertiesLightColorGeneralLighting
+      description: '取得: 光色設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light color setting'
+      operationId: putDevicesPropertiesLightColorGeneralLighting
+      description: '設定: 光色設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightColorGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightLevelStep:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light level step setting'
+      operationId: getDevicesPropertiesLightLevelStepGeneralLighting
+      description: '取得: 照明の明るさ段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelStepGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light level step setting'
+      operationId: putDevicesPropertiesLightLevelStepGeneralLighting
+      description: '設定: 照明の明るさ段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightLevelStepGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelStepGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightColorLevelStep:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light color step setting'
+      operationId: getDevicesPropertiesLightColorLevelStepGeneralLighting
+      description: '取得: 光色レベル段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorLevelStepGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light color step setting'
+      operationId: putDevicesPropertiesLightColorLevelStepGeneralLighting
+      description: '設定: 光色レベル段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightColorLevelStepGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorLevelStepGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/maximumSpecifiableLevel:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Maximum specifiable values'
+      operationId: getDevicesPropertiesMaximumSpecifiableLevelGeneralLighting
+      description: '取得: 設定可能レベル最大値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/maximumSpecifiableLevelGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/maximumSettableLevelForNightLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Maximum value of settable level for night lighting'
+      operationId: getDevicesPropertiesMaximumSettableLevelForNightLightingGeneralLighting
+      description: '取得: 常夜灯設定可能レベル最大値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/maximumSettableLevelForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationMode:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Lighting mode setting'
+      operationId: getDevicesPropertiesOperationModeGeneralLighting
+      description: '取得: 点灯モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Lighting mode setting'
+      operationId: putDevicesPropertiesOperationModeGeneralLighting
+      description: '設定: 点灯モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationModeGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightLevelForMainLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light level setting for main lighting'
+      operationId: getDevicesPropertiesLightLevelForMainLightingGeneralLighting
+      description: '取得: 通常灯モード時照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelForMainLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light level setting for main lighting'
+      operationId: putDevicesPropertiesLightLevelForMainLightingGeneralLighting
+      description: '設定: 通常灯モード時照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightLevelForMainLightingGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelForMainLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightLevelStepForMainLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light level step setting for main lighting'
+      operationId: getDevicesPropertiesLightLevelStepForMainLightingGeneralLighting
+      description: '取得: 通常灯モード時照明の明るさ段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelStepForMainLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light level step setting for main lighting'
+      operationId: putDevicesPropertiesLightLevelStepForMainLightingGeneralLighting
+      description: '設定: 通常灯モード時照明の明るさ段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightLevelStepForMainLightingGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelStepForMainLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightLevelForNightLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light level setting for night lighting'
+      operationId: getDevicesPropertiesLightLevelForNightLightingGeneralLighting
+      description: '取得: 常夜灯モード時照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light level setting for night lighting'
+      operationId: putDevicesPropertiesLightLevelForNightLightingGeneralLighting
+      description: '設定: 常夜灯モード時照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightLevelForNightLightingGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightLevelStepForNightLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light level step setting for night lighting'
+      operationId: getDevicesPropertiesLightLevelStepForNightLightingGeneralLighting
+      description: '取得: 常夜灯モード時照明の明るさ段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelStepForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light level step setting for night lighting'
+      operationId: putDevicesPropertiesLightLevelStepForNightLightingGeneralLighting
+      description: '設定: 常夜灯モード時照明の明るさ段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightLevelStepForNightLightingGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelStepForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightColorForMainLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light color setting for main lighting'
+      operationId: getDevicesPropertiesLightColorForMainLightingGeneralLighting
+      description: '取得: 通常灯モード時光色設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorForMainLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light color setting for main lighting'
+      operationId: putDevicesPropertiesLightColorForMainLightingGeneralLighting
+      description: '設定: 通常灯モード時光色設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightColorForMainLightingGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorForMainLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightColorLevelStepForMainLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light color level step setting for main lighting'
+      operationId: getDevicesPropertiesLightColorLevelStepForMainLightingGeneralLighting
+      description: '取得: 通常灯モード時光色レベル段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorLevelStepForMainLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light color level step setting for main lighting'
+      operationId: putDevicesPropertiesLightColorLevelStepForMainLightingGeneralLighting
+      description: '設定: 通常灯モード時光色レベル段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightColorLevelStepForMainLightingGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorLevelStepForMainLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightColorLevelForNightLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light color setting for night lighting'
+      operationId: getDevicesPropertiesLightColorLevelForNightLightingGeneralLighting
+      description: '取得: 常夜灯モード時光色設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorLevelForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light color setting for night lighting'
+      operationId: putDevicesPropertiesLightColorLevelForNightLightingGeneralLighting
+      description: '設定: 常夜灯モード時光色設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightColorLevelForNightLightingGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorLevelForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightColorLevelStepForNightLighting:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Light color level step setting for night lighting'
+      operationId: getDevicesPropertiesLightColorLevelStepForNightLightingGeneralLighting
+      description: '取得: 常夜灯モード時光色レベル段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorLevelStepForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: Light color level step setting for night lighting'
+      operationId: putDevicesPropertiesLightColorLevelStepForNightLightingGeneralLighting
+      description: '設定: 常夜灯モード時光色レベル段数設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightColorLevelStepForNightLightingGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightColorLevelStepForNightLightingGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/autoMode:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: Lighting mode status in auto mode'
+      operationId: getDevicesPropertiesAutoModeGeneralLighting
+      description: '取得: 自動モード時点灯モード状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autoModeGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/rgb:
+    get:
+      tags:
+      - GeneralLighting
+      summary: 'Get: RGB setting for color lighting'
+      operationId: getDevicesPropertiesRgbGeneralLighting
+      description: '取得: カラー灯モード時RGB設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rgbGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - GeneralLighting
+      summary: 'Set: RGB setting for color lighting'
+      operationId: putDevicesPropertiesRgbGeneralLighting
+      description: '設定: カラー灯モード時RGB設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rgbGeneralLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rgbGeneralLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesGeneralLighting:
+      description: propertiesGeneralLighting
+      type: object
+      properties:
+        onTimerReservation:
+          type: boolean
+          description: '[ja: ONタイマ予約設定, en: ON timer reservation setting] _True (ja:
+            予約入, en: Reservation ON) False (ja: 予約切, en: Reservation OFF) '
+        onTimerTime:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting] '
+        offTimerReservation:
+          type: boolean
+          description: '[ja: OFFタイマ予約設定, en: OFF timer reservation setting] _True
+            (ja: 予約入, en: Reservation ON) False (ja: 予約切, en: Reservation OFF) '
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ時刻設定値, en: Time set by OFF timer] '
+        lightLevel:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 照明の明るさ設定, en: Light level] '
+        lightColor:
+          type: string
+          enum:
+          - incandescent
+          - white
+          - daylightWhite
+          - daylightColor
+          - other
+          - undefined
+          description: '[ja: 光色設定, en: Light color setting] _incandescent (ja: 電球色,
+            en: Incandescent lamp color) white (ja: 白色, en: White) daylightWhite (ja:
+            昼白色, en: Daylight white) daylightColor (ja: 昼光色, en: Daylight color) other
+            (ja: その他, en: Other) undefined (ja: 不明, en: Undefined) '
+        lightLevelStep:
+          type: string
+          description: '[ja: 照明の明るさ段数設定, en: Light level step setting] '
+        lightColorLevelStep:
+          type: string
+          description: '[ja: 光色レベル段数設定, en: Light color step setting] '
+        maximumSpecifiableLevel:
+          type: object
+          properties:
+            lightLevel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 255
+              - type: string
+                enum:
+                - notLightLevel
+                description: '_notLightLevel (ja: 機能を搭載していない場合, en: When the function
+                  is not implemented.) '
+              description: '[ja: 1Byte目:照明の明るさ, en: Byte 1: light level] _'
+            color:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 255
+              - type: string
+                enum:
+                - notColor
+                description: '_notColor (ja: 機能を搭載していない場合, en: When the function is
+                  not implemented.) '
+              description: '[ja: 2Byte目:光色, en: Byte 2: light color] _'
+          description: '[ja: 設定可能レベル最大値, en: Maximum specifiable values] '
+        maximumSettableLevelForNightLighting:
+          type: object
+          properties:
+            lightLevel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 255
+              - type: string
+                enum:
+                - notLightLevel
+                description: '_notLightLevel (ja: 機能を搭載していない場合, en: When the function
+                  is not implemented) '
+              description: '[ja: 1Byte目:照明の明るさ, en: Byte 1: light level] _'
+            color:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 255
+              - type: string
+                enum:
+                - notColor
+                description: '_notColor (ja: 機能を搭載していない場合, en: When the function is
+                  not implemented.) '
+              description: '[ja: 2Byte目:光色, en: Byte 2: light color] _'
+          description: '[ja: 常夜灯設定可能レベル最大値, en: Maximum value of settable level for
+            night lighting] '
+        operationMode:
+          type: string
+          enum:
+          - auto
+          - normal
+          - night
+          - color
+          description: '[ja: 点灯モード設定, en: Lighting mode setting] _auto (ja: 自動, en:
+            Auto) normal (ja: 通常灯, en: Main lighting) night (ja: 常夜灯, en: Night lighting)
+            color (ja: カラー灯, en: Color lighting) '
+        lightLevelForMainLighting:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 通常灯モード時照明の明るさ設定, en: Light level setting for main lighting] '
+        lightLevelStepForMainLighting:
+          type: string
+          description: '[ja: 通常灯モード時照明の明るさ段数設定, en: Light level step setting for main
+            lighting] '
+        lightLevelForNightLighting:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 常夜灯モード時照明の明るさ設定, en: Light level setting for night lighting] '
+        lightLevelStepForNightLighting:
+          type: string
+          description: '[ja: 常夜灯モード時照明の明るさ段数設定, en: Light level step setting for night
+            lighting] '
+        lightColorForMainLighting:
+          type: string
+          enum:
+          - incandescent
+          - white
+          - daylightWhite
+          - daylightColor
+          - other
+          description: '[ja: 通常灯モード時光色設定, en: Light color setting for main lighting]
+            _incandescent (ja: 電球色, en: Incandescent lamp color) white (ja: 白色, en:
+            White) daylightWhite (ja: 昼白色, en: Daylight white) daylightColor (ja:
+            昼光色, en: Daylight color) other (ja: その他, en: Other) '
+        lightColorLevelStepForMainLighting:
+          type: string
+          description: '[ja: 通常灯モード時光色レベル段数設定, en: Light color level step setting
+            for main lighting] '
+        lightColorLevelForNightLighting:
+          type: string
+          enum:
+          - incandescent
+          - white
+          - daylightWhite
+          - daylightColor
+          - other
+          description: '[ja: 常夜灯モード時光色設定, en: Light color setting for night lighting]
+            _incandescent (ja: 電球色, en: Incandescent lamp color) white (ja: 白色, en:
+            White) daylightWhite (ja: 昼白色, en: Daylight white) daylightColor (ja:
+            昼光色, en: Daylight color) other (ja: その他, en: Other) '
+        lightColorLevelStepForNightLighting:
+          type: string
+          description: '[ja: 常夜灯モード時光色レベル段数設定, en: Light color level step setting
+            for night lighting] '
+        autoMode:
+          type: string
+          enum:
+          - normal
+          - night
+          - 'off'
+          - color
+          description: '[ja: 自動モード時点灯モード状態, en: Lighting mode status in auto mode]
+            _normal (ja: 通常灯, en: Main lighting) night (ja: 常夜灯, en: Night lighting)
+            off (ja: 消灯, en: Off) color (ja: カラー灯, en: Color lighting) '
+        rgb:
+          type: object
+          properties:
+            red:
+              type: number
+              minimum: 0
+              maximum: 255
+              multipleOf: 1
+              description: '[ja: 1Byte目:R, en: Byte 1: R] _'
+            green:
+              type: number
+              minimum: 0
+              maximum: 255
+              multipleOf: 1
+              description: '[ja: 2Byte目:G, en: Byte 2: G] _'
+            blue:
+              type: number
+              minimum: 0
+              maximum: 255
+              multipleOf: 1
+              description: '[ja: 3Byte目:B, en: Byte 3: B] _'
+          description: '[ja: カラー灯モード時RGB設定, en: RGB setting for color lighting] '
+    onTimerReservationGeneralLighting:
+      description: '[ja: ONタイマ予約設定, en: ON timer reservation setting]'
+      type: object
+      properties:
+        onTimerReservation:
+          type: boolean
+          description: '[ja: ONタイマ予約設定, en: ON timer reservation setting] _True (ja:
+            予約入, en: Reservation ON) False (ja: 予約切, en: Reservation OFF) '
+    onTimerTimeGeneralLighting:
+      description: '[ja: ONタイマ時刻設定値, en: ON timer setting]'
+      type: object
+      properties:
+        onTimerTime:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting] '
+    offTimerReservationGeneralLighting:
+      description: '[ja: OFFタイマ予約設定, en: OFF timer reservation setting]'
+      type: object
+      properties:
+        offTimerReservation:
+          type: boolean
+          description: '[ja: OFFタイマ予約設定, en: OFF timer reservation setting] _True
+            (ja: 予約入, en: Reservation ON) False (ja: 予約切, en: Reservation OFF) '
+    timeOfOffTimerGeneralLighting:
+      description: '[ja: OFFタイマ時刻設定値, en: Time set by OFF timer]'
+      type: object
+      properties:
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ時刻設定値, en: Time set by OFF timer] '
+    lightLevelGeneralLighting:
+      description: '[ja: 照明の明るさ設定, en: Light level]'
+      type: object
+      properties:
+        lightLevel:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 照明の明るさ設定, en: Light level] '
+    lightColorGeneralLighting:
+      description: '[ja: 光色設定, en: Light color setting]'
+      type: object
+      properties:
+        lightColor:
+          type: string
+          enum:
+          - incandescent
+          - white
+          - daylightWhite
+          - daylightColor
+          - other
+          - undefined
+          description: '[ja: 光色設定, en: Light color setting] _incandescent (ja: 電球色,
+            en: Incandescent lamp color) white (ja: 白色, en: White) daylightWhite (ja:
+            昼白色, en: Daylight white) daylightColor (ja: 昼光色, en: Daylight color) other
+            (ja: その他, en: Other) undefined (ja: 不明, en: Undefined) '
+    lightLevelStepGeneralLighting:
+      description: '[ja: 照明の明るさ段数設定, en: Light level step setting]'
+      type: object
+      properties:
+        lightLevelStep:
+          type: string
+          description: '[ja: 照明の明るさ段数設定, en: Light level step setting] '
+    lightColorLevelStepGeneralLighting:
+      description: '[ja: 光色レベル段数設定, en: Light color step setting]'
+      type: object
+      properties:
+        lightColorLevelStep:
+          type: string
+          description: '[ja: 光色レベル段数設定, en: Light color step setting] '
+    maximumSpecifiableLevelGeneralLighting:
+      description: '[ja: 設定可能レベル最大値, en: Maximum specifiable values]'
+      type: object
+      properties:
+        maximumSpecifiableLevel:
+          type: object
+          properties:
+            lightLevel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 255
+              - type: string
+                enum:
+                - notLightLevel
+                description: '_notLightLevel (ja: 機能を搭載していない場合, en: When the function
+                  is not implemented.) '
+              description: '[ja: 1Byte目:照明の明るさ, en: Byte 1: light level] _'
+            color:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 255
+              - type: string
+                enum:
+                - notColor
+                description: '_notColor (ja: 機能を搭載していない場合, en: When the function is
+                  not implemented.) '
+              description: '[ja: 2Byte目:光色, en: Byte 2: light color] _'
+          description: '[ja: 設定可能レベル最大値, en: Maximum specifiable values] '
+    maximumSettableLevelForNightLightingGeneralLighting:
+      description: '[ja: 常夜灯設定可能レベル最大値, en: Maximum value of settable level for night
+        lighting]'
+      type: object
+      properties:
+        maximumSettableLevelForNightLighting:
+          type: object
+          properties:
+            lightLevel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 255
+              - type: string
+                enum:
+                - notLightLevel
+                description: '_notLightLevel (ja: 機能を搭載していない場合, en: When the function
+                  is not implemented) '
+              description: '[ja: 1Byte目:照明の明るさ, en: Byte 1: light level] _'
+            color:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 255
+              - type: string
+                enum:
+                - notColor
+                description: '_notColor (ja: 機能を搭載していない場合, en: When the function is
+                  not implemented.) '
+              description: '[ja: 2Byte目:光色, en: Byte 2: light color] _'
+          description: '[ja: 常夜灯設定可能レベル最大値, en: Maximum value of settable level for
+            night lighting] '
+    operationModeGeneralLighting:
+      description: '[ja: 点灯モード設定, en: Lighting mode setting]'
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - auto
+          - normal
+          - night
+          - color
+          description: '[ja: 点灯モード設定, en: Lighting mode setting] _auto (ja: 自動, en:
+            Auto) normal (ja: 通常灯, en: Main lighting) night (ja: 常夜灯, en: Night lighting)
+            color (ja: カラー灯, en: Color lighting) '
+    lightLevelForMainLightingGeneralLighting:
+      description: '[ja: 通常灯モード時照明の明るさ設定, en: Light level setting for main lighting]'
+      type: object
+      properties:
+        lightLevelForMainLighting:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 通常灯モード時照明の明るさ設定, en: Light level setting for main lighting] '
+    lightLevelStepForMainLightingGeneralLighting:
+      description: '[ja: 通常灯モード時照明の明るさ段数設定, en: Light level step setting for main
+        lighting]'
+      type: object
+      properties:
+        lightLevelStepForMainLighting:
+          type: string
+          description: '[ja: 通常灯モード時照明の明るさ段数設定, en: Light level step setting for main
+            lighting] '
+    lightLevelForNightLightingGeneralLighting:
+      description: '[ja: 常夜灯モード時照明の明るさ設定, en: Light level setting for night lighting]'
+      type: object
+      properties:
+        lightLevelForNightLighting:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 常夜灯モード時照明の明るさ設定, en: Light level setting for night lighting] '
+    lightLevelStepForNightLightingGeneralLighting:
+      description: '[ja: 常夜灯モード時照明の明るさ段数設定, en: Light level step setting for night
+        lighting]'
+      type: object
+      properties:
+        lightLevelStepForNightLighting:
+          type: string
+          description: '[ja: 常夜灯モード時照明の明るさ段数設定, en: Light level step setting for night
+            lighting] '
+    lightColorForMainLightingGeneralLighting:
+      description: '[ja: 通常灯モード時光色設定, en: Light color setting for main lighting]'
+      type: object
+      properties:
+        lightColorForMainLighting:
+          type: string
+          enum:
+          - incandescent
+          - white
+          - daylightWhite
+          - daylightColor
+          - other
+          description: '[ja: 通常灯モード時光色設定, en: Light color setting for main lighting]
+            _incandescent (ja: 電球色, en: Incandescent lamp color) white (ja: 白色, en:
+            White) daylightWhite (ja: 昼白色, en: Daylight white) daylightColor (ja:
+            昼光色, en: Daylight color) other (ja: その他, en: Other) '
+    lightColorLevelStepForMainLightingGeneralLighting:
+      description: '[ja: 通常灯モード時光色レベル段数設定, en: Light color level step setting for
+        main lighting]'
+      type: object
+      properties:
+        lightColorLevelStepForMainLighting:
+          type: string
+          description: '[ja: 通常灯モード時光色レベル段数設定, en: Light color level step setting
+            for main lighting] '
+    lightColorLevelForNightLightingGeneralLighting:
+      description: '[ja: 常夜灯モード時光色設定, en: Light color setting for night lighting]'
+      type: object
+      properties:
+        lightColorLevelForNightLighting:
+          type: string
+          enum:
+          - incandescent
+          - white
+          - daylightWhite
+          - daylightColor
+          - other
+          description: '[ja: 常夜灯モード時光色設定, en: Light color setting for night lighting]
+            _incandescent (ja: 電球色, en: Incandescent lamp color) white (ja: 白色, en:
+            White) daylightWhite (ja: 昼白色, en: Daylight white) daylightColor (ja:
+            昼光色, en: Daylight color) other (ja: その他, en: Other) '
+    lightColorLevelStepForNightLightingGeneralLighting:
+      description: '[ja: 常夜灯モード時光色レベル段数設定, en: Light color level step setting for
+        night lighting]'
+      type: object
+      properties:
+        lightColorLevelStepForNightLighting:
+          type: string
+          description: '[ja: 常夜灯モード時光色レベル段数設定, en: Light color level step setting
+            for night lighting] '
+    autoModeGeneralLighting:
+      description: '[ja: 自動モード時点灯モード状態, en: Lighting mode status in auto mode]'
+      type: object
+      properties:
+        autoMode:
+          type: string
+          enum:
+          - normal
+          - night
+          - 'off'
+          - color
+          description: '[ja: 自動モード時点灯モード状態, en: Lighting mode status in auto mode]
+            _normal (ja: 通常灯, en: Main lighting) night (ja: 常夜灯, en: Night lighting)
+            off (ja: 消灯, en: Off) color (ja: カラー灯, en: Color lighting) '
+    rgbGeneralLighting:
+      description: '[ja: カラー灯モード時RGB設定, en: RGB setting for color lighting]'
+      type: object
+      properties:
+        rgb:
+          type: object
+          properties:
+            red:
+              type: number
+              minimum: 0
+              maximum: 255
+              multipleOf: 1
+              description: '[ja: 1Byte目:R, en: Byte 1: R] _'
+            green:
+              type: number
+              minimum: 0
+              maximum: 255
+              multipleOf: 1
+              description: '[ja: 2Byte目:G, en: Byte 2: G] _'
+            blue:
+              type: number
+              minimum: 0
+              maximum: 255
+              multipleOf: 1
+              description: '[ja: 3Byte目:B, en: Byte 3: B] _'
+          description: '[ja: カラー灯モード時RGB設定, en: RGB setting for color lighting] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

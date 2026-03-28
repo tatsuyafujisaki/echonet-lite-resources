@@ -1,0 +1,1224 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: AirConditionerVentilationFan
+  description: tag for Air conditioner ventilation fan
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesAirConditionerVentilationFan
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airFlowLevel:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Set value of ventilation air flow rate'
+      operationId: getDevicesPropertiesAirFlowLevelAirConditionerVentilationFan
+      description: '取得: 換気風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowLevelAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Set: Set value of ventilation air flow rate'
+      operationId: putDevicesPropertiesAirFlowLevelAirConditionerVentilationFan
+      description: '設定: 換気風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airFlowLevelAirConditionerVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowLevelAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ventilationModeAuto:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Ventilation mode automatic setting'
+      operationId: getDevicesPropertiesVentilationModeAutoAirConditionerVentilationFan
+      description: '取得: 換気モード自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationModeAutoAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Set: Ventilation mode automatic setting'
+      operationId: putDevicesPropertiesVentilationModeAutoAirConditionerVentilationFan
+      description: '設定: 換気モード自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ventilationModeAutoAirConditionerVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationModeAutoAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ventilationMethod:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Ventilation method setting'
+      operationId: getDevicesPropertiesVentilationMethodAirConditionerVentilationFan
+      description: '取得: 換気方式設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationMethodAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Set: Ventilation method setting'
+      operationId: putDevicesPropertiesVentilationMethodAirConditionerVentilationFan
+      description: '設定: 換気方式設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ventilationMethodAirConditionerVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationMethodAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ventilationMode:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Ventilation mode setting'
+      operationId: getDevicesPropertiesVentilationModeAirConditionerVentilationFan
+      description: '取得: 換気モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationModeAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Set: Ventilation mode setting'
+      operationId: putDevicesPropertiesVentilationModeAirConditionerVentilationFan
+      description: '設定: 換気モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ventilationModeAirConditionerVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationModeAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/highlowLevel:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Cooling / heating high-low setting'
+      operationId: getDevicesPropertiesHighlowLevelAirConditionerVentilationFan
+      description: '取得: 冷暖強弱設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/highlowLevelAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Set: Cooling / heating high-low setting'
+      operationId: putDevicesPropertiesHighlowLevelAirConditionerVentilationFan
+      description: '設定: 冷暖強弱設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/highlowLevelAirConditionerVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/highlowLevelAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetHumidity:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Set value of room relative humidity'
+      operationId: getDevicesPropertiesTargetHumidityAirConditionerVentilationFan
+      description: '取得: 室内相対湿度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetHumidityAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Set: Set value of room relative humidity'
+      operationId: putDevicesPropertiesTargetHumidityAirConditionerVentilationFan
+      description: '設定: 室内相対湿度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetHumidityAirConditionerVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetHumidityAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/currentConsumption:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of electric current consumption'
+      operationId: getDevicesPropertiesCurrentConsumptionAirConditionerVentilationFan
+      description: '取得: 消費電流計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentConsumptionAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/humidity:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of room relative humidity'
+      operationId: getDevicesPropertiesHumidityAirConditionerVentilationFan
+      description: '取得: 室内相対湿度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/humidityAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outdoorTemperature:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of outdoor air temperature'
+      operationId: getDevicesPropertiesOutdoorTemperatureAirConditionerVentilationFan
+      description: '取得: 外気温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outdoorTemperatureAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ventilationAuto:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Ventilation auto setting'
+      operationId: getDevicesPropertiesVentilationAutoAirConditionerVentilationFan
+      description: '取得: 換気自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationAutoAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Set: Ventilation auto setting'
+      operationId: putDevicesPropertiesVentilationAutoAirConditionerVentilationFan
+      description: '設定: 換気自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ventilationAutoAirConditionerVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationAutoAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/co2Concentration:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of CO2 concentration'
+      operationId: getDevicesPropertiesCo2ConcentrationAirConditionerVentilationFan
+      description: '取得: CO2濃度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/co2ConcentrationAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/smokeDetection:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Smoke (cigarette) detection status'
+      operationId: getDevicesPropertiesSmokeDetectionAirConditionerVentilationFan
+      description: '取得: 煙 (タバコ) 検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/smokeDetectionAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/pollutionDetection:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Pollution detection status'
+      operationId: getDevicesPropertiesPollutionDetectionAirConditionerVentilationFan
+      description: '取得: 汚れ検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pollutionDetectionAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outdoorHumidity:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of outdoor relative humidity'
+      operationId: getDevicesPropertiesOutdoorHumidityAirConditionerVentilationFan
+      description: '取得: 外気相対湿度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outdoorHumidityAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/returnAirTemperature:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of return air temperature'
+      operationId: getDevicesPropertiesReturnAirTemperatureAirConditionerVentilationFan
+      description: '取得: 還気温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/returnAirTemperatureAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/returnAirHumidity:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of return relative humidity'
+      operationId: getDevicesPropertiesReturnAirHumidityAirConditionerVentilationFan
+      description: '取得: 還気相対湿度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/returnAirHumidityAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingAirTemperature:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of charging air temperature'
+      operationId: getDevicesPropertiesChargingAirTemperatureAirConditionerVentilationFan
+      description: '取得: 給気温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAirTemperatureAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingAirHumidity:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of charging relative humidity'
+      operationId: getDevicesPropertiesChargingAirHumidityAirConditionerVentilationFan
+      description: '取得: 給気相対湿度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAirHumidityAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingAirTemperature:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of discharging air temperature'
+      operationId: getDevicesPropertiesDischargingAirTemperatureAirConditionerVentilationFan
+      description: '取得: 排気温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingAirTemperatureAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingAirHumidity:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Measured value of discharging air relative humidity'
+      operationId: getDevicesPropertiesDischargingAirHumidityAirConditionerVentilationFan
+      description: '取得: 排気相対湿度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingAirHumidityAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heatExchangerOperationStatus:
+    get:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Get: Heat exchanger operation setting'
+      operationId: getDevicesPropertiesHeatExchangerOperationStatusAirConditionerVentilationFan
+      description: '取得: 熱交換機動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatExchangerOperationStatusAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirConditionerVentilationFan
+      summary: 'Set: Heat exchanger operation setting'
+      operationId: putDevicesPropertiesHeatExchangerOperationStatusAirConditionerVentilationFan
+      description: '設定: 熱交換機動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/heatExchangerOperationStatusAirConditionerVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatExchangerOperationStatusAirConditionerVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesAirConditionerVentilationFan:
+      description: propertiesAirConditionerVentilationFan
+      type: object
+      properties:
+        airFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 換気風量自動状態, en: Ventilation air flow rate auto
+              status) '
+          description: '[ja: 換気風量設定, en: Set value of ventilation air flow rate] '
+        ventilationModeAuto:
+          type: boolean
+          description: '[ja: 換気モード自動設定, en: Ventilation mode automatic setting] _True
+            (ja: AUTO, en: Auto) False (ja: 非AUTO, en: Non-auto) '
+        ventilationMethod:
+          type: string
+          enum:
+          - blowing
+          - airConditioning
+          description: '[ja: 換気方式設定, en: Ventilation method setting] _blowing (ja:
+            送風換気, en: Blowing ventilation) airConditioning (ja: 空調換気, en: Air conditioning
+            ventilation) '
+        ventilationMode:
+          type: string
+          enum:
+          - normal
+          - heatExchange
+          - cooling
+          - heating
+          - dehumidifying
+          - humidifying
+          - other
+          description: '[ja: 換気モード設定, en: Ventilation mode setting] _normal (ja: 普通換気,
+            en: Normal ventilation) heatExchange (ja: 熱交換換気, en: Heat exchange ventilation)
+            cooling (ja: 冷房換気, en: Cooling ventilation) heating (ja: 暖房換気, en: Heating
+            ventilation) dehumidifying (ja: 除湿換気, en: Dehumidifying ventilation) humidifying
+            (ja: 加湿換気, en: Humidifying ventilation) other (ja: その他換気, en: Other ventilation
+            modes) '
+        highlowLevel:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 冷暖強弱設定, en: Cooling / heating high-low setting] '
+        targetHumidity:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 室内相対湿度設定値, en: Set value of room relative humidity] '
+        currentConsumption:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 消費電流計測値, en: Measured value of electric current consumption] '
+        humidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 室内相対湿度計測値, en: Measured value of room relative humidity] '
+        outdoorTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 外気温度計測値, en: Measured value of outdoor air temperature] '
+        ventilationAuto:
+          type: boolean
+          description: '[ja: 換気自動設定, en: Ventilation auto setting] _True (ja: AUTO,
+            en: Auto) False (ja: 非AUTO, en: Non-auto) '
+        co2Concentration:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: CO2濃度計測値, en: Measured value of CO2 concentration] '
+        smokeDetection:
+          type: boolean
+          description: '[ja: 煙 (タバコ) 検知状態, en: Smoke (cigarette) detection status]
+            _True (ja: 煙 (タバコ) 検知有, en: Smoke (cigarette) detection status found.)
+            False (ja: 煙 (タバコ) 検知無, en: Smoke (cigarette) detection status not found.) '
+        pollutionDetection:
+          type: boolean
+          description: '[ja: 汚れ検知状態, en: Pollution detection status] _True (ja: 汚れ検知有,
+            en: Pollution detected) False (ja: 汚れ検知無, en: Pollution non-detected) '
+        outdoorHumidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 外気相対湿度計測値, en: Measured value of outdoor relative humidity] '
+        returnAirTemperature:
+          type: array
+          minItems: 10
+          maxItems: 10
+          items:
+            oneOf:
+            - type: number
+              minimum: -127
+              maximum: 125
+            - type: string
+              enum:
+              - unmeasurable
+              description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 還気温度計測値, en: Measured value of return air temperature] '
+        returnAirHumidity:
+          type: array
+          minItems: 10
+          maxItems: 10
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+              maximum: 100
+            - type: string
+              enum:
+              - unmeasurable
+              description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 還気相対湿度計測値, en: Measured value of return relative humidity] '
+        chargingAirTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 給気温度計測値, en: Measured value of charging air temperature] '
+        chargingAirHumidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 給気相対湿度計測値, en: Measured value of charging relative humidity] '
+        dischargingAirTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 排気温度計測値, en: Measured value of discharging air temperature] '
+        dischargingAirHumidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 排気相対湿度計測値, en: Measured value of discharging air relative
+            humidity] '
+        heatExchangerOperationStatus:
+          type: boolean
+          description: '[ja: 熱交換機動作設定, en: Heat exchanger operation setting] _True
+            (ja: 熱交換機ON, en: Heat exchanger ON) False (ja: 熱交換機OFF, en: Heat exchanger
+            ON) '
+    airFlowLevelAirConditionerVentilationFan:
+      description: '[ja: 換気風量設定, en: Set value of ventilation air flow rate]'
+      type: object
+      properties:
+        airFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 換気風量自動状態, en: Ventilation air flow rate auto
+              status) '
+          description: '[ja: 換気風量設定, en: Set value of ventilation air flow rate] '
+    ventilationModeAutoAirConditionerVentilationFan:
+      description: '[ja: 換気モード自動設定, en: Ventilation mode automatic setting]'
+      type: object
+      properties:
+        ventilationModeAuto:
+          type: boolean
+          description: '[ja: 換気モード自動設定, en: Ventilation mode automatic setting] _True
+            (ja: AUTO, en: Auto) False (ja: 非AUTO, en: Non-auto) '
+    ventilationMethodAirConditionerVentilationFan:
+      description: '[ja: 換気方式設定, en: Ventilation method setting]'
+      type: object
+      properties:
+        ventilationMethod:
+          type: string
+          enum:
+          - blowing
+          - airConditioning
+          description: '[ja: 換気方式設定, en: Ventilation method setting] _blowing (ja:
+            送風換気, en: Blowing ventilation) airConditioning (ja: 空調換気, en: Air conditioning
+            ventilation) '
+    ventilationModeAirConditionerVentilationFan:
+      description: '[ja: 換気モード設定, en: Ventilation mode setting]'
+      type: object
+      properties:
+        ventilationMode:
+          type: string
+          enum:
+          - normal
+          - heatExchange
+          - cooling
+          - heating
+          - dehumidifying
+          - humidifying
+          - other
+          description: '[ja: 換気モード設定, en: Ventilation mode setting] _normal (ja: 普通換気,
+            en: Normal ventilation) heatExchange (ja: 熱交換換気, en: Heat exchange ventilation)
+            cooling (ja: 冷房換気, en: Cooling ventilation) heating (ja: 暖房換気, en: Heating
+            ventilation) dehumidifying (ja: 除湿換気, en: Dehumidifying ventilation) humidifying
+            (ja: 加湿換気, en: Humidifying ventilation) other (ja: その他換気, en: Other ventilation
+            modes) '
+    highlowLevelAirConditionerVentilationFan:
+      description: '[ja: 冷暖強弱設定, en: Cooling / heating high-low setting]'
+      type: object
+      properties:
+        highlowLevel:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 冷暖強弱設定, en: Cooling / heating high-low setting] '
+    targetHumidityAirConditionerVentilationFan:
+      description: '[ja: 室内相対湿度設定値, en: Set value of room relative humidity]'
+      type: object
+      properties:
+        targetHumidity:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 室内相対湿度設定値, en: Set value of room relative humidity] '
+    currentConsumptionAirConditionerVentilationFan:
+      description: '[ja: 消費電流計測値, en: Measured value of electric current consumption]'
+      type: object
+      properties:
+        currentConsumption:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 消費電流計測値, en: Measured value of electric current consumption] '
+    humidityAirConditionerVentilationFan:
+      description: '[ja: 室内相対湿度計測値, en: Measured value of room relative humidity]'
+      type: object
+      properties:
+        humidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 室内相対湿度計測値, en: Measured value of room relative humidity] '
+    outdoorTemperatureAirConditionerVentilationFan:
+      description: '[ja: 外気温度計測値, en: Measured value of outdoor air temperature]'
+      type: object
+      properties:
+        outdoorTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 外気温度計測値, en: Measured value of outdoor air temperature] '
+    ventilationAutoAirConditionerVentilationFan:
+      description: '[ja: 換気自動設定, en: Ventilation auto setting]'
+      type: object
+      properties:
+        ventilationAuto:
+          type: boolean
+          description: '[ja: 換気自動設定, en: Ventilation auto setting] _True (ja: AUTO,
+            en: Auto) False (ja: 非AUTO, en: Non-auto) '
+    co2ConcentrationAirConditionerVentilationFan:
+      description: '[ja: CO2濃度計測値, en: Measured value of CO2 concentration]'
+      type: object
+      properties:
+        co2Concentration:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: CO2濃度計測値, en: Measured value of CO2 concentration] '
+    smokeDetectionAirConditionerVentilationFan:
+      description: '[ja: 煙 (タバコ) 検知状態, en: Smoke (cigarette) detection status]'
+      type: object
+      properties:
+        smokeDetection:
+          type: boolean
+          description: '[ja: 煙 (タバコ) 検知状態, en: Smoke (cigarette) detection status]
+            _True (ja: 煙 (タバコ) 検知有, en: Smoke (cigarette) detection status found.)
+            False (ja: 煙 (タバコ) 検知無, en: Smoke (cigarette) detection status not found.) '
+    pollutionDetectionAirConditionerVentilationFan:
+      description: '[ja: 汚れ検知状態, en: Pollution detection status]'
+      type: object
+      properties:
+        pollutionDetection:
+          type: boolean
+          description: '[ja: 汚れ検知状態, en: Pollution detection status] _True (ja: 汚れ検知有,
+            en: Pollution detected) False (ja: 汚れ検知無, en: Pollution non-detected) '
+    outdoorHumidityAirConditionerVentilationFan:
+      description: '[ja: 外気相対湿度計測値, en: Measured value of outdoor relative humidity]'
+      type: object
+      properties:
+        outdoorHumidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 外気相対湿度計測値, en: Measured value of outdoor relative humidity] '
+    returnAirTemperatureAirConditionerVentilationFan:
+      description: '[ja: 還気温度計測値, en: Measured value of return air temperature]'
+      type: object
+      properties:
+        returnAirTemperature:
+          type: array
+          minItems: 10
+          maxItems: 10
+          items:
+            oneOf:
+            - type: number
+              minimum: -127
+              maximum: 125
+            - type: string
+              enum:
+              - unmeasurable
+              description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 還気温度計測値, en: Measured value of return air temperature] '
+    returnAirHumidityAirConditionerVentilationFan:
+      description: '[ja: 還気相対湿度計測値, en: Measured value of return relative humidity]'
+      type: object
+      properties:
+        returnAirHumidity:
+          type: array
+          minItems: 10
+          maxItems: 10
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+              maximum: 100
+            - type: string
+              enum:
+              - unmeasurable
+              description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 還気相対湿度計測値, en: Measured value of return relative humidity] '
+    chargingAirTemperatureAirConditionerVentilationFan:
+      description: '[ja: 給気温度計測値, en: Measured value of charging air temperature]'
+      type: object
+      properties:
+        chargingAirTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 給気温度計測値, en: Measured value of charging air temperature] '
+    chargingAirHumidityAirConditionerVentilationFan:
+      description: '[ja: 給気相対湿度計測値, en: Measured value of charging relative humidity]'
+      type: object
+      properties:
+        chargingAirHumidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 給気相対湿度計測値, en: Measured value of charging relative humidity] '
+    dischargingAirTemperatureAirConditionerVentilationFan:
+      description: '[ja: 排気温度計測値, en: Measured value of discharging air temperature]'
+      type: object
+      properties:
+        dischargingAirTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 排気温度計測値, en: Measured value of discharging air temperature] '
+    dischargingAirHumidityAirConditionerVentilationFan:
+      description: '[ja: 排気相対湿度計測値, en: Measured value of discharging air relative
+        humidity]'
+      type: object
+      properties:
+        dischargingAirHumidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 排気相対湿度計測値, en: Measured value of discharging air relative
+            humidity] '
+    heatExchangerOperationStatusAirConditionerVentilationFan:
+      description: '[ja: 熱交換機動作設定, en: Heat exchanger operation setting]'
+      type: object
+      properties:
+        heatExchangerOperationStatus:
+          type: boolean
+          description: '[ja: 熱交換機動作設定, en: Heat exchanger operation setting] _True
+            (ja: 熱交換機ON, en: Heat exchanger ON) False (ja: 熱交換機OFF, en: Heat exchanger
+            ON) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

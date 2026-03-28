@@ -1,0 +1,886 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: HvSmartElectricEnergyMeter
+  description: tag for High-voltage smart electric energy meter
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesHvSmartElectricEnergyMeter
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/monthlyMaximumElectricPowerDemand:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Monthly maximum electric power demand'
+      operationId: getDevicesPropertiesMonthlyMaximumElectricPowerDemandHvSmartElectricEnergyMeter
+      description: '取得: 月間最大需要電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/monthlyMaximumElectricPowerDemandHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeMaximumElectricPowerDemand:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Cumulative maximum electric power demand'
+      operationId: getDevicesPropertiesCumulativeMaximumElectricPowerDemandHvSmartElectricEnergyMeter
+      description: '取得: 累積最大需要電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeMaximumElectricPowerDemandHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/averageElectricPowerDemand:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Electric power demand at fixed time (30-minute average electric
+        power)'
+      operationId: getDevicesPropertiesAverageElectricPowerDemandHvSmartElectricEnergyMeter
+      description: '取得: 定時需要電力 (30分平均電力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/averageElectricPowerDemandHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/electricPowerDemandLog:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measured electric power demand'
+      operationId: getDevicesPropertiesElectricPowerDemandLogHvSmartElectricEnergyMeter
+      description: '取得: 需要電力計測値履歴'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/electricPowerDemandLogHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergy:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Measurement data of reactive electric power consumption (lag)
+        for power factor measurement'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyHvSmartElectricEnergyMeter
+      description: '取得: 力測積算無効電力量 (遅れ)計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergyAtEvery30Min:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Measurement data of cumulative amount of reactive electric power
+        consumption (lag) at fixed time for power factor measurement'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyAtEvery30MinHvSmartElectricEnergyMeter
+      description: '取得: 定時力測積算無効電力量 (遅れ)計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyAtEvery30MinHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergyLog:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measurement data of cumulative amount of reactive
+        electric power consumption (lag) for power factor measurement'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyLogHvSmartElectricEnergyMeter
+      description: '取得: 力測積算無効電力量 (遅れ)計測値履歴'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyLogHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/fixedDate:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Fixed date'
+      operationId: getDevicesPropertiesFixedDateHvSmartElectricEnergyMeter
+      description: '取得: 確定日'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fixedDateHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeActiveElectricEnergy:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Measured cumulative amounts of active electric energy'
+      operationId: getDevicesPropertiesCumulativeActiveElectricEnergyHvSmartElectricEnergyMeter
+      description: '取得: 積算有効電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeActiveElectricEnergyHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeActiveElectricEnergyAtEvery30Min:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Cumulative amounts of active electric energy at fixed time'
+      operationId: getDevicesPropertiesCumulativeActiveElectricEnergyAtEvery30MinHvSmartElectricEnergyMeter
+      description: '取得: 定時積算有効電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeActiveElectricEnergyAtEvery30MinHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeActiveElectricEnergyForPowerFactor:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Measurement data of cumulative amounts of active electric energy
+        for power factor measurement'
+      operationId: getDevicesPropertiesCumulativeActiveElectricEnergyForPowerFactorHvSmartElectricEnergyMeter
+      description: '取得: 力測積算有効電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeActiveElectricEnergyForPowerFactorHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/activeElectricEnergyLog:
+    get:
+      tags:
+      - HvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measured cumulative amount of active electric
+        energy'
+      operationId: getDevicesPropertiesActiveElectricEnergyLogHvSmartElectricEnergyMeter
+      description: '取得: 積算有効電力量計測値履歴'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/activeElectricEnergyLogHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesHvSmartElectricEnergyMeter:
+      description: propertiesHvSmartElectricEnergyMeter
+      type: object
+      properties:
+        monthlyMaximumElectricPowerDemand:
+          oneOf:
+          - type: number
+            minimum: 0
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 月間最大需要電力, en: Monthly maximum electric power demand] '
+        cumulativeMaximumElectricPowerDemand:
+          type: number
+          minimum: 0
+          description: '[ja: 累積最大需要電力, en: Cumulative maximum electric power demand] '
+        averageElectricPowerDemand:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            electricPower:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力, en: Electric Power demand] _'
+          description: '[ja: 定時需要電力 (30分平均電力), en: Electric power demand at fixed
+            time (30-minute average electric power)] '
+        electricPowerDemandLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricPower:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力, en: Electric power demand] _'
+          description: '[ja: 需要電力計測値履歴, en: Historical data of measured electric power
+            demand] '
+        cumulativeReactiveElectricEnergy:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            reactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ), en: Cumulative amount of reactive electric
+                power consumption (lag)] _'
+          description: '[ja: 力測積算無効電力量 (遅れ)計測値, en: Measurement data of reactive electric
+            power consumption (lag) for power factor measurement] '
+        cumulativeReactiveElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            reactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ), en: Cumulative amount of reactive electric
+                power consumption (lag)] _'
+          description: '[ja: 定時力測積算無効電力量 (遅れ)計測値, en: Measurement data of cumulative
+            amount of reactive electric power consumption (lag) at fixed time for
+            power factor measurement] '
+        cumulativeReactiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            reactiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ), en: Measurement data of cumulative
+                amount of reactive electric power consumption (lag)] _'
+          description: '[ja: 力測積算無効電力量 (遅れ)計測値履歴, en: Historical data of measurement
+            data of cumulative amount of reactive electric power consumption (lag)
+            for power factor measurement] '
+        fixedDate:
+          type: number
+          minimum: 1
+          maximum: 31
+          description: '[ja: 確定日, en: Fixed date] '
+        cumulativeActiveElectricEnergy:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            activeElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量, en: Cumulative amount of active electric
+                energy] _'
+          description: '[ja: 積算有効電力量計測値, en: Measured cumulative amounts of active
+            electric energy] '
+        cumulativeActiveElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            activeElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量, en: Cumulative amount of active electric
+                energy] _'
+          description: '[ja: 定時積算有効電力量計測値, en: Cumulative amounts of active electric
+            energy at fixed time] '
+        cumulativeActiveElectricEnergyForPowerFactor:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            activeElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量, en: Cumulative amount of active electric
+                energy] _'
+          description: '[ja: 力測積算有効電力量計測値, en: Measurement data of cumulative amounts
+            of active electric energy for power factor measurement] '
+        activeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            activeElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量, en: Measured cumulative amount of active
+                electric energy] _'
+          description: '[ja: 積算有効電力量計測値履歴, en: Historical data of measured cumulative
+            amount of active electric energy] '
+    monthlyMaximumElectricPowerDemandHvSmartElectricEnergyMeter:
+      description: '[ja: 月間最大需要電力, en: Monthly maximum electric power demand]'
+      type: object
+      properties:
+        monthlyMaximumElectricPowerDemand:
+          oneOf:
+          - type: number
+            minimum: 0
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 月間最大需要電力, en: Monthly maximum electric power demand] '
+    cumulativeMaximumElectricPowerDemandHvSmartElectricEnergyMeter:
+      description: '[ja: 累積最大需要電力, en: Cumulative maximum electric power demand]'
+      type: object
+      properties:
+        cumulativeMaximumElectricPowerDemand:
+          type: number
+          minimum: 0
+          description: '[ja: 累積最大需要電力, en: Cumulative maximum electric power demand] '
+    averageElectricPowerDemandHvSmartElectricEnergyMeter:
+      description: '[ja: 定時需要電力 (30分平均電力), en: Electric power demand at fixed time
+        (30-minute average electric power)]'
+      type: object
+      properties:
+        averageElectricPowerDemand:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            electricPower:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力, en: Electric Power demand] _'
+          description: '[ja: 定時需要電力 (30分平均電力), en: Electric power demand at fixed
+            time (30-minute average electric power)] '
+    electricPowerDemandLogHvSmartElectricEnergyMeter:
+      description: '[ja: 需要電力計測値履歴, en: Historical data of measured electric power
+        demand]'
+      type: object
+      properties:
+        electricPowerDemandLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricPower:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力, en: Electric power demand] _'
+          description: '[ja: 需要電力計測値履歴, en: Historical data of measured electric power
+            demand] '
+    cumulativeReactiveElectricEnergyHvSmartElectricEnergyMeter:
+      description: '[ja: 力測積算無効電力量 (遅れ)計測値, en: Measurement data of reactive electric
+        power consumption (lag) for power factor measurement]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergy:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            reactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ), en: Cumulative amount of reactive electric
+                power consumption (lag)] _'
+          description: '[ja: 力測積算無効電力量 (遅れ)計測値, en: Measurement data of reactive electric
+            power consumption (lag) for power factor measurement] '
+    cumulativeReactiveElectricEnergyAtEvery30MinHvSmartElectricEnergyMeter:
+      description: '[ja: 定時力測積算無効電力量 (遅れ)計測値, en: Measurement data of cumulative amount
+        of reactive electric power consumption (lag) at fixed time for power factor
+        measurement]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            reactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ), en: Cumulative amount of reactive electric
+                power consumption (lag)] _'
+          description: '[ja: 定時力測積算無効電力量 (遅れ)計測値, en: Measurement data of cumulative
+            amount of reactive electric power consumption (lag) at fixed time for
+            power factor measurement] '
+    cumulativeReactiveElectricEnergyLogHvSmartElectricEnergyMeter:
+      description: '[ja: 力測積算無効電力量 (遅れ)計測値履歴, en: Historical data of measurement data
+        of cumulative amount of reactive electric power consumption (lag) for power
+        factor measurement]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            reactiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ), en: Measurement data of cumulative
+                amount of reactive electric power consumption (lag)] _'
+          description: '[ja: 力測積算無効電力量 (遅れ)計測値履歴, en: Historical data of measurement
+            data of cumulative amount of reactive electric power consumption (lag)
+            for power factor measurement] '
+    fixedDateHvSmartElectricEnergyMeter:
+      description: '[ja: 確定日, en: Fixed date]'
+      type: object
+      properties:
+        fixedDate:
+          type: number
+          minimum: 1
+          maximum: 31
+          description: '[ja: 確定日, en: Fixed date] '
+    cumulativeActiveElectricEnergyHvSmartElectricEnergyMeter:
+      description: '[ja: 積算有効電力量計測値, en: Measured cumulative amounts of active electric
+        energy]'
+      type: object
+      properties:
+        cumulativeActiveElectricEnergy:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            activeElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量, en: Cumulative amount of active electric
+                energy] _'
+          description: '[ja: 積算有効電力量計測値, en: Measured cumulative amounts of active
+            electric energy] '
+    cumulativeActiveElectricEnergyAtEvery30MinHvSmartElectricEnergyMeter:
+      description: '[ja: 定時積算有効電力量計測値, en: Cumulative amounts of active electric energy
+        at fixed time]'
+      type: object
+      properties:
+        cumulativeActiveElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            activeElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量, en: Cumulative amount of active electric
+                energy] _'
+          description: '[ja: 定時積算有効電力量計測値, en: Cumulative amounts of active electric
+            energy at fixed time] '
+    cumulativeActiveElectricEnergyForPowerFactorHvSmartElectricEnergyMeter:
+      description: '[ja: 力測積算有効電力量計測値, en: Measurement data of cumulative amounts
+        of active electric energy for power factor measurement]'
+      type: object
+      properties:
+        cumulativeActiveElectricEnergyForPowerFactor:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            activeElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量, en: Cumulative amount of active electric
+                energy] _'
+          description: '[ja: 力測積算有効電力量計測値, en: Measurement data of cumulative amounts
+            of active electric energy for power factor measurement] '
+    activeElectricEnergyLogHvSmartElectricEnergyMeter:
+      description: '[ja: 積算有効電力量計測値履歴, en: Historical data of measured cumulative
+        amount of active electric energy]'
+      type: object
+      properties:
+        activeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            activeElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量, en: Measured cumulative amount of active
+                electric energy] _'
+          description: '[ja: 積算有効電力量計測値履歴, en: Historical data of measured cumulative
+            amount of active electric energy] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

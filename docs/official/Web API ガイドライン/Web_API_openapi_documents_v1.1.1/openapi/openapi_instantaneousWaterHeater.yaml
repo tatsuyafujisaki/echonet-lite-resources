@@ -1,0 +1,1625 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: InstantaneousWaterHeater
+  description: tag for Instantaneous water heater
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesInstantaneousWaterHeater
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservation:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: ON timer reservation setting'
+      operationId: getDevicesPropertiesOnTimerReservationInstantaneousWaterHeater
+      description: '取得: 風呂自動ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: ON timer reservation setting'
+      operationId: putDevicesPropertiesOnTimerReservationInstantaneousWaterHeater
+      description: '設定: 風呂自動ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservationInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerTime:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: ON timer setting'
+      operationId: getDevicesPropertiesOnTimerTimeInstantaneousWaterHeater
+      description: '取得: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerTimeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: ON timer setting'
+      operationId: putDevicesPropertiesOnTimerTimeInstantaneousWaterHeater
+      description: '設定: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerTimeInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerTimeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerRelativeTimeSettingValue:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Set value of ON timer relative time'
+      operationId: getDevicesPropertiesOnTimerRelativeTimeSettingValueInstantaneousWaterHeater
+      description: '取得: 風呂自動ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerRelativeTimeSettingValueInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Set value of ON timer relative time'
+      operationId: putDevicesPropertiesOnTimerRelativeTimeSettingValueInstantaneousWaterHeater
+      description: '設定: 風呂自動ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerRelativeTimeSettingValueInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerRelativeTimeSettingValueInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/hotWaterHeatingStatus:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Hot water heating status'
+      operationId: getDevicesPropertiesHotWaterHeatingStatusInstantaneousWaterHeater
+      description: '取得: 給湯器燃焼状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterHeatingStatusInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetSuppliedWaterTemperature:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Set value of hot water temperature'
+      operationId: getDevicesPropertiesTargetSuppliedWaterTemperatureInstantaneousWaterHeater
+      description: '取得: 給湯温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetSuppliedWaterTemperatureInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Set value of hot water temperature'
+      operationId: putDevicesPropertiesTargetSuppliedWaterTemperatureInstantaneousWaterHeater
+      description: '設定: 給湯温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetSuppliedWaterTemperatureInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetSuppliedWaterTemperatureInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/hotWaterWarmerSetting:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Hot water warmer setting'
+      operationId: getDevicesPropertiesHotWaterWarmerSettingInstantaneousWaterHeater
+      description: '取得: 給湯保温設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterWarmerSettingInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Hot water warmer setting'
+      operationId: putDevicesPropertiesHotWaterWarmerSettingInstantaneousWaterHeater
+      description: '設定: 給湯保温設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/hotWaterWarmerSettingInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterWarmerSettingInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterVolume4:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath water volume setting 4'
+      operationId: getDevicesPropertiesBathWaterVolume4InstantaneousWaterHeater
+      description: '取得: 風呂湯量設定4'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume4InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Bath water volume setting 4'
+      operationId: putDevicesPropertiesBathWaterVolume4InstantaneousWaterHeater
+      description: '設定: 風呂湯量設定4'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathWaterVolume4InstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume4InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/maximumAllowableWaterVolume4:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath water volume setting 4 Maximum settable level'
+      operationId: getDevicesPropertiesMaximumAllowableWaterVolume4InstantaneousWaterHeater
+      description: '取得: 風呂湯量設定4 設定可能最大レベル'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/maximumAllowableWaterVolume4InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/volume:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Volume setting'
+      operationId: getDevicesPropertiesVolumeInstantaneousWaterHeater
+      description: '取得: 音量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/volumeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Volume setting'
+      operationId: putDevicesPropertiesVolumeInstantaneousWaterHeater
+      description: '設定: 音量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/volumeInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/volumeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/mute:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Mute setting'
+      operationId: getDevicesPropertiesMuteInstantaneousWaterHeater
+      description: '取得: ミュート設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/muteInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Mute setting'
+      operationId: putDevicesPropertiesMuteInstantaneousWaterHeater
+      description: '設定: ミュート設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/muteInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/muteInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetAutomaticOeprationTime:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Duration of Automatic operation setting'
+      operationId: getDevicesPropertiesTargetAutomaticOeprationTimeInstantaneousWaterHeater
+      description: '取得: 自動運転時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetAutomaticOeprationTimeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Duration of Automatic operation setting'
+      operationId: putDevicesPropertiesTargetAutomaticOeprationTimeInstantaneousWaterHeater
+      description: '設定: 自動運転時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetAutomaticOeprationTimeInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetAutomaticOeprationTimeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingAutomaticOperationTime:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Remaining Automatic operation time'
+      operationId: getDevicesPropertiesRemainingAutomaticOperationTimeInstantaneousWaterHeater
+      description: '取得: 自動運転残時間'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingAutomaticOperationTimeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetBathWaterTemperature:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Set value of bath temperature'
+      operationId: getDevicesPropertiesTargetBathWaterTemperatureInstantaneousWaterHeater
+      description: '取得: 風呂温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetBathWaterTemperatureInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Set value of bath temperature'
+      operationId: putDevicesPropertiesTargetBathWaterTemperatureInstantaneousWaterHeater
+      description: '設定: 風呂温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetBathWaterTemperatureInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetBathWaterTemperatureInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterHeatingStatus:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath water heater status'
+      operationId: getDevicesPropertiesBathWaterHeatingStatusInstantaneousWaterHeater
+      description: '取得: 風呂給湯器燃焼状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterHeatingStatusInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticBathOperation:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath Auto mode setting'
+      operationId: getDevicesPropertiesAutomaticBathOperationInstantaneousWaterHeater
+      description: '取得: 風呂自動モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticBathOperationInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Bath Auto mode setting'
+      operationId: putDevicesPropertiesAutomaticBathOperationInstantaneousWaterHeater
+      description: '設定: 風呂自動モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticBathOperationInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticBathOperationInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetBathAdditionalBoilupOperation:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath additional boil-up operation setting'
+      operationId: getDevicesPropertiesTargetBathAdditionalBoilupOperationInstantaneousWaterHeater
+      description: '取得: 風呂追い炊き動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetBathAdditionalBoilupOperationInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Bath additional boil-up operation setting'
+      operationId: putDevicesPropertiesTargetBathAdditionalBoilupOperationInstantaneousWaterHeater
+      description: '設定: 風呂追い炊き動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetBathAdditionalBoilupOperationInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetBathAdditionalBoilupOperationInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathHotWaterAddition:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath hot water adding operation setting'
+      operationId: getDevicesPropertiesBathHotWaterAdditionInstantaneousWaterHeater
+      description: '取得: 風呂足し湯動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathHotWaterAdditionInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Bath hot water adding operation setting'
+      operationId: putDevicesPropertiesBathHotWaterAdditionInstantaneousWaterHeater
+      description: '設定: 風呂足し湯動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathHotWaterAdditionInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathHotWaterAdditionInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathLukewarmWaterFunction:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath water temperature lowering operation setting'
+      operationId: getDevicesPropertiesBathLukewarmWaterFunctionInstantaneousWaterHeater
+      description: '取得: 風呂ぬるめ動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathLukewarmWaterFunctionInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Bath water temperature lowering operation setting'
+      operationId: putDevicesPropertiesBathLukewarmWaterFunctionInstantaneousWaterHeater
+      description: '設定: 風呂ぬるめ動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathLukewarmWaterFunctionInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathLukewarmWaterFunctionInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterVolume1:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath hot water volume setting 1'
+      operationId: getDevicesPropertiesBathWaterVolume1InstantaneousWaterHeater
+      description: '取得: 風呂湯量設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume1InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Bath hot water volume setting 1'
+      operationId: putDevicesPropertiesBathWaterVolume1InstantaneousWaterHeater
+      description: '設定: 風呂湯量設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathWaterVolume1InstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume1InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterVolume2:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath hot water volume setting 2'
+      operationId: getDevicesPropertiesBathWaterVolume2InstantaneousWaterHeater
+      description: '取得: 風呂湯量設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume2InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Bath hot water volume setting 2'
+      operationId: putDevicesPropertiesBathWaterVolume2InstantaneousWaterHeater
+      description: '設定: 風呂湯量設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathWaterVolume2InstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume2InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathroomPriority:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bathroom priority setting'
+      operationId: getDevicesPropertiesBathroomPriorityInstantaneousWaterHeater
+      description: '取得: 浴室優先設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomPriorityInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/showerHotWaterSupplyStatus:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Shower hot water supply status'
+      operationId: getDevicesPropertiesShowerHotWaterSupplyStatusInstantaneousWaterHeater
+      description: '取得: シャワー給湯状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/showerHotWaterSupplyStatusInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/kitchenHotWaterSupplyStatus:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Kitchen hot water supply status'
+      operationId: getDevicesPropertiesKitchenHotWaterSupplyStatusInstantaneousWaterHeater
+      description: '取得: 台所給湯状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/kitchenHotWaterSupplyStatusInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/hotWaterWarmerOnTimerReservationSetting:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Hot water warmer ON timer reservation setting'
+      operationId: getDevicesPropertiesHotWaterWarmerOnTimerReservationSettingInstantaneousWaterHeater
+      description: '取得: 給湯保温ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterWarmerOnTimerReservationSettingInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Hot water warmer ON timer reservation setting'
+      operationId: putDevicesPropertiesHotWaterWarmerOnTimerReservationSettingInstantaneousWaterHeater
+      description: '設定: 給湯保温ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/hotWaterWarmerOnTimerReservationSettingInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterWarmerOnTimerReservationSettingInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetHotWaterWarmerOnTimerTime:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Set value of hot water warmer ON timer time'
+      operationId: getDevicesPropertiesTargetHotWaterWarmerOnTimerTimeInstantaneousWaterHeater
+      description: '取得: 給湯保温ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetHotWaterWarmerOnTimerTimeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Set value of hot water warmer ON timer time'
+      operationId: putDevicesPropertiesTargetHotWaterWarmerOnTimerTimeInstantaneousWaterHeater
+      description: '設定: 給湯保温ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetHotWaterWarmerOnTimerTimeInstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetHotWaterWarmerOnTimerTimeInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterVolume3:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath hot water volume setting 3'
+      operationId: getDevicesPropertiesBathWaterVolume3InstantaneousWaterHeater
+      description: '取得: 風呂湯量設定3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume3InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Set: Bath hot water volume setting 3'
+      operationId: putDevicesPropertiesBathWaterVolume3InstantaneousWaterHeater
+      description: '設定: 風呂湯量設定3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathWaterVolume3InstantaneousWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume3InstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathOperationStatus:
+    get:
+      tags:
+      - InstantaneousWaterHeater
+      summary: 'Get: Bath operation status monitor'
+      operationId: getDevicesPropertiesBathOperationStatusInstantaneousWaterHeater
+      description: '取得: 風呂動作状態監視'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathOperationStatusInstantaneousWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesInstantaneousWaterHeater:
+      description: propertiesInstantaneousWaterHeater
+      type: object
+      properties:
+        onTimerReservation:
+          type: boolean
+          description: '[ja: 風呂自動ONタイマ予約設定, en: ON timer reservation setting] _True
+            (ja: 予約入, en: Reservation ON) False (ja: 予約切, en: Reservation OFF) '
+        onTimerTime:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting] '
+        onTimerRelativeTimeSettingValue:
+          type: string
+          format: time
+          description: '[ja: 風呂自動ONタイマ相対時間設定値, en: Set value of ON timer relative
+            time] '
+        hotWaterHeatingStatus:
+          type: boolean
+          description: '[ja: 給湯器燃焼状態, en: Hot water heating status] _True (ja: 給湯燃焼状態有,
+            en: Hot water heating status found) False (ja: 無, en: Hot water heating
+            status not found) '
+        targetSuppliedWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 給湯温度設定値, en: Set value of hot water temperature] '
+        hotWaterWarmerSetting:
+          type: boolean
+          description: '[ja: 給湯保温設定, en: Hot water warmer setting] _True (ja: 給湯保温動作,
+            en: Hot water warmer operation) False (ja: 給湯保温動作解除, en: Hot water warmer
+            operation resetting) '
+        bathWaterVolume4:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 風呂湯量設定4, en: Bath water volume setting 4] '
+        maximumAllowableWaterVolume4:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 風呂湯量設定4 設定可能最大レベル, en: Bath water volume setting 4 Maximum
+            settable level] '
+        volume:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 音量設定値, en: Volume setting] '
+        mute:
+          type: boolean
+          description: '[ja: ミュート設定, en: Mute setting] _True (ja: ミュートON, en: Mute
+            ON) False (ja: ミュートOFF, en: Mute OFF) '
+        targetAutomaticOeprationTime:
+          oneOf:
+          - type: string
+            format: time
+          - type: string
+            enum:
+            - limitless
+            description: '_limitless (ja: 無限, en: Limitless) '
+          description: '[ja: 自動運転時間設定値, en: Duration of Automatic operation setting] '
+        remainingAutomaticOperationTime:
+          oneOf:
+          - type: string
+            format: time
+          - type: string
+            enum:
+            - limitless
+            description: '_limitless (ja: 無限, en: Limitless) '
+          description: '[ja: 自動運転残時間, en: Remaining Automatic operation time] '
+        targetBathWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 風呂温度設定値, en: Set value of bath temperature] '
+        bathWaterHeatingStatus:
+          type: boolean
+          description: '[ja: 風呂給湯器燃焼状態, en: Bath water heater status] _True (ja: 燃焼状態有,
+            en: Heating) False (ja: 燃焼状態無, en: Not Heating) '
+        automaticBathOperation:
+          type: boolean
+          description: '[ja: 風呂自動モード設定, en: Bath Auto mode setting] _True (ja: 自動入,
+            en: Auto ON) False (ja: 自動切, en: Auto OFF) '
+        targetBathAdditionalBoilupOperation:
+          type: boolean
+          description: '[ja: 風呂追い炊き動作設定, en: Bath additional boil-up operation setting]
+            _True (ja: 追い焚き入, en: Additional boil-up ON) False (ja: 追い焚き切, en: Additional
+            boil-up OFF) '
+        bathHotWaterAddition:
+          type: boolean
+          description: '[ja: 風呂足し湯動作設定, en: Bath hot water adding operation setting]
+            _True (ja: 足し湯入, en: Hot water addition ON) False (ja: 足し湯切, en: Hot water
+            addition OFF) '
+        bathLukewarmWaterFunction:
+          type: boolean
+          description: '[ja: 風呂ぬるめ動作設定, en: Bath water temperature lowering operation
+            setting] _True (ja: ぬるめ入, en: Hot water temperature lowering ON) False
+            (ja: ぬるめ切, en: Hot water temperature lowering OFF) '
+        bathWaterVolume1:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 風呂湯量設定1, en: Bath hot water volume setting 1] '
+        bathWaterVolume2:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 風呂湯量設定2, en: Bath hot water volume setting 2] '
+        bathroomPriority:
+          type: boolean
+          description: '[ja: 浴室優先設定, en: Bathroom priority setting] _True (ja: 浴室優先入,
+            en: Bathroom priority ON) False (ja: 入浴優先切, en: Bathroom priority OFF) '
+        showerHotWaterSupplyStatus:
+          type: boolean
+          description: '[ja: シャワー給湯状態, en: Shower hot water supply status] _True (ja:
+            シャワー給湯状態有, en: Shower hot water supply ON) False (ja: シャワー給湯状態無, en: Shower
+            hot water supply OFF) '
+        kitchenHotWaterSupplyStatus:
+          type: boolean
+          description: '[ja: 台所給湯状態, en: Kitchen hot water supply status] _True (ja:
+            台所湯量状態有, en: Kitchen hot water supply ON) False (ja: 台所湯量状態無, en: Kitchen
+            hot water supply OFF) '
+        hotWaterWarmerOnTimerReservationSetting:
+          type: boolean
+          description: '[ja: 給湯保温ONタイマ予約設定, en: Hot water warmer ON timer reservation
+            setting] _True (ja: 予約入, en: Reservation ON) False (ja: 予約無, en: Reservation
+            OFF) '
+        targetHotWaterWarmerOnTimerTime:
+          type: string
+          format: time
+          description: '[ja: 給湯保温ONタイマ時刻設定値, en: Set value of hot water warmer ON
+            timer time] '
+        bathWaterVolume3:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 風呂湯量設定3, en: Bath hot water volume setting 3] '
+        bathOperationStatus:
+          type: string
+          enum:
+          - runningHotWater
+          - noOperation
+          - keepingTemperature
+          description: '[ja: 風呂動作状態監視, en: Bath operation status monitor] _runningHotWater
+            (ja: 湯張り中, en: Supplying hot water) noOperation (ja: 停止中, en: Stopped)
+            keepingTemperature (ja: 保温中, en: Keeping bath temperature) '
+    onTimerReservationInstantaneousWaterHeater:
+      description: '[ja: 風呂自動ONタイマ予約設定, en: ON timer reservation setting]'
+      type: object
+      properties:
+        onTimerReservation:
+          type: boolean
+          description: '[ja: 風呂自動ONタイマ予約設定, en: ON timer reservation setting] _True
+            (ja: 予約入, en: Reservation ON) False (ja: 予約切, en: Reservation OFF) '
+    onTimerTimeInstantaneousWaterHeater:
+      description: '[ja: ONタイマ時刻設定値, en: ON timer setting]'
+      type: object
+      properties:
+        onTimerTime:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting] '
+    onTimerRelativeTimeSettingValueInstantaneousWaterHeater:
+      description: '[ja: 風呂自動ONタイマ相対時間設定値, en: Set value of ON timer relative time]'
+      type: object
+      properties:
+        onTimerRelativeTimeSettingValue:
+          type: string
+          format: time
+          description: '[ja: 風呂自動ONタイマ相対時間設定値, en: Set value of ON timer relative
+            time] '
+    hotWaterHeatingStatusInstantaneousWaterHeater:
+      description: '[ja: 給湯器燃焼状態, en: Hot water heating status]'
+      type: object
+      properties:
+        hotWaterHeatingStatus:
+          type: boolean
+          description: '[ja: 給湯器燃焼状態, en: Hot water heating status] _True (ja: 給湯燃焼状態有,
+            en: Hot water heating status found) False (ja: 無, en: Hot water heating
+            status not found) '
+    targetSuppliedWaterTemperatureInstantaneousWaterHeater:
+      description: '[ja: 給湯温度設定値, en: Set value of hot water temperature]'
+      type: object
+      properties:
+        targetSuppliedWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 給湯温度設定値, en: Set value of hot water temperature] '
+    hotWaterWarmerSettingInstantaneousWaterHeater:
+      description: '[ja: 給湯保温設定, en: Hot water warmer setting]'
+      type: object
+      properties:
+        hotWaterWarmerSetting:
+          type: boolean
+          description: '[ja: 給湯保温設定, en: Hot water warmer setting] _True (ja: 給湯保温動作,
+            en: Hot water warmer operation) False (ja: 給湯保温動作解除, en: Hot water warmer
+            operation resetting) '
+    bathWaterVolume4InstantaneousWaterHeater:
+      description: '[ja: 風呂湯量設定4, en: Bath water volume setting 4]'
+      type: object
+      properties:
+        bathWaterVolume4:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 風呂湯量設定4, en: Bath water volume setting 4] '
+    maximumAllowableWaterVolume4InstantaneousWaterHeater:
+      description: '[ja: 風呂湯量設定4 設定可能最大レベル, en: Bath water volume setting 4 Maximum
+        settable level]'
+      type: object
+      properties:
+        maximumAllowableWaterVolume4:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 風呂湯量設定4 設定可能最大レベル, en: Bath water volume setting 4 Maximum
+            settable level] '
+    volumeInstantaneousWaterHeater:
+      description: '[ja: 音量設定値, en: Volume setting]'
+      type: object
+      properties:
+        volume:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 音量設定値, en: Volume setting] '
+    muteInstantaneousWaterHeater:
+      description: '[ja: ミュート設定, en: Mute setting]'
+      type: object
+      properties:
+        mute:
+          type: boolean
+          description: '[ja: ミュート設定, en: Mute setting] _True (ja: ミュートON, en: Mute
+            ON) False (ja: ミュートOFF, en: Mute OFF) '
+    targetAutomaticOeprationTimeInstantaneousWaterHeater:
+      description: '[ja: 自動運転時間設定値, en: Duration of Automatic operation setting]'
+      type: object
+      properties:
+        targetAutomaticOeprationTime:
+          oneOf:
+          - type: string
+            format: time
+          - type: string
+            enum:
+            - limitless
+            description: '_limitless (ja: 無限, en: Limitless) '
+          description: '[ja: 自動運転時間設定値, en: Duration of Automatic operation setting] '
+    remainingAutomaticOperationTimeInstantaneousWaterHeater:
+      description: '[ja: 自動運転残時間, en: Remaining Automatic operation time]'
+      type: object
+      properties:
+        remainingAutomaticOperationTime:
+          oneOf:
+          - type: string
+            format: time
+          - type: string
+            enum:
+            - limitless
+            description: '_limitless (ja: 無限, en: Limitless) '
+          description: '[ja: 自動運転残時間, en: Remaining Automatic operation time] '
+    targetBathWaterTemperatureInstantaneousWaterHeater:
+      description: '[ja: 風呂温度設定値, en: Set value of bath temperature]'
+      type: object
+      properties:
+        targetBathWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 風呂温度設定値, en: Set value of bath temperature] '
+    bathWaterHeatingStatusInstantaneousWaterHeater:
+      description: '[ja: 風呂給湯器燃焼状態, en: Bath water heater status]'
+      type: object
+      properties:
+        bathWaterHeatingStatus:
+          type: boolean
+          description: '[ja: 風呂給湯器燃焼状態, en: Bath water heater status] _True (ja: 燃焼状態有,
+            en: Heating) False (ja: 燃焼状態無, en: Not Heating) '
+    automaticBathOperationInstantaneousWaterHeater:
+      description: '[ja: 風呂自動モード設定, en: Bath Auto mode setting]'
+      type: object
+      properties:
+        automaticBathOperation:
+          type: boolean
+          description: '[ja: 風呂自動モード設定, en: Bath Auto mode setting] _True (ja: 自動入,
+            en: Auto ON) False (ja: 自動切, en: Auto OFF) '
+    targetBathAdditionalBoilupOperationInstantaneousWaterHeater:
+      description: '[ja: 風呂追い炊き動作設定, en: Bath additional boil-up operation setting]'
+      type: object
+      properties:
+        targetBathAdditionalBoilupOperation:
+          type: boolean
+          description: '[ja: 風呂追い炊き動作設定, en: Bath additional boil-up operation setting]
+            _True (ja: 追い焚き入, en: Additional boil-up ON) False (ja: 追い焚き切, en: Additional
+            boil-up OFF) '
+    bathHotWaterAdditionInstantaneousWaterHeater:
+      description: '[ja: 風呂足し湯動作設定, en: Bath hot water adding operation setting]'
+      type: object
+      properties:
+        bathHotWaterAddition:
+          type: boolean
+          description: '[ja: 風呂足し湯動作設定, en: Bath hot water adding operation setting]
+            _True (ja: 足し湯入, en: Hot water addition ON) False (ja: 足し湯切, en: Hot water
+            addition OFF) '
+    bathLukewarmWaterFunctionInstantaneousWaterHeater:
+      description: '[ja: 風呂ぬるめ動作設定, en: Bath water temperature lowering operation
+        setting]'
+      type: object
+      properties:
+        bathLukewarmWaterFunction:
+          type: boolean
+          description: '[ja: 風呂ぬるめ動作設定, en: Bath water temperature lowering operation
+            setting] _True (ja: ぬるめ入, en: Hot water temperature lowering ON) False
+            (ja: ぬるめ切, en: Hot water temperature lowering OFF) '
+    bathWaterVolume1InstantaneousWaterHeater:
+      description: '[ja: 風呂湯量設定1, en: Bath hot water volume setting 1]'
+      type: object
+      properties:
+        bathWaterVolume1:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 風呂湯量設定1, en: Bath hot water volume setting 1] '
+    bathWaterVolume2InstantaneousWaterHeater:
+      description: '[ja: 風呂湯量設定2, en: Bath hot water volume setting 2]'
+      type: object
+      properties:
+        bathWaterVolume2:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 風呂湯量設定2, en: Bath hot water volume setting 2] '
+    bathroomPriorityInstantaneousWaterHeater:
+      description: '[ja: 浴室優先設定, en: Bathroom priority setting]'
+      type: object
+      properties:
+        bathroomPriority:
+          type: boolean
+          description: '[ja: 浴室優先設定, en: Bathroom priority setting] _True (ja: 浴室優先入,
+            en: Bathroom priority ON) False (ja: 入浴優先切, en: Bathroom priority OFF) '
+    showerHotWaterSupplyStatusInstantaneousWaterHeater:
+      description: '[ja: シャワー給湯状態, en: Shower hot water supply status]'
+      type: object
+      properties:
+        showerHotWaterSupplyStatus:
+          type: boolean
+          description: '[ja: シャワー給湯状態, en: Shower hot water supply status] _True (ja:
+            シャワー給湯状態有, en: Shower hot water supply ON) False (ja: シャワー給湯状態無, en: Shower
+            hot water supply OFF) '
+    kitchenHotWaterSupplyStatusInstantaneousWaterHeater:
+      description: '[ja: 台所給湯状態, en: Kitchen hot water supply status]'
+      type: object
+      properties:
+        kitchenHotWaterSupplyStatus:
+          type: boolean
+          description: '[ja: 台所給湯状態, en: Kitchen hot water supply status] _True (ja:
+            台所湯量状態有, en: Kitchen hot water supply ON) False (ja: 台所湯量状態無, en: Kitchen
+            hot water supply OFF) '
+    hotWaterWarmerOnTimerReservationSettingInstantaneousWaterHeater:
+      description: '[ja: 給湯保温ONタイマ予約設定, en: Hot water warmer ON timer reservation
+        setting]'
+      type: object
+      properties:
+        hotWaterWarmerOnTimerReservationSetting:
+          type: boolean
+          description: '[ja: 給湯保温ONタイマ予約設定, en: Hot water warmer ON timer reservation
+            setting] _True (ja: 予約入, en: Reservation ON) False (ja: 予約無, en: Reservation
+            OFF) '
+    targetHotWaterWarmerOnTimerTimeInstantaneousWaterHeater:
+      description: '[ja: 給湯保温ONタイマ時刻設定値, en: Set value of hot water warmer ON timer
+        time]'
+      type: object
+      properties:
+        targetHotWaterWarmerOnTimerTime:
+          type: string
+          format: time
+          description: '[ja: 給湯保温ONタイマ時刻設定値, en: Set value of hot water warmer ON
+            timer time] '
+    bathWaterVolume3InstantaneousWaterHeater:
+      description: '[ja: 風呂湯量設定3, en: Bath hot water volume setting 3]'
+      type: object
+      properties:
+        bathWaterVolume3:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 風呂湯量設定3, en: Bath hot water volume setting 3] '
+    bathOperationStatusInstantaneousWaterHeater:
+      description: '[ja: 風呂動作状態監視, en: Bath operation status monitor]'
+      type: object
+      properties:
+        bathOperationStatus:
+          type: string
+          enum:
+          - runningHotWater
+          - noOperation
+          - keepingTemperature
+          description: '[ja: 風呂動作状態監視, en: Bath operation status monitor] _runningHotWater
+            (ja: 湯張り中, en: Supplying hot water) noOperation (ja: 停止中, en: Stopped)
+            keepingTemperature (ja: 保温中, en: Keeping bath temperature) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

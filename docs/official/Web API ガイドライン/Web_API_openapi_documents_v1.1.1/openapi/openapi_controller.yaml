@@ -1,0 +1,219 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Controller
+  description: tag for Controller
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - Controller
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesController
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesController'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/controllerId:
+    get:
+      tags:
+      - Controller
+      summary: 'Get: Controller ID'
+      operationId: getDevicesPropertiesControllerIdController
+      description: '取得: コントローラID'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/controllerIdController'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/numberOfDevices:
+    get:
+      tags:
+      - Controller
+      summary: 'Get: Number of devices controlled'
+      operationId: getDevicesPropertiesNumberOfDevicesController
+      description: '取得: 管理台数'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/numberOfDevicesController'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/deviceList:
+    get:
+      tags:
+      - Controller
+      summary: 'Get: List of device information'
+      operationId: getDevicesPropertiesDeviceListController
+      description: '取得: 機器情報リスト'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceListController'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesController:
+      description: propertiesController
+      type: object
+      properties:
+        controllerId:
+          type: string
+          description: '[ja: コントローラID, en: Controller ID] '
+        numberOfDevices:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 管理台数, en: Number of devices controlled] '
+        deviceList:
+          type: array
+          minItems: 0
+          maxItems: 65533
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              deviceType:
+                type: string
+              connection:
+                type: string
+                enum:
+                - connected
+                - disconnected
+                - notRegistered
+                - deleted
+                description: '_connected (ja: 接続中, en: Connected) disconnected (ja:
+                  離脱中, en: Disconnected) notRegistered (ja: 未登録, en: Not registered)
+                  deleted (ja: 削除, en: Deleted) '
+              manufactureCode:
+                type: string
+          description: '[ja: 機器情報リスト, en: List of device information] '
+    controllerIdController:
+      description: '[ja: コントローラID, en: Controller ID]'
+      type: object
+      properties:
+        controllerId:
+          type: string
+          description: '[ja: コントローラID, en: Controller ID] '
+    numberOfDevicesController:
+      description: '[ja: 管理台数, en: Number of devices controlled]'
+      type: object
+      properties:
+        numberOfDevices:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 管理台数, en: Number of devices controlled] '
+    deviceListController:
+      description: '[ja: 機器情報リスト, en: List of device information]'
+      type: object
+      properties:
+        deviceList:
+          type: array
+          minItems: 0
+          maxItems: 65533
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              deviceType:
+                type: string
+              connection:
+                type: string
+                enum:
+                - connected
+                - disconnected
+                - notRegistered
+                - deleted
+                description: '_connected (ja: 接続中, en: Connected) disconnected (ja:
+                  離脱中, en: Disconnected) notRegistered (ja: 未登録, en: Not registered)
+                  deleted (ja: 削除, en: Deleted) '
+              manufactureCode:
+                type: string
+          description: '[ja: 機器情報リスト, en: List of device information] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

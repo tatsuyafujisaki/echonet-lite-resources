@@ -1,0 +1,133 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: EmergencyButton
+  description: tag for Emergency button
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - EmergencyButton
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesEmergencyButton
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesEmergencyButton'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/occurrenceOfEmergency:
+    get:
+      tags:
+      - EmergencyButton
+      summary: 'Get: Emergency occurrence status'
+      operationId: getDevicesPropertiesOccurrenceOfEmergencyEmergencyButton
+      description: '取得: 非常発生状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/occurrenceOfEmergencyEmergencyButton'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/reset:
+    post:
+      tags:
+      - EmergencyButton
+      summary: 'Post: Emergency occurrence status resetting'
+      operationId: postDevicesActionsResetEmergencyButton
+      description: '実行: 非常発生状態リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resetEmergencyButton'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesEmergencyButton:
+      description: propertiesEmergencyButton
+      type: object
+      properties:
+        occurrenceOfEmergency:
+          type: boolean
+          description: '[ja: 非常発生状態, en: Emergency occurrence status] _True (ja: 有,
+            en: YES) False (ja: 無, en: NO) '
+    occurrenceOfEmergencyEmergencyButton:
+      description: '[ja: 非常発生状態, en: Emergency occurrence status]'
+      type: object
+      properties:
+        occurrenceOfEmergency:
+          type: boolean
+          description: '[ja: 非常発生状態, en: Emergency occurrence status] _True (ja: 有,
+            en: YES) False (ja: 無, en: NO) '
+    resetEmergencyButton: {}
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

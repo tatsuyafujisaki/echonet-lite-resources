@@ -1,0 +1,139 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: MonoFunctionalLighting
+  description: tag for Mono functional lighting
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - MonoFunctionalLighting
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesMonoFunctionalLighting
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesMonoFunctionalLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightLevel:
+    get:
+      tags:
+      - MonoFunctionalLighting
+      summary: 'Get: Light level Setting'
+      operationId: getDevicesPropertiesLightLevelMonoFunctionalLighting
+      description: '取得: 照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelMonoFunctionalLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - MonoFunctionalLighting
+      summary: 'Set: Light level Setting'
+      operationId: putDevicesPropertiesLightLevelMonoFunctionalLighting
+      description: '設定: 照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightLevelMonoFunctionalLighting'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelMonoFunctionalLighting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesMonoFunctionalLighting:
+      description: propertiesMonoFunctionalLighting
+      type: object
+      properties:
+        lightLevel:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 照明の明るさ設定, en: Light level Setting] '
+    lightLevelMonoFunctionalLighting:
+      description: '[ja: 照明の明るさ設定, en: Light level Setting]'
+      type: object
+      properties:
+        lightLevel:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 照明の明るさ設定, en: Light level Setting] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

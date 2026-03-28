@@ -1,0 +1,327 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: AirCleaner
+  description: tag for Air cleaner
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - AirCleaner
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesAirCleaner
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesAirCleaner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airFlowLevel:
+    get:
+      tags:
+      - AirCleaner
+      summary: 'Get: Air flow rate setting'
+      operationId: getDevicesPropertiesAirFlowLevelAirCleaner
+      description: '取得: 風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowLevelAirCleaner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirCleaner
+      summary: 'Set: Air flow rate setting'
+      operationId: putDevicesPropertiesAirFlowLevelAirCleaner
+      description: '設定: 風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airFlowLevelAirCleaner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowLevelAirCleaner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airPollutionDetection:
+    get:
+      tags:
+      - AirCleaner
+      summary: 'Get: Air pollution detection status'
+      operationId: getDevicesPropertiesAirPollutionDetectionAirCleaner
+      description: '取得: 空気汚れ検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airPollutionDetectionAirCleaner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/smokeDetection:
+    get:
+      tags:
+      - AirCleaner
+      summary: 'Get: Smoke (cigarette) detection status'
+      operationId: getDevicesPropertiesSmokeDetectionAirCleaner
+      description: '取得: 煙 (タバコ) 検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/smokeDetectionAirCleaner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/opticalCatalystOperationStatus:
+    get:
+      tags:
+      - AirCleaner
+      summary: 'Get: Optical catalyst operation setting'
+      operationId: getDevicesPropertiesOpticalCatalystOperationStatusAirCleaner
+      description: '取得: 光触媒動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/opticalCatalystOperationStatusAirCleaner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - AirCleaner
+      summary: 'Set: Optical catalyst operation setting'
+      operationId: putDevicesPropertiesOpticalCatalystOperationStatusAirCleaner
+      description: '設定: 光触媒動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/opticalCatalystOperationStatusAirCleaner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/opticalCatalystOperationStatusAirCleaner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/filterChangeNotice:
+    get:
+      tags:
+      - AirCleaner
+      summary: 'Get: Filter change notice'
+      operationId: getDevicesPropertiesFilterChangeNoticeAirCleaner
+      description: '取得: フィルタ交換通知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filterChangeNoticeAirCleaner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesAirCleaner:
+      description: propertiesAirCleaner
+      type: object
+      properties:
+        airFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 換気風量自動状態, en: Ventilation air flow rate auto
+              status) '
+          description: '[ja: 風量設定, en: Air flow rate setting] '
+        airPollutionDetection:
+          type: boolean
+          description: '[ja: 空気汚れ検知状態, en: Air pollution detection status] _True (ja:
+            空気汚れ検知有, en: Air pollution detected) False (ja: 空気汚れ検知無, en: Air pollution
+            non-detected) '
+        smokeDetection:
+          type: boolean
+          description: '[ja: 煙 (タバコ) 検知状態, en: Smoke (cigarette) detection status]
+            _True (ja: 煙 (タバコ) 検知有, en: Smoke (cigarette) detection status found.)
+            False (ja: 煙 (タバコ) 検知無, en: Smoke (cigarette) detection status not found.) '
+        opticalCatalystOperationStatus:
+          type: boolean
+          description: '[ja: 光触媒動作設定, en: Optical catalyst operation setting] _True
+            (ja: 光触媒ON, en: Optical catalyst ON) False (ja: 光触媒OFF, en: Optical catalyst
+            OFF) '
+        filterChangeNotice:
+          type: boolean
+          description: '[ja: フィルタ交換通知状態, en: Filter change notice] _True (ja: フィルタ交換時期通知有,
+            en: Found) False (ja: フィルタ交換時期通知無, en: Not found) '
+    airFlowLevelAirCleaner:
+      description: '[ja: 風量設定, en: Air flow rate setting]'
+      type: object
+      properties:
+        airFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 換気風量自動状態, en: Ventilation air flow rate auto
+              status) '
+          description: '[ja: 風量設定, en: Air flow rate setting] '
+    airPollutionDetectionAirCleaner:
+      description: '[ja: 空気汚れ検知状態, en: Air pollution detection status]'
+      type: object
+      properties:
+        airPollutionDetection:
+          type: boolean
+          description: '[ja: 空気汚れ検知状態, en: Air pollution detection status] _True (ja:
+            空気汚れ検知有, en: Air pollution detected) False (ja: 空気汚れ検知無, en: Air pollution
+            non-detected) '
+    smokeDetectionAirCleaner:
+      description: '[ja: 煙 (タバコ) 検知状態, en: Smoke (cigarette) detection status]'
+      type: object
+      properties:
+        smokeDetection:
+          type: boolean
+          description: '[ja: 煙 (タバコ) 検知状態, en: Smoke (cigarette) detection status]
+            _True (ja: 煙 (タバコ) 検知有, en: Smoke (cigarette) detection status found.)
+            False (ja: 煙 (タバコ) 検知無, en: Smoke (cigarette) detection status not found.) '
+    opticalCatalystOperationStatusAirCleaner:
+      description: '[ja: 光触媒動作設定, en: Optical catalyst operation setting]'
+      type: object
+      properties:
+        opticalCatalystOperationStatus:
+          type: boolean
+          description: '[ja: 光触媒動作設定, en: Optical catalyst operation setting] _True
+            (ja: 光触媒ON, en: Optical catalyst ON) False (ja: 光触媒OFF, en: Optical catalyst
+            OFF) '
+    filterChangeNoticeAirCleaner:
+      description: '[ja: フィルタ交換通知状態, en: Filter change notice]'
+      type: object
+      properties:
+        filterChangeNotice:
+          type: boolean
+          description: '[ja: フィルタ交換通知状態, en: Filter change notice] _True (ja: フィルタ交換時期通知有,
+            en: Found) False (ja: フィルタ交換時期通知無, en: Not found) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

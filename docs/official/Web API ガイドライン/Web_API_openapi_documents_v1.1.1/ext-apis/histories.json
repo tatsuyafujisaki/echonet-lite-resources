@@ -1,0 +1,246 @@
+{
+    "properties": {
+        "descriptions": {
+            "descriptions": {
+                "ja": "historyの説明",
+                "en": "explanation of history"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ja": {
+                        "type": "string"
+                    },
+                    "en": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "deviceId": {
+            "descriptions": {
+                "ja": "履歴データ記録対象機器のdevice ID",
+                "en": "device ID of the device for which data are recorded"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string"
+            }
+        },
+        "deviceType": {
+            "descriptions": {
+                "ja": "履歴データ記録対象機器のdeviceType",
+                "en": "deviceType of the device for which data are recorded"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string"
+            }
+        },
+        "resourceType": {
+            "descriptions": {
+                "ja": "リソースタイプ(property, action, event)",
+                "en": "resource type (property, action, event)"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "property",
+                    "action",
+                    "event"
+                ]
+            }
+        },
+        "resourceName": {
+            "descriptions": {
+                "ja": "リソース名",
+                "en": "resource name"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string"
+            }
+        },
+        "timing": {
+            "descriptions": {
+                "ja": "履歴データの取得タイミング",
+                "en": "timing to record history data"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "timingType": {
+                        "type": "string",
+                        "enum": [
+                            "onChange",
+                            "interval"
+                        ]
+                    },
+                    "intervalValue": {
+                        "type": "number"
+                    },
+                    "intervalUnit": {
+                        "type": "string",
+                        "enum": [
+                            "sec",
+                            "min",
+                            "hour",
+                            "day",
+                            "month",
+                            "year"
+                        ]
+                    }
+                }
+            }
+        },
+        "first": {
+            "descriptions": {
+                "ja": "最初の記録時刻",
+                "en": "time of the first record"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "format": "date-time"
+            }
+        },
+        "last": {
+            "descriptions": {
+                "ja": "最後の記録時刻",
+                "en": "time of the last record"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "format": "date-time"
+            }
+        },
+        "total": {
+            "descriptions": {
+                "ja": "履歴データの総個数",
+                "en": "total count of the history data"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "number",
+                "minimum": 0,
+                "multipleOf": 1
+            }
+        }
+    },
+    "actions": {
+        "prepareRetrieveData": {
+            "descriptions": {
+                "ja": "取得用データの準備を指示する",
+                "en": "Prepare data to retrieve"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "to": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "count": {
+                        "type": "number",
+                        "minimum": 0,
+                        "multipleOf": 1
+                    },
+                    "countPerPage": {
+                        "type": "number",
+                        "minimum": 1,
+                        "multipleOf": 1
+                    }
+                }
+            }
+        },
+        "retrieve": {
+            "descriptions": {
+                "ja": "履歴データを取得する",
+                "en": "Retrieve histories data"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "page": {
+                        "type": "number",
+                        "minimum": 1,
+                        "multipleOf": 1
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "processStatus": {
+                        "type": "string",
+                        "enum": [
+                            "succeeded",
+                            "failed",
+                            "inProgress"
+                        ]
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "enum": [
+                            "property",
+                            "action",
+                            "event"
+                        ]
+                    },
+                    "resourceName": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "time": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                "value": {
+                                    "type": [
+                                        "string",
+                                        "number",
+                                        "boolean",
+                                        "object",
+                                        "array"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

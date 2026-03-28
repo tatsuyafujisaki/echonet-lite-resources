@@ -1,0 +1,384 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: ResHistories
+  description: tag for ResHistories
+security:
+- api_key: []
+paths:
+  /elapi/v1/resHistories/{resHistoryID}/properties:
+    get:
+      tags:
+      - ResHistories
+      summary: 'Get: properties'
+      operationId: getResHistoriesPropertiesResHistories
+      description: '取得: properties'
+      parameters:
+      - description: resource history id
+        name: resHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesResHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/resHistories/{resHistoryID}/actions/prepareRetrieveData:
+    post:
+      tags:
+      - ResHistories
+      summary: 'Post: Prepare data to retrieve'
+      operationId: postResHistoriesActionsPrepareRetrieveDataResHistories
+      description: '実行: 取得用データの準備を指示する'
+      parameters:
+      - description: resource history id
+        name: resHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prepareRetrieveDataInputResHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prepareRetrieveDataResHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/resHistories/{resHistoryID}/actions/retrieve:
+    post:
+      tags:
+      - ResHistories
+      summary: 'Post: Retrieve histories data'
+      operationId: postResHistoriesActionsRetrieveResHistories
+      description: '実行: 履歴データを取得する'
+      parameters:
+      - description: resource history id
+        name: resHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/retrieveInputResHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retrieveResHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesResHistories:
+      description: propertiesResHistories
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: resource historyの説明, en: explanation of resource history] '
+        resourceType:
+          type: string
+          enum:
+          - devices
+          description: '[ja: リソースタイプ, en: resource type] '
+        resourceId:
+          type: string
+          description: '[ja: リソースID, en: resource ID] '
+        valueUnit:
+          type: array
+          items:
+            type: string
+            enum:
+            - Celsius
+            - ppm
+            - W
+            - kW
+            - Wh
+            - kWh
+            - mA
+            - A
+            - Ah
+            - V
+            - second
+            - minute
+            - hour
+            - days
+            - degree
+            - L
+            - MJ
+            - m3/h
+            - m3
+            - kvarh
+            - lux
+            - klux
+            - r/min
+            - '%'
+            - none
+          description: '[ja: 値の単位の組, en: array of value units] '
+        valueKind:
+          type: array
+          items:
+            type: string
+          description: '[ja: 値の種類の組, en: array of value types] '
+        timing:
+          type: object
+          properties:
+            timingType:
+              type: string
+              enum:
+              - onChange
+              - interval
+            intervalValue:
+              type: number
+            intervalUnit:
+              type: string
+              enum:
+              - second
+              - minute
+              - hour
+              - day
+              - month
+              - year
+          description: '[ja: 履歴データの取得タイミング, en: timing to record history data] '
+        first:
+          type: string
+          format: date-time
+          description: '[ja: 最初の記録時刻, en: time of the first record] '
+        last:
+          type: string
+          format: date-time
+          description: '[ja: 最後の記録時刻, en: time of the last record] '
+    descriptionsResHistories:
+      description: '[ja: resource historyの説明, en: explanation of resource history]'
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: resource historyの説明, en: explanation of resource history] '
+    resourceTypeResHistories:
+      description: '[ja: リソースタイプ, en: resource type]'
+      type: object
+      properties:
+        resourceType:
+          type: string
+          enum:
+          - devices
+          description: '[ja: リソースタイプ, en: resource type] '
+    resourceIdResHistories:
+      description: '[ja: リソースID, en: resource ID]'
+      type: object
+      properties:
+        resourceId:
+          type: string
+          description: '[ja: リソースID, en: resource ID] '
+    valueUnitResHistories:
+      description: '[ja: 値の単位の組, en: array of value units]'
+      type: object
+      properties:
+        valueUnit:
+          type: array
+          items:
+            type: string
+            enum:
+            - Celsius
+            - ppm
+            - W
+            - kW
+            - Wh
+            - kWh
+            - mA
+            - A
+            - Ah
+            - V
+            - second
+            - minute
+            - hour
+            - days
+            - degree
+            - L
+            - MJ
+            - m3/h
+            - m3
+            - kvarh
+            - lux
+            - klux
+            - r/min
+            - '%'
+            - none
+          description: '[ja: 値の単位の組, en: array of value units] '
+    valueKindResHistories:
+      description: '[ja: 値の種類の組, en: array of value types]'
+      type: object
+      properties:
+        valueKind:
+          type: array
+          items:
+            type: string
+          description: '[ja: 値の種類の組, en: array of value types] '
+    timingResHistories:
+      description: '[ja: 履歴データの取得タイミング, en: timing to record history data]'
+      type: object
+      properties:
+        timing:
+          type: object
+          properties:
+            timingType:
+              type: string
+              enum:
+              - onChange
+              - interval
+            intervalValue:
+              type: number
+            intervalUnit:
+              type: string
+              enum:
+              - second
+              - minute
+              - hour
+              - day
+              - month
+              - year
+          description: '[ja: 履歴データの取得タイミング, en: timing to record history data] '
+    firstResHistories:
+      description: '[ja: 最初の記録時刻, en: time of the first record]'
+      type: object
+      properties:
+        first:
+          type: string
+          format: date-time
+          description: '[ja: 最初の記録時刻, en: time of the first record] '
+    lastResHistories:
+      description: '[ja: 最後の記録時刻, en: time of the last record]'
+      type: object
+      properties:
+        last:
+          type: string
+          format: date-time
+          description: '[ja: 最後の記録時刻, en: time of the last record] '
+    prepareRetrieveDataResHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        count:
+          type: number
+          minimum: 0
+          multipleOf: 1
+        countPerPage:
+          type: number
+          minimum: 1
+          multipleOf: 1
+    prepareRetrieveDataInputResHistories:
+      type: object
+      properties:
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+    retrieveResHistories:
+      type: object
+      properties:
+        processStatus:
+          type: string
+          enum:
+          - succeeded
+          - failed
+          - inProgress
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              at:
+                type: string
+                format: date-time
+              values:
+                type: object
+                properties:
+                  kind:
+                    type: string
+                  value:
+                    type:
+                    - string
+                    - number
+                    - boolean
+                    - object
+                    - array
+    retrieveInputResHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        page:
+          type: number
+          minimum: 1
+          multipleOf: 1
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

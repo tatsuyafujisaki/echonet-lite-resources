@@ -1,0 +1,618 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: HybridWaterHeater
+  description: tag for Hybrid water heater
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesHybridWaterHeater
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticWaterHeating:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Automatic water heating setting'
+      operationId: getDevicesPropertiesAutomaticWaterHeatingHybridWaterHeater
+      description: '取得: 沸き上げ自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticWaterHeatingHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HybridWaterHeater
+      summary: 'Set: Automatic water heating setting'
+      operationId: putDevicesPropertiesAutomaticWaterHeatingHybridWaterHeater
+      description: '設定: 沸き上げ自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticWaterHeatingHybridWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticWaterHeatingHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterHeatingStatus:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Water heating status'
+      operationId: getDevicesPropertiesWaterHeatingStatusHybridWaterHeater
+      description: '取得: 給湯沸き上げ中状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterHeatingStatusHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heaterStatus:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Heater status'
+      operationId: getDevicesPropertiesHeaterStatusHybridWaterHeater
+      description: '取得: 暖房沸き上げ中状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heaterStatusHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/hotWaterSupplyModeForAuxiliaryHeatSourceMachine:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Hot water supply mode setting for auxiliary heat source machine'
+      operationId: getDevicesPropertiesHotWaterSupplyModeForAuxiliaryHeatSourceMachineHybridWaterHeater
+      description: '取得: 補助熱源機給湯モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterSupplyModeForAuxiliaryHeatSourceMachineHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HybridWaterHeater
+      summary: 'Set: Hot water supply mode setting for auxiliary heat source machine'
+      operationId: putDevicesPropertiesHotWaterSupplyModeForAuxiliaryHeatSourceMachineHybridWaterHeater
+      description: '設定: 補助熱源機給湯モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/hotWaterSupplyModeForAuxiliaryHeatSourceMachineHybridWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterSupplyModeForAuxiliaryHeatSourceMachineHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heaterModeForAuxiliaryHeatSourceMachine:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Heater mode setting for auxiliary heat source machine.'
+      operationId: getDevicesPropertiesHeaterModeForAuxiliaryHeatSourceMachineHybridWaterHeater
+      description: '取得: 補助熱源機暖房モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heaterModeForAuxiliaryHeatSourceMachineHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HybridWaterHeater
+      summary: 'Set: Heater mode setting for auxiliary heat source machine.'
+      operationId: putDevicesPropertiesHeaterModeForAuxiliaryHeatSourceMachineHybridWaterHeater
+      description: '設定: 補助熱源機暖房モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/heaterModeForAuxiliaryHeatSourceMachineHybridWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heaterModeForAuxiliaryHeatSourceMachineHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/linkageModeForSolarPowerGeneration:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Linkage mode setting for solar power generation'
+      operationId: getDevicesPropertiesLinkageModeForSolarPowerGenerationHybridWaterHeater
+      description: '取得: 太陽光発電連携モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/linkageModeForSolarPowerGenerationHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HybridWaterHeater
+      summary: 'Set: Linkage mode setting for solar power generation'
+      operationId: putDevicesPropertiesLinkageModeForSolarPowerGenerationHybridWaterHeater
+      description: '設定: 太陽光発電連携モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/linkageModeForSolarPowerGenerationHybridWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/linkageModeForSolarPowerGenerationHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/solarPowerGenerationsUtilizationTime:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Solar power generations utilization time'
+      operationId: getDevicesPropertiesSolarPowerGenerationsUtilizationTimeHybridWaterHeater
+      description: '取得: 太陽光発電利用時間'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/solarPowerGenerationsUtilizationTimeHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HybridWaterHeater
+      summary: 'Set: Solar power generations utilization time'
+      operationId: putDevicesPropertiesSolarPowerGenerationsUtilizationTimeHybridWaterHeater
+      description: '設定: 太陽光発電利用時間'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/solarPowerGenerationsUtilizationTimeHybridWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/solarPowerGenerationsUtilizationTimeHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/hotWaterSupplyStatus:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Hot water supply status'
+      operationId: getDevicesPropertiesHotWaterSupplyStatusHybridWaterHeater
+      description: '取得: 給湯中状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterSupplyStatusHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingWater:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Measured amount of hot water remaining in tank'
+      operationId: getDevicesPropertiesRemainingWaterHybridWaterHeater
+      description: '取得: 残湯量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingWaterHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/tankCapacity:
+    get:
+      tags:
+      - HybridWaterHeater
+      summary: 'Get: Tank capacity'
+      operationId: getDevicesPropertiesTankCapacityHybridWaterHeater
+      description: '取得: タンク容量値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tankCapacityHybridWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesHybridWaterHeater:
+      description: propertiesHybridWaterHeater
+      type: object
+      properties:
+        automaticWaterHeating:
+          type: string
+          enum:
+          - auto
+          - manualNotHeating
+          - manualHeating
+          description: '[ja: 沸き上げ自動設定, en: Automatic water heating setting] _auto
+            (ja: 自動沸き上げ, en: Automatic water heating) manualNotHeating (ja: 手動沸き上げ停止,
+            en: Water heating manual stop) manualHeating (ja: 手動沸き上げ, en: Manual water
+            heating) '
+        waterHeatingStatus:
+          type: boolean
+          description: '[ja: 給湯沸き上げ中状態, en: Water heating status] _True (ja: 沸き上げ中,
+            en: Water is heating.) False (ja: 非沸き上げ中, en: Water is not heating.) '
+        heaterStatus:
+          type: boolean
+          description: '[ja: 暖房沸き上げ中状態, en: Heater status] _True (ja: 沸き上げ中, en: Water
+            is heating.) False (ja: 非沸き上げ中, en: Water is not heating.) '
+        hotWaterSupplyModeForAuxiliaryHeatSourceMachine:
+          type: boolean
+          description: '[ja: 補助熱源機給湯モード設定, en: Hot water supply mode setting for auxiliary
+            heat source machine] _True (ja: 設定する, en: Set) False (ja: 設定しない, en: No
+            setting) '
+        heaterModeForAuxiliaryHeatSourceMachine:
+          type: boolean
+          description: '[ja: 補助熱源機暖房モード設定, en: Heater mode setting for auxiliary heat
+            source machine.] _True (ja: 設定する, en: Set) False (ja: 設定しない, en: No setting) '
+        linkageModeForSolarPowerGeneration:
+          type: string
+          enum:
+          - modeOff
+          - householdConsumption
+          - prioritizingElectricitySales
+          - economicEfficiency
+          description: '[ja: 太陽光発電連携モード設定, en: Linkage mode setting for solar power
+            generation] _modeOff (ja: モード切, en: Mode off) householdConsumption (ja:
+            自家消費, en: Household consumption) prioritizingElectricitySales (ja: 売電優先,
+            en: Prioritizing electricity sales) economicEfficiency (ja: 経済, en: Economic
+            efficiency) '
+        solarPowerGenerationsUtilizationTime:
+          type: object
+          properties:
+            startTime:
+              type: string
+              format: time
+              description: '[ja: 開始時刻, en: Start time] _'
+            endTime:
+              type: string
+              format: time
+              description: '[ja: 終了時刻, en: End time] _'
+          description: '[ja: 太陽光発電利用時間, en: Solar power generations utilization time] '
+        hotWaterSupplyStatus:
+          type: boolean
+          description: '[ja: 給湯中状態, en: Hot water supply status] _True (ja: 給湯中, en:
+            Supplying hot water) False (ja: 非給湯中, en: Not supplying hot water) '
+        remainingWater:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 残湯量計測値, en: Measured amount of hot water remaining in
+            tank] '
+        tankCapacity:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: タンク容量値, en: Tank capacity] '
+    automaticWaterHeatingHybridWaterHeater:
+      description: '[ja: 沸き上げ自動設定, en: Automatic water heating setting]'
+      type: object
+      properties:
+        automaticWaterHeating:
+          type: string
+          enum:
+          - auto
+          - manualNotHeating
+          - manualHeating
+          description: '[ja: 沸き上げ自動設定, en: Automatic water heating setting] _auto
+            (ja: 自動沸き上げ, en: Automatic water heating) manualNotHeating (ja: 手動沸き上げ停止,
+            en: Water heating manual stop) manualHeating (ja: 手動沸き上げ, en: Manual water
+            heating) '
+    waterHeatingStatusHybridWaterHeater:
+      description: '[ja: 給湯沸き上げ中状態, en: Water heating status]'
+      type: object
+      properties:
+        waterHeatingStatus:
+          type: boolean
+          description: '[ja: 給湯沸き上げ中状態, en: Water heating status] _True (ja: 沸き上げ中,
+            en: Water is heating.) False (ja: 非沸き上げ中, en: Water is not heating.) '
+    heaterStatusHybridWaterHeater:
+      description: '[ja: 暖房沸き上げ中状態, en: Heater status]'
+      type: object
+      properties:
+        heaterStatus:
+          type: boolean
+          description: '[ja: 暖房沸き上げ中状態, en: Heater status] _True (ja: 沸き上げ中, en: Water
+            is heating.) False (ja: 非沸き上げ中, en: Water is not heating.) '
+    hotWaterSupplyModeForAuxiliaryHeatSourceMachineHybridWaterHeater:
+      description: '[ja: 補助熱源機給湯モード設定, en: Hot water supply mode setting for auxiliary
+        heat source machine]'
+      type: object
+      properties:
+        hotWaterSupplyModeForAuxiliaryHeatSourceMachine:
+          type: boolean
+          description: '[ja: 補助熱源機給湯モード設定, en: Hot water supply mode setting for auxiliary
+            heat source machine] _True (ja: 設定する, en: Set) False (ja: 設定しない, en: No
+            setting) '
+    heaterModeForAuxiliaryHeatSourceMachineHybridWaterHeater:
+      description: '[ja: 補助熱源機暖房モード設定, en: Heater mode setting for auxiliary heat
+        source machine.]'
+      type: object
+      properties:
+        heaterModeForAuxiliaryHeatSourceMachine:
+          type: boolean
+          description: '[ja: 補助熱源機暖房モード設定, en: Heater mode setting for auxiliary heat
+            source machine.] _True (ja: 設定する, en: Set) False (ja: 設定しない, en: No setting) '
+    linkageModeForSolarPowerGenerationHybridWaterHeater:
+      description: '[ja: 太陽光発電連携モード設定, en: Linkage mode setting for solar power generation]'
+      type: object
+      properties:
+        linkageModeForSolarPowerGeneration:
+          type: string
+          enum:
+          - modeOff
+          - householdConsumption
+          - prioritizingElectricitySales
+          - economicEfficiency
+          description: '[ja: 太陽光発電連携モード設定, en: Linkage mode setting for solar power
+            generation] _modeOff (ja: モード切, en: Mode off) householdConsumption (ja:
+            自家消費, en: Household consumption) prioritizingElectricitySales (ja: 売電優先,
+            en: Prioritizing electricity sales) economicEfficiency (ja: 経済, en: Economic
+            efficiency) '
+    solarPowerGenerationsUtilizationTimeHybridWaterHeater:
+      description: '[ja: 太陽光発電利用時間, en: Solar power generations utilization time]'
+      type: object
+      properties:
+        solarPowerGenerationsUtilizationTime:
+          type: object
+          properties:
+            startTime:
+              type: string
+              format: time
+              description: '[ja: 開始時刻, en: Start time] _'
+            endTime:
+              type: string
+              format: time
+              description: '[ja: 終了時刻, en: End time] _'
+          description: '[ja: 太陽光発電利用時間, en: Solar power generations utilization time] '
+    hotWaterSupplyStatusHybridWaterHeater:
+      description: '[ja: 給湯中状態, en: Hot water supply status]'
+      type: object
+      properties:
+        hotWaterSupplyStatus:
+          type: boolean
+          description: '[ja: 給湯中状態, en: Hot water supply status] _True (ja: 給湯中, en:
+            Supplying hot water) False (ja: 非給湯中, en: Not supplying hot water) '
+    remainingWaterHybridWaterHeater:
+      description: '[ja: 残湯量計測値, en: Measured amount of hot water remaining in tank]'
+      type: object
+      properties:
+        remainingWater:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 残湯量計測値, en: Measured amount of hot water remaining in
+            tank] '
+    tankCapacityHybridWaterHeater:
+      description: '[ja: タンク容量値, en: Tank capacity]'
+      type: object
+      properties:
+        tankCapacity:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: タンク容量値, en: Tank capacity] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

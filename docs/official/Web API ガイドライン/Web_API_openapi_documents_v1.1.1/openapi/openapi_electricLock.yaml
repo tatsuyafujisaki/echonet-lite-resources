@@ -1,0 +1,482 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: ElectricLock
+  description: tag for Electric lock
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesElectricLock
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/mainElectricLock:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: Lock setting1'
+      operationId: getDevicesPropertiesMainElectricLockElectricLock
+      description: '取得: 施錠設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mainElectricLockElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricLock
+      summary: 'Set: Lock setting1'
+      operationId: putDevicesPropertiesMainElectricLockElectricLock
+      description: '設定: 施錠設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mainElectricLockElectricLock'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mainElectricLockElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/subElectricLock:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: Lock setting 2'
+      operationId: getDevicesPropertiesSubElectricLockElectricLock
+      description: '取得: 施錠設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subElectricLockElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricLock
+      summary: 'Set: Lock setting 2'
+      operationId: putDevicesPropertiesSubElectricLockElectricLock
+      description: '設定: 施錠設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subElectricLockElectricLock'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subElectricLockElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/doorGuardLocked:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: Lock status of door guard'
+      operationId: getDevicesPropertiesDoorGuardLockedElectricLock
+      description: '取得: ドアガード施錠状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doorGuardLockedElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/doorOpened:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: Door open/close status'
+      operationId: getDevicesPropertiesDoorOpenedElectricLock
+      description: '取得: 扉開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doorOpenedElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/occupant:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: Occupant/ non-occupant status'
+      operationId: getDevicesPropertiesOccupantElectricLock
+      description: '取得: 在室・不在状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/occupantElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/alarmStatus:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: Alarm status'
+      operationId: getDevicesPropertiesAlarmStatusElectricLock
+      description: '取得: 警報状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/alarmStatusElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/autoLockMode:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: Auto lock mode setting'
+      operationId: getDevicesPropertiesAutoLockModeElectricLock
+      description: '取得: 自動施錠モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autoLockModeElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricLock
+      summary: 'Set: Auto lock mode setting'
+      operationId: putDevicesPropertiesAutoLockModeElectricLock
+      description: '設定: 自動施錠モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/autoLockModeElectricLock'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autoLockModeElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/replaceBatteryLevel:
+    get:
+      tags:
+      - ElectricLock
+      summary: 'Get: Battery level'
+      operationId: getDevicesPropertiesReplaceBatteryLevelElectricLock
+      description: '取得: 電池残量状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/replaceBatteryLevelElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricLock
+      summary: 'Set: Battery level'
+      operationId: putDevicesPropertiesReplaceBatteryLevelElectricLock
+      description: '設定: 電池残量状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/replaceBatteryLevelElectricLock'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/replaceBatteryLevelElectricLock'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesElectricLock:
+      description: propertiesElectricLock
+      type: object
+      properties:
+        mainElectricLock:
+          type: boolean
+          description: '[ja: 施錠設定1, en: Lock setting1] _True (ja: 施錠, en: Lock) False
+            (ja: 解錠, en: Unlock) '
+        subElectricLock:
+          type: boolean
+          description: '[ja: 施錠設定2, en: Lock setting 2] _True (ja: 施錠, en: Lock) False
+            (ja: 解錠, en: Unlock) '
+        doorGuardLocked:
+          type: boolean
+          description: '[ja: ドアガード施錠状態, en: Lock status of door guard] _True (ja:
+            施錠, en: Lock) False (ja: 解錠, en: Unlock) '
+        doorOpened:
+          type: boolean
+          description: '[ja: 扉開閉状態, en: Door open/close status] _True (ja: 開, en:
+            Open) False (ja: 閉, en: Closed) '
+        occupant:
+          type: boolean
+          description: '[ja: 在室・不在状態, en: Occupant/ non-occupant status] _True (ja:
+            在室, en: Occupant) False (ja: 不在, en: Non-occupant) '
+        alarmStatus:
+          type: string
+          enum:
+          - normal
+          - breakOpen
+          - doorOpen
+          - manualUnlocked
+          - tampered
+          description: '[ja: 警報状態, en: Alarm status] _normal (ja: 通常状態(警報なし), en:
+            Normal (no alarm)) breakOpen (ja: こじ開け, en: Break open) doorOpen (ja:
+            扉開放, en: Door open) manualUnlocked (ja: 手動解錠, en: Manual unlocked) tampered
+            (ja: タンパ, en: Tampered) '
+        autoLockMode:
+          type: boolean
+          description: '[ja: 自動施錠モード設定, en: Auto lock mode setting] _True (ja: 入,
+            en: ON) False (ja: 切, en: OFF) '
+        replaceBatteryLevel:
+          type: boolean
+          description: '[ja: 電池残量状態, en: Battery level] _True (ja: 交換通知有, en: Notification
+            of battery replacement) False (ja: 通常, en: Ordinary level) '
+    mainElectricLockElectricLock:
+      description: '[ja: 施錠設定1, en: Lock setting1]'
+      type: object
+      properties:
+        mainElectricLock:
+          type: boolean
+          description: '[ja: 施錠設定1, en: Lock setting1] _True (ja: 施錠, en: Lock) False
+            (ja: 解錠, en: Unlock) '
+    subElectricLockElectricLock:
+      description: '[ja: 施錠設定2, en: Lock setting 2]'
+      type: object
+      properties:
+        subElectricLock:
+          type: boolean
+          description: '[ja: 施錠設定2, en: Lock setting 2] _True (ja: 施錠, en: Lock) False
+            (ja: 解錠, en: Unlock) '
+    doorGuardLockedElectricLock:
+      description: '[ja: ドアガード施錠状態, en: Lock status of door guard]'
+      type: object
+      properties:
+        doorGuardLocked:
+          type: boolean
+          description: '[ja: ドアガード施錠状態, en: Lock status of door guard] _True (ja:
+            施錠, en: Lock) False (ja: 解錠, en: Unlock) '
+    doorOpenedElectricLock:
+      description: '[ja: 扉開閉状態, en: Door open/close status]'
+      type: object
+      properties:
+        doorOpened:
+          type: boolean
+          description: '[ja: 扉開閉状態, en: Door open/close status] _True (ja: 開, en:
+            Open) False (ja: 閉, en: Closed) '
+    occupantElectricLock:
+      description: '[ja: 在室・不在状態, en: Occupant/ non-occupant status]'
+      type: object
+      properties:
+        occupant:
+          type: boolean
+          description: '[ja: 在室・不在状態, en: Occupant/ non-occupant status] _True (ja:
+            在室, en: Occupant) False (ja: 不在, en: Non-occupant) '
+    alarmStatusElectricLock:
+      description: '[ja: 警報状態, en: Alarm status]'
+      type: object
+      properties:
+        alarmStatus:
+          type: string
+          enum:
+          - normal
+          - breakOpen
+          - doorOpen
+          - manualUnlocked
+          - tampered
+          description: '[ja: 警報状態, en: Alarm status] _normal (ja: 通常状態(警報なし), en:
+            Normal (no alarm)) breakOpen (ja: こじ開け, en: Break open) doorOpen (ja:
+            扉開放, en: Door open) manualUnlocked (ja: 手動解錠, en: Manual unlocked) tampered
+            (ja: タンパ, en: Tampered) '
+    autoLockModeElectricLock:
+      description: '[ja: 自動施錠モード設定, en: Auto lock mode setting]'
+      type: object
+      properties:
+        autoLockMode:
+          type: boolean
+          description: '[ja: 自動施錠モード設定, en: Auto lock mode setting] _True (ja: 入,
+            en: ON) False (ja: 切, en: OFF) '
+    replaceBatteryLevelElectricLock:
+      description: '[ja: 電池残量状態, en: Battery level]'
+      type: object
+      properties:
+        replaceBatteryLevel:
+          type: boolean
+          description: '[ja: 電池残量状態, en: Battery level] _True (ja: 交換通知有, en: Notification
+            of battery replacement) False (ja: 通常, en: Ordinary level) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

@@ -1,0 +1,3018 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: StorageBattery
+  description: tag for Storage battery
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesStorageBattery
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acEffectiveChargingCapacity:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC effective capacity (charging)'
+      operationId: getDevicesPropertiesAcEffectiveChargingCapacityStorageBattery
+      description: '取得: AC実効容量 (充電)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acEffectiveChargingCapacityStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acEffectiveDischargingCapacity:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC effective capacity (discharging)'
+      operationId: getDevicesPropertiesAcEffectiveDischargingCapacityStorageBattery
+      description: '取得: AC実効容量 (放電)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acEffectiveDischargingCapacityStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acChargeableCapacity:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC chargeable capacity'
+      operationId: getDevicesPropertiesAcChargeableCapacityStorageBattery
+      description: '取得: AC充電可能容量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acChargeableCapacityStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acDischargeableCapacity:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC dischargeable capacity'
+      operationId: getDevicesPropertiesAcDischargeableCapacityStorageBattery
+      description: '取得: AC放電可能容量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acDischargeableCapacityStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acChargeableElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC chargeable electric energy'
+      operationId: getDevicesPropertiesAcChargeableElectricEnergyStorageBattery
+      description: '取得: AC充電可能量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acChargeableElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acDischargeableElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC dischargeable electric energy'
+      operationId: getDevicesPropertiesAcDischargeableElectricEnergyStorageBattery
+      description: '取得: AC放電可能量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acDischargeableElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acChargeUpperLimit:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC charge upper limit setting'
+      operationId: getDevicesPropertiesAcChargeUpperLimitStorageBattery
+      description: '取得: AC充電上限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acChargeUpperLimitStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: AC charge upper limit setting'
+      operationId: putDevicesPropertiesAcChargeUpperLimitStorageBattery
+      description: '設定: AC充電上限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/acChargeUpperLimitStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acChargeUpperLimitStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acDischargeLowerLimit:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC discharge lower limit setting'
+      operationId: getDevicesPropertiesAcDischargeLowerLimitStorageBattery
+      description: '取得: AC放電下限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acDischargeLowerLimitStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: AC discharge lower limit setting'
+      operationId: putDevicesPropertiesAcDischargeLowerLimitStorageBattery
+      description: '設定: AC放電下限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/acDischargeLowerLimitStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acDischargeLowerLimitStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acCumulativeChargingElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC measured cumulative charging electric energy'
+      operationId: getDevicesPropertiesAcCumulativeChargingElectricEnergyStorageBattery
+      description: '取得: AC積算充電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acCumulativeChargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acCumulativeDischargingElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC measured cumulative discharging electric energy'
+      operationId: getDevicesPropertiesAcCumulativeDischargingElectricEnergyStorageBattery
+      description: '取得: AC積算放電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acCumulativeDischargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acTargetChargingElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC charge amount setting value'
+      operationId: getDevicesPropertiesAcTargetChargingElectricEnergyStorageBattery
+      description: '取得: AC充電量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acTargetChargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: AC charge amount setting value'
+      operationId: putDevicesPropertiesAcTargetChargingElectricEnergyStorageBattery
+      description: '設定: AC充電量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/acTargetChargingElectricEnergyStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acTargetChargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acTargetDischargingElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC discharge amount setting value'
+      operationId: getDevicesPropertiesAcTargetDischargingElectricEnergyStorageBattery
+      description: '取得: AC放電量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acTargetDischargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: AC discharge amount setting value'
+      operationId: putDevicesPropertiesAcTargetDischargingElectricEnergyStorageBattery
+      description: '設定: AC放電量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/acTargetDischargingElectricEnergyStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acTargetDischargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingMethod:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Charging method'
+      operationId: getDevicesPropertiesChargingMethodStorageBattery
+      description: '取得: 充電方式'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingMethodStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Charging method'
+      operationId: putDevicesPropertiesChargingMethodStorageBattery
+      description: '設定: 充電方式'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingMethodStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingMethodStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingMethod:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Discharging method'
+      operationId: getDevicesPropertiesDischargingMethodStorageBattery
+      description: '取得: 放電方式'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingMethodStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Discharging method'
+      operationId: putDevicesPropertiesDischargingMethodStorageBattery
+      description: '設定: 放電方式'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dischargingMethodStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingMethodStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acRatedElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: AC rated electric energy'
+      operationId: getDevicesPropertiesAcRatedElectricEnergyStorageBattery
+      description: '取得: AC定格電力量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acRatedElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumChargingElectricPower:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Minimum/maximum charging electric power'
+      operationId: getDevicesPropertiesMinimumAndMaximumChargingElectricPowerStorageBattery
+      description: '取得: 最小最大充電電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumChargingElectricPowerStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumDischargingElectricPower:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Minimum/maximum discharging electric power'
+      operationId: getDevicesPropertiesMinimumAndMaximumDischargingElectricPowerStorageBattery
+      description: '取得: 最小最大放電電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumDischargingElectricPowerStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumChargingCurrent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Minimum/maximum charging current'
+      operationId: getDevicesPropertiesMinimumAndMaximumChargingCurrentStorageBattery
+      description: '取得: 最小最大充電電流値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumChargingCurrentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumDischargingCurrent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Minimum/maximum discharging current'
+      operationId: getDevicesPropertiesMinimumAndMaximumDischargingCurrentStorageBattery
+      description: '取得: 最小最大放電電流値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumDischargingCurrentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reInterconnectionPermission:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Re-interconnection permission setting'
+      operationId: getDevicesPropertiesReInterconnectionPermissionStorageBattery
+      description: '取得: 再連系許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reInterconnectionPermissionStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Re-interconnection permission setting'
+      operationId: putDevicesPropertiesReInterconnectionPermissionStorageBattery
+      description: '設定: 再連系許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reInterconnectionPermissionStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reInterconnectionPermissionStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationPermission:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Operation permission setting'
+      operationId: getDevicesPropertiesOperationPermissionStorageBattery
+      description: '取得: 運転許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationPermissionStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Operation permission setting'
+      operationId: putDevicesPropertiesOperationPermissionStorageBattery
+      description: '設定: 運転許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationPermissionStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationPermissionStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/independentOperationPermission:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Independent operation permission setting'
+      operationId: getDevicesPropertiesIndependentOperationPermissionStorageBattery
+      description: '取得: 自立運転許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/independentOperationPermissionStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Independent operation permission setting'
+      operationId: putDevicesPropertiesIndependentOperationPermissionStorageBattery
+      description: '設定: 自立運転許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/independentOperationPermissionStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/independentOperationPermissionStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/actualOperationMode:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Working operation status'
+      operationId: getDevicesPropertiesActualOperationModeStorageBattery
+      description: '取得: 運転動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/actualOperationModeStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Rated electric energy'
+      operationId: getDevicesPropertiesRatedElectricEnergyStorageBattery
+      description: '取得: 定格電力量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedCapacity:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Rated capacity'
+      operationId: getDevicesPropertiesRatedCapacityStorageBattery
+      description: '取得: 定格容量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedCapacityStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedVoltage:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Rated voltage'
+      operationId: getDevicesPropertiesRatedVoltageStorageBattery
+      description: '取得: 定格電圧'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedVoltageStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousChargingAndDischargingElectricPower:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Measured instantaneous charging/discharging electric energy'
+      operationId: getDevicesPropertiesInstantaneousChargingAndDischargingElectricPowerStorageBattery
+      description: '取得: 瞬時充放電電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousChargingAndDischargingElectricPowerStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousChargingAndDischargingCurrent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Measured instantaneous charging/discharging current'
+      operationId: getDevicesPropertiesInstantaneousChargingAndDischargingCurrentStorageBattery
+      description: '取得: 瞬時充放電電流計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousChargingAndDischargingCurrentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousChargingAndDischargingVoltage:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Measured instantaneous charging/discharging voltage'
+      operationId: getDevicesPropertiesInstantaneousChargingAndDischargingVoltageStorageBattery
+      description: '取得: 瞬時充放電電圧計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousChargingAndDischargingVoltageStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeDischargingElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Measured cumulative discharging electric energy'
+      operationId: getDevicesPropertiesCumulativeDischargingElectricEnergyStorageBattery
+      description: '取得: 積算放電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeDischargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeChargingElectricEnergy:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Measured cumulative charging electric energy'
+      operationId: getDevicesPropertiesCumulativeChargingElectricEnergyStorageBattery
+      description: '取得: 積算充電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeChargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationMode:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Operation mode setting'
+      operationId: getDevicesPropertiesOperationModeStorageBattery
+      description: '取得: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Operation mode setting'
+      operationId: putDevicesPropertiesOperationModeStorageBattery
+      description: '設定: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationModeStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerSystemInterconnectionStatus:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: System-interconnected type'
+      operationId: getDevicesPropertiesPowerSystemInterconnectionStatusStorageBattery
+      description: '取得: 系統連系状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerSystemInterconnectionStatusStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumChargingPowerAtIndependent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Minimum/maximum charging power (Independent)'
+      operationId: getDevicesPropertiesMinimumAndMaximumChargingPowerAtIndependentStorageBattery
+      description: '取得: 最小最大充電電力値 (独立時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumChargingPowerAtIndependentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumDischargingPowerAtIndependent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Minimum/maximum discharging power (Independent)'
+      operationId: getDevicesPropertiesMinimumAndMaximumDischargingPowerAtIndependentStorageBattery
+      description: '取得: 最小最大放電電力値 (独立時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumDischargingPowerAtIndependentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumChargingCurrentAtIndependent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Minimum/maximum charging current (Independent)'
+      operationId: getDevicesPropertiesMinimumAndMaximumChargingCurrentAtIndependentStorageBattery
+      description: '取得: 最小最大充電電流値 (独立時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumChargingCurrentAtIndependentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumDischargingCurrentAtIndependent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Minimum/maximum discharging current (Independent)'
+      operationId: getDevicesPropertiesMinimumAndMaximumDischargingCurrentAtIndependentStorageBattery
+      description: '取得: 最小最大放電電流値 (独立時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumDischargingCurrentAtIndependentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingAndDischargingAmount1:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Charging/discharging amount setting 1'
+      operationId: getDevicesPropertiesChargingAndDischargingAmount1StorageBattery
+      description: '取得: 充放電量設定値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAndDischargingAmount1StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Charging/discharging amount setting 1'
+      operationId: putDevicesPropertiesChargingAndDischargingAmount1StorageBattery
+      description: '設定: 充放電量設定値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingAndDischargingAmount1StorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAndDischargingAmount1StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingAndDischargingAmount2:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Charging/discharging amount setting 2'
+      operationId: getDevicesPropertiesChargingAndDischargingAmount2StorageBattery
+      description: '取得: 充放電量設定値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAndDischargingAmount2StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Charging/discharging amount setting 2'
+      operationId: putDevicesPropertiesChargingAndDischargingAmount2StorageBattery
+      description: '設定: 充放電量設定値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingAndDischargingAmount2StorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAndDischargingAmount2StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingCapacity1:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Remaining stored electricity 1'
+      operationId: getDevicesPropertiesRemainingCapacity1StorageBattery
+      description: '取得: 蓄電残量1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingCapacity1StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingCapacity2:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Remaining stored electricity 2'
+      operationId: getDevicesPropertiesRemainingCapacity2StorageBattery
+      description: '取得: 蓄電残量2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingCapacity2StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingCapacity3:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Remaining stored electricity 3'
+      operationId: getDevicesPropertiesRemainingCapacity3StorageBattery
+      description: '取得: 蓄電残量3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingCapacity3StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/batteryHealthState:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Battery state of health'
+      operationId: getDevicesPropertiesBatteryHealthStateStorageBattery
+      description: '取得: 劣化状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/batteryHealthStateStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/batteryType:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Battery type'
+      operationId: getDevicesPropertiesBatteryTypeStorageBattery
+      description: '取得: 蓄電池タイプ'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/batteryTypeStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingAmount1:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Charging amount setting 1'
+      operationId: getDevicesPropertiesChargingAmount1StorageBattery
+      description: '取得: 充電量設定値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAmount1StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Charging amount setting 1'
+      operationId: putDevicesPropertiesChargingAmount1StorageBattery
+      description: '設定: 充電量設定値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingAmount1StorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAmount1StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingAmount1:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Discharging amount setting 1'
+      operationId: getDevicesPropertiesDischargingAmount1StorageBattery
+      description: '取得: 放電量設定値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingAmount1StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Discharging amount setting 1'
+      operationId: putDevicesPropertiesDischargingAmount1StorageBattery
+      description: '設定: 放電量設定値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dischargingAmount1StorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingAmount1StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingAmount2:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Charging amount setting 2'
+      operationId: getDevicesPropertiesChargingAmount2StorageBattery
+      description: '取得: 充電量設定値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAmount2StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Charging amount setting 2'
+      operationId: putDevicesPropertiesChargingAmount2StorageBattery
+      description: '設定: 充電量設定値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingAmount2StorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingAmount2StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingAmount2:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Discharging amount setting 2'
+      operationId: getDevicesPropertiesDischargingAmount2StorageBattery
+      description: '取得: 放電量設定値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingAmount2StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Discharging amount setting 2'
+      operationId: putDevicesPropertiesDischargingAmount2StorageBattery
+      description: '設定: 放電量設定値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dischargingAmount2StorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingAmount2StorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingPower:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Charging electric energy setting'
+      operationId: getDevicesPropertiesChargingPowerStorageBattery
+      description: '取得: 充電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingPowerStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Charging electric energy setting'
+      operationId: putDevicesPropertiesChargingPowerStorageBattery
+      description: '設定: 充電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingPowerStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingPowerStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingPower:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Discharging electric energy setting'
+      operationId: getDevicesPropertiesDischargingPowerStorageBattery
+      description: '取得: 放電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingPowerStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Discharging electric energy setting'
+      operationId: putDevicesPropertiesDischargingPowerStorageBattery
+      description: '設定: 放電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dischargingPowerStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingPowerStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingCurrent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Charging current setting'
+      operationId: getDevicesPropertiesChargingCurrentStorageBattery
+      description: '取得: 充電電流設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingCurrentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Charging current setting'
+      operationId: putDevicesPropertiesChargingCurrentStorageBattery
+      description: '設定: 充電電流設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingCurrentStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingCurrentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingCurrent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Discharging current setting'
+      operationId: getDevicesPropertiesDischargingCurrentStorageBattery
+      description: '取得: 放電電流設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingCurrentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - StorageBattery
+      summary: 'Set: Discharging current setting'
+      operationId: putDevicesPropertiesDischargingCurrentStorageBattery
+      description: '設定: 放電電流設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dischargingCurrentStorageBattery'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingCurrentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedVoltageAtIndependent:
+    get:
+      tags:
+      - StorageBattery
+      summary: 'Get: Rated voltage (Independent)'
+      operationId: getDevicesPropertiesRatedVoltageAtIndependentStorageBattery
+      description: '取得: 定格電圧 (独立時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedVoltageAtIndependentStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/resetCumulativeDischargingElectricEnergy:
+    post:
+      tags:
+      - StorageBattery
+      summary: 'Post: Measured cumulative discharging electric energy reset setting'
+      operationId: postDevicesActionsResetCumulativeDischargingElectricEnergyStorageBattery
+      description: '実行: 積算放電電力量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resetCumulativeDischargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/resetCumulativeChargingElectricEnergy:
+    post:
+      tags:
+      - StorageBattery
+      summary: 'Post: Measured cumulative charging electric energy reset setting'
+      operationId: postDevicesActionsResetCumulativeChargingElectricEnergyStorageBattery
+      description: '実行: 積算充電電力量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resetCumulativeChargingElectricEnergyStorageBattery'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesStorageBattery:
+      description: propertiesStorageBattery
+      type: object
+      properties:
+        acEffectiveChargingCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC実効容量 (充電), en: AC effective capacity (charging)] '
+        acEffectiveDischargingCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC実効容量 (放電), en: AC effective capacity (discharging)] '
+        acChargeableCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC充電可能容量, en: AC chargeable capacity] '
+        acDischargeableCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC放電可能容量, en: AC dischargeable capacity] '
+        acChargeableElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC充電可能量, en: AC chargeable electric energy] '
+        acDischargeableElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC放電可能量, en: AC dischargeable electric energy] '
+        acChargeUpperLimit:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: AC充電上限設定, en: AC charge upper limit setting] '
+        acDischargeLowerLimit:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: AC放電下限設定, en: AC discharge lower limit setting] '
+        acCumulativeChargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: AC積算充電電力量計測値, en: AC measured cumulative charging electric
+            energy] '
+        acCumulativeDischargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: AC積算放電電力量計測値, en: AC measured cumulative discharging
+            electric energy] '
+        acTargetChargingElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 999999999
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: AC充電量設定値, en: AC charge amount setting value] '
+        acTargetDischargingElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 999999999
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: AC放電量設定値, en: AC discharge amount setting value] '
+        chargingMethod:
+          type: string
+          enum:
+          - maximum
+          - surplus
+          - designatedPower
+          - designatedCurrent
+          - other
+          description: '[ja: 充電方式, en: Charging method] _maximum (ja: 最大充電電力充電, en:
+            Maximum charging electric energy charting) surplus (ja: 余剰電力充電, en: Surplus
+            electric energy charging) designatedPower (ja: 指定電力充電, en: Designated
+            electric energy charging) designatedCurrent (ja: 指定電流充電, en: Designated
+            current power charging) other (ja: その他, en: Others) '
+        dischargingMethod:
+          type: string
+          enum:
+          - maximum
+          - loadFollowing
+          - designatedPower
+          - designatedCurrent
+          - other
+          description: '[ja: 放電方式, en: Discharging method] _maximum (ja: 最大放電電力放電,
+            en: Maximum discharge electric energy discharging) loadFollowing (ja:
+            負荷追従放電, en: Load following discharge) designatedPower (ja: 指定電力放電, en:
+            Designated electric energy discharging) designatedCurrent (ja: 指定電流放電,
+            en: Designated current power discharging) other (ja: その他, en: Others) '
+        acRatedElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC定格電力量, en: AC rated electric energy] '
+        minimumAndMaximumChargingElectricPower:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小充電電力値, en: Minimum] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大充電電力値, en: Maximum] _'
+          description: '[ja: 最小最大充電電力値, en: Minimum/maximum charging electric power] '
+        minimumAndMaximumDischargingElectricPower:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小放電電力値, en: Minimum] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大放電電力値, en: Maximum] _'
+          description: '[ja: 最小最大放電電力値, en: Minimum/maximum discharging electric power] '
+        minimumAndMaximumChargingCurrent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小充電電流値, en: Minimum] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大充電電流値, en: Maximum] _'
+          description: '[ja: 最小最大充電電流値, en: Minimum/maximum charging current] '
+        minimumAndMaximumDischargingCurrent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小放電電流値, en: Minimum] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大放電電流値, en: Maximum] _'
+          description: '[ja: 最小最大放電電流値, en: Minimum/maximum discharging current] '
+        reInterconnectionPermission:
+          type: string
+          enum:
+          - permitted
+          - prohibited
+          description: '[ja: 再連系許可設定, en: Re-interconnection permission setting] _permitted
+            (ja: 許可, en: Permitted) prohibited (ja: 禁止, en: Prohibited) '
+        operationPermission:
+          type: string
+          enum:
+          - permitted
+          - prohibited
+          description: '[ja: 運転許可設定, en: Operation permission setting] _permitted
+            (ja: 許可, en: Permitted) prohibited (ja: 禁止, en: Prohibited) '
+        independentOperationPermission:
+          type: string
+          enum:
+          - permitted
+          - prohibited
+          description: '[ja: 自立運転許可設定, en: Independent operation permission setting]
+            _permitted (ja: 許可, en: Permitted) prohibited (ja: 禁止, en: Prohibited) '
+        actualOperationMode:
+          type: string
+          enum:
+          - rapidCharging
+          - charging
+          - discharging
+          - standby
+          - test
+          - auto
+          - restart
+          - capacityRecalculation
+          - other
+          description: '[ja: 運転動作状態, en: Working operation status] _rapidCharging
+            (ja: 急速充電, en: Rapid charging) charging (ja: 充電, en: Charging) discharging
+            (ja: 放電, en: Discharging) standby (ja: 待機, en: Standby) test (ja: テスト,
+            en: Test) auto (ja: 自動, en: Automatic) restart (ja: 再起動, en: Restart)
+            capacityRecalculation (ja: 実効容量再計算処理, en: Effective capacity recalculation
+            processing) other (ja: その他, en: Other) '
+        ratedElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 定格電力量, en: Rated electric energy] '
+        ratedCapacity:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 定格容量, en: Rated capacity] '
+        ratedVoltage:
+          type: number
+          minimum: 0
+          maximum: 32766
+          description: '[ja: 定格電圧, en: Rated voltage] '
+        instantaneousChargingAndDischargingElectricPower:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: 瞬時充放電電力計測値, en: Measured instantaneous charging/discharging
+            electric energy] '
+        instantaneousChargingAndDischargingCurrent:
+          type: number
+          minimum: -3276.7
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 瞬時充放電電流計測値, en: Measured instantaneous charging/discharging
+            current] '
+        instantaneousChargingAndDischargingVoltage:
+          type: number
+          minimum: -32767
+          maximum: 32766
+          description: '[ja: 瞬時充放電電圧計測値, en: Measured instantaneous charging/discharging
+            voltage] '
+        cumulativeDischargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算放電電力量計測値, en: Measured cumulative discharging electric
+            energy] '
+        cumulativeChargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算充電電力量計測値, en: Measured cumulative charging electric
+            energy] '
+        operationMode:
+          type: string
+          enum:
+          - rapidCharging
+          - charging
+          - discharging
+          - standby
+          - test
+          - auto
+          - restart
+          - capacityRecalculation
+          - other
+          description: '[ja: 運転モード設定, en: Operation mode setting] _rapidCharging (ja:
+            急速充電, en: Rapid charging) charging (ja: 充電, en: Charging) discharging
+            (ja: 放電, en: Discharging) standby (ja: 待機, en: Standby) test (ja: テスト,
+            en: Test) auto (ja: 自動, en: Automatic) restart (ja: 再起動, en: Restart)
+            capacityRecalculation (ja: 実効容量再計算処理, en: Effective capacity recalculation
+            processing) other (ja: その他, en: Other) '
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          description: '[ja: 系統連系状態, en: System-interconnected type] _reversePowerFlowAcceptable
+            (ja: 系統連系 (逆潮流可), en: System interconnection (reverse power flow acceptable))
+            independent (ja: 独立, en: Independent type) reversePowerFlowNotAcceptable
+            (ja: 系統連系 (逆潮流不可), en: System-interconnected type (reverse power flow
+            not acceptable)) '
+        minimumAndMaximumChargingPowerAtIndependent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小充電電力値, en: Minimum charging power] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大充電電力値, en: Maximum charging power] _'
+          description: '[ja: 最小最大充電電力値 (独立時), en: Minimum/maximum charging power (Independent)] '
+        minimumAndMaximumDischargingPowerAtIndependent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小放電電力値, en: Minimum discharging power] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大放電電力値, en: Maximum discharging power] _'
+          description: '[ja: 最小最大放電電力値 (独立時), en: Minimum/maximum discharging power
+            (Independent)] '
+        minimumAndMaximumChargingCurrentAtIndependent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小充電電流値, en: Minimum charging current] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大充電電流値, en: Maximum charging current] _'
+          description: '[ja: 最小最大充電電流値 (独立時), en: Minimum/maximum charging current
+            (Independent)] '
+        minimumAndMaximumDischargingCurrentAtIndependent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小放電電流値, en: Minimum discharging current] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大放電電流値, en: Maximum discharging current] _'
+          description: '[ja: 最小最大放電電流値 (独立時), en: Minimum/maximum discharging current
+            (Independent)] '
+        chargingAndDischargingAmount1:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 999999999
+          - type: number
+            minimum: -999999999
+            maximum: -1
+          description: '[ja: 充放電量設定値1, en: Charging/discharging amount setting 1] '
+        chargingAndDischargingAmount2:
+          oneOf:
+          - type: number
+            minimum: 0.1
+            maximum: 3276.6
+            multipleOf: 0.1
+          - type: number
+            minimum: -3276.7
+            maximum: -0.1
+            multipleOf: 0.1
+          description: '[ja: 充放電量設定値2, en: Charging/discharging amount setting 2] '
+        remainingCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 蓄電残量1, en: Remaining stored electricity 1] '
+        remainingCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 蓄電残量2, en: Remaining stored electricity 2] '
+        remainingCapacity3:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 蓄電残量3, en: Remaining stored electricity 3] '
+        batteryHealthState:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 劣化状態, en: Battery state of health] '
+        batteryType:
+          type: string
+          enum:
+          - unknown
+          - lead
+          - ni_mh
+          - ni_cd
+          - lib
+          - zinc
+          - alkaline
+          description: '[ja: 蓄電池タイプ, en: Battery type] _unknown (ja: 不明, en: Unknown)
+            lead (ja: 鉛, en: Lead) ni_mh (ja: ニッケル水素, en: Nickel-metal hydride) ni_cd
+            (ja: ニッケルカドミウム, en: Nickel-cadmium) lib (ja: リチウムイオン, en: Lithium ion)
+            zinc (ja: 亜鉛, en: Zinc) alkaline (ja: 充電式アルカリ, en: Rechargeable alkaline) '
+        chargingAmount1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 充電量設定値1, en: Charging amount setting 1] '
+        dischargingAmount1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 放電量設定値1, en: Discharging amount setting 1] '
+        chargingAmount2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 充電量設定値2, en: Charging amount setting 2] '
+        dischargingAmount2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 放電量設定値2, en: Discharging amount setting 2] '
+        chargingPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 充電電力設定値, en: Charging electric energy setting] '
+        dischargingPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 放電電力設定値, en: Discharging electric energy setting] '
+        chargingCurrent:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 充電電流設定値, en: Charging current setting] '
+        dischargingCurrent:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 放電電流設定値, en: Discharging current setting] '
+        ratedVoltageAtIndependent:
+          type: number
+          minimum: 0
+          maximum: 32766
+          description: '[ja: 定格電圧 (独立時), en: Rated voltage (Independent)] '
+    acEffectiveChargingCapacityStorageBattery:
+      description: '[ja: AC実効容量 (充電), en: AC effective capacity (charging)]'
+      type: object
+      properties:
+        acEffectiveChargingCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC実効容量 (充電), en: AC effective capacity (charging)] '
+    acEffectiveDischargingCapacityStorageBattery:
+      description: '[ja: AC実効容量 (放電), en: AC effective capacity (discharging)]'
+      type: object
+      properties:
+        acEffectiveDischargingCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC実効容量 (放電), en: AC effective capacity (discharging)] '
+    acChargeableCapacityStorageBattery:
+      description: '[ja: AC充電可能容量, en: AC chargeable capacity]'
+      type: object
+      properties:
+        acChargeableCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC充電可能容量, en: AC chargeable capacity] '
+    acDischargeableCapacityStorageBattery:
+      description: '[ja: AC放電可能容量, en: AC dischargeable capacity]'
+      type: object
+      properties:
+        acDischargeableCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC放電可能容量, en: AC dischargeable capacity] '
+    acChargeableElectricEnergyStorageBattery:
+      description: '[ja: AC充電可能量, en: AC chargeable electric energy]'
+      type: object
+      properties:
+        acChargeableElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC充電可能量, en: AC chargeable electric energy] '
+    acDischargeableElectricEnergyStorageBattery:
+      description: '[ja: AC放電可能量, en: AC dischargeable electric energy]'
+      type: object
+      properties:
+        acDischargeableElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC放電可能量, en: AC dischargeable electric energy] '
+    acChargeUpperLimitStorageBattery:
+      description: '[ja: AC充電上限設定, en: AC charge upper limit setting]'
+      type: object
+      properties:
+        acChargeUpperLimit:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: AC充電上限設定, en: AC charge upper limit setting] '
+    acDischargeLowerLimitStorageBattery:
+      description: '[ja: AC放電下限設定, en: AC discharge lower limit setting]'
+      type: object
+      properties:
+        acDischargeLowerLimit:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: AC放電下限設定, en: AC discharge lower limit setting] '
+    acCumulativeChargingElectricEnergyStorageBattery:
+      description: '[ja: AC積算充電電力量計測値, en: AC measured cumulative charging electric
+        energy]'
+      type: object
+      properties:
+        acCumulativeChargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: AC積算充電電力量計測値, en: AC measured cumulative charging electric
+            energy] '
+    acCumulativeDischargingElectricEnergyStorageBattery:
+      description: '[ja: AC積算放電電力量計測値, en: AC measured cumulative discharging electric
+        energy]'
+      type: object
+      properties:
+        acCumulativeDischargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: AC積算放電電力量計測値, en: AC measured cumulative discharging
+            electric energy] '
+    acTargetChargingElectricEnergyStorageBattery:
+      description: '[ja: AC充電量設定値, en: AC charge amount setting value]'
+      type: object
+      properties:
+        acTargetChargingElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 999999999
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: AC充電量設定値, en: AC charge amount setting value] '
+    acTargetDischargingElectricEnergyStorageBattery:
+      description: '[ja: AC放電量設定値, en: AC discharge amount setting value]'
+      type: object
+      properties:
+        acTargetDischargingElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 999999999
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: AC放電量設定値, en: AC discharge amount setting value] '
+    chargingMethodStorageBattery:
+      description: '[ja: 充電方式, en: Charging method]'
+      type: object
+      properties:
+        chargingMethod:
+          type: string
+          enum:
+          - maximum
+          - surplus
+          - designatedPower
+          - designatedCurrent
+          - other
+          description: '[ja: 充電方式, en: Charging method] _maximum (ja: 最大充電電力充電, en:
+            Maximum charging electric energy charting) surplus (ja: 余剰電力充電, en: Surplus
+            electric energy charging) designatedPower (ja: 指定電力充電, en: Designated
+            electric energy charging) designatedCurrent (ja: 指定電流充電, en: Designated
+            current power charging) other (ja: その他, en: Others) '
+    dischargingMethodStorageBattery:
+      description: '[ja: 放電方式, en: Discharging method]'
+      type: object
+      properties:
+        dischargingMethod:
+          type: string
+          enum:
+          - maximum
+          - loadFollowing
+          - designatedPower
+          - designatedCurrent
+          - other
+          description: '[ja: 放電方式, en: Discharging method] _maximum (ja: 最大放電電力放電,
+            en: Maximum discharge electric energy discharging) loadFollowing (ja:
+            負荷追従放電, en: Load following discharge) designatedPower (ja: 指定電力放電, en:
+            Designated electric energy discharging) designatedCurrent (ja: 指定電流放電,
+            en: Designated current power discharging) other (ja: その他, en: Others) '
+    acRatedElectricEnergyStorageBattery:
+      description: '[ja: AC定格電力量, en: AC rated electric energy]'
+      type: object
+      properties:
+        acRatedElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: AC定格電力量, en: AC rated electric energy] '
+    minimumAndMaximumChargingElectricPowerStorageBattery:
+      description: '[ja: 最小最大充電電力値, en: Minimum/maximum charging electric power]'
+      type: object
+      properties:
+        minimumAndMaximumChargingElectricPower:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小充電電力値, en: Minimum] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大充電電力値, en: Maximum] _'
+          description: '[ja: 最小最大充電電力値, en: Minimum/maximum charging electric power] '
+    minimumAndMaximumDischargingElectricPowerStorageBattery:
+      description: '[ja: 最小最大放電電力値, en: Minimum/maximum discharging electric power]'
+      type: object
+      properties:
+        minimumAndMaximumDischargingElectricPower:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小放電電力値, en: Minimum] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大放電電力値, en: Maximum] _'
+          description: '[ja: 最小最大放電電力値, en: Minimum/maximum discharging electric power] '
+    minimumAndMaximumChargingCurrentStorageBattery:
+      description: '[ja: 最小最大充電電流値, en: Minimum/maximum charging current]'
+      type: object
+      properties:
+        minimumAndMaximumChargingCurrent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小充電電流値, en: Minimum] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大充電電流値, en: Maximum] _'
+          description: '[ja: 最小最大充電電流値, en: Minimum/maximum charging current] '
+    minimumAndMaximumDischargingCurrentStorageBattery:
+      description: '[ja: 最小最大放電電流値, en: Minimum/maximum discharging current]'
+      type: object
+      properties:
+        minimumAndMaximumDischargingCurrent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小放電電流値, en: Minimum] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大放電電流値, en: Maximum] _'
+          description: '[ja: 最小最大放電電流値, en: Minimum/maximum discharging current] '
+    reInterconnectionPermissionStorageBattery:
+      description: '[ja: 再連系許可設定, en: Re-interconnection permission setting]'
+      type: object
+      properties:
+        reInterconnectionPermission:
+          type: string
+          enum:
+          - permitted
+          - prohibited
+          description: '[ja: 再連系許可設定, en: Re-interconnection permission setting] _permitted
+            (ja: 許可, en: Permitted) prohibited (ja: 禁止, en: Prohibited) '
+    operationPermissionStorageBattery:
+      description: '[ja: 運転許可設定, en: Operation permission setting]'
+      type: object
+      properties:
+        operationPermission:
+          type: string
+          enum:
+          - permitted
+          - prohibited
+          description: '[ja: 運転許可設定, en: Operation permission setting] _permitted
+            (ja: 許可, en: Permitted) prohibited (ja: 禁止, en: Prohibited) '
+    independentOperationPermissionStorageBattery:
+      description: '[ja: 自立運転許可設定, en: Independent operation permission setting]'
+      type: object
+      properties:
+        independentOperationPermission:
+          type: string
+          enum:
+          - permitted
+          - prohibited
+          description: '[ja: 自立運転許可設定, en: Independent operation permission setting]
+            _permitted (ja: 許可, en: Permitted) prohibited (ja: 禁止, en: Prohibited) '
+    actualOperationModeStorageBattery:
+      description: '[ja: 運転動作状態, en: Working operation status]'
+      type: object
+      properties:
+        actualOperationMode:
+          type: string
+          enum:
+          - rapidCharging
+          - charging
+          - discharging
+          - standby
+          - test
+          - auto
+          - restart
+          - capacityRecalculation
+          - other
+          description: '[ja: 運転動作状態, en: Working operation status] _rapidCharging
+            (ja: 急速充電, en: Rapid charging) charging (ja: 充電, en: Charging) discharging
+            (ja: 放電, en: Discharging) standby (ja: 待機, en: Standby) test (ja: テスト,
+            en: Test) auto (ja: 自動, en: Automatic) restart (ja: 再起動, en: Restart)
+            capacityRecalculation (ja: 実効容量再計算処理, en: Effective capacity recalculation
+            processing) other (ja: その他, en: Other) '
+    ratedElectricEnergyStorageBattery:
+      description: '[ja: 定格電力量, en: Rated electric energy]'
+      type: object
+      properties:
+        ratedElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 定格電力量, en: Rated electric energy] '
+    ratedCapacityStorageBattery:
+      description: '[ja: 定格容量, en: Rated capacity]'
+      type: object
+      properties:
+        ratedCapacity:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 定格容量, en: Rated capacity] '
+    ratedVoltageStorageBattery:
+      description: '[ja: 定格電圧, en: Rated voltage]'
+      type: object
+      properties:
+        ratedVoltage:
+          type: number
+          minimum: 0
+          maximum: 32766
+          description: '[ja: 定格電圧, en: Rated voltage] '
+    instantaneousChargingAndDischargingElectricPowerStorageBattery:
+      description: '[ja: 瞬時充放電電力計測値, en: Measured instantaneous charging/discharging
+        electric energy]'
+      type: object
+      properties:
+        instantaneousChargingAndDischargingElectricPower:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: 瞬時充放電電力計測値, en: Measured instantaneous charging/discharging
+            electric energy] '
+    instantaneousChargingAndDischargingCurrentStorageBattery:
+      description: '[ja: 瞬時充放電電流計測値, en: Measured instantaneous charging/discharging
+        current]'
+      type: object
+      properties:
+        instantaneousChargingAndDischargingCurrent:
+          type: number
+          minimum: -3276.7
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 瞬時充放電電流計測値, en: Measured instantaneous charging/discharging
+            current] '
+    instantaneousChargingAndDischargingVoltageStorageBattery:
+      description: '[ja: 瞬時充放電電圧計測値, en: Measured instantaneous charging/discharging
+        voltage]'
+      type: object
+      properties:
+        instantaneousChargingAndDischargingVoltage:
+          type: number
+          minimum: -32767
+          maximum: 32766
+          description: '[ja: 瞬時充放電電圧計測値, en: Measured instantaneous charging/discharging
+            voltage] '
+    cumulativeDischargingElectricEnergyStorageBattery:
+      description: '[ja: 積算放電電力量計測値, en: Measured cumulative discharging electric
+        energy]'
+      type: object
+      properties:
+        cumulativeDischargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算放電電力量計測値, en: Measured cumulative discharging electric
+            energy] '
+    cumulativeChargingElectricEnergyStorageBattery:
+      description: '[ja: 積算充電電力量計測値, en: Measured cumulative charging electric energy]'
+      type: object
+      properties:
+        cumulativeChargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算充電電力量計測値, en: Measured cumulative charging electric
+            energy] '
+    operationModeStorageBattery:
+      description: '[ja: 運転モード設定, en: Operation mode setting]'
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - rapidCharging
+          - charging
+          - discharging
+          - standby
+          - test
+          - auto
+          - restart
+          - capacityRecalculation
+          - other
+          description: '[ja: 運転モード設定, en: Operation mode setting] _rapidCharging (ja:
+            急速充電, en: Rapid charging) charging (ja: 充電, en: Charging) discharging
+            (ja: 放電, en: Discharging) standby (ja: 待機, en: Standby) test (ja: テスト,
+            en: Test) auto (ja: 自動, en: Automatic) restart (ja: 再起動, en: Restart)
+            capacityRecalculation (ja: 実効容量再計算処理, en: Effective capacity recalculation
+            processing) other (ja: その他, en: Other) '
+    powerSystemInterconnectionStatusStorageBattery:
+      description: '[ja: 系統連系状態, en: System-interconnected type]'
+      type: object
+      properties:
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          description: '[ja: 系統連系状態, en: System-interconnected type] _reversePowerFlowAcceptable
+            (ja: 系統連系 (逆潮流可), en: System interconnection (reverse power flow acceptable))
+            independent (ja: 独立, en: Independent type) reversePowerFlowNotAcceptable
+            (ja: 系統連系 (逆潮流不可), en: System-interconnected type (reverse power flow
+            not acceptable)) '
+    minimumAndMaximumChargingPowerAtIndependentStorageBattery:
+      description: '[ja: 最小最大充電電力値 (独立時), en: Minimum/maximum charging power (Independent)]'
+      type: object
+      properties:
+        minimumAndMaximumChargingPowerAtIndependent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小充電電力値, en: Minimum charging power] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大充電電力値, en: Maximum charging power] _'
+          description: '[ja: 最小最大充電電力値 (独立時), en: Minimum/maximum charging power (Independent)] '
+    minimumAndMaximumDischargingPowerAtIndependentStorageBattery:
+      description: '[ja: 最小最大放電電力値 (独立時), en: Minimum/maximum discharging power (Independent)]'
+      type: object
+      properties:
+        minimumAndMaximumDischargingPowerAtIndependent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小放電電力値, en: Minimum discharging power] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大放電電力値, en: Maximum discharging power] _'
+          description: '[ja: 最小最大放電電力値 (独立時), en: Minimum/maximum discharging power
+            (Independent)] '
+    minimumAndMaximumChargingCurrentAtIndependentStorageBattery:
+      description: '[ja: 最小最大充電電流値 (独立時), en: Minimum/maximum charging current (Independent)]'
+      type: object
+      properties:
+        minimumAndMaximumChargingCurrentAtIndependent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小充電電流値, en: Minimum charging current] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大充電電流値, en: Maximum charging current] _'
+          description: '[ja: 最小最大充電電流値 (独立時), en: Minimum/maximum charging current
+            (Independent)] '
+    minimumAndMaximumDischargingCurrentAtIndependentStorageBattery:
+      description: '[ja: 最小最大放電電流値 (独立時), en: Minimum/maximum discharging current
+        (Independent)]'
+      type: object
+      properties:
+        minimumAndMaximumDischargingCurrentAtIndependent:
+          type: object
+          properties:
+            minValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小放電電流値, en: Minimum discharging current] _'
+            maxValue:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大放電電流値, en: Maximum discharging current] _'
+          description: '[ja: 最小最大放電電流値 (独立時), en: Minimum/maximum discharging current
+            (Independent)] '
+    chargingAndDischargingAmount1StorageBattery:
+      description: '[ja: 充放電量設定値1, en: Charging/discharging amount setting 1]'
+      type: object
+      properties:
+        chargingAndDischargingAmount1:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 999999999
+          - type: number
+            minimum: -999999999
+            maximum: -1
+          description: '[ja: 充放電量設定値1, en: Charging/discharging amount setting 1] '
+    chargingAndDischargingAmount2StorageBattery:
+      description: '[ja: 充放電量設定値2, en: Charging/discharging amount setting 2]'
+      type: object
+      properties:
+        chargingAndDischargingAmount2:
+          oneOf:
+          - type: number
+            minimum: 0.1
+            maximum: 3276.6
+            multipleOf: 0.1
+          - type: number
+            minimum: -3276.7
+            maximum: -0.1
+            multipleOf: 0.1
+          description: '[ja: 充放電量設定値2, en: Charging/discharging amount setting 2] '
+    remainingCapacity1StorageBattery:
+      description: '[ja: 蓄電残量1, en: Remaining stored electricity 1]'
+      type: object
+      properties:
+        remainingCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 蓄電残量1, en: Remaining stored electricity 1] '
+    remainingCapacity2StorageBattery:
+      description: '[ja: 蓄電残量2, en: Remaining stored electricity 2]'
+      type: object
+      properties:
+        remainingCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 蓄電残量2, en: Remaining stored electricity 2] '
+    remainingCapacity3StorageBattery:
+      description: '[ja: 蓄電残量3, en: Remaining stored electricity 3]'
+      type: object
+      properties:
+        remainingCapacity3:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 蓄電残量3, en: Remaining stored electricity 3] '
+    batteryHealthStateStorageBattery:
+      description: '[ja: 劣化状態, en: Battery state of health]'
+      type: object
+      properties:
+        batteryHealthState:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 劣化状態, en: Battery state of health] '
+    batteryTypeStorageBattery:
+      description: '[ja: 蓄電池タイプ, en: Battery type]'
+      type: object
+      properties:
+        batteryType:
+          type: string
+          enum:
+          - unknown
+          - lead
+          - ni_mh
+          - ni_cd
+          - lib
+          - zinc
+          - alkaline
+          description: '[ja: 蓄電池タイプ, en: Battery type] _unknown (ja: 不明, en: Unknown)
+            lead (ja: 鉛, en: Lead) ni_mh (ja: ニッケル水素, en: Nickel-metal hydride) ni_cd
+            (ja: ニッケルカドミウム, en: Nickel-cadmium) lib (ja: リチウムイオン, en: Lithium ion)
+            zinc (ja: 亜鉛, en: Zinc) alkaline (ja: 充電式アルカリ, en: Rechargeable alkaline) '
+    chargingAmount1StorageBattery:
+      description: '[ja: 充電量設定値1, en: Charging amount setting 1]'
+      type: object
+      properties:
+        chargingAmount1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 充電量設定値1, en: Charging amount setting 1] '
+    dischargingAmount1StorageBattery:
+      description: '[ja: 放電量設定値1, en: Discharging amount setting 1]'
+      type: object
+      properties:
+        dischargingAmount1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 放電量設定値1, en: Discharging amount setting 1] '
+    chargingAmount2StorageBattery:
+      description: '[ja: 充電量設定値2, en: Charging amount setting 2]'
+      type: object
+      properties:
+        chargingAmount2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 充電量設定値2, en: Charging amount setting 2] '
+    dischargingAmount2StorageBattery:
+      description: '[ja: 放電量設定値2, en: Discharging amount setting 2]'
+      type: object
+      properties:
+        dischargingAmount2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 放電量設定値2, en: Discharging amount setting 2] '
+    chargingPowerStorageBattery:
+      description: '[ja: 充電電力設定値, en: Charging electric energy setting]'
+      type: object
+      properties:
+        chargingPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 充電電力設定値, en: Charging electric energy setting] '
+    dischargingPowerStorageBattery:
+      description: '[ja: 放電電力設定値, en: Discharging electric energy setting]'
+      type: object
+      properties:
+        dischargingPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 放電電力設定値, en: Discharging electric energy setting] '
+    chargingCurrentStorageBattery:
+      description: '[ja: 充電電流設定値, en: Charging current setting]'
+      type: object
+      properties:
+        chargingCurrent:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 充電電流設定値, en: Charging current setting] '
+    dischargingCurrentStorageBattery:
+      description: '[ja: 放電電流設定値, en: Discharging current setting]'
+      type: object
+      properties:
+        dischargingCurrent:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 放電電流設定値, en: Discharging current setting] '
+    ratedVoltageAtIndependentStorageBattery:
+      description: '[ja: 定格電圧 (独立時), en: Rated voltage (Independent)]'
+      type: object
+      properties:
+        ratedVoltageAtIndependent:
+          type: number
+          minimum: 0
+          maximum: 32766
+          description: '[ja: 定格電圧 (独立時), en: Rated voltage (Independent)] '
+    resetCumulativeDischargingElectricEnergyStorageBattery: {}
+    resetCumulativeChargingElectricEnergyStorageBattery: {}
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

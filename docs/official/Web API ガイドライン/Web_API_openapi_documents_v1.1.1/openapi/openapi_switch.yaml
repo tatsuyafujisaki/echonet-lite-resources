@@ -1,0 +1,135 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Switch
+  description: tag for Switch (supporting JEM-A/HA terminals)
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - Switch
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesSwitch
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesSwitch'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/connectedDevice:
+    get:
+      tags:
+      - Switch
+      summary: 'Get: Connected device'
+      operationId: getDevicesPropertiesConnectedDeviceSwitch
+      description: '取得: 接続機器'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/connectedDeviceSwitch'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Switch
+      summary: 'Set: Connected device'
+      operationId: putDevicesPropertiesConnectedDeviceSwitch
+      description: '設定: 接続機器'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/connectedDeviceSwitch'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/connectedDeviceSwitch'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesSwitch:
+      description: propertiesSwitch
+      type: object
+      properties:
+        connectedDevice:
+          type: string
+          description: '[ja: 接続機器, en: Connected device] '
+    connectedDeviceSwitch:
+      description: '[ja: 接続機器, en: Connected device]'
+      type: object
+      properties:
+        connectedDevice:
+          type: string
+          description: '[ja: 接続機器, en: Connected device] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

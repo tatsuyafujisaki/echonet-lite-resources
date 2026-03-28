@@ -1,0 +1,424 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Bulks
+  description: tag for Bulks
+security:
+- api_key: []
+paths:
+  /elapi/v1/bulks/{bulkID}/properties:
+    get:
+      tags:
+      - Bulks
+      summary: 'Get: properties'
+      operationId: getBulksPropertiesBulks
+      description: '取得: properties'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/bulks/{bulkID}/properties/descriptions:
+    get:
+      tags:
+      - Bulks
+      summary: 'Get: explanation of bulk'
+      operationId: getBulksPropertiesDescriptionsBulks
+      description: '取得: bulkの説明'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/descriptionsBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Bulks
+      summary: 'Set: explanation of bulk'
+      operationId: putBulksPropertiesDescriptionsBulks
+      description: '設定: bulkの説明'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/descriptionsBulks'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/descriptionsBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/bulks/{bulkID}/properties/base:
+    get:
+      tags:
+      - Bulks
+      summary: 'Get: base URI'
+      operationId: getBulksPropertiesBaseBulks
+      description: '取得: ベースのURI'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/baseBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/bulks/{bulkID}/properties/processMode:
+    get:
+      tags:
+      - Bulks
+      summary: 'Get: processing mode'
+      operationId: getBulksPropertiesProcessModeBulks
+      description: '取得: 処理モード'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/processModeBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/bulks/{bulkID}/properties/requests:
+    get:
+      tags:
+      - Bulks
+      summary: 'Get: set of request commands in a bulk'
+      operationId: getBulksPropertiesRequestsBulks
+      description: '取得: bulkの中の要求命令セット'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/requestsBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/bulks/{bulkID}/actions/execute:
+    post:
+      tags:
+      - Bulks
+      summary: 'Post: Execute a bulk'
+      operationId: postBulksActionsExecuteBulks
+      description: '実行: bulkを実行'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/executeBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/bulks/{bulkID}/actions/abort:
+    post:
+      tags:
+      - Bulks
+      summary: 'Post: Abort an execution of a bulk'
+      operationId: postBulksActionsAbortBulks
+      description: '実行: bulk実行中断'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/abortInputBulks'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/abortBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/bulks/{bulkID}/actions/getResults:
+    post:
+      tags:
+      - Bulks
+      summary: 'Post: Get results'
+      operationId: postBulksActionsGetResultsBulks
+      description: '実行: 実行結果の取得'
+      parameters:
+      - description: bulk id
+        name: bulkID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getResultsInputBulks'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getResultsBulks'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesBulks:
+      description: propertiesBulks
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: bulkの説明, en: explanation of bulk] '
+        base:
+          type: string
+          description: '[ja: ベースのURI, en: base URI] '
+        processMode:
+          type: string
+          enum:
+          - concurrent
+          - sequential
+          description: '[ja: 処理モード, en: processing mode] '
+        requests:
+          type: array
+          items:
+            type: object
+            properties:
+              method:
+                type: string
+                enum:
+                - GET
+                - PUT
+                - POST
+                - PATCH
+                - DELETE
+              path:
+                type: string
+              body:
+                type: object
+          description: '[ja: bulkの中の要求命令セット, en: set of request commands in a bulk] '
+    descriptionsBulks:
+      description: '[ja: bulkの説明, en: explanation of bulk]'
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: bulkの説明, en: explanation of bulk] '
+    baseBulks:
+      description: '[ja: ベースのURI, en: base URI]'
+      type: object
+      properties:
+        base:
+          type: string
+          description: '[ja: ベースのURI, en: base URI] '
+    processModeBulks:
+      description: '[ja: 処理モード, en: processing mode]'
+      type: object
+      properties:
+        processMode:
+          type: string
+          enum:
+          - concurrent
+          - sequential
+          description: '[ja: 処理モード, en: processing mode] '
+    requestsBulks:
+      description: '[ja: bulkの中の要求命令セット, en: set of request commands in a bulk]'
+      type: object
+      properties:
+        requests:
+          type: array
+          items:
+            type: object
+            properties:
+              method:
+                type: string
+                enum:
+                - GET
+                - PUT
+                - POST
+                - PATCH
+                - DELETE
+              path:
+                type: string
+              body:
+                type: object
+          description: '[ja: bulkの中の要求命令セット, en: set of request commands in a bulk] '
+    executeBulks:
+      type: object
+      properties:
+        executionId:
+          type: string
+    abortBulks:
+      type: object
+      properties:
+        executionId:
+          type: string
+    abortInputBulks:
+      type: object
+      properties:
+        executionId:
+          type: string
+    getResultsBulks:
+      type: object
+      properties:
+        base:
+          type: string
+        total:
+          type: number
+          minimum: 0
+        processStatus:
+          type: string
+          enum:
+          - succeeded
+          - failed
+          - inProgress
+          - aborted
+        responses:
+          type: array
+          items:
+            type: object
+            properties:
+              method:
+                type: string
+                enum:
+                - GET
+                - PUT
+                - POST
+                - PATCH
+                - DELETE
+              path:
+                type: string
+              body:
+                type: object
+              progress:
+                type: string
+                enum:
+                - unexecuted
+                - executing
+                - completed
+                - failed
+                - timeout
+                - aborted
+              statusCode:
+                type: number
+    getResultsInputBulks:
+      type: object
+      properties:
+        executionId:
+          type: string
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

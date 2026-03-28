@@ -1,0 +1,216 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: VentilationFan
+  description: tag for Ventilation fan
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - VentilationFan
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesVentilationFan
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airFlowLevel:
+    get:
+      tags:
+      - VentilationFan
+      summary: 'Get: Set value of ventilation air flow rate'
+      operationId: getDevicesPropertiesAirFlowLevelVentilationFan
+      description: '取得: 換気風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowLevelVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - VentilationFan
+      summary: 'Set: Set value of ventilation air flow rate'
+      operationId: putDevicesPropertiesAirFlowLevelVentilationFan
+      description: '設定: 換気風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airFlowLevelVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowLevelVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticVentilationOperation:
+    get:
+      tags:
+      - VentilationFan
+      summary: 'Get: Ventilation Auto setting'
+      operationId: getDevicesPropertiesAutomaticVentilationOperationVentilationFan
+      description: '取得: 換気自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticVentilationOperationVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - VentilationFan
+      summary: 'Set: Ventilation Auto setting'
+      operationId: putDevicesPropertiesAutomaticVentilationOperationVentilationFan
+      description: '設定: 換気自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticVentilationOperationVentilationFan'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticVentilationOperationVentilationFan'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesVentilationFan:
+      description: propertiesVentilationFan
+      type: object
+      properties:
+        airFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 換気風量自動状態, en: Ventilation air flow rate auto
+              status) '
+          description: '[ja: 換気風量設定, en: Set value of ventilation air flow rate] '
+        automaticVentilationOperation:
+          type: boolean
+          description: '[ja: 換気自動設定, en: Ventilation Auto setting] _True (ja: AUTO,
+            en: Auto) False (ja: 非AUTO, en: Non-auto) '
+    airFlowLevelVentilationFan:
+      description: '[ja: 換気風量設定, en: Set value of ventilation air flow rate]'
+      type: object
+      properties:
+        airFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 換気風量自動状態, en: Ventilation air flow rate auto
+              status) '
+          description: '[ja: 換気風量設定, en: Set value of ventilation air flow rate] '
+    automaticVentilationOperationVentilationFan:
+      description: '[ja: 換気自動設定, en: Ventilation Auto setting]'
+      type: object
+      properties:
+        automaticVentilationOperation:
+          type: boolean
+          description: '[ja: 換気自動設定, en: Ventilation Auto setting] _True (ja: AUTO,
+            en: Auto) False (ja: 非AUTO, en: Non-auto) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

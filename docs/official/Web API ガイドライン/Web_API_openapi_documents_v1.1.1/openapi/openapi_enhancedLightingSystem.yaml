@@ -1,0 +1,585 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: EnhancedLightingSystem
+  description: tag for Extended lighting system
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesEnhancedLightingSystem
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lightLevel:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Light level setting'
+      operationId: getDevicesPropertiesLightLevelEnhancedLightingSystem
+      description: '取得: 照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Set: Light level setting'
+      operationId: putDevicesPropertiesLightLevelEnhancedLightingSystem
+      description: '設定: 照明の明るさ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/lightLevelEnhancedLightingSystem'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lightLevelEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/sceneId:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Scene control setting'
+      operationId: getDevicesPropertiesSceneIdEnhancedLightingSystem
+      description: '取得: シーン制御設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sceneIdEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Set: Scene control setting'
+      operationId: putDevicesPropertiesSceneIdEnhancedLightingSystem
+      description: '設定: シーン制御設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sceneIdEnhancedLightingSystem'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sceneIdEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/maximumNumberOfSceneId:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Number that can assign scene control setting.'
+      operationId: getDevicesPropertiesMaximumNumberOfSceneIdEnhancedLightingSystem
+      description: '取得: シーン制御設定可能数'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/maximumNumberOfSceneIdEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerConsumptionRateList:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Power consumption rate list'
+      operationId: getDevicesPropertiesPowerConsumptionRateListEnhancedLightingSystem
+      description: '取得: 電力消費率リスト'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerConsumptionRateListEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerConsumptionAtFullLighting:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Power consumption when fully lighted'
+      operationId: getDevicesPropertiesPowerConsumptionAtFullLightingEnhancedLightingSystem
+      description: '取得: 全灯時消費電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerConsumptionAtFullLightingEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerConsumptionWillBeSaved:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Possible power savings'
+      operationId: getDevicesPropertiesPowerConsumptionWillBeSavedEnhancedLightingSystem
+      description: '取得: 節電可能消費電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerConsumptionWillBeSavedEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerConsumptionLimit:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Power consumption limit setting'
+      operationId: getDevicesPropertiesPowerConsumptionLimitEnhancedLightingSystem
+      description: '取得: 消費電力制限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerConsumptionLimitEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Set: Power consumption limit setting'
+      operationId: putDevicesPropertiesPowerConsumptionLimitEnhancedLightingSystem
+      description: '設定: 消費電力制限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/powerConsumptionLimitEnhancedLightingSystem'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerConsumptionLimitEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticOperationControlling:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Automatic operation controlling setting'
+      operationId: getDevicesPropertiesAutomaticOperationControllingEnhancedLightingSystem
+      description: '取得: 自動動作制御設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticOperationControllingEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Set: Automatic operation controlling setting'
+      operationId: putDevicesPropertiesAutomaticOperationControllingEnhancedLightingSystem
+      description: '設定: 自動動作制御設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticOperationControllingEnhancedLightingSystem'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticOperationControllingEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/fadingControlChangeTime:
+    get:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Get: Fading control change time setting'
+      operationId: getDevicesPropertiesFadingControlChangeTimeEnhancedLightingSystem
+      description: '取得: フェード制御変化時間設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fadingControlChangeTimeEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EnhancedLightingSystem
+      summary: 'Set: Fading control change time setting'
+      operationId: putDevicesPropertiesFadingControlChangeTimeEnhancedLightingSystem
+      description: '設定: フェード制御変化時間設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/fadingControlChangeTimeEnhancedLightingSystem'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fadingControlChangeTimeEnhancedLightingSystem'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesEnhancedLightingSystem:
+      description: propertiesEnhancedLightingSystem
+      type: object
+      properties:
+        lightLevel:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 照明の明るさ設定, en: Light level setting] '
+        sceneId:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 253
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: シーン制御設定, en: Scene control setting] '
+        maximumNumberOfSceneId:
+          type: number
+          minimum: 1
+          maximum: 253
+          description: '[ja: シーン制御設定可能数, en: Number that can assign scene control
+            setting.] '
+        powerConsumptionRateList:
+          type: array
+          minItems: 1
+          maxItems: 253
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+              maximum: 100
+            - type: string
+              enum:
+              - unknown
+              description: '_unknown (ja: 不明, en: Unknown) '
+          description: '[ja: 電力消費率リスト, en: Power consumption rate list] '
+        powerConsumptionAtFullLighting:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 全灯時消費電力, en: Power consumption when fully lighted] '
+        powerConsumptionWillBeSaved:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 節電可能消費電力, en: Possible power savings] '
+        powerConsumptionLimit:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 65533
+          - type: string
+            enum:
+            - cancel
+            description: '_cancel (ja: 電力制限解除, en: Canceling power consumption restriction) '
+          description: '[ja: 消費電力制限設定, en: Power consumption limit setting] '
+        automaticOperationControlling:
+          type: boolean
+          description: '[ja: 自動動作制御設定, en: Automatic operation controlling setting]
+            _True (ja: ON, en: ON) False (ja: OFF, en: OFF) '
+        fadingControlChangeTime:
+          type: number
+          minimum: 0
+          maximum: 3600
+          description: '[ja: フェード制御変化時間設定, en: Fading control change time setting] '
+    lightLevelEnhancedLightingSystem:
+      description: '[ja: 照明の明るさ設定, en: Light level setting]'
+      type: object
+      properties:
+        lightLevel:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 照明の明るさ設定, en: Light level setting] '
+    sceneIdEnhancedLightingSystem:
+      description: '[ja: シーン制御設定, en: Scene control setting]'
+      type: object
+      properties:
+        sceneId:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 253
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: シーン制御設定, en: Scene control setting] '
+    maximumNumberOfSceneIdEnhancedLightingSystem:
+      description: '[ja: シーン制御設定可能数, en: Number that can assign scene control setting.]'
+      type: object
+      properties:
+        maximumNumberOfSceneId:
+          type: number
+          minimum: 1
+          maximum: 253
+          description: '[ja: シーン制御設定可能数, en: Number that can assign scene control
+            setting.] '
+    powerConsumptionRateListEnhancedLightingSystem:
+      description: '[ja: 電力消費率リスト, en: Power consumption rate list]'
+      type: object
+      properties:
+        powerConsumptionRateList:
+          type: array
+          minItems: 1
+          maxItems: 253
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+              maximum: 100
+            - type: string
+              enum:
+              - unknown
+              description: '_unknown (ja: 不明, en: Unknown) '
+          description: '[ja: 電力消費率リスト, en: Power consumption rate list] '
+    powerConsumptionAtFullLightingEnhancedLightingSystem:
+      description: '[ja: 全灯時消費電力, en: Power consumption when fully lighted]'
+      type: object
+      properties:
+        powerConsumptionAtFullLighting:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 全灯時消費電力, en: Power consumption when fully lighted] '
+    powerConsumptionWillBeSavedEnhancedLightingSystem:
+      description: '[ja: 節電可能消費電力, en: Possible power savings]'
+      type: object
+      properties:
+        powerConsumptionWillBeSaved:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 節電可能消費電力, en: Possible power savings] '
+    powerConsumptionLimitEnhancedLightingSystem:
+      description: '[ja: 消費電力制限設定, en: Power consumption limit setting]'
+      type: object
+      properties:
+        powerConsumptionLimit:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 65533
+          - type: string
+            enum:
+            - cancel
+            description: '_cancel (ja: 電力制限解除, en: Canceling power consumption restriction) '
+          description: '[ja: 消費電力制限設定, en: Power consumption limit setting] '
+    automaticOperationControllingEnhancedLightingSystem:
+      description: '[ja: 自動動作制御設定, en: Automatic operation controlling setting]'
+      type: object
+      properties:
+        automaticOperationControlling:
+          type: boolean
+          description: '[ja: 自動動作制御設定, en: Automatic operation controlling setting]
+            _True (ja: ON, en: ON) False (ja: OFF, en: OFF) '
+    fadingControlChangeTimeEnhancedLightingSystem:
+      description: '[ja: フェード制御変化時間設定, en: Fading control change time setting]'
+      type: object
+      properties:
+        fadingControlChangeTime:
+          type: number
+          minimum: 0
+          maximum: 3600
+          description: '[ja: フェード制御変化時間設定, en: Fading control change time setting] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

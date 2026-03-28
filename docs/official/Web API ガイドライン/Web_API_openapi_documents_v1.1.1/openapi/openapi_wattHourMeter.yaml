@@ -1,0 +1,168 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: WattHourMeter
+  description: tag for Watt-hour meter
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - WattHourMeter
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesWattHourMeter
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesWattHourMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeElectricEnergy:
+    get:
+      tags:
+      - WattHourMeter
+      summary: 'Get: Cumulative amounts of electric energy measurement value'
+      operationId: getDevicesPropertiesCumulativeElectricEnergyWattHourMeter
+      description: '取得: 積算電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeElectricEnergyWattHourMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeElectricEnergyLog1:
+    get:
+      tags:
+      - WattHourMeter
+      summary: 'Get: Cumulative amounts of electric energy measurement log 1'
+      operationId: getDevicesPropertiesCumulativeElectricEnergyLog1WattHourMeter
+      description: '取得: 積算電力量計測値履歴1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeElectricEnergyLog1WattHourMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesWattHourMeter:
+      description: propertiesWattHourMeter
+      type: object
+      properties:
+        cumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy measurement
+            value] '
+        cumulativeElectricEnergyLog1:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+            - type: string
+              enum:
+              - noData
+              description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測値履歴1, en: Cumulative amounts of electric energy
+            measurement log 1] '
+    cumulativeElectricEnergyWattHourMeter:
+      description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy measurement
+        value]'
+      type: object
+      properties:
+        cumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy measurement
+            value] '
+    cumulativeElectricEnergyLog1WattHourMeter:
+      description: '[ja: 積算電力量計測値履歴1, en: Cumulative amounts of electric energy measurement
+        log 1]'
+      type: object
+      properties:
+        cumulativeElectricEnergyLog1:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+            - type: string
+              enum:
+              - noData
+              description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測値履歴1, en: Cumulative amounts of electric energy
+            measurement log 1] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

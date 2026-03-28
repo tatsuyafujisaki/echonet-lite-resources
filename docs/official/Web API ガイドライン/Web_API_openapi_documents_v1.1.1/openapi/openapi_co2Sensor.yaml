@@ -1,0 +1,111 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Co2Sensor
+  description: tag for CO2 sensor
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - Co2Sensor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesCo2Sensor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesCo2Sensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/value:
+    get:
+      tags:
+      - Co2Sensor
+      summary: 'Get: Measured value of CO2 concentration'
+      operationId: getDevicesPropertiesValueCo2Sensor
+      description: '取得: CO2濃度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/valueCo2Sensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesCo2Sensor:
+      description: propertiesCo2Sensor
+      type: object
+      properties:
+        value:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: CO2濃度計測値, en: Measured value of CO2 concentration] '
+    valueCo2Sensor:
+      description: '[ja: CO2濃度計測値, en: Measured value of CO2 concentration]'
+      type: object
+      properties:
+        value:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: CO2濃度計測値, en: Measured value of CO2 concentration] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

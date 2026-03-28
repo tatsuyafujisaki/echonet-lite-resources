@@ -1,0 +1,285 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: MultipleInputPCS
+  description: tag for Multiple input pcs
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - MultipleInputPCS
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesMultipleInputPCS
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesMultipleInputPCS'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerSystemInterconnectionStatus:
+    get:
+      tags:
+      - MultipleInputPCS
+      summary: 'Get: System interconnection status'
+      operationId: getDevicesPropertiesPowerSystemInterconnectionStatusMultipleInputPCS
+      description: '取得: 系統連系状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerSystemInterconnectionStatusMultipleInputPCS'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/normalDirectionElectricEnergy:
+    get:
+      tags:
+      - MultipleInputPCS
+      summary: 'Get: Measured cumulative amount of electric energy (normal direction)'
+      operationId: getDevicesPropertiesNormalDirectionElectricEnergyMultipleInputPCS
+      description: '取得: 積算電力量計測値(正方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/normalDirectionElectricEnergyMultipleInputPCS'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reverseDirectionElectricEnergy:
+    get:
+      tags:
+      - MultipleInputPCS
+      summary: 'Get: Measured cumulative amount of electric energy (reverse direction)'
+      operationId: getDevicesPropertiesReverseDirectionElectricEnergyMultipleInputPCS
+      description: '取得: 積算電力量計測値(逆方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reverseDirectionElectricEnergyMultipleInputPCS'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPower:
+    get:
+      tags:
+      - MultipleInputPCS
+      summary: 'Get: Measured instantaneous electric power'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerMultipleInputPCS
+      description: '取得: 瞬時電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerMultipleInputPCS'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/connectedDeviceList:
+    get:
+      tags:
+      - MultipleInputPCS
+      summary: 'Get: List of connected devices'
+      operationId: getDevicesPropertiesConnectedDeviceListMultipleInputPCS
+      description: '取得: 接続機器リスト'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/connectedDeviceListMultipleInputPCS'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesMultipleInputPCS:
+      description: propertiesMultipleInputPCS
+      type: object
+      properties:
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          description: '[ja: 系統連系状態, en: System interconnection status] _reversePowerFlowAcceptable
+            (ja: 系統連系(逆潮流可), en: System-interconnected type (reverse power flow acceptable))
+            independent (ja: 独立, en: Independent type) reversePowerFlowNotAcceptable
+            (ja: 系統連系(逆潮流不可), en: System-interconnected type (reverse power flow not
+            acceptable)) '
+        normalDirectionElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算電力量計測値(正方向), en: Measured cumulative amount of electric
+            energy (normal direction)] '
+        reverseDirectionElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算電力量計測値(逆方向), en: Measured cumulative amount of electric
+            energy (reverse direction)] '
+        instantaneousElectricPower:
+          type: number
+          minimum: -2147483647
+          maximum: 2147483645
+          description: '[ja: 瞬時電力計測値, en: Measured instantaneous electric power] '
+        connectedDeviceList:
+          type: array
+          minItems: 1
+          maxItems: 10
+          items:
+            type: string
+          description: '[ja: 接続機器リスト, en: List of connected devices] '
+    powerSystemInterconnectionStatusMultipleInputPCS:
+      description: '[ja: 系統連系状態, en: System interconnection status]'
+      type: object
+      properties:
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          description: '[ja: 系統連系状態, en: System interconnection status] _reversePowerFlowAcceptable
+            (ja: 系統連系(逆潮流可), en: System-interconnected type (reverse power flow acceptable))
+            independent (ja: 独立, en: Independent type) reversePowerFlowNotAcceptable
+            (ja: 系統連系(逆潮流不可), en: System-interconnected type (reverse power flow not
+            acceptable)) '
+    normalDirectionElectricEnergyMultipleInputPCS:
+      description: '[ja: 積算電力量計測値(正方向), en: Measured cumulative amount of electric
+        energy (normal direction)]'
+      type: object
+      properties:
+        normalDirectionElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算電力量計測値(正方向), en: Measured cumulative amount of electric
+            energy (normal direction)] '
+    reverseDirectionElectricEnergyMultipleInputPCS:
+      description: '[ja: 積算電力量計測値(逆方向), en: Measured cumulative amount of electric
+        energy (reverse direction)]'
+      type: object
+      properties:
+        reverseDirectionElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算電力量計測値(逆方向), en: Measured cumulative amount of electric
+            energy (reverse direction)] '
+    instantaneousElectricPowerMultipleInputPCS:
+      description: '[ja: 瞬時電力計測値, en: Measured instantaneous electric power]'
+      type: object
+      properties:
+        instantaneousElectricPower:
+          type: number
+          minimum: -2147483647
+          maximum: 2147483645
+          description: '[ja: 瞬時電力計測値, en: Measured instantaneous electric power] '
+    connectedDeviceListMultipleInputPCS:
+      description: '[ja: 接続機器リスト, en: List of connected devices]'
+      type: object
+      properties:
+        connectedDeviceList:
+          type: array
+          minItems: 1
+          maxItems: 10
+          items:
+            type: string
+          description: '[ja: 接続機器リスト, en: List of connected devices] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

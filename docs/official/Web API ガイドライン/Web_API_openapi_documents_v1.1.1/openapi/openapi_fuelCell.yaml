@@ -1,0 +1,902 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: FuelCell
+  description: tag for Fuel cell
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesFuelCell
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterTemperatureInWaterHeater:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Measured temperature of water in water heater'
+      operationId: getDevicesPropertiesWaterTemperatureInWaterHeaterFuelCell
+      description: '取得: 温水器湯温計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterTemperatureInWaterHeaterFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedElectricPowerOfGeneration:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Rated power generation output'
+      operationId: getDevicesPropertiesRatedElectricPowerOfGenerationFuelCell
+      description: '取得: 定格発電出力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricPowerOfGenerationFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heatCapacityOfStorageTank:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Heating value of hot water storage tank'
+      operationId: getDevicesPropertiesHeatCapacityOfStorageTankFuelCell
+      description: '取得: 貯湯槽熱量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatCapacityOfStorageTankFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPowerOfGeneration:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Measured instantaneous power generation output'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerOfGenerationFuelCell
+      description: '取得: 瞬時発電電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerOfGenerationFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeElectricEnergyOfGeneration:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Measured cumulative power generation output'
+      operationId: getDevicesPropertiesCumulativeElectricEnergyOfGenerationFuelCell
+      description: '取得: 積算発電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeElectricEnergyOfGenerationFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousGasConsumption:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Measured instantaneous gas consumption'
+      operationId: getDevicesPropertiesInstantaneousGasConsumptionFuelCell
+      description: '取得: 瞬時ガス消費量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousGasConsumptionFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeGasConsumption:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Measured cumulative gas consumption'
+      operationId: getDevicesPropertiesCumulativeGasConsumptionFuelCell
+      description: '取得: 積算ガス消費量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeGasConsumptionFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerGenerationSetting:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Power generation setting'
+      operationId: getDevicesPropertiesPowerGenerationSettingFuelCell
+      description: '取得: 発電動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationSettingFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FuelCell
+      summary: 'Set: Power generation setting'
+      operationId: putDevicesPropertiesPowerGenerationSettingFuelCell
+      description: '設定: 発電動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/powerGenerationSettingFuelCell'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationSettingFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerGenerationStatus:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Power generation status'
+      operationId: getDevicesPropertiesPowerGenerationStatusFuelCell
+      description: '取得: 発電動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationStatusFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/inHouseInstantaneousPowerConsumption:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Measured in-house instantaneous power consumption'
+      operationId: getDevicesPropertiesInHouseInstantaneousPowerConsumptionFuelCell
+      description: '取得: 宅内瞬時消費電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inHouseInstantaneousPowerConsumptionFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/inHouseCumulativeEnergyConsumption:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Measured in-house cumulative energy consumption'
+      operationId: getDevicesPropertiesInHouseCumulativeEnergyConsumptionFuelCell
+      description: '取得: 宅内積算消費電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inHouseCumulativeEnergyConsumptionFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerSystemInterconnectionStatus:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: System interconnected type'
+      operationId: getDevicesPropertiesPowerSystemInterconnectionStatusFuelCell
+      description: '取得: 系統連系状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerSystemInterconnectionStatusFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/requestedTimeOfGeneration:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Power generation request time setting'
+      operationId: getDevicesPropertiesRequestedTimeOfGenerationFuelCell
+      description: '取得: 発電要請時刻設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/requestedTimeOfGenerationFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FuelCell
+      summary: 'Set: Power generation request time setting'
+      operationId: putDevicesPropertiesRequestedTimeOfGenerationFuelCell
+      description: '設定: 発電要請時刻設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/requestedTimeOfGenerationFuelCell'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/requestedTimeOfGenerationFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerGenerationMode:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Designated power generation status'
+      operationId: getDevicesPropertiesPowerGenerationModeFuelCell
+      description: '取得: 指定発電状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationModeFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FuelCell
+      summary: 'Set: Designated power generation status'
+      operationId: putDevicesPropertiesPowerGenerationModeFuelCell
+      description: '設定: 指定発電状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/powerGenerationModeFuelCell'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationModeFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingHotWaterAmount:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Measured remaining hot water amount'
+      operationId: getDevicesPropertiesRemainingHotWaterAmountFuelCell
+      description: '取得: 残湯量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingHotWaterAmountFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/tankCapacity:
+    get:
+      tags:
+      - FuelCell
+      summary: 'Get: Tank capacity'
+      operationId: getDevicesPropertiesTankCapacityFuelCell
+      description: '取得: タンク容量値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tankCapacityFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/cumulativeEnergyGenerationOutputReset:
+    post:
+      tags:
+      - FuelCell
+      summary: 'Post: Cumulative energy generation output reset setting'
+      operationId: postDevicesActionsCumulativeEnergyGenerationOutputResetFuelCell
+      description: '実行: 積算発電電力量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeEnergyGenerationOutputResetFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/cumulativeGasConsumptionReset:
+    post:
+      tags:
+      - FuelCell
+      summary: 'Post: Cumulative gas consumption reset setting'
+      operationId: postDevicesActionsCumulativeGasConsumptionResetFuelCell
+      description: '実行: 積算ガス消費量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeGasConsumptionResetFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/inHouseCumulativeEnergyConsumptionReset:
+    post:
+      tags:
+      - FuelCell
+      summary: 'Post: In-house cumulative energy consumption reset'
+      operationId: postDevicesActionsInHouseCumulativeEnergyConsumptionResetFuelCell
+      description: '実行: 宅内積算消費電力量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inHouseCumulativeEnergyConsumptionResetFuelCell'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesFuelCell:
+      description: propertiesFuelCell
+      type: object
+      properties:
+        waterTemperatureInWaterHeater:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 温水器湯温計測値, en: Measured temperature of water in water
+            heater] '
+        ratedElectricPowerOfGeneration:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 定格発電出力, en: Rated power generation output] '
+        heatCapacityOfStorageTank:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 貯湯槽熱量, en: Heating value of hot water storage tank] '
+        instantaneousElectricPowerOfGeneration:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 瞬時発電電力計測値, en: Measured instantaneous power generation
+            output] '
+        cumulativeElectricEnergyOfGeneration:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算発電電力量計測値, en: Measured cumulative power generation
+            output] '
+        instantaneousGasConsumption:
+          type: number
+          minimum: 0
+          maximum: 65.533
+          multipleOf: 0.001
+          description: '[ja: 瞬時ガス消費量計測値, en: Measured instantaneous gas consumption] '
+        cumulativeGasConsumption:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算ガス消費量計測値, en: Measured cumulative gas consumption] '
+        powerGenerationSetting:
+          type: string
+          enum:
+          - generationOn
+          - generationOff
+          description: '[ja: 発電動作設定, en: Power generation setting] _generationOn (ja:
+            発電動作, en: Power generation ON) generationOff (ja: 発電停止, en: Power generation
+            OFF) '
+        powerGenerationStatus:
+          type: string
+          enum:
+          - generating
+          - stopped
+          - starting
+          - stopping
+          - idling
+          description: '[ja: 発電動作状態, en: Power generation status] _generating (ja:
+            発電中, en: Generating) stopped (ja: 停止中, en: Stopped) starting (ja: 起動中,
+            en: Starting) stopping (ja: 停止動作中, en: Stopping) idling (ja: アイドル中, en:
+            Idling) '
+        inHouseInstantaneousPowerConsumption:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 宅内瞬時消費電力計測値, en: Measured in-house instantaneous power
+            consumption] '
+        inHouseCumulativeEnergyConsumption:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 宅内積算消費電力量計測値, en: Measured in-house cumulative energy
+            consumption] '
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          description: '[ja: 系統連系状態, en: System interconnected type] _reversePowerFlowAcceptable
+            (ja: 系統連系 (逆潮流可), en: System interconnected type (reverse power flow acceptable))
+            independent (ja: 独立, en: Independent type) reversePowerFlowNotAcceptable
+            (ja: 系統連系 (逆潮流不可), en: System interconnected type (reverse power flow
+            not acceptable)) '
+        requestedTimeOfGeneration:
+          oneOf:
+          - type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 開始時刻, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 終了時刻, en: End time] _'
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 未設定, en: Undefined) '
+          description: '[ja: 発電要請時刻設定, en: Power generation request time setting] '
+        powerGenerationMode:
+          type: string
+          enum:
+          - maximumRating
+          - loadFollowing
+          description: '[ja: 指定発電状態, en: Designated power generation status] _maximumRating
+            (ja: 定格最大での発電, en: Power generation at the maximum rating) loadFollowing
+            (ja: 負荷追従での発電, en: Load following power generation) '
+        remainingHotWaterAmount:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 残湯量計測値, en: Measured remaining hot water amount] '
+        tankCapacity:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: タンク容量値, en: Tank capacity] '
+    waterTemperatureInWaterHeaterFuelCell:
+      description: '[ja: 温水器湯温計測値, en: Measured temperature of water in water heater]'
+      type: object
+      properties:
+        waterTemperatureInWaterHeater:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 温水器湯温計測値, en: Measured temperature of water in water
+            heater] '
+    ratedElectricPowerOfGenerationFuelCell:
+      description: '[ja: 定格発電出力, en: Rated power generation output]'
+      type: object
+      properties:
+        ratedElectricPowerOfGeneration:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 定格発電出力, en: Rated power generation output] '
+    heatCapacityOfStorageTankFuelCell:
+      description: '[ja: 貯湯槽熱量, en: Heating value of hot water storage tank]'
+      type: object
+      properties:
+        heatCapacityOfStorageTank:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 貯湯槽熱量, en: Heating value of hot water storage tank] '
+    instantaneousElectricPowerOfGenerationFuelCell:
+      description: '[ja: 瞬時発電電力計測値, en: Measured instantaneous power generation output]'
+      type: object
+      properties:
+        instantaneousElectricPowerOfGeneration:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 瞬時発電電力計測値, en: Measured instantaneous power generation
+            output] '
+    cumulativeElectricEnergyOfGenerationFuelCell:
+      description: '[ja: 積算発電電力量計測値, en: Measured cumulative power generation output]'
+      type: object
+      properties:
+        cumulativeElectricEnergyOfGeneration:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算発電電力量計測値, en: Measured cumulative power generation
+            output] '
+    instantaneousGasConsumptionFuelCell:
+      description: '[ja: 瞬時ガス消費量計測値, en: Measured instantaneous gas consumption]'
+      type: object
+      properties:
+        instantaneousGasConsumption:
+          type: number
+          minimum: 0
+          maximum: 65.533
+          multipleOf: 0.001
+          description: '[ja: 瞬時ガス消費量計測値, en: Measured instantaneous gas consumption] '
+    cumulativeGasConsumptionFuelCell:
+      description: '[ja: 積算ガス消費量計測値, en: Measured cumulative gas consumption]'
+      type: object
+      properties:
+        cumulativeGasConsumption:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算ガス消費量計測値, en: Measured cumulative gas consumption] '
+    powerGenerationSettingFuelCell:
+      description: '[ja: 発電動作設定, en: Power generation setting]'
+      type: object
+      properties:
+        powerGenerationSetting:
+          type: string
+          enum:
+          - generationOn
+          - generationOff
+          description: '[ja: 発電動作設定, en: Power generation setting] _generationOn (ja:
+            発電動作, en: Power generation ON) generationOff (ja: 発電停止, en: Power generation
+            OFF) '
+    powerGenerationStatusFuelCell:
+      description: '[ja: 発電動作状態, en: Power generation status]'
+      type: object
+      properties:
+        powerGenerationStatus:
+          type: string
+          enum:
+          - generating
+          - stopped
+          - starting
+          - stopping
+          - idling
+          description: '[ja: 発電動作状態, en: Power generation status] _generating (ja:
+            発電中, en: Generating) stopped (ja: 停止中, en: Stopped) starting (ja: 起動中,
+            en: Starting) stopping (ja: 停止動作中, en: Stopping) idling (ja: アイドル中, en:
+            Idling) '
+    inHouseInstantaneousPowerConsumptionFuelCell:
+      description: '[ja: 宅内瞬時消費電力計測値, en: Measured in-house instantaneous power consumption]'
+      type: object
+      properties:
+        inHouseInstantaneousPowerConsumption:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 宅内瞬時消費電力計測値, en: Measured in-house instantaneous power
+            consumption] '
+    inHouseCumulativeEnergyConsumptionFuelCell:
+      description: '[ja: 宅内積算消費電力量計測値, en: Measured in-house cumulative energy consumption]'
+      type: object
+      properties:
+        inHouseCumulativeEnergyConsumption:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 宅内積算消費電力量計測値, en: Measured in-house cumulative energy
+            consumption] '
+    powerSystemInterconnectionStatusFuelCell:
+      description: '[ja: 系統連系状態, en: System interconnected type]'
+      type: object
+      properties:
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          description: '[ja: 系統連系状態, en: System interconnected type] _reversePowerFlowAcceptable
+            (ja: 系統連系 (逆潮流可), en: System interconnected type (reverse power flow acceptable))
+            independent (ja: 独立, en: Independent type) reversePowerFlowNotAcceptable
+            (ja: 系統連系 (逆潮流不可), en: System interconnected type (reverse power flow
+            not acceptable)) '
+    requestedTimeOfGenerationFuelCell:
+      description: '[ja: 発電要請時刻設定, en: Power generation request time setting]'
+      type: object
+      properties:
+        requestedTimeOfGeneration:
+          oneOf:
+          - type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 開始時刻, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 終了時刻, en: End time] _'
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 未設定, en: Undefined) '
+          description: '[ja: 発電要請時刻設定, en: Power generation request time setting] '
+    powerGenerationModeFuelCell:
+      description: '[ja: 指定発電状態, en: Designated power generation status]'
+      type: object
+      properties:
+        powerGenerationMode:
+          type: string
+          enum:
+          - maximumRating
+          - loadFollowing
+          description: '[ja: 指定発電状態, en: Designated power generation status] _maximumRating
+            (ja: 定格最大での発電, en: Power generation at the maximum rating) loadFollowing
+            (ja: 負荷追従での発電, en: Load following power generation) '
+    remainingHotWaterAmountFuelCell:
+      description: '[ja: 残湯量計測値, en: Measured remaining hot water amount]'
+      type: object
+      properties:
+        remainingHotWaterAmount:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 残湯量計測値, en: Measured remaining hot water amount] '
+    tankCapacityFuelCell:
+      description: '[ja: タンク容量値, en: Tank capacity]'
+      type: object
+      properties:
+        tankCapacity:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: タンク容量値, en: Tank capacity] '
+    cumulativeEnergyGenerationOutputResetFuelCell: {}
+    cumulativeGasConsumptionResetFuelCell: {}
+    inHouseCumulativeEnergyConsumptionResetFuelCell: {}
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

@@ -1,0 +1,4792 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: PowerDistributionBoardMetering
+  description: tag for Power distribution board metering
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesPowerDistributionBoardMetering
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/masterRatedCapacity:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Master rated capacity'
+      operationId: getDevicesPropertiesMasterRatedCapacityPowerDistributionBoardMetering
+      description: '取得: 主幹定格容量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/masterRatedCapacityPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/numberOfMeasurementChannelsSimplex:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Number of measurement channels (simplex)'
+      operationId: getDevicesPropertiesNumberOfMeasurementChannelsSimplexPowerDistributionBoardMetering
+      description: '取得: 計測チャンネル数 (片方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/numberOfMeasurementChannelsSimplexPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeElectricEnergyListSimplex:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured cumulative amount of electric power consumption list
+        (simplex)'
+      operationId: getDevicesPropertiesCumulativeElectricEnergyListSimplexPowerDistributionBoardMetering
+      description: '取得: 積算電力量計測値リスト (片方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: startChannel
+        description: startChannel
+        schema:
+          type: number
+          minimum: 1
+          maximum: 252
+      - in: query
+        name: range
+        description: range
+        schema:
+          type: number
+          minimum: 1
+          maximum: 60
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeElectricEnergyListSimplexPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousCurrentListSimplex:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured instantaneous current list (simplex)'
+      operationId: getDevicesPropertiesInstantaneousCurrentListSimplexPowerDistributionBoardMetering
+      description: '取得: 瞬時電流計測値リスト (片方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: startChannel
+        description: startChannel
+        schema:
+          type: number
+          minimum: 1
+          maximum: 252
+      - in: query
+        name: range
+        description: range
+        schema:
+          type: number
+          minimum: 1
+          maximum: 60
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousCurrentListSimplexPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPowerListSimplex:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured instantaneous power consumption list (simplex)'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerListSimplexPowerDistributionBoardMetering
+      description: '取得: 瞬時電力計測値リスト (片方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: startChannel
+        description: startChannel
+        schema:
+          type: number
+          minimum: 1
+          maximum: 252
+      - in: query
+        name: range
+        description: range
+        schema:
+          type: number
+          minimum: 1
+          maximum: 60
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerListSimplexPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/numberOfMeasurementChannelsDuplex:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Number of measurement channels (duplex)'
+      operationId: getDevicesPropertiesNumberOfMeasurementChannelsDuplexPowerDistributionBoardMetering
+      description: '取得: 計測チャンネル数 (双方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/numberOfMeasurementChannelsDuplexPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeElectricEnergyListDuplex:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured cumulative amount of electric power consumption list
+        (duplex)'
+      operationId: getDevicesPropertiesCumulativeElectricEnergyListDuplexPowerDistributionBoardMetering
+      description: '取得: 積算電力量計測値リスト (双方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: startChannel
+        description: startChannel
+        schema:
+          type: number
+          minimum: 1
+          maximum: 252
+      - in: query
+        name: range
+        description: range
+        schema:
+          type: number
+          minimum: 1
+          maximum: 30
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeElectricEnergyListDuplexPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousCurrentListDuplex:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured instantaneous current list (duplex)'
+      operationId: getDevicesPropertiesInstantaneousCurrentListDuplexPowerDistributionBoardMetering
+      description: '取得: 瞬時電流計測値リスト (双方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: startChannel
+        description: startChannel
+        schema:
+          type: number
+          minimum: 1
+          maximum: 252
+      - in: query
+        name: range
+        description: range
+        schema:
+          type: number
+          minimum: 1
+          maximum: 60
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousCurrentListDuplexPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPowerListDuplex:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured instantaneous power consumption list (duplex)'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerListDuplexPowerDistributionBoardMetering
+      description: '取得: 瞬時電力計測値リスト (双方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: startChannel
+        description: startChannel
+        schema:
+          type: number
+          minimum: 1
+          maximum: 252
+      - in: query
+        name: range
+        description: range
+        schema:
+          type: number
+          minimum: 1
+          maximum: 60
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerListDuplexPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/normalDirectionCumulativeElectricEnergy:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured cumulative amount of electric energy (normal direction)'
+      operationId: getDevicesPropertiesNormalDirectionCumulativeElectricEnergyPowerDistributionBoardMetering
+      description: '取得: 積算電力量計測値 (正方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/normalDirectionCumulativeElectricEnergyPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reverseDirectionCumulativeElectricEnergy:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured cumulative amount of electric energy (reverse direction)'
+      operationId: getDevicesPropertiesReverseDirectionCumulativeElectricEnergyPowerDistributionBoardMetering
+      description: '取得: 積算電力量計測値 (逆方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reverseDirectionCumulativeElectricEnergyPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/normalDirectionCumulativeElectricEnergyLog:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Historical data of measured cumulative amounts of electric energy
+        (normal direction)'
+      operationId: getDevicesPropertiesNormalDirectionCumulativeElectricEnergyLogPowerDistributionBoardMetering
+      description: '取得: 積算電力量計測値履歴 (正方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/normalDirectionCumulativeElectricEnergyLogPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reverseDirectionCumulativeElectricEnergyLog:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Historical data of measured cumulative amounts of electric energy
+        (reverse direction)'
+      operationId: getDevicesPropertiesReverseDirectionCumulativeElectricEnergyLogPowerDistributionBoardMetering
+      description: '取得: 積算電力量計測値履歴 (逆方向)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reverseDirectionCumulativeElectricEnergyLogPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPower:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured instantaneous amount of electric energy'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerPowerDistributionBoardMetering
+      description: '取得: 瞬時電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousCurrent:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured instantaneous currents'
+      operationId: getDevicesPropertiesInstantaneousCurrentPowerDistributionBoardMetering
+      description: '取得: 瞬時電流計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousCurrentPowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousVoltage:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measured instantaneous voltages'
+      operationId: getDevicesPropertiesInstantaneousVoltagePowerDistributionBoardMetering
+      description: '取得: 瞬時電圧計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousVoltagePowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel1:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 1'
+      operationId: getDevicesPropertiesMeasurementChannel1PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel1PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel2:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 2'
+      operationId: getDevicesPropertiesMeasurementChannel2PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel2PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel3:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 3'
+      operationId: getDevicesPropertiesMeasurementChannel3PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel3PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel4:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 4'
+      operationId: getDevicesPropertiesMeasurementChannel4PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル4'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel4PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel5:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 5'
+      operationId: getDevicesPropertiesMeasurementChannel5PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル5'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel5PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel6:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 6'
+      operationId: getDevicesPropertiesMeasurementChannel6PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル6'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel6PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel7:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 7'
+      operationId: getDevicesPropertiesMeasurementChannel7PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル7'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel7PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel8:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 8'
+      operationId: getDevicesPropertiesMeasurementChannel8PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル8'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel8PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel9:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 9'
+      operationId: getDevicesPropertiesMeasurementChannel9PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル9'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel9PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel10:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 10'
+      operationId: getDevicesPropertiesMeasurementChannel10PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル10'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel10PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel11:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 11'
+      operationId: getDevicesPropertiesMeasurementChannel11PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル11'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel11PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel12:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 12'
+      operationId: getDevicesPropertiesMeasurementChannel12PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル12'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel12PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel13:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 13'
+      operationId: getDevicesPropertiesMeasurementChannel13PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル13'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel13PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel14:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 14'
+      operationId: getDevicesPropertiesMeasurementChannel14PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル14'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel14PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel15:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 15'
+      operationId: getDevicesPropertiesMeasurementChannel15PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル15'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel15PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel16:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 16'
+      operationId: getDevicesPropertiesMeasurementChannel16PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル16'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel16PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel17:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 17'
+      operationId: getDevicesPropertiesMeasurementChannel17PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル17'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel17PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel18:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 18'
+      operationId: getDevicesPropertiesMeasurementChannel18PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル18'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel18PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel19:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 19'
+      operationId: getDevicesPropertiesMeasurementChannel19PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル19'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel19PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel20:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 20'
+      operationId: getDevicesPropertiesMeasurementChannel20PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル20'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel20PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel21:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 21'
+      operationId: getDevicesPropertiesMeasurementChannel21PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル21'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel21PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel22:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 22'
+      operationId: getDevicesPropertiesMeasurementChannel22PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル22'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel22PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel23:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 23'
+      operationId: getDevicesPropertiesMeasurementChannel23PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル23'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel23PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel24:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 24'
+      operationId: getDevicesPropertiesMeasurementChannel24PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル24'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel24PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel25:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 25'
+      operationId: getDevicesPropertiesMeasurementChannel25PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル25'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel25PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel26:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 26'
+      operationId: getDevicesPropertiesMeasurementChannel26PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル26'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel26PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel27:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 27'
+      operationId: getDevicesPropertiesMeasurementChannel27PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル27'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel27PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel28:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 28'
+      operationId: getDevicesPropertiesMeasurementChannel28PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル28'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel28PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel29:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 29'
+      operationId: getDevicesPropertiesMeasurementChannel29PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル29'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel29PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel30:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 30'
+      operationId: getDevicesPropertiesMeasurementChannel30PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル30'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel30PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel31:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 31'
+      operationId: getDevicesPropertiesMeasurementChannel31PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル31'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel31PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measurementChannel32:
+    get:
+      tags:
+      - PowerDistributionBoardMetering
+      summary: 'Get: Measurement channel 32'
+      operationId: getDevicesPropertiesMeasurementChannel32PowerDistributionBoardMetering
+      description: '取得: 計測チャンネル32'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measurementChannel32PowerDistributionBoardMetering'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesPowerDistributionBoardMetering:
+      description: propertiesPowerDistributionBoardMetering
+      type: object
+      properties:
+        masterRatedCapacity:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 主幹定格容量, en: Master rated capacity] '
+        numberOfMeasurementChannelsSimplex:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 252
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 計測チャンネル数 (片方向), en: Number of measurement channels (simplex)] '
+        cumulativeElectricEnergyListSimplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            electricEnergy:
+              type: array
+              maxItems: 60
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+          description: '[ja: 積算電力量計測値リスト (片方向), en: Measured cumulative amount of
+            electric power consumption list (simplex)] '
+        instantaneousCurrentListSimplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            instantaneousCurrent:
+              type: array
+              maxItems: 60
+              items:
+                type: object
+                properties:
+                  rPhase:
+                    oneOf:
+                    - type: number
+                      minimum: -3276.7
+                      maximum: 3276.5
+                      multipleOf: 0.1
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: R相, en: R phase] _'
+                  tPhase:
+                    oneOf:
+                    - type: number
+                      minimum: -3276.7
+                      maximum: 3276.5
+                      multipleOf: 0.1
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: T相, en: T phase] _'
+              description: '[ja: 瞬時電流計測値, en: Measured instantaneous current] _'
+          description: '[ja: 瞬時電流計測値リスト (片方向), en: Measured instantaneous current
+            list (simplex)] '
+        instantaneousElectricPowerListSimplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            instantaneousElectricPower:
+              type: array
+              maxItems: 60
+              items:
+                oneOf:
+                - type: number
+                  minimum: -2147483647
+                  maximum: 2147483645
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電力計測値, en: Measured instantaneous power consumption]
+                _'
+          description: '[ja: 瞬時電力計測値リスト (片方向), en: Measured instantaneous power consumption
+            list (simplex)] '
+        numberOfMeasurementChannelsDuplex:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 252
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 計測チャンネル数 (双方向), en: Number of measurement channels (duplex)] '
+        cumulativeElectricEnergyListDuplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 30
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            electricEnergy:
+              type: array
+              maxItems: 30
+              items:
+                type: object
+                properties:
+                  normalDirectionElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                  reverseDirectionElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+          description: '[ja: 積算電力量計測値リスト (双方向), en: Measured cumulative amount of
+            electric power consumption list (duplex)] '
+        instantaneousCurrentListDuplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            instantaneousCurrent:
+              type: array
+              maxItems: 60
+              items:
+                type: object
+                properties:
+                  rPhase:
+                    oneOf:
+                    - type: number
+                      minimum: -3276.7
+                      maximum: 3276.5
+                      multipleOf: 0.1
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: R相, en: R phase] _'
+                  tPhase:
+                    oneOf:
+                    - type: number
+                      minimum: -3276.7
+                      maximum: 3276.5
+                      multipleOf: 0.1
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: T相, en: T phase] _'
+              description: '[ja: 瞬時電流計測値, en: Measured instantaneous current] _'
+          description: '[ja: 瞬時電流計測値リスト (双方向), en: Measured instantaneous current
+            list (duplex)] '
+        instantaneousElectricPowerListDuplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            instantaneousElectricPower:
+              type: array
+              maxItems: 60
+              items:
+                oneOf:
+                - type: number
+                  minimum: -2147483647
+                  maximum: 2147483645
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電力計測値, en: Measured instantaneous power consumption]
+                _'
+          description: '[ja: 瞬時電力計測値リスト (双方向), en: Measured instantaneous power consumption
+            list (duplex)] '
+        normalDirectionCumulativeElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 0
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測値 (正方向), en: Measured cumulative amount of electric
+            energy (normal direction)] '
+        reverseDirectionCumulativeElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 0
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測値 (逆方向), en: Measured cumulative amount of electric
+            energy (reverse direction)] '
+        normalDirectionCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量(8桁)の計測結果履歴, en: The historical data of measured
+                cumulative amounts of electric energy (8 digits)] _'
+          description: '[ja: 積算電力量計測値履歴 (正方向), en: Historical data of measured cumulative
+            amounts of electric energy (normal direction)] '
+        reverseDirectionCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量(8桁)の計測結果履歴, en: The historical data of measured
+                cumulative amounts of electric energy (8 digits)] _'
+          description: '[ja: 積算電力量計測値履歴 (逆方向), en: Historical data of measured cumulative
+            amounts of electric energy (reverse direction)] '
+        instantaneousElectricPower:
+          oneOf:
+          - type: number
+            minimum: -2147483647
+            maximum: 2147483645
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 瞬時電力計測値, en: Measured instantaneous amount of electric
+            energy] '
+        instantaneousCurrent:
+          type: object
+          properties:
+            rPhase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: R相, en: R phase] _'
+            tPhase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: T相, en: T phase] _'
+          description: '[ja: 瞬時電流計測値, en: Measured instantaneous currents] '
+        instantaneousVoltage:
+          type: object
+          properties:
+            rS:
+              type: number
+              minimum: 0
+              maximum: 6553.3
+              multipleOf: 0.1
+              description: '[ja: R-S(N)間, en: Between R and S(N)] _'
+            sT:
+              type: number
+              minimum: 0
+              maximum: 6553.3
+              multipleOf: 0.1
+              description: '[ja: S(N)-T間, en: Between S(N) and T] _'
+          description: '[ja: 瞬時電圧計測値, en: Measured instantaneous voltages] '
+        measurementChannel1:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル1, en: Measurement channel 1] '
+        measurementChannel2:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル2, en: Measurement channel 2] '
+        measurementChannel3:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル3, en: Measurement channel 3] '
+        measurementChannel4:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル4, en: Measurement channel 4] '
+        measurementChannel5:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル5, en: Measurement channel 5] '
+        measurementChannel6:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル6, en: Measurement channel 6] '
+        measurementChannel7:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル7, en: Measurement channel 7] '
+        measurementChannel8:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル8, en: Measurement channel 8] '
+        measurementChannel9:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル9, en: Measurement channel 9] '
+        measurementChannel10:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル10, en: Measurement channel 10] '
+        measurementChannel11:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル11, en: Measurement channel 11] '
+        measurementChannel12:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル12, en: Measurement channel 12] '
+        measurementChannel13:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル13, en: Measurement channel 13] '
+        measurementChannel14:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル14, en: Measurement channel 14] '
+        measurementChannel15:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル15, en: Measurement channel 15] '
+        measurementChannel16:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル16, en: Measurement channel 16] '
+        measurementChannel17:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル17, en: Measurement channel 17] '
+        measurementChannel18:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル18, en: Measurement channel 18] '
+        measurementChannel19:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル19, en: Measurement channel 19] '
+        measurementChannel20:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル20, en: Measurement channel 20] '
+        measurementChannel21:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル21, en: Measurement channel 21] '
+        measurementChannel22:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル22, en: Measurement channel 22] '
+        measurementChannel23:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル23, en: Measurement channel 23] '
+        measurementChannel24:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル24, en: Measurement channel 24] '
+        measurementChannel25:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル25, en: Measurement channel 25] '
+        measurementChannel26:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル26, en: Measurement channel 26] '
+        measurementChannel27:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル27, en: Measurement channel 27] '
+        measurementChannel28:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル28, en: Measurement channel 28] '
+        measurementChannel29:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル29, en: Measurement channel 29] '
+        measurementChannel30:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル30, en: Measurement channel 30] '
+        measurementChannel31:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル31, en: Measurement channel 31] '
+        measurementChannel32:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル32, en: Measurement channel 32] '
+    masterRatedCapacityPowerDistributionBoardMetering:
+      description: '[ja: 主幹定格容量, en: Master rated capacity]'
+      type: object
+      properties:
+        masterRatedCapacity:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 主幹定格容量, en: Master rated capacity] '
+    numberOfMeasurementChannelsSimplexPowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル数 (片方向), en: Number of measurement channels (simplex)]'
+      type: object
+      properties:
+        numberOfMeasurementChannelsSimplex:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 252
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 計測チャンネル数 (片方向), en: Number of measurement channels (simplex)] '
+    cumulativeElectricEnergyListSimplexPowerDistributionBoardMetering:
+      description: '[ja: 積算電力量計測値リスト (片方向), en: Measured cumulative amount of electric
+        power consumption list (simplex)]'
+      type: object
+      properties:
+        cumulativeElectricEnergyListSimplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            electricEnergy:
+              type: array
+              maxItems: 60
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+          description: '[ja: 積算電力量計測値リスト (片方向), en: Measured cumulative amount of
+            electric power consumption list (simplex)] '
+    instantaneousCurrentListSimplexPowerDistributionBoardMetering:
+      description: '[ja: 瞬時電流計測値リスト (片方向), en: Measured instantaneous current list
+        (simplex)]'
+      type: object
+      properties:
+        instantaneousCurrentListSimplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            instantaneousCurrent:
+              type: array
+              maxItems: 60
+              items:
+                type: object
+                properties:
+                  rPhase:
+                    oneOf:
+                    - type: number
+                      minimum: -3276.7
+                      maximum: 3276.5
+                      multipleOf: 0.1
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: R相, en: R phase] _'
+                  tPhase:
+                    oneOf:
+                    - type: number
+                      minimum: -3276.7
+                      maximum: 3276.5
+                      multipleOf: 0.1
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: T相, en: T phase] _'
+              description: '[ja: 瞬時電流計測値, en: Measured instantaneous current] _'
+          description: '[ja: 瞬時電流計測値リスト (片方向), en: Measured instantaneous current
+            list (simplex)] '
+    instantaneousElectricPowerListSimplexPowerDistributionBoardMetering:
+      description: '[ja: 瞬時電力計測値リスト (片方向), en: Measured instantaneous power consumption
+        list (simplex)]'
+      type: object
+      properties:
+        instantaneousElectricPowerListSimplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            instantaneousElectricPower:
+              type: array
+              maxItems: 60
+              items:
+                oneOf:
+                - type: number
+                  minimum: -2147483647
+                  maximum: 2147483645
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電力計測値, en: Measured instantaneous power consumption]
+                _'
+          description: '[ja: 瞬時電力計測値リスト (片方向), en: Measured instantaneous power consumption
+            list (simplex)] '
+    numberOfMeasurementChannelsDuplexPowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル数 (双方向), en: Number of measurement channels (duplex)]'
+      type: object
+      properties:
+        numberOfMeasurementChannelsDuplex:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 252
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 計測チャンネル数 (双方向), en: Number of measurement channels (duplex)] '
+    cumulativeElectricEnergyListDuplexPowerDistributionBoardMetering:
+      description: '[ja: 積算電力量計測値リスト (双方向), en: Measured cumulative amount of electric
+        power consumption list (duplex)]'
+      type: object
+      properties:
+        cumulativeElectricEnergyListDuplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 30
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            electricEnergy:
+              type: array
+              maxItems: 30
+              items:
+                type: object
+                properties:
+                  normalDirectionElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                  reverseDirectionElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+          description: '[ja: 積算電力量計測値リスト (双方向), en: Measured cumulative amount of
+            electric power consumption list (duplex)] '
+    instantaneousCurrentListDuplexPowerDistributionBoardMetering:
+      description: '[ja: 瞬時電流計測値リスト (双方向), en: Measured instantaneous current list
+        (duplex)]'
+      type: object
+      properties:
+        instantaneousCurrentListDuplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            instantaneousCurrent:
+              type: array
+              maxItems: 60
+              items:
+                type: object
+                properties:
+                  rPhase:
+                    oneOf:
+                    - type: number
+                      minimum: -3276.7
+                      maximum: 3276.5
+                      multipleOf: 0.1
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: R相, en: R phase] _'
+                  tPhase:
+                    oneOf:
+                    - type: number
+                      minimum: -3276.7
+                      maximum: 3276.5
+                      multipleOf: 0.1
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: T相, en: T phase] _'
+              description: '[ja: 瞬時電流計測値, en: Measured instantaneous current] _'
+          description: '[ja: 瞬時電流計測値リスト (双方向), en: Measured instantaneous current
+            list (duplex)] '
+    instantaneousElectricPowerListDuplexPowerDistributionBoardMetering:
+      description: '[ja: 瞬時電力計測値リスト (双方向), en: Measured instantaneous power consumption
+        list (duplex)]'
+      type: object
+      properties:
+        instantaneousElectricPowerListDuplex:
+          type: object
+          properties:
+            startChannel:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 252
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネル, en: Acquisition start channel] _'
+            range:
+              oneOf:
+              - type: number
+                minimum: 1
+                maximum: 60
+              - type: string
+                enum:
+                - undefined
+                description: '_undefined (ja: 不明, en: Undefined) '
+              description: '[ja: 取得開始チャンネルからの範囲を指定, en: Range from the acquisition
+                start channel] _'
+            instantaneousElectricPower:
+              type: array
+              maxItems: 60
+              items:
+                oneOf:
+                - type: number
+                  minimum: -2147483647
+                  maximum: 2147483645
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電力計測値, en: Measured instantaneous power consumption]
+                _'
+          description: '[ja: 瞬時電力計測値リスト (双方向), en: Measured instantaneous power consumption
+            list (duplex)] '
+    normalDirectionCumulativeElectricEnergyPowerDistributionBoardMetering:
+      description: '[ja: 積算電力量計測値 (正方向), en: Measured cumulative amount of electric
+        energy (normal direction)]'
+      type: object
+      properties:
+        normalDirectionCumulativeElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 0
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測値 (正方向), en: Measured cumulative amount of electric
+            energy (normal direction)] '
+    reverseDirectionCumulativeElectricEnergyPowerDistributionBoardMetering:
+      description: '[ja: 積算電力量計測値 (逆方向), en: Measured cumulative amount of electric
+        energy (reverse direction)]'
+      type: object
+      properties:
+        reverseDirectionCumulativeElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 0
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測値 (逆方向), en: Measured cumulative amount of electric
+            energy (reverse direction)] '
+    normalDirectionCumulativeElectricEnergyLogPowerDistributionBoardMetering:
+      description: '[ja: 積算電力量計測値履歴 (正方向), en: Historical data of measured cumulative
+        amounts of electric energy (normal direction)]'
+      type: object
+      properties:
+        normalDirectionCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量(8桁)の計測結果履歴, en: The historical data of measured
+                cumulative amounts of electric energy (8 digits)] _'
+          description: '[ja: 積算電力量計測値履歴 (正方向), en: Historical data of measured cumulative
+            amounts of electric energy (normal direction)] '
+    reverseDirectionCumulativeElectricEnergyLogPowerDistributionBoardMetering:
+      description: '[ja: 積算電力量計測値履歴 (逆方向), en: Historical data of measured cumulative
+        amounts of electric energy (reverse direction)]'
+      type: object
+      properties:
+        reverseDirectionCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量(8桁)の計測結果履歴, en: The historical data of measured
+                cumulative amounts of electric energy (8 digits)] _'
+          description: '[ja: 積算電力量計測値履歴 (逆方向), en: Historical data of measured cumulative
+            amounts of electric energy (reverse direction)] '
+    instantaneousElectricPowerPowerDistributionBoardMetering:
+      description: '[ja: 瞬時電力計測値, en: Measured instantaneous amount of electric energy]'
+      type: object
+      properties:
+        instantaneousElectricPower:
+          oneOf:
+          - type: number
+            minimum: -2147483647
+            maximum: 2147483645
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 瞬時電力計測値, en: Measured instantaneous amount of electric
+            energy] '
+    instantaneousCurrentPowerDistributionBoardMetering:
+      description: '[ja: 瞬時電流計測値, en: Measured instantaneous currents]'
+      type: object
+      properties:
+        instantaneousCurrent:
+          type: object
+          properties:
+            rPhase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: R相, en: R phase] _'
+            tPhase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: T相, en: T phase] _'
+          description: '[ja: 瞬時電流計測値, en: Measured instantaneous currents] '
+    instantaneousVoltagePowerDistributionBoardMetering:
+      description: '[ja: 瞬時電圧計測値, en: Measured instantaneous voltages]'
+      type: object
+      properties:
+        instantaneousVoltage:
+          type: object
+          properties:
+            rS:
+              type: number
+              minimum: 0
+              maximum: 6553.3
+              multipleOf: 0.1
+              description: '[ja: R-S(N)間, en: Between R and S(N)] _'
+            sT:
+              type: number
+              minimum: 0
+              maximum: 6553.3
+              multipleOf: 0.1
+              description: '[ja: S(N)-T間, en: Between S(N) and T] _'
+          description: '[ja: 瞬時電圧計測値, en: Measured instantaneous voltages] '
+    measurementChannel1PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル1, en: Measurement channel 1]'
+      type: object
+      properties:
+        measurementChannel1:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル1, en: Measurement channel 1] '
+    measurementChannel2PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル2, en: Measurement channel 2]'
+      type: object
+      properties:
+        measurementChannel2:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル2, en: Measurement channel 2] '
+    measurementChannel3PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル3, en: Measurement channel 3]'
+      type: object
+      properties:
+        measurementChannel3:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル3, en: Measurement channel 3] '
+    measurementChannel4PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル4, en: Measurement channel 4]'
+      type: object
+      properties:
+        measurementChannel4:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル4, en: Measurement channel 4] '
+    measurementChannel5PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル5, en: Measurement channel 5]'
+      type: object
+      properties:
+        measurementChannel5:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル5, en: Measurement channel 5] '
+    measurementChannel6PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル6, en: Measurement channel 6]'
+      type: object
+      properties:
+        measurementChannel6:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル6, en: Measurement channel 6] '
+    measurementChannel7PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル7, en: Measurement channel 7]'
+      type: object
+      properties:
+        measurementChannel7:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル7, en: Measurement channel 7] '
+    measurementChannel8PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル8, en: Measurement channel 8]'
+      type: object
+      properties:
+        measurementChannel8:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル8, en: Measurement channel 8] '
+    measurementChannel9PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル9, en: Measurement channel 9]'
+      type: object
+      properties:
+        measurementChannel9:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル9, en: Measurement channel 9] '
+    measurementChannel10PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル10, en: Measurement channel 10]'
+      type: object
+      properties:
+        measurementChannel10:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル10, en: Measurement channel 10] '
+    measurementChannel11PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル11, en: Measurement channel 11]'
+      type: object
+      properties:
+        measurementChannel11:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル11, en: Measurement channel 11] '
+    measurementChannel12PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル12, en: Measurement channel 12]'
+      type: object
+      properties:
+        measurementChannel12:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル12, en: Measurement channel 12] '
+    measurementChannel13PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル13, en: Measurement channel 13]'
+      type: object
+      properties:
+        measurementChannel13:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル13, en: Measurement channel 13] '
+    measurementChannel14PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル14, en: Measurement channel 14]'
+      type: object
+      properties:
+        measurementChannel14:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル14, en: Measurement channel 14] '
+    measurementChannel15PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル15, en: Measurement channel 15]'
+      type: object
+      properties:
+        measurementChannel15:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル15, en: Measurement channel 15] '
+    measurementChannel16PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル16, en: Measurement channel 16]'
+      type: object
+      properties:
+        measurementChannel16:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル16, en: Measurement channel 16] '
+    measurementChannel17PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル17, en: Measurement channel 17]'
+      type: object
+      properties:
+        measurementChannel17:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル17, en: Measurement channel 17] '
+    measurementChannel18PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル18, en: Measurement channel 18]'
+      type: object
+      properties:
+        measurementChannel18:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル18, en: Measurement channel 18] '
+    measurementChannel19PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル19, en: Measurement channel 19]'
+      type: object
+      properties:
+        measurementChannel19:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル19, en: Measurement channel 19] '
+    measurementChannel20PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル20, en: Measurement channel 20]'
+      type: object
+      properties:
+        measurementChannel20:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル20, en: Measurement channel 20] '
+    measurementChannel21PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル21, en: Measurement channel 21]'
+      type: object
+      properties:
+        measurementChannel21:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル21, en: Measurement channel 21] '
+    measurementChannel22PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル22, en: Measurement channel 22]'
+      type: object
+      properties:
+        measurementChannel22:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル22, en: Measurement channel 22] '
+    measurementChannel23PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル23, en: Measurement channel 23]'
+      type: object
+      properties:
+        measurementChannel23:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル23, en: Measurement channel 23] '
+    measurementChannel24PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル24, en: Measurement channel 24]'
+      type: object
+      properties:
+        measurementChannel24:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル24, en: Measurement channel 24] '
+    measurementChannel25PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル25, en: Measurement channel 25]'
+      type: object
+      properties:
+        measurementChannel25:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル25, en: Measurement channel 25] '
+    measurementChannel26PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル26, en: Measurement channel 26]'
+      type: object
+      properties:
+        measurementChannel26:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル26, en: Measurement channel 26] '
+    measurementChannel27PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル27, en: Measurement channel 27]'
+      type: object
+      properties:
+        measurementChannel27:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル27, en: Measurement channel 27] '
+    measurementChannel28PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル28, en: Measurement channel 28]'
+      type: object
+      properties:
+        measurementChannel28:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル28, en: Measurement channel 28] '
+    measurementChannel29PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル29, en: Measurement channel 29]'
+      type: object
+      properties:
+        measurementChannel29:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル29, en: Measurement channel 29] '
+    measurementChannel30PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル30, en: Measurement channel 30]'
+      type: object
+      properties:
+        measurementChannel30:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル30, en: Measurement channel 30] '
+    measurementChannel31PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル31, en: Measurement channel 31]'
+      type: object
+      properties:
+        measurementChannel31:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル31, en: Measurement channel 31] '
+    measurementChannel32PowerDistributionBoardMetering:
+      description: '[ja: 計測チャンネル32, en: Measurement channel 32]'
+      type: object
+      properties:
+        measurementChannel32:
+          type: object
+          properties:
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amount of electric
+                power consumption] _'
+            currentRphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (R相), en: Measured instantaneous current
+                (R phase)] _'
+            currentTphase:
+              oneOf:
+              - type: number
+                minimum: -3276.7
+                maximum: 3276.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 瞬時電流計測値 (T相), en: Measured instantaneous current
+                (T phase)] _'
+          description: '[ja: 計測チャンネル32, en: Measurement channel 32] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

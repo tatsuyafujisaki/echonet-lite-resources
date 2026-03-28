@@ -1,0 +1,200 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: CrimePreventionSensor
+  description: tag for Crime prevention sensor
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - CrimePreventionSensor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesCrimePreventionSensor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesCrimePreventionSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/thresholdLevel:
+    get:
+      tags:
+      - CrimePreventionSensor
+      summary: 'Get: Detection threshold level'
+      operationId: getDevicesPropertiesThresholdLevelCrimePreventionSensor
+      description: '取得: 検知閾値レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thresholdLevelCrimePreventionSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CrimePreventionSensor
+      summary: 'Set: Detection threshold level'
+      operationId: putDevicesPropertiesThresholdLevelCrimePreventionSensor
+      description: '設定: 検知閾値レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/thresholdLevelCrimePreventionSensor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thresholdLevelCrimePreventionSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/detection:
+    get:
+      tags:
+      - CrimePreventionSensor
+      summary: 'Get: Invasion occurrence status'
+      operationId: getDevicesPropertiesDetectionCrimePreventionSensor
+      description: '取得: 侵入発生状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detectionCrimePreventionSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/reset:
+    post:
+      tags:
+      - CrimePreventionSensor
+      summary: 'Post: Invasion occurrence status resetting'
+      operationId: postDevicesActionsResetCrimePreventionSensor
+      description: '実行: 侵入発生状態リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resetCrimePreventionSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesCrimePreventionSensor:
+      description: propertiesCrimePreventionSensor
+      type: object
+      properties:
+        thresholdLevel:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 検知閾値レベル設定, en: Detection threshold level] '
+        detection:
+          type: boolean
+          description: '[ja: 侵入発生状態, en: Invasion occurrence status] _True (ja: 検知有,
+            en: Detected) False (ja: 検知無, en: Not detected) '
+    thresholdLevelCrimePreventionSensor:
+      description: '[ja: 検知閾値レベル設定, en: Detection threshold level]'
+      type: object
+      properties:
+        thresholdLevel:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 検知閾値レベル設定, en: Detection threshold level] '
+    detectionCrimePreventionSensor:
+      description: '[ja: 侵入発生状態, en: Invasion occurrence status]'
+      type: object
+      properties:
+        detection:
+          type: boolean
+          description: '[ja: 侵入発生状態, en: Invasion occurrence status] _True (ja: 検知有,
+            en: Detected) False (ja: 検知無, en: Not detected) '
+    resetCrimePreventionSensor: {}
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

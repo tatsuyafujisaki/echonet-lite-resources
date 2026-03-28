@@ -1,0 +1,418 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Groups
+  description: tag for Groups
+security:
+- api_key: []
+paths:
+  /elapi/v1/groups/{groupID}/properties:
+    get:
+      tags:
+      - Groups
+      summary: 'Get: properties'
+      operationId: getGroupsPropertiesGroups
+      description: '取得: properties'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groups/{groupID}/properties/descriptions:
+    get:
+      tags:
+      - Groups
+      summary: 'Get: explanation of group'
+      operationId: getGroupsPropertiesDescriptionsGroups
+      description: '取得: groupの説明'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/descriptionsGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Groups
+      summary: 'Set: explanation of group'
+      operationId: putGroupsPropertiesDescriptionsGroups
+      description: '設定: groupの説明'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/descriptionsGroups'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/descriptionsGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groups/{groupID}/properties/members:
+    get:
+      tags:
+      - Groups
+      summary: 'Get: list of device ids in this group'
+      operationId: getGroupsPropertiesMembersGroups
+      description: '取得: groupに属する機器のdevice idのリスト'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/membersGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Groups
+      summary: 'Set: list of device ids in this group'
+      operationId: putGroupsPropertiesMembersGroups
+      description: '設定: groupに属する機器のdevice idのリスト'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/membersGroups'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/membersGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groups/{groupID}/properties/composed:
+    get:
+      tags:
+      - Groups
+      summary: 'Get: setting of virtual compound device'
+      operationId: getGroupsPropertiesComposedGroups
+      description: '取得: 仮想混合デバイスの設定'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/composedGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groups/{groupID}/properties/preConfigured:
+    get:
+      tags:
+      - Groups
+      summary: 'Get: setting of server preconfigration'
+      operationId: getGroupsPropertiesPreConfiguredGroups
+      description: '取得: サーバ事前登録によるGroupか否か'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/preConfiguredGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groups/{groupID}/actions/getAllProperties:
+    post:
+      tags:
+      - Groups
+      summary: 'Post: Read all properties of all devices in this group'
+      operationId: postGroupsActionsGetAllPropertiesGroups
+      description: '実行: グループに存在する機器の全プロパティを読み出す'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getAllPropertiesGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groups/{groupID}/actions/getProperty:
+    post:
+      tags:
+      - Groups
+      summary: 'Post: Read the specified property of all devices in this group'
+      operationId: postGroupsActionsGetPropertyGroups
+      description: '実行: グループに存在する機器の指定プロパティ値の取得'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/getPropertyInputGroups'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getPropertyGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groups/{groupID}/actions/setProperty:
+    post:
+      tags:
+      - Groups
+      summary: 'Post: Write the specified property of all devices in this group'
+      operationId: postGroupsActionsSetPropertyGroups
+      description: '実行: グループに存在する機器の指定プロパティ値の設定'
+      parameters:
+      - description: group id
+        name: groupID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/setPropertyInputGroups'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/setPropertyGroups'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesGroups:
+      description: propertiesGroups
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: groupの説明, en: explanation of group] '
+        members:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+          description: '[ja: groupに属する機器のdevice idのリスト, en: list of device ids in
+            this group] '
+        composed:
+          type: boolean
+          description: '[ja: 仮想混合デバイスの設定, en: setting of virtual compound device] '
+        preConfigured:
+          type: boolean
+          description: '[ja: サーバ事前登録によるGroupか否か, en: setting of server preconfigration] '
+    descriptionsGroups:
+      description: '[ja: groupの説明, en: explanation of group]'
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: groupの説明, en: explanation of group] '
+    membersGroups:
+      description: '[ja: groupに属する機器のdevice idのリスト, en: list of device ids in this
+        group]'
+      type: object
+      properties:
+        members:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+          description: '[ja: groupに属する機器のdevice idのリスト, en: list of device ids in
+            this group] '
+    composedGroups:
+      description: '[ja: 仮想混合デバイスの設定, en: setting of virtual compound device]'
+      type: object
+      properties:
+        composed:
+          type: boolean
+          description: '[ja: 仮想混合デバイスの設定, en: setting of virtual compound device] '
+    preConfiguredGroups:
+      description: '[ja: サーバ事前登録によるGroupか否か, en: setting of server preconfigration]'
+      type: object
+      properties:
+        preConfigured:
+          type: boolean
+          description: '[ja: サーバ事前登録によるGroupか否か, en: setting of server preconfigration] '
+    getAllPropertiesGroups:
+      type: object
+      properties:
+        responses:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              properties:
+                type: object
+    getPropertyGroups:
+      type: object
+      properties:
+        responses:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              body:
+                type: object
+              statusCode:
+                type: number
+    getPropertyInputGroups:
+      type: object
+      properties:
+        propertyName:
+          type: string
+    setPropertyGroups:
+      type: object
+      properties:
+        responses:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              body:
+                type: object
+              statusCode:
+                type: number
+    setPropertyInputGroups:
+      type: object
+      properties:
+        propertyName:
+          type: string
+        propertyValue:
+          type: object
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

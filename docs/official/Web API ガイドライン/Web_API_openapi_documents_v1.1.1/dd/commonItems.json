@@ -1,0 +1,557 @@
+{
+  "deviceType": "common",
+  "metaData": {
+    "version": "1.6.0"
+  },
+  "eoj": "0x0000",
+  "descriptions": {
+    "ja": "スーパークラス",
+    "en": "Super class"
+  },
+  "properties": {
+    "operationStatus": {
+      "epc": "0x80",
+      "descriptions": {
+        "ja": "動作状態",
+        "en": "Operation status"
+      },
+      "writable": true,
+      "observable": true,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "ON",
+              "en": "ON"
+            },
+            "edt": "0x30"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "OFF",
+              "en": "OFF"
+            },
+            "edt": "0x31"
+          }
+        ]
+      }
+    },
+    "installationLocation": {
+      "epc": "0x81",
+      "descriptions": {
+        "ja": "設置場所",
+        "en": "Installation location"
+      },
+      "writable": true,
+      "observable": true,
+      "schema": {
+        "type": "string"
+      }
+    },
+    "protocol": {
+      "epc": "0x82",
+      "descriptions": {
+        "ja": "Protocol version情報",
+        "en": "Protocol version information"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        }
+      },
+      "note": {
+        "ja": "example: type: ECHONET_Lite v1.13, version: Rel.P",
+        "en": "example: type: ECHONET_Lite v1.13, version: Rel.P"
+      }
+    },
+    "id": {
+      "epc": "0x83",
+      "descriptions": {
+        "ja": "識別番号",
+        "en": "Identification number"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string"
+      }
+    },
+    "instantaneousElectricPowerConsumption": {
+      "epc": "0x84",
+      "descriptions": {
+        "ja": "瞬時消費電力計測値",
+        "en": "Measured instantaneous power consumption"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "W",
+        "minimum": 0,
+        "maximum": 65533
+      }
+    },
+    "consumedCumulativeElectricEnergy": {
+      "epc": "0x85",
+      "descriptions": {
+        "ja": "積算消費電力量計測値",
+        "en": "Measured cumulative electric energy consumption"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "kWh",
+        "minimum": 0,
+        "maximum": 999999.999,
+        "multipleOf": 0.001
+      }
+    },
+    "manufacturerFaultCode": {
+      "epc": "0x86",
+      "descriptions": {
+        "ja": "メーカ異常コード",
+        "en": "Manufacturer's fault code"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string"
+      }
+    },
+    "currentLimit": {
+      "epc": "0x87",
+      "descriptions": {
+        "ja": "電流制限設定",
+        "en": "Current limit setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "%",
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+    "faultStatus": {
+      "epc": "0x88",
+      "descriptions": {
+        "ja": "異常発生状態",
+        "en": "Fault status"
+      },
+      "writable": false,
+      "observable": true,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "異常あり",
+              "en": "Fault occurred."
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "異常なし",
+              "en": "No fault has occurred."
+            },
+            "edt": "0x42"
+          }
+        ]
+      }
+    },
+    "faultDescription": {
+      "epc": "0x89",
+      "descriptions": {
+        "ja": "異常内容",
+        "en": "Fault description"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "noFault",
+          "trunOffOrUnplug",
+          "resetButton",
+          "setIncorrectly",
+          "supply",
+          "cleaning",
+          "changingBattery",
+          "recoverOperationNoRequired",
+          "userDefinable1",
+          "abnormalEventOrSafety",
+          "switch",
+          "sensorSystem",
+          "component",
+          "controlCircuitBoard",
+          "userDefinable2",
+          "repairLocationUnkown",
+          "fault"
+        ],
+        "values": [
+          {
+            "value": "noFault",
+            "descriptions": {
+              "ja": "異常なし",
+              "en": "No fault"
+            },
+            "edt": "0x0000"
+          },
+          {
+            "value": "trunOffOrUnplug",
+            "descriptions": {
+              "ja": "スイッチを切る/コンセントを抜き再操作",
+              "en": "Faults that can be recovered from by turn off the power or unplug and reoperate."
+            },
+            "edt": "0x0001"
+          },
+          {
+            "value": "resetButton",
+            "descriptions": {
+              "ja": "リセットボタンを押し再操作",
+              "en": "Faults that can be recovered from by pressing the reset button."
+            },
+            "edt": "0x0002"
+          },
+          {
+            "value": "setIncorrectly",
+            "descriptions": {
+              "ja": "セット不良",
+              "en": "Device set incorrectly"
+            },
+            "edt": "0x0003"
+          },
+          {
+            "value": "supply",
+            "descriptions": {
+              "ja": "補給",
+              "en": "Supply"
+            },
+            "edt": "0x0004"
+          },
+          {
+            "value": "cleaning",
+            "descriptions": {
+              "ja": "掃除（フィルタ等）",
+              "en": "Cleaning (filters, etc.)"
+            },
+            "edt": "0x0005"
+          },
+          {
+            "value": "changingBattery",
+            "descriptions": {
+              "ja": "電池交換",
+              "en": "Changing the battery"
+            },
+            "edt": "0x0006"
+          },
+          {
+            "value": "recoverOperationNoRequired",
+            "descriptions": {
+              "ja": "復帰操作不要",
+              "en": "Recover operation no required"
+            },
+            "edt": "0x0007"
+          },
+          {
+            "value": "userDefinable1",
+            "descriptions": {
+              "ja": "ユーザ定義領域1",
+              "en": "User-definable domain 1"
+            },
+            "edt": "0x0009"
+          },
+          {
+            "value": "abnormalEventOrSafety",
+            "descriptions": {
+              "ja": "異常現象／安全装置作動",
+              "en": "Abnormal event or the tripping of a safety device."
+            },
+            "edt": "0x000a...0x0013"
+          },
+          {
+            "value": "switch",
+            "descriptions": {
+              "ja": "スイッチ異常",
+              "en": "Fault in a switch"
+            },
+            "edt": "0x0014...0x001D"
+          },
+          {
+            "value": "sensorSystem",
+            "descriptions": {
+              "ja": "センサ異常",
+              "en": "Fault in the sensor system"
+            },
+            "edt": "0x001E...0x003B"
+          },
+          {
+            "value": "component",
+            "descriptions": {
+              "ja": "機能部品異常",
+              "en": "Fault in a component such as an actuator."
+            },
+            "edt": "0x003C...0x0059"
+          },
+          {
+            "value": "controlCircuitBoard",
+            "descriptions": {
+              "ja": "制御基板異常",
+              "en": "Fault in a control circuit board."
+            },
+            "edt": "0x005A...0x006E"
+          },
+          {
+            "value": "userDefinable2",
+            "descriptions": {
+              "ja": "ユーザ定義領域2",
+              "en": "User-definable domain 2"
+            },
+            "edt": "0x006F...0x03E8"
+          },
+          {
+            "value": "repairLocationUnkown",
+            "descriptions": {
+              "ja": "修理箇所不明",
+              "en": "Repair location unknown"
+            },
+            "edt": "0x03E9"
+          },
+          {
+            "value": "fault",
+            "descriptions": {
+              "ja": "異常あり",
+              "en": "Fault"
+            },
+            "edt": "0x03FF"
+          }
+        ]
+      }
+    },
+    "manufacturer": {
+      "epc": "0x8A",
+      "descriptions": {
+        "ja": "会員ID/メーカー",
+        "en": "Manufacturer"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "descriptions": {
+            "type": "object",
+            "properties": {
+              "ja": {
+                "type": "string"
+              },
+              "en": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "businessFacilityCode": {
+      "epc": "0x8B",
+      "descriptions": {
+        "ja": "事業場コード",
+        "en": "Business facility code"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string"
+      }
+    },
+    "productCode": {
+      "epc": "0x8C",
+      "descriptions": {
+        "ja": "商品コード",
+        "en": "Product code"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string"
+      }
+    },
+    "serialNumber": {
+      "epc": "0x8D",
+      "descriptions": {
+        "ja": "製造番号",
+        "en": "Serial number"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string"
+      }
+    },
+    "productionDate": {
+      "epc": "0x8E",
+      "descriptions": {
+        "ja": "製造年月日",
+        "en": "Production date"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "format": "date"
+      }
+    },
+    "powerSaving": {
+      "epc": "0x8F",
+      "descriptions": {
+        "ja": "節電動作設定",
+        "en": "Power-saving operation setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "節電動作中",
+              "en": "Power saving Operation"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "通常動作中",
+              "en": "Normal Operation"
+            },
+            "edt": "0x42"
+          }
+        ]
+      }
+    },
+    "currentDateAndTime": {
+      "epc": "0x98",
+      "descriptions": {
+        "ja": "現在日時",
+        "en": "Current date and time"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "note": {
+        "ja": "ECHONET Lite の プロパティ EPC: 0x97 と 0x98 を組み合わせて利用",
+        "en": "This property utilizes both EPC: 0x97 and 0x98."
+      }
+    },
+    "powerLimit": {
+      "epc": "0x99",
+      "descriptions": {
+        "ja": "電力制限設定",
+        "en": "Power limit setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "W",
+        "minimum": 0,
+        "maximum": 65533
+      }
+    },
+    "hourMeter": {
+      "epc": "0x9A",
+      "descriptions": {
+        "ja": "積算運転時間",
+        "en": "Cumulative operating time"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "unit": {
+            "descriptions": {
+              "ja": "積算運転時間",
+              "en": "Cumulative operating time"
+            },
+            "type": "string",
+            "enum": [
+              "second",
+              "minute",
+              "hour",
+              "day"
+            ],
+            "values": [
+              {
+                "value": "second",
+                "descriptions": {
+                  "ja": "秒",
+                  "en": "second"
+                },
+                "edt": "0x41"
+              },
+              {
+                "value": "minute",
+                "descriptions": {
+                  "ja": "分",
+                  "en": "minute"
+                },
+                "edt": "0x42"
+              },
+              {
+                "value": "hour",
+                "descriptions": {
+                  "ja": "時",
+                  "en": "hour"
+                },
+                "edt": "0x43"
+              },
+              {
+                "value": "day",
+                "descriptions": {
+                  "ja": "日",
+                  "en": "day"
+                },
+                "edt": "0x44"
+              }
+            ]
+          },
+          "time": {
+            "descriptions": {
+              "ja": "時間",
+              "en": "time"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 4294967295
+          }
+        }
+      }
+    }
+  }
+}

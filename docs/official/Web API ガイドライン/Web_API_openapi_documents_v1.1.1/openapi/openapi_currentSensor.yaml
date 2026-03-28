@@ -1,0 +1,185 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: CurrentSensor
+  description: tag for Current sensor
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - CurrentSensor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesCurrentSensor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesCurrentSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/unsignedValue:
+    get:
+      tags:
+      - CurrentSensor
+      summary: 'Get: Measured current value 1'
+      operationId: getDevicesPropertiesUnsignedValueCurrentSensor
+      description: '取得: 電流値計測値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unsignedValueCurrentSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedVoltage:
+    get:
+      tags:
+      - CurrentSensor
+      summary: 'Get: Rated voltage to be measured'
+      operationId: getDevicesPropertiesRatedVoltageCurrentSensor
+      description: '取得: 計測対象定格電圧値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedVoltageCurrentSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/signedValue:
+    get:
+      tags:
+      - CurrentSensor
+      summary: 'Get: Measured current value 2'
+      operationId: getDevicesPropertiesSignedValueCurrentSensor
+      description: '取得: 電流値計測値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/signedValueCurrentSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesCurrentSensor:
+      description: propertiesCurrentSensor
+      type: object
+      properties:
+        unsignedValue:
+          type: number
+          minimum: 0
+          maximum: 4294967293
+          description: '[ja: 電流値計測値1, en: Measured current value 1] '
+        ratedVoltage:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 計測対象定格電圧値, en: Rated voltage to be measured] '
+        signedValue:
+          type: number
+          minimum: -2147483647
+          maximum: 2147483646
+          description: '[ja: 電流値計測値2, en: Measured current value 2] '
+    unsignedValueCurrentSensor:
+      description: '[ja: 電流値計測値1, en: Measured current value 1]'
+      type: object
+      properties:
+        unsignedValue:
+          type: number
+          minimum: 0
+          maximum: 4294967293
+          description: '[ja: 電流値計測値1, en: Measured current value 1] '
+    ratedVoltageCurrentSensor:
+      description: '[ja: 計測対象定格電圧値, en: Rated voltage to be measured]'
+      type: object
+      properties:
+        ratedVoltage:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 計測対象定格電圧値, en: Rated voltage to be measured] '
+    signedValueCurrentSensor:
+      description: '[ja: 電流値計測値2, en: Measured current value 2]'
+      type: object
+      properties:
+        signedValue:
+          type: number
+          minimum: -2147483647
+          maximum: 2147483646
+          description: '[ja: 電流値計測値2, en: Measured current value 2] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

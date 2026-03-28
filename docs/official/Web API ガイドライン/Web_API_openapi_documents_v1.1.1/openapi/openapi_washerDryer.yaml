@@ -1,0 +1,2894 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: WasherDryer
+  description: tag for Washer and dryer
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesWasherDryer
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservationStatus:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: On timer reservation setting'
+      operationId: getDevicesPropertiesOnTimerReservationStatusWasherDryer
+      description: '取得: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationStatusWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: On timer reservation setting'
+      operationId: putDevicesPropertiesOnTimerReservationStatusWasherDryer
+      description: '設定: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservationStatusWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationStatusWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerAbsolute:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: On timer setting'
+      operationId: getDevicesPropertiesOnTimerAbsoluteWasherDryer
+      description: '取得: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerAbsoluteWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: On timer setting'
+      operationId: putDevicesPropertiesOnTimerAbsoluteWasherDryer
+      description: '設定: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerAbsoluteWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerAbsoluteWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOnTimer:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Relative time-based on timer setting'
+      operationId: getDevicesPropertiesRelativeTimeOfOnTimerWasherDryer
+      description: '取得: ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Relative time-based on timer setting'
+      operationId: putDevicesPropertiesRelativeTimeOfOnTimerWasherDryer
+      description: '設定: ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOnTimerWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/doorOpenStatus:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Door/cover open/close status'
+      operationId: getDevicesPropertiesDoorOpenStatusWasherDryer
+      description: '取得: 扉・蓋開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doorOpenStatusWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/runningStatus:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Washer and dryer setting'
+      operationId: getDevicesPropertiesRunningStatusWasherDryer
+      description: '取得: 洗濯・乾燥設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runningStatusWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Washer and dryer setting'
+      operationId: putDevicesPropertiesRunningStatusWasherDryer
+      description: '設定: 洗濯・乾燥設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/runningStatusWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runningStatusWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/washerDryerCycle1:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Washer and dryer cycle setting 1'
+      operationId: getDevicesPropertiesWasherDryerCycle1WasherDryer
+      description: '取得: 洗濯乾燥コース設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washerDryerCycle1WasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Washer and dryer cycle setting 1'
+      operationId: putDevicesPropertiesWasherDryerCycle1WasherDryer
+      description: '設定: 洗濯乾燥コース設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/washerDryerCycle1WasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washerDryerCycle1WasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/washerDryerCycle2:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Washer and dryer cycle setting 2'
+      operationId: getDevicesPropertiesWasherDryerCycle2WasherDryer
+      description: '取得: 洗濯乾燥コース設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washerDryerCycle2WasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Washer and dryer cycle setting 2'
+      operationId: putDevicesPropertiesWasherDryerCycle2WasherDryer
+      description: '設定: 洗濯乾燥コース設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/washerDryerCycle2WasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washerDryerCycle2WasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dryerCycle:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Drying cycle setting'
+      operationId: getDevicesPropertiesDryerCycleWasherDryer
+      description: '取得: 乾燥方法設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dryerCycleWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Drying cycle setting'
+      operationId: putDevicesPropertiesDryerCycleWasherDryer
+      description: '設定: 乾燥方法設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dryerCycleWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dryerCycleWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/washerDryerCycleOptions1:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Washer and dryer cycle option list 1'
+      operationId: getDevicesPropertiesWasherDryerCycleOptions1WasherDryer
+      description: '取得: 設定可能コース情報1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washerDryerCycleOptions1WasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/washerDryerCycleOptions2:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Washer and dryer cycle option list 2'
+      operationId: getDevicesPropertiesWasherDryerCycleOptions2WasherDryer
+      description: '取得: 設定可能コース情報2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washerDryerCycleOptions2WasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/washerDryerCycleOptions3:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Washer and dryer cycle option list 3'
+      operationId: getDevicesPropertiesWasherDryerCycleOptions3WasherDryer
+      description: '取得: 設定可能コース情報3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washerDryerCycleOptions3WasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterFlowRate:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Water flow rate setting'
+      operationId: getDevicesPropertiesWaterFlowRateWasherDryer
+      description: '取得: 水流設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterFlowRateWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Water flow rate setting'
+      operationId: putDevicesPropertiesWaterFlowRateWasherDryer
+      description: '設定: 水流設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterFlowRateWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterFlowRateWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/spinDryingRotationSpeed:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Rotation speed for spin drying setting'
+      operationId: getDevicesPropertiesSpinDryingRotationSpeedWasherDryer
+      description: '取得: 脱水回転数設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/spinDryingRotationSpeedWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Rotation speed for spin drying setting'
+      operationId: putDevicesPropertiesSpinDryingRotationSpeedWasherDryer
+      description: '設定: 脱水回転数設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/spinDryingRotationSpeedWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/spinDryingRotationSpeedWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dryingDegree:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Degree of drying setting'
+      operationId: getDevicesPropertiesDryingDegreeWasherDryer
+      description: '取得: 乾燥度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dryingDegreeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Degree of drying setting'
+      operationId: putDevicesPropertiesDryingDegreeWasherDryer
+      description: '設定: 乾燥度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dryingDegreeWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dryingDegreeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/washingTimeRemaining:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Remaining washing time'
+      operationId: getDevicesPropertiesWashingTimeRemainingWasherDryer
+      description: '取得: 洗濯残り時間'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washingTimeRemainingWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dryingTimeRemaining:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Remaining drying time'
+      operationId: getDevicesPropertiesDryingTimeRemainingWasherDryer
+      description: '取得: 乾燥残り時間'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dryingTimeRemainingWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerElapsed:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Elapsed time on the ON timer'
+      operationId: getDevicesPropertiesOnTimerElapsedWasherDryer
+      description: '取得: ONタイマ経過時間'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerElapsedWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/presoakingTime:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Presoaking time setting'
+      operationId: getDevicesPropertiesPresoakingTimeWasherDryer
+      description: '取得: つけおき行程時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/presoakingTimeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Presoaking time setting'
+      operationId: putDevicesPropertiesPresoakingTimeWasherDryer
+      description: '設定: つけおき行程時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/presoakingTimeWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/presoakingTimeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/currentStage:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Current stage of washer and dryer cycle'
+      operationId: getDevicesPropertiesCurrentStageWasherDryer
+      description: '取得: 洗濯乾燥遷移状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentStageWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterVolumeByLiter:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Water volume setting 1'
+      operationId: getDevicesPropertiesWaterVolumeByLiterWasherDryer
+      description: '取得: 水量設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterVolumeByLiterWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Water volume setting 1'
+      operationId: putDevicesPropertiesWaterVolumeByLiterWasherDryer
+      description: '設定: 水量設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterVolumeByLiterWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterVolumeByLiterWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterVolumeByStep:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Water volume setting 2'
+      operationId: getDevicesPropertiesWaterVolumeByStepWasherDryer
+      description: '取得: 水量設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterVolumeByStepWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Water volume setting 2'
+      operationId: putDevicesPropertiesWaterVolumeByStepWasherDryer
+      description: '設定: 水量設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterVolumeByStepWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterVolumeByStepWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/washingTime:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Washing time setting'
+      operationId: getDevicesPropertiesWashingTimeWasherDryer
+      description: '取得: 洗い時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washingTimeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Washing time setting'
+      operationId: putDevicesPropertiesWashingTimeWasherDryer
+      description: '設定: 洗い時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/washingTimeWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washingTimeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/rinsingCount:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Number of times of rinsing setting'
+      operationId: getDevicesPropertiesRinsingCountWasherDryer
+      description: '取得: すすぎ回数設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rinsingCountWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Number of times of rinsing setting'
+      operationId: putDevicesPropertiesRinsingCountWasherDryer
+      description: '設定: すすぎ回数設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rinsingCountWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rinsingCountWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/rinsingProcess:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Rinsing process setting'
+      operationId: getDevicesPropertiesRinsingProcessWasherDryer
+      description: '取得: すすぎモード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rinsingProcessWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Rinsing process setting'
+      operationId: putDevicesPropertiesRinsingProcessWasherDryer
+      description: '設定: すすぎモード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/rinsingProcessWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rinsingProcessWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/spinDryingTime:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Spin drying time setting'
+      operationId: getDevicesPropertiesSpinDryingTimeWasherDryer
+      description: '取得: 脱水時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/spinDryingTimeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Spin drying time setting'
+      operationId: putDevicesPropertiesSpinDryingTimeWasherDryer
+      description: '設定: 脱水時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/spinDryingTimeWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/spinDryingTimeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dryingTime:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Drying time setting'
+      operationId: getDevicesPropertiesDryingTimeWasherDryer
+      description: '取得: 乾燥時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dryingTimeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Drying time setting'
+      operationId: putDevicesPropertiesDryingTimeWasherDryer
+      description: '設定: 乾燥時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dryingTimeWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dryingTimeWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterTemperature:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Warm water setting'
+      operationId: getDevicesPropertiesWaterTemperatureWasherDryer
+      description: '取得: 洗い温水設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterTemperatureWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Warm water setting'
+      operationId: putDevicesPropertiesWaterTemperatureWasherDryer
+      description: '設定: 洗い温水設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterTemperatureWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterTemperatureWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathtubWaterRecycle:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Bathtub water recycle setting'
+      operationId: getDevicesPropertiesBathtubWaterRecycleWasherDryer
+      description: '取得: 風呂水設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathtubWaterRecycleWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Bathtub water recycle setting'
+      operationId: putDevicesPropertiesBathtubWaterRecycleWasherDryer
+      description: '設定: 風呂水設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathtubWaterRecycleWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathtubWaterRecycleWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/wrinklingMinimization:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Wrinkling minimization setting'
+      operationId: getDevicesPropertiesWrinklingMinimizationWasherDryer
+      description: '取得: ソフトキープ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/wrinklingMinimizationWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Wrinkling minimization setting'
+      operationId: putDevicesPropertiesWrinklingMinimizationWasherDryer
+      description: '設定: ソフトキープ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/wrinklingMinimizationWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/wrinklingMinimizationWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/washingDryingTimeRemaining:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Time remaining to complete washer and dryer cycle'
+      operationId: getDevicesPropertiesWashingDryingTimeRemainingWasherDryer
+      description: '取得: 洗濯乾燥残り時間'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/washingDryingTimeRemainingWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/doorLockStatus:
+    get:
+      tags:
+      - WasherDryer
+      summary: 'Get: Door/cover lock setting'
+      operationId: getDevicesPropertiesDoorLockStatusWasherDryer
+      description: '取得: 運転中扉・蓋ロック設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doorLockStatusWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WasherDryer
+      summary: 'Set: Door/cover lock setting'
+      operationId: putDevicesPropertiesDoorLockStatusWasherDryer
+      description: '設定: 運転中扉・蓋ロック設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/doorLockStatusWasherDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doorLockStatusWasherDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesWasherDryer:
+      description: propertiesWasherDryer
+      type: object
+      properties:
+        onTimerReservationStatus:
+          type: string
+          enum:
+          - enable
+          - disable
+          description: '[ja: ONタイマ予約設定, en: On timer reservation setting] _enable
+            (ja: 予約入, en: Reservation on) disable (ja: 予約切, en: Reservation off) '
+        onTimerAbsolute:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: On timer setting] '
+        relativeTimeOfOnTimer:
+          type: number
+          minimum: 0
+          maximum: 15359
+          multipleOf: 1
+          description: '[ja: ONタイマ相対時間設定値, en: Relative time-based on timer setting] '
+        doorOpenStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 扉・蓋開閉状態, en: Door/cover open/close status] _open (ja:
+            扉・蓋開, en: Door/cover open) close (ja: 扉・蓋閉, en: Door/cover closed) '
+        runningStatus:
+          type: string
+          enum:
+          - run
+          - pause
+          - stop
+          description: '[ja: 洗濯・乾燥設定, en: Washer and dryer setting] _run (ja: 洗濯乾燥開始・再開／洗濯乾燥運転中,
+            en: Start/restart(ed) or in progress) pause (ja: 洗濯乾燥一時停止, en: Suspend(ed))
+            stop (ja: 洗濯乾燥停止, en: Stop(ped)) '
+        washerDryerCycle1:
+          type: string
+          enum:
+          - washDryStandard
+          - washDrySilent
+          - washDryHeavilySoiled
+          - washDryHardToRemove
+          - washDryPresoaking
+          - washDryBlankets
+          - washDrySoft
+          - washDryDrymark
+          - washDryCleanRinsing
+          - washDryIroning
+          - washDryHangDrying
+          - washDryThick
+          - washDryDisinfection
+          - washDryOilStrains
+          - washDryMemory
+          - washDryDetergentSaving
+          - washDryLightlySoiled
+          - washDrySmallAmountQuick
+          - washStandard
+          - washSilent
+          - washHeavilySoiled
+          - washHardToRemove
+          - washPresoaking
+          - washBlankets
+          - washSoft
+          - washDrymark
+          - washCleanRinsing
+          - washDisinfection
+          - washOilStrains
+          - washMemory
+          - washDetergentSaving
+          - washLightlySoiled
+          - washSmallAmountQuick
+          - washTankCleaning
+          - dryStandard
+          - dryBlankets
+          - drySoft
+          - dryDrymark
+          - dryIroning
+          - dryHangDrying
+          - dryThick
+          - dryDisinfection
+          - dryShrinkageMinimization
+          - dryFinishing
+          - dryStationaryDrying
+          - dryUserDefinedTime
+          - dryWarming
+          - dryTankDrying
+          description: '[ja: 洗濯乾燥コース設定1, en: Washer and dryer cycle setting 1] _washDryStandard
+            (ja: ＜洗濯乾燥コース＞標準, en: <Washing and drying course> Standard) washDrySilent
+            (ja: ＜洗濯乾燥コース＞静音, en: <Washing and drying course> Silent) washDryHeavilySoiled
+            (ja: ＜洗濯乾燥コース＞汚れ大, en: <Washing and drying course> Heavily soiled clothes)
+            washDryHardToRemove (ja: ＜洗濯乾燥コース＞しつこい汚れ, en: <Washing and drying course>
+            Hard-to-remove stains) washDryPresoaking (ja: ＜洗濯乾燥コース＞つけおき, en: <Washing
+            and drying course> Presoaking) washDryBlankets (ja: ＜洗濯乾燥コース＞毛布, en: <Washing
+            and drying course> Blankets) washDrySoft (ja: ＜洗濯乾燥コース＞ソフト, en: <Washing
+            and drying course> Soft) washDryDrymark (ja: ＜洗濯乾燥コース＞ドライ, en: <Washing
+            and drying course> Dry) washDryCleanRinsing (ja: ＜洗濯乾燥コース＞清潔すすぎ, en: <Washing
+            and drying course> Clean rinsing) washDryIroning (ja: ＜洗濯乾燥コース＞アイロン／Yシャツ,
+            en: <Washing and drying course> Ironing/business shirts) washDryHangDrying
+            (ja: ＜洗濯乾燥コース＞吊り干し, en: <Washing and drying course> Hang drying) washDryThick
+            (ja: ＜洗濯乾燥コース＞厚物, en: <Washing and drying course> Thick clothes) washDryDisinfection
+            (ja: ＜洗濯乾燥コース＞除菌, en: <Washing and drying course> Disinfection) washDryOilStrains
+            (ja: ＜洗濯乾燥コース＞油汚れ, en: <Washing and drying course> Oil stains) washDryMemory
+            (ja: ＜洗濯乾燥コース＞メモリー, en: <Washing and drying course> Memory) washDryDetergentSaving
+            (ja: ＜洗濯乾燥コース＞省洗剤, en: <Washing and drying course> Detergent saving) washDryLightlySoiled
+            (ja: ＜洗濯乾燥コース＞汚れ小, en: <Washing and drying course> Lightly soiled clothes)
+            washDrySmallAmountQuick (ja: ＜洗濯乾燥コース＞少量短時間, en: <Washing and drying course>
+            Quick wash of small amount of laundry) washStandard (ja: ＜洗濯コース＞標準, en:
+            <Washing course> Standard) washSilent (ja: ＜洗濯コース＞静音, en: <Washing course>
+            Silent) washHeavilySoiled (ja: ＜洗濯コース＞汚れ大, en: <Washing course> Heavily
+            soiled clothes) washHardToRemove (ja: ＜洗濯コース＞しつこい汚れ, en: <Washing course>
+            Hard-to-remove stains) washPresoaking (ja: ＜洗濯コース＞つけおき, en: <Washing course>
+            Presoaking) washBlankets (ja: ＜洗濯コース＞毛布, en: <Washing course> Blankets)
+            washSoft (ja: ＜洗濯コース＞ソフト, en: <Washing course> Soft) washDrymark (ja:
+            ＜洗濯コース＞ドライ, en: <Washing course> Dry) washCleanRinsing (ja: ＜洗濯コース＞清潔すすぎ,
+            en: <Washing course> Clean rinsing) washDisinfection (ja: ＜洗濯コース＞除菌, en:
+            <Washing course> Disinfection) washOilStrains (ja: ＜洗濯コース＞油汚れ, en: <Washing
+            course> Oil stains) washMemory (ja: ＜洗濯コース＞メモリー, en: <Washing course>
+            Memory) washDetergentSaving (ja: ＜洗濯コース＞省洗剤, en: <Washing course> Detergent
+            saving) washLightlySoiled (ja: ＜洗濯コース＞汚れ小, en: <Washing course> Lightly
+            soiled clothes) washSmallAmountQuick (ja: ＜洗濯コース＞少量短時間, en: <Washing course>
+            Quick wash of small amount of laundry) washTankCleaning (ja: ＜洗濯コース＞槽洗浄,
+            en: <Washing course> Tank cleaning) dryStandard (ja: ＜乾燥コース＞標準, en: <Drying
+            course> Standard) dryBlankets (ja: ＜乾燥コース＞毛布, en: <Drying course> Blankets)
+            drySoft (ja: ＜乾燥コース＞ソフト, en: <Drying course> Soft) dryDrymark (ja: ＜乾燥コース＞ドライ,
+            en: <Drying course> Dry) dryIroning (ja: ＜乾燥コース＞アイロン／Yシャツ, en: <Drying
+            course> Ironing/business shirts) dryHangDrying (ja: ＜乾燥コース＞吊り干し, en: <Drying
+            course> Hang drying) dryThick (ja: ＜乾燥コース＞厚物, en: <Drying course> Thick
+            clothes) dryDisinfection (ja: ＜乾燥コース＞除菌, en: <Drying course> Disinfection)
+            dryShrinkageMinimization (ja: ＜乾燥コース＞縮み低減, en: <Drying course> Shrinkage
+            minimization) dryFinishing (ja: ＜乾燥コース＞仕上げ, en: <Drying course> Finishing)
+            dryStationaryDrying (ja: ＜乾燥コース＞静止乾燥, en: <Drying course> Stationary drying)
+            dryUserDefinedTime (ja: ＜乾燥コース＞時間指定, en: <Drying course> User definition
+            of drying time) dryWarming (ja: ＜乾燥コース＞衣類あたため, en: <Drying course> Garment
+            warming) dryTankDrying (ja: ＜乾燥コース＞槽洗浄, en: <Drying course> Tank cleaning) '
+        washerDryerCycle2:
+          type: string
+          enum:
+          - washDryNoWash
+          - washDryStandard
+          - washDrySilent
+          - washDryHeavilySoiled
+          - washDryHardToRemove
+          - washDryPresoaking
+          - washDryBlankets
+          - washDrySoft
+          - washDryDrymark
+          - washDryCleanRinsing
+          - washDryDisinfection
+          - washDryOilStrains
+          - washDryMemory
+          - washDryDetergentSaving
+          - washDryLightlySoiled
+          - washDrySmallAmountQuick
+          - washDryTankCleaning
+          description: '[ja: 洗濯乾燥コース設定2, en: Washer and dryer cycle setting 2] _washDryNoWash
+            (ja: 洗濯なし, en: No washing) washDryStandard (ja: 標準, en: Standard) washDrySilent
+            (ja: 静音, en: Silent) washDryHeavilySoiled (ja: 汚れ大, en: Heavily soiled
+            clothes) washDryHardToRemove (ja: しつこい汚れ, en: Hard-to-remove stains) washDryPresoaking
+            (ja: つけおき, en: Presoaking) washDryBlankets (ja: 毛布, en: Blankets) washDrySoft
+            (ja: ソフト, en: Soft) washDryDrymark (ja: ドライ, en: Dry) washDryCleanRinsing
+            (ja: 清潔すすぎ, en: Clean rinsing) washDryDisinfection (ja: 除菌, en: Disinfection)
+            washDryOilStrains (ja: 油汚れ, en: Oil stains) washDryMemory (ja: メモリー, en:
+            Memory) washDryDetergentSaving (ja: 省洗剤, en: Detergent saving) washDryLightlySoiled
+            (ja: 汚れ小, en: Lightly soiled clothes) washDrySmallAmountQuick (ja: 少量短時間,
+            en: Quick wash of small amount of laundry) washDryTankCleaning (ja: 槽洗浄,
+            en: Tank cleaning) '
+        dryerCycle:
+          type: string
+          enum:
+          - dryNoDrying
+          - dryStandard
+          - dryBlankets
+          - drySoft
+          - dryDrymark
+          - dryIroning
+          - dryHangDrying
+          - dryThick
+          - dryDisinfection
+          - dryShrinkageMinimization
+          - dryFinishing
+          - dryStationaryDrying
+          - dryUserDefinedTime
+          - dryWarming
+          - dryHeaterCurrentLimit
+          - dryTankDrying
+          description: '[ja: 乾燥方法設定, en: Drying cycle setting] _dryNoDrying (ja: 乾燥なし,
+            en: No drying) dryStandard (ja: 標準, en: Standard) dryBlankets (ja: 毛布,
+            en: Blankets) drySoft (ja: ソフト, en: Soft) dryDrymark (ja: ドライ, en: Dry)
+            dryIroning (ja: アイロン／Yシャツ, en: Ironing/business shirts) dryHangDrying
+            (ja: 吊り干し, en: Hang drying) dryThick (ja: 厚物, en: Thick clothes) dryDisinfection
+            (ja: 除菌, en: Disinfection) dryShrinkageMinimization (ja: 縮み低減, en: Shrinkage
+            minimization) dryFinishing (ja: 仕上げ, en: Finishing) dryStationaryDrying
+            (ja: 静止乾燥, en: Stationary drying) dryUserDefinedTime (ja: 時間指定, en: User
+            definition of drying time) dryWarming (ja: 衣類あたため, en: Garment warming)
+            dryHeaterCurrentLimit (ja: ヒータ入力制限, en: Heater current limit) dryTankDrying
+            (ja: 槽洗浄, en: Tank drying) '
+        washerDryerCycleOptions1:
+          type: array
+          items:
+            type: string
+            enum:
+            - washDryStandard
+            - washDrySilent
+            - washDryHeavilySoiled
+            - washDryHardToRemove
+            - washDryPresoaking
+            - washDryBlankets
+            - washDrySoft
+            - washDryDrymark
+            - washDryCleanRinsing
+            - washDryIroning
+            - washDryHangDrying
+            - washDryThick
+            - washDryDisinfection
+            - washDryOilStrains
+            - washDryMemory
+            - washDryDetergentSaving
+            - washDryLightlySoiled
+            - washDrySmallAmountQuick
+            - washStandard
+            - washSilent
+            - washHeavilySoiled
+            - washHardToRemove
+            - washPresoaking
+            - washBlankets
+            - washSoft
+            - washDrymark
+            - washCleanRinsing
+            - washDisinfection
+            - washOilStrains
+            - washMemory
+            - washDetergentSaving
+            - washLightlySoiled
+            - washSmallAmountQuick
+            - washTankCleaning
+            - dryStandard
+            - dryBlankets
+            - drySoft
+            - dryDrymark
+            - dryIroning
+            - dryHangDrying
+            - dryThick
+            - dryDisinfection
+            - dryShrinkageMinimization
+            - dryFinishing
+            - dryStationaryDrying
+            - dryUserDefinedTime
+            - dryWarming
+            - dryTankDrying
+            description: '_washDryStandard (ja: ＜洗濯乾燥コース＞標準, en: <Washing and drying
+              course> Standard) washDrySilent (ja: ＜洗濯乾燥コース＞静音, en: <Washing and drying
+              course> Silent) washDryHeavilySoiled (ja: ＜洗濯乾燥コース＞汚れ大, en: <Washing
+              and drying course> Heavily soiled) washDryHardToRemove (ja: ＜洗濯乾燥コース＞しつこい汚れ,
+              en: <Washing and drying course> Hard-to-remove stains) washDryPresoaking
+              (ja: ＜洗濯乾燥コース＞つけおき, en: <Washing and drying course> Presoaking) washDryBlankets
+              (ja: ＜洗濯乾燥コース＞毛布, en: <Washing and drying course> Blankets) washDrySoft
+              (ja: ＜洗濯乾燥コース＞ソフト, en: <Washing and drying course> Soft) washDryDrymark
+              (ja: ＜洗濯乾燥コース＞ドライ, en: <Washing and drying course> Dry) washDryCleanRinsing
+              (ja: ＜洗濯乾燥コース＞清潔すすぎ, en: <Washing and drying course> Clean rinsing)
+              washDryIroning (ja: ＜洗濯乾燥コース＞アイロン／Y シャツ, en: <Washing and drying course>
+              Ironing/business shirts) washDryHangDrying (ja: ＜洗濯乾燥コース＞吊り干し, en: <Washing
+              and drying course> Hang drying) washDryThick (ja: ＜洗濯乾燥コース＞厚物, en: <Washing
+              and drying course> Thick clothes) washDryDisinfection (ja: ＜洗濯乾燥コース＞除菌,
+              en: <Washing and drying course> Disinfection) washDryOilStrains (ja:
+              ＜洗濯乾燥コース＞油汚れ, en: <Washing and drying course> Oil stains) washDryMemory
+              (ja: ＜洗濯乾燥コース＞メモリー, en: <Washing and drying course> Memory) washDryDetergentSaving
+              (ja: ＜洗濯乾燥コース＞省洗剤, en: <Washing and drying course> Detergent saving)
+              washDryLightlySoiled (ja: ＜洗濯乾燥コース＞汚れ少, en: <Washing and drying course>
+              Lightly soiled clothes) washDrySmallAmountQuick (ja: ＜洗濯乾燥コース＞少量短時間,
+              en: <Washing and drying course> Quick wash of small amount of laundry)
+              washStandard (ja: ＜洗濯コース＞標準, en: <Washing course> Standard) washSilent
+              (ja: ＜洗濯コース＞静音, en: <Washing course> Silent) washHeavilySoiled (ja:
+              ＜洗濯コース＞汚れ大, en: <Washing course> Heavily soiled clothes) washHardToRemove
+              (ja: ＜洗濯コース＞しつこい汚れ, en: <Washing course> Hard-to-remove stains) washPresoaking
+              (ja: ＜洗濯コース＞つけおき, en: <Washing course> Presoaking) washBlankets (ja:
+              ＜洗濯コース＞毛布, en: <Washing course> Blankets) washSoft (ja: ＜洗濯コース＞ソフト,
+              en: <Washing course> Soft) washDrymark (ja: ＜洗濯コース＞ドライ, en: <Washing
+              course> Dry) washCleanRinsing (ja: ＜洗濯コース＞清潔すすぎ, en: <Washing course>
+              Clean rinsing) washDisinfection (ja: ＜洗濯コース＞除菌, en: <Washing course>
+              Disinfection) washOilStrains (ja: ＜洗濯コース＞油汚れ, en: <Washing course> Oil
+              stains) washMemory (ja: ＜洗濯コース＞メモリ, en: <Washing course> Memory) washDetergentSaving
+              (ja: ＜洗濯コース＞省洗剤, en: <Washing course> Detergent saving) washLightlySoiled
+              (ja: ＜洗濯コース＞汚れ少, en: <Washing course> Lightly soiled clothes) washSmallAmountQuick
+              (ja: ＜洗濯コース＞少量短時間, en: <Washing course> Quick wash of small amount of
+              laundry) washTankCleaning (ja: ＜洗濯コース＞槽洗浄, en: <Washing course> Tank
+              cleaning) dryStandard (ja: ＜乾燥コース＞標準, en: <Drying course> Standard)
+              dryBlankets (ja: ＜乾燥コース＞毛布, en: <Drying course> Blankets) drySoft (ja:
+              ＜乾燥コース＞ソフト, en: <Drying course> Soft) dryDrymark (ja: ＜乾燥コース＞ドライ, en:
+              <Drying course> Dry) dryIroning (ja: ＜乾燥コース＞アイロン／Y シャツ, en: <Drying
+              course> Ironing/business shirts) dryHangDrying (ja: ＜乾燥コース＞吊り干し, en:
+              <Drying course> Hang drying) dryThick (ja: ＜乾燥コース＞厚物, en: <Drying course>
+              Thick clothes) dryDisinfection (ja: ＜乾燥コース＞除菌, en: <Drying course> Disinfection)
+              dryShrinkageMinimization (ja: ＜乾燥コース＞縮み低減, en: <Drying course> Shrinkage
+              minimization) dryFinishing (ja: ＜乾燥コース＞仕上げ, en: <Drying course> Finishing)
+              dryStationaryDrying (ja: ＜乾燥コース＞静止乾燥, en: <Drying course> Stationary
+              drying) dryUserDefinedTime (ja: ＜乾燥コース＞時間指定, en: <Drying course> User
+              definition of drying time) dryWarming (ja: ＜乾燥コース＞衣類あたため, en: <Drying
+              course> Garment warming) dryTankDrying (ja: ＜乾燥コース＞槽乾燥, en: <Drying
+              course> Tank drying) '
+          description: '[ja: 設定可能コース情報1, en: Washer and dryer cycle option list 1] '
+        washerDryerCycleOptions2:
+          type: array
+          items:
+            type: string
+            enum:
+            - washDryNoWash
+            - washDryStandard
+            - washDrySilent
+            - washDryHeavilySoiled
+            - washDryHardToRemove
+            - washDryPresoaking
+            - washDryBlankets
+            - washDrySoft
+            - washDryDrymark
+            - washDryCleanRinsing
+            - washDryDisinfection
+            - washDryOilStrains
+            - washDryMemory
+            - washDryDetergentSaving
+            - washDryLightlySoiled
+            - washDrySmallAmountQuick
+            - washDryTankCleaning
+            description: '_washDryNoWash (ja: 洗濯なし, en: No washing) washDryStandard
+              (ja: 標準, en: Standard) washDrySilent (ja: 静音, en: Silent) washDryHeavilySoiled
+              (ja: 汚れ大, en: Heavily soiled clothes) washDryHardToRemove (ja: しつこい汚れ,
+              en: Hard-to-remove stains) washDryPresoaking (ja: つけおき, en: Presoaking)
+              washDryBlankets (ja: 毛布, en: Blankets) washDrySoft (ja: ソフト, en: Soft)
+              washDryDrymark (ja: ドライ, en: Dry) washDryCleanRinsing (ja: 清潔すすぎ, en:
+              Clean rinsing) washDryDisinfection (ja: 除菌, en: Disinfection) washDryOilStrains
+              (ja: 油汚れ, en: Oil stains) washDryMemory (ja: メモリー, en: Memory) washDryDetergentSaving
+              (ja: 省洗剤, en: Detergent saving) washDryLightlySoiled (ja: 汚れ少, en: Lightly
+              soiled clothes) washDrySmallAmountQuick (ja: 少量短時間, en: Quick wash of
+              small amount of laundry) washDryTankCleaning (ja: 槽洗浄, en: Tank cleaning) '
+          description: '[ja: 設定可能コース情報2, en: Washer and dryer cycle option list 2] '
+        washerDryerCycleOptions3:
+          type: array
+          items:
+            type: string
+            enum:
+            - dryNoDrying
+            - dryStandard
+            - dryBlankets
+            - drySoft
+            - dryDrymark
+            - dryIroning
+            - dryHangDrying
+            - dryThick
+            - dryDisinfection
+            - dryShrinkageMinimization
+            - dryFinishing
+            - dryStationaryDrying
+            - dryUserDefinedTime
+            - dryWarming
+            - dryHeaterCurrentLimit
+            - dryTankDrying
+            description: '_dryNoDrying (ja: 乾燥なし, en: No drying) dryStandard (ja:
+              標準, en: Standard) dryBlankets (ja: 毛布, en: Blankets) drySoft (ja: ソフト,
+              en: Soft) dryDrymark (ja: ドライ, en: Dry) dryIroning (ja: アイロン／Y シャツ,
+              en: Ironing/business shirts) dryHangDrying (ja: 吊り干し, en: Hang drying)
+              dryThick (ja: 厚物, en: Thick clothes) dryDisinfection (ja: 除菌, en: Disinfection)
+              dryShrinkageMinimization (ja: 縮み低減, en: Shrinkage minimization) dryFinishing
+              (ja: 仕上げ, en: Finishing) dryStationaryDrying (ja: 静止乾燥, en: Stationary
+              drying) dryUserDefinedTime (ja: 時間指定, en: User definition of drying
+              time) dryWarming (ja: 衣類あたため, en: Garment warming) dryHeaterCurrentLimit
+              (ja: ヒータ入力制限, en: Heater current limit) dryTankDrying (ja: 槽乾燥, en:
+              Tank drying) '
+          description: '[ja: 設定可能コース情報3, en: Washer and dryer cycle option list 3] '
+        waterFlowRate:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 1
+                maximum: 16
+                multipleOf: 1
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -8
+                maximum: 8
+                multipleOf: 1
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 水流設定, en: Water flow rate setting] '
+        spinDryingRotationSpeed:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 4095
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -2048
+                maximum: 2048
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 脱水回転数設定値, en: Rotation speed for spin drying setting] '
+        dryingDegree:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 1
+                maximum: 16
+                multipleOf: 1
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -8
+                maximum: 8
+                multipleOf: 1
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 乾燥度設定, en: Degree of drying setting] '
+        washingTimeRemaining:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 15299
+          - type: string
+            enum:
+            - unknown
+            description: '_unknown (ja: 残り時間不明, en: Remaining time unknown) '
+          description: '[ja: 洗濯残り時間, en: Remaining washing time] '
+        dryingTimeRemaining:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 15299
+          - type: string
+            enum:
+            - unknown
+            description: '_unknown (ja: 残り時間不明, en: Remaining time unknown) '
+          description: '[ja: 乾燥残り時間, en: Remaining drying time] '
+        onTimerElapsed:
+          type: number
+          minimum: 0
+          maximum: 15359
+          description: '[ja: ONタイマ経過時間, en: Elapsed time on the ON timer] '
+        presoakingTime:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 1439
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -60
+                maximum: 60
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: つけおき行程時間設定値, en: Presoaking time setting] '
+        currentStage:
+          type: string
+          enum:
+          - washing
+          - rinsing
+          - spinDrying
+          - suspended
+          - washingCompleted
+          - washingDryingCompleted
+          - drying
+          - wrinkleMinimizing
+          - dryingWrinkleMinimizingCompleted
+          - standby
+          - 1stRinsing
+          - 2ndRinsing
+          - 3rdRinsing
+          - 4thRinsing
+          - 5thRinsing
+          - 6thRinsing
+          - 7thRinsing
+          - 8thRinsing
+          - 1stSpinDrying
+          - 2ndSpinDrying
+          - 3rdSpinDrying
+          - 4thSpinDrying
+          - 5thSpinDrying
+          - 6thSpinDrying
+          - 7thSpinDrying
+          - 8thSpinDrying
+          - preheatSpinDrying
+          description: '[ja: 洗濯乾燥遷移状態, en: Current stage of washer and dryer cycle]
+            _washing (ja: 洗い, en: Washing) rinsing (ja: すすぎ, en: Rinsing) spinDrying
+            (ja: 脱水, en: Spin drying) suspended (ja: 一時停止, en: Suspended) washingCompleted
+            (ja: 洗濯完了, en: Washing completed) washingDryingCompleted (ja: 洗濯／乾燥 (ソフトキープなし)
+            完了, en: Washing/drying (without wrinkling minimization) completed) drying
+            (ja: 乾燥, en: Drying) wrinkleMinimizing (ja: ソフトキープ, en: Wrinkling minimization)
+            dryingWrinkleMinimizingCompleted (ja: 乾燥 (ソフトキープあり) 完了, en: Drying (with
+            wrinkling minimization) completed) standby (ja: 運転前待機中, en: Standing by
+            to start) 1stRinsing (ja: 第1すすぎ, en: 1st rinsing) 2ndRinsing (ja: 第2すすぎ,
+            en: 2nd rinsing) 3rdRinsing (ja: 第3すすぎ, en: 3rd rinsing) 4thRinsing (ja:
+            第4すすぎ, en: 4th rinsing) 5thRinsing (ja: 第5すすぎ, en: 5th rinsing) 6thRinsing
+            (ja: 第6すすぎ, en: 6th rinsing) 7thRinsing (ja: 第7すすぎ, en: 7th rinsing) 8thRinsing
+            (ja: 第8すすぎ, en: 8th rinsing) 1stSpinDrying (ja: 第1脱水, en: 1st spin drying)
+            2ndSpinDrying (ja: 第2脱水, en: 2nd spin drying) 3rdSpinDrying (ja: 第3脱水,
+            en: 3rd spin drying) 4thSpinDrying (ja: 第4脱水, en: 4th spin drying) 5thSpinDrying
+            (ja: 第5脱水, en: 5th spin drying) 6thSpinDrying (ja: 第6脱水, en: 6th spin
+            drying) 7thSpinDrying (ja: 第7脱水, en: 7th spin drying) 8thSpinDrying (ja:
+            第8脱水, en: 8th spin drying) preheatSpinDrying (ja: プリヒート脱水, en: Preheat
+            spin drying) '
+        waterVolumeByLiter:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 127
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -32
+                maximum: 32
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 水量設定1, en: Water volume setting 1] '
+        waterVolumeByStep:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 1
+                maximum: 16
+                multipleOf: 1
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -8
+                maximum: 8
+                multipleOf: 1
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 水量設定2, en: Water volume setting 2] '
+        washingTime:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 1439
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -60
+                maximum: 60
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 洗い時間設定値, en: Washing time setting] '
+        rinsingCount:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 8
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Automatic) '
+          description: '[ja: すすぎ回数設定値, en: Number of times of rinsing setting] '
+        rinsingProcess:
+          type: array
+          minItems: 1
+          maxItems: 8
+          items:
+            type: string
+            enum:
+            - auto
+            - withoutAdditionalWater
+            - withAdditionalWater
+            - shower
+            description: '_auto (ja: モード自動設定, en: Automatic mode) withoutAdditionalWater
+              (ja: 溜めすすぎ, en: Rinsing without additional feeding of water from the
+              tap) withAdditionalWater (ja: 流水すすぎ, en: Rinsing with additional feeding
+              of water from the tap) shower (ja: シャワーすすぎ, en: Shower rinsing) '
+          description: '[ja: すすぎモード設定, en: Rinsing process setting] '
+        spinDryingTime:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 59
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -32
+                maximum: 32
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 脱水時間設定値, en: Spin drying time setting] '
+        dryingTime:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 1439
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -60
+                maximum: 60
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 乾燥時間設定値, en: Drying time setting] '
+        waterTemperature:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - noWarmWater
+            - auto
+            description: '_noWarmWater (ja: 温水不使用, en: Not to use warm water) auto
+              (ja: 温度自動設定, en: Automatic water temperature setting) '
+          description: '[ja: 洗い温水設定値, en: Warm water setting] '
+        bathtubWaterRecycle:
+          type: string
+          enum:
+          - none
+          - washing
+          - rinsingWithoutFinal
+          - rinsing
+          - washingRinsingWithoutFinal
+          - washingRinsing
+          description: '[ja: 風呂水設定, en: Bathtub water recycle setting] _none (ja:
+            風呂水給水なし, en: Bathtub water not used) washing (ja: 洗いのみ, en: Washing only)
+            rinsingWithoutFinal (ja: すすぎのみ (除く最終すすぎ), en: Rinsing only (excluding
+            the final rinsing)) rinsing (ja: 全すすぎ, en: All rinsing processes) washingRinsingWithoutFinal
+            (ja: 洗い+すすぎ (除く最終すすぎ), en: Washing + rinsing (excluding the final rinsing))
+            washingRinsing (ja: 洗い＋全すすぎ, en: Washing + all rinsing processes) '
+        wrinklingMinimization:
+          type: string
+          enum:
+          - enable
+          - disable
+          description: '[ja: ソフトキープ設定, en: Wrinkling minimization setting] _enable
+            (ja: ソフトキープ入り, en: Wrinkling minimization function on) disable (ja: ソフトキープ切り,
+            en: Wrinkling minimization function off) '
+        washingDryingTimeRemaining:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 15299
+          - type: string
+            enum:
+            - unknown
+            description: '_unknown (ja: 残り時間不明, en: Remaining time unknown) '
+          description: '[ja: 洗濯乾燥残り時間, en: Time remaining to complete washer and dryer
+            cycle] '
+        doorLockStatus:
+          type: boolean
+          description: '[ja: 運転中扉・蓋ロック設定, en: Door/cover lock setting] _True (ja:
+            ロック, en: Locked) False (ja: アンロック, en: Unlocked) '
+    onTimerReservationStatusWasherDryer:
+      description: '[ja: ONタイマ予約設定, en: On timer reservation setting]'
+      type: object
+      properties:
+        onTimerReservationStatus:
+          type: string
+          enum:
+          - enable
+          - disable
+          description: '[ja: ONタイマ予約設定, en: On timer reservation setting] _enable
+            (ja: 予約入, en: Reservation on) disable (ja: 予約切, en: Reservation off) '
+    onTimerAbsoluteWasherDryer:
+      description: '[ja: ONタイマ時刻設定値, en: On timer setting]'
+      type: object
+      properties:
+        onTimerAbsolute:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: On timer setting] '
+    relativeTimeOfOnTimerWasherDryer:
+      description: '[ja: ONタイマ相対時間設定値, en: Relative time-based on timer setting]'
+      type: object
+      properties:
+        relativeTimeOfOnTimer:
+          type: number
+          minimum: 0
+          maximum: 15359
+          multipleOf: 1
+          description: '[ja: ONタイマ相対時間設定値, en: Relative time-based on timer setting] '
+    doorOpenStatusWasherDryer:
+      description: '[ja: 扉・蓋開閉状態, en: Door/cover open/close status]'
+      type: object
+      properties:
+        doorOpenStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 扉・蓋開閉状態, en: Door/cover open/close status] _open (ja:
+            扉・蓋開, en: Door/cover open) close (ja: 扉・蓋閉, en: Door/cover closed) '
+    runningStatusWasherDryer:
+      description: '[ja: 洗濯・乾燥設定, en: Washer and dryer setting]'
+      type: object
+      properties:
+        runningStatus:
+          type: string
+          enum:
+          - run
+          - pause
+          - stop
+          description: '[ja: 洗濯・乾燥設定, en: Washer and dryer setting] _run (ja: 洗濯乾燥開始・再開／洗濯乾燥運転中,
+            en: Start/restart(ed) or in progress) pause (ja: 洗濯乾燥一時停止, en: Suspend(ed))
+            stop (ja: 洗濯乾燥停止, en: Stop(ped)) '
+    washerDryerCycle1WasherDryer:
+      description: '[ja: 洗濯乾燥コース設定1, en: Washer and dryer cycle setting 1]'
+      type: object
+      properties:
+        washerDryerCycle1:
+          type: string
+          enum:
+          - washDryStandard
+          - washDrySilent
+          - washDryHeavilySoiled
+          - washDryHardToRemove
+          - washDryPresoaking
+          - washDryBlankets
+          - washDrySoft
+          - washDryDrymark
+          - washDryCleanRinsing
+          - washDryIroning
+          - washDryHangDrying
+          - washDryThick
+          - washDryDisinfection
+          - washDryOilStrains
+          - washDryMemory
+          - washDryDetergentSaving
+          - washDryLightlySoiled
+          - washDrySmallAmountQuick
+          - washStandard
+          - washSilent
+          - washHeavilySoiled
+          - washHardToRemove
+          - washPresoaking
+          - washBlankets
+          - washSoft
+          - washDrymark
+          - washCleanRinsing
+          - washDisinfection
+          - washOilStrains
+          - washMemory
+          - washDetergentSaving
+          - washLightlySoiled
+          - washSmallAmountQuick
+          - washTankCleaning
+          - dryStandard
+          - dryBlankets
+          - drySoft
+          - dryDrymark
+          - dryIroning
+          - dryHangDrying
+          - dryThick
+          - dryDisinfection
+          - dryShrinkageMinimization
+          - dryFinishing
+          - dryStationaryDrying
+          - dryUserDefinedTime
+          - dryWarming
+          - dryTankDrying
+          description: '[ja: 洗濯乾燥コース設定1, en: Washer and dryer cycle setting 1] _washDryStandard
+            (ja: ＜洗濯乾燥コース＞標準, en: <Washing and drying course> Standard) washDrySilent
+            (ja: ＜洗濯乾燥コース＞静音, en: <Washing and drying course> Silent) washDryHeavilySoiled
+            (ja: ＜洗濯乾燥コース＞汚れ大, en: <Washing and drying course> Heavily soiled clothes)
+            washDryHardToRemove (ja: ＜洗濯乾燥コース＞しつこい汚れ, en: <Washing and drying course>
+            Hard-to-remove stains) washDryPresoaking (ja: ＜洗濯乾燥コース＞つけおき, en: <Washing
+            and drying course> Presoaking) washDryBlankets (ja: ＜洗濯乾燥コース＞毛布, en: <Washing
+            and drying course> Blankets) washDrySoft (ja: ＜洗濯乾燥コース＞ソフト, en: <Washing
+            and drying course> Soft) washDryDrymark (ja: ＜洗濯乾燥コース＞ドライ, en: <Washing
+            and drying course> Dry) washDryCleanRinsing (ja: ＜洗濯乾燥コース＞清潔すすぎ, en: <Washing
+            and drying course> Clean rinsing) washDryIroning (ja: ＜洗濯乾燥コース＞アイロン／Yシャツ,
+            en: <Washing and drying course> Ironing/business shirts) washDryHangDrying
+            (ja: ＜洗濯乾燥コース＞吊り干し, en: <Washing and drying course> Hang drying) washDryThick
+            (ja: ＜洗濯乾燥コース＞厚物, en: <Washing and drying course> Thick clothes) washDryDisinfection
+            (ja: ＜洗濯乾燥コース＞除菌, en: <Washing and drying course> Disinfection) washDryOilStrains
+            (ja: ＜洗濯乾燥コース＞油汚れ, en: <Washing and drying course> Oil stains) washDryMemory
+            (ja: ＜洗濯乾燥コース＞メモリー, en: <Washing and drying course> Memory) washDryDetergentSaving
+            (ja: ＜洗濯乾燥コース＞省洗剤, en: <Washing and drying course> Detergent saving) washDryLightlySoiled
+            (ja: ＜洗濯乾燥コース＞汚れ小, en: <Washing and drying course> Lightly soiled clothes)
+            washDrySmallAmountQuick (ja: ＜洗濯乾燥コース＞少量短時間, en: <Washing and drying course>
+            Quick wash of small amount of laundry) washStandard (ja: ＜洗濯コース＞標準, en:
+            <Washing course> Standard) washSilent (ja: ＜洗濯コース＞静音, en: <Washing course>
+            Silent) washHeavilySoiled (ja: ＜洗濯コース＞汚れ大, en: <Washing course> Heavily
+            soiled clothes) washHardToRemove (ja: ＜洗濯コース＞しつこい汚れ, en: <Washing course>
+            Hard-to-remove stains) washPresoaking (ja: ＜洗濯コース＞つけおき, en: <Washing course>
+            Presoaking) washBlankets (ja: ＜洗濯コース＞毛布, en: <Washing course> Blankets)
+            washSoft (ja: ＜洗濯コース＞ソフト, en: <Washing course> Soft) washDrymark (ja:
+            ＜洗濯コース＞ドライ, en: <Washing course> Dry) washCleanRinsing (ja: ＜洗濯コース＞清潔すすぎ,
+            en: <Washing course> Clean rinsing) washDisinfection (ja: ＜洗濯コース＞除菌, en:
+            <Washing course> Disinfection) washOilStrains (ja: ＜洗濯コース＞油汚れ, en: <Washing
+            course> Oil stains) washMemory (ja: ＜洗濯コース＞メモリー, en: <Washing course>
+            Memory) washDetergentSaving (ja: ＜洗濯コース＞省洗剤, en: <Washing course> Detergent
+            saving) washLightlySoiled (ja: ＜洗濯コース＞汚れ小, en: <Washing course> Lightly
+            soiled clothes) washSmallAmountQuick (ja: ＜洗濯コース＞少量短時間, en: <Washing course>
+            Quick wash of small amount of laundry) washTankCleaning (ja: ＜洗濯コース＞槽洗浄,
+            en: <Washing course> Tank cleaning) dryStandard (ja: ＜乾燥コース＞標準, en: <Drying
+            course> Standard) dryBlankets (ja: ＜乾燥コース＞毛布, en: <Drying course> Blankets)
+            drySoft (ja: ＜乾燥コース＞ソフト, en: <Drying course> Soft) dryDrymark (ja: ＜乾燥コース＞ドライ,
+            en: <Drying course> Dry) dryIroning (ja: ＜乾燥コース＞アイロン／Yシャツ, en: <Drying
+            course> Ironing/business shirts) dryHangDrying (ja: ＜乾燥コース＞吊り干し, en: <Drying
+            course> Hang drying) dryThick (ja: ＜乾燥コース＞厚物, en: <Drying course> Thick
+            clothes) dryDisinfection (ja: ＜乾燥コース＞除菌, en: <Drying course> Disinfection)
+            dryShrinkageMinimization (ja: ＜乾燥コース＞縮み低減, en: <Drying course> Shrinkage
+            minimization) dryFinishing (ja: ＜乾燥コース＞仕上げ, en: <Drying course> Finishing)
+            dryStationaryDrying (ja: ＜乾燥コース＞静止乾燥, en: <Drying course> Stationary drying)
+            dryUserDefinedTime (ja: ＜乾燥コース＞時間指定, en: <Drying course> User definition
+            of drying time) dryWarming (ja: ＜乾燥コース＞衣類あたため, en: <Drying course> Garment
+            warming) dryTankDrying (ja: ＜乾燥コース＞槽洗浄, en: <Drying course> Tank cleaning) '
+    washerDryerCycle2WasherDryer:
+      description: '[ja: 洗濯乾燥コース設定2, en: Washer and dryer cycle setting 2]'
+      type: object
+      properties:
+        washerDryerCycle2:
+          type: string
+          enum:
+          - washDryNoWash
+          - washDryStandard
+          - washDrySilent
+          - washDryHeavilySoiled
+          - washDryHardToRemove
+          - washDryPresoaking
+          - washDryBlankets
+          - washDrySoft
+          - washDryDrymark
+          - washDryCleanRinsing
+          - washDryDisinfection
+          - washDryOilStrains
+          - washDryMemory
+          - washDryDetergentSaving
+          - washDryLightlySoiled
+          - washDrySmallAmountQuick
+          - washDryTankCleaning
+          description: '[ja: 洗濯乾燥コース設定2, en: Washer and dryer cycle setting 2] _washDryNoWash
+            (ja: 洗濯なし, en: No washing) washDryStandard (ja: 標準, en: Standard) washDrySilent
+            (ja: 静音, en: Silent) washDryHeavilySoiled (ja: 汚れ大, en: Heavily soiled
+            clothes) washDryHardToRemove (ja: しつこい汚れ, en: Hard-to-remove stains) washDryPresoaking
+            (ja: つけおき, en: Presoaking) washDryBlankets (ja: 毛布, en: Blankets) washDrySoft
+            (ja: ソフト, en: Soft) washDryDrymark (ja: ドライ, en: Dry) washDryCleanRinsing
+            (ja: 清潔すすぎ, en: Clean rinsing) washDryDisinfection (ja: 除菌, en: Disinfection)
+            washDryOilStrains (ja: 油汚れ, en: Oil stains) washDryMemory (ja: メモリー, en:
+            Memory) washDryDetergentSaving (ja: 省洗剤, en: Detergent saving) washDryLightlySoiled
+            (ja: 汚れ小, en: Lightly soiled clothes) washDrySmallAmountQuick (ja: 少量短時間,
+            en: Quick wash of small amount of laundry) washDryTankCleaning (ja: 槽洗浄,
+            en: Tank cleaning) '
+    dryerCycleWasherDryer:
+      description: '[ja: 乾燥方法設定, en: Drying cycle setting]'
+      type: object
+      properties:
+        dryerCycle:
+          type: string
+          enum:
+          - dryNoDrying
+          - dryStandard
+          - dryBlankets
+          - drySoft
+          - dryDrymark
+          - dryIroning
+          - dryHangDrying
+          - dryThick
+          - dryDisinfection
+          - dryShrinkageMinimization
+          - dryFinishing
+          - dryStationaryDrying
+          - dryUserDefinedTime
+          - dryWarming
+          - dryHeaterCurrentLimit
+          - dryTankDrying
+          description: '[ja: 乾燥方法設定, en: Drying cycle setting] _dryNoDrying (ja: 乾燥なし,
+            en: No drying) dryStandard (ja: 標準, en: Standard) dryBlankets (ja: 毛布,
+            en: Blankets) drySoft (ja: ソフト, en: Soft) dryDrymark (ja: ドライ, en: Dry)
+            dryIroning (ja: アイロン／Yシャツ, en: Ironing/business shirts) dryHangDrying
+            (ja: 吊り干し, en: Hang drying) dryThick (ja: 厚物, en: Thick clothes) dryDisinfection
+            (ja: 除菌, en: Disinfection) dryShrinkageMinimization (ja: 縮み低減, en: Shrinkage
+            minimization) dryFinishing (ja: 仕上げ, en: Finishing) dryStationaryDrying
+            (ja: 静止乾燥, en: Stationary drying) dryUserDefinedTime (ja: 時間指定, en: User
+            definition of drying time) dryWarming (ja: 衣類あたため, en: Garment warming)
+            dryHeaterCurrentLimit (ja: ヒータ入力制限, en: Heater current limit) dryTankDrying
+            (ja: 槽洗浄, en: Tank drying) '
+    washerDryerCycleOptions1WasherDryer:
+      description: '[ja: 設定可能コース情報1, en: Washer and dryer cycle option list 1]'
+      type: object
+      properties:
+        washerDryerCycleOptions1:
+          type: array
+          items:
+            type: string
+            enum:
+            - washDryStandard
+            - washDrySilent
+            - washDryHeavilySoiled
+            - washDryHardToRemove
+            - washDryPresoaking
+            - washDryBlankets
+            - washDrySoft
+            - washDryDrymark
+            - washDryCleanRinsing
+            - washDryIroning
+            - washDryHangDrying
+            - washDryThick
+            - washDryDisinfection
+            - washDryOilStrains
+            - washDryMemory
+            - washDryDetergentSaving
+            - washDryLightlySoiled
+            - washDrySmallAmountQuick
+            - washStandard
+            - washSilent
+            - washHeavilySoiled
+            - washHardToRemove
+            - washPresoaking
+            - washBlankets
+            - washSoft
+            - washDrymark
+            - washCleanRinsing
+            - washDisinfection
+            - washOilStrains
+            - washMemory
+            - washDetergentSaving
+            - washLightlySoiled
+            - washSmallAmountQuick
+            - washTankCleaning
+            - dryStandard
+            - dryBlankets
+            - drySoft
+            - dryDrymark
+            - dryIroning
+            - dryHangDrying
+            - dryThick
+            - dryDisinfection
+            - dryShrinkageMinimization
+            - dryFinishing
+            - dryStationaryDrying
+            - dryUserDefinedTime
+            - dryWarming
+            - dryTankDrying
+            description: '_washDryStandard (ja: ＜洗濯乾燥コース＞標準, en: <Washing and drying
+              course> Standard) washDrySilent (ja: ＜洗濯乾燥コース＞静音, en: <Washing and drying
+              course> Silent) washDryHeavilySoiled (ja: ＜洗濯乾燥コース＞汚れ大, en: <Washing
+              and drying course> Heavily soiled) washDryHardToRemove (ja: ＜洗濯乾燥コース＞しつこい汚れ,
+              en: <Washing and drying course> Hard-to-remove stains) washDryPresoaking
+              (ja: ＜洗濯乾燥コース＞つけおき, en: <Washing and drying course> Presoaking) washDryBlankets
+              (ja: ＜洗濯乾燥コース＞毛布, en: <Washing and drying course> Blankets) washDrySoft
+              (ja: ＜洗濯乾燥コース＞ソフト, en: <Washing and drying course> Soft) washDryDrymark
+              (ja: ＜洗濯乾燥コース＞ドライ, en: <Washing and drying course> Dry) washDryCleanRinsing
+              (ja: ＜洗濯乾燥コース＞清潔すすぎ, en: <Washing and drying course> Clean rinsing)
+              washDryIroning (ja: ＜洗濯乾燥コース＞アイロン／Y シャツ, en: <Washing and drying course>
+              Ironing/business shirts) washDryHangDrying (ja: ＜洗濯乾燥コース＞吊り干し, en: <Washing
+              and drying course> Hang drying) washDryThick (ja: ＜洗濯乾燥コース＞厚物, en: <Washing
+              and drying course> Thick clothes) washDryDisinfection (ja: ＜洗濯乾燥コース＞除菌,
+              en: <Washing and drying course> Disinfection) washDryOilStrains (ja:
+              ＜洗濯乾燥コース＞油汚れ, en: <Washing and drying course> Oil stains) washDryMemory
+              (ja: ＜洗濯乾燥コース＞メモリー, en: <Washing and drying course> Memory) washDryDetergentSaving
+              (ja: ＜洗濯乾燥コース＞省洗剤, en: <Washing and drying course> Detergent saving)
+              washDryLightlySoiled (ja: ＜洗濯乾燥コース＞汚れ少, en: <Washing and drying course>
+              Lightly soiled clothes) washDrySmallAmountQuick (ja: ＜洗濯乾燥コース＞少量短時間,
+              en: <Washing and drying course> Quick wash of small amount of laundry)
+              washStandard (ja: ＜洗濯コース＞標準, en: <Washing course> Standard) washSilent
+              (ja: ＜洗濯コース＞静音, en: <Washing course> Silent) washHeavilySoiled (ja:
+              ＜洗濯コース＞汚れ大, en: <Washing course> Heavily soiled clothes) washHardToRemove
+              (ja: ＜洗濯コース＞しつこい汚れ, en: <Washing course> Hard-to-remove stains) washPresoaking
+              (ja: ＜洗濯コース＞つけおき, en: <Washing course> Presoaking) washBlankets (ja:
+              ＜洗濯コース＞毛布, en: <Washing course> Blankets) washSoft (ja: ＜洗濯コース＞ソフト,
+              en: <Washing course> Soft) washDrymark (ja: ＜洗濯コース＞ドライ, en: <Washing
+              course> Dry) washCleanRinsing (ja: ＜洗濯コース＞清潔すすぎ, en: <Washing course>
+              Clean rinsing) washDisinfection (ja: ＜洗濯コース＞除菌, en: <Washing course>
+              Disinfection) washOilStrains (ja: ＜洗濯コース＞油汚れ, en: <Washing course> Oil
+              stains) washMemory (ja: ＜洗濯コース＞メモリ, en: <Washing course> Memory) washDetergentSaving
+              (ja: ＜洗濯コース＞省洗剤, en: <Washing course> Detergent saving) washLightlySoiled
+              (ja: ＜洗濯コース＞汚れ少, en: <Washing course> Lightly soiled clothes) washSmallAmountQuick
+              (ja: ＜洗濯コース＞少量短時間, en: <Washing course> Quick wash of small amount of
+              laundry) washTankCleaning (ja: ＜洗濯コース＞槽洗浄, en: <Washing course> Tank
+              cleaning) dryStandard (ja: ＜乾燥コース＞標準, en: <Drying course> Standard)
+              dryBlankets (ja: ＜乾燥コース＞毛布, en: <Drying course> Blankets) drySoft (ja:
+              ＜乾燥コース＞ソフト, en: <Drying course> Soft) dryDrymark (ja: ＜乾燥コース＞ドライ, en:
+              <Drying course> Dry) dryIroning (ja: ＜乾燥コース＞アイロン／Y シャツ, en: <Drying
+              course> Ironing/business shirts) dryHangDrying (ja: ＜乾燥コース＞吊り干し, en:
+              <Drying course> Hang drying) dryThick (ja: ＜乾燥コース＞厚物, en: <Drying course>
+              Thick clothes) dryDisinfection (ja: ＜乾燥コース＞除菌, en: <Drying course> Disinfection)
+              dryShrinkageMinimization (ja: ＜乾燥コース＞縮み低減, en: <Drying course> Shrinkage
+              minimization) dryFinishing (ja: ＜乾燥コース＞仕上げ, en: <Drying course> Finishing)
+              dryStationaryDrying (ja: ＜乾燥コース＞静止乾燥, en: <Drying course> Stationary
+              drying) dryUserDefinedTime (ja: ＜乾燥コース＞時間指定, en: <Drying course> User
+              definition of drying time) dryWarming (ja: ＜乾燥コース＞衣類あたため, en: <Drying
+              course> Garment warming) dryTankDrying (ja: ＜乾燥コース＞槽乾燥, en: <Drying
+              course> Tank drying) '
+          description: '[ja: 設定可能コース情報1, en: Washer and dryer cycle option list 1] '
+    washerDryerCycleOptions2WasherDryer:
+      description: '[ja: 設定可能コース情報2, en: Washer and dryer cycle option list 2]'
+      type: object
+      properties:
+        washerDryerCycleOptions2:
+          type: array
+          items:
+            type: string
+            enum:
+            - washDryNoWash
+            - washDryStandard
+            - washDrySilent
+            - washDryHeavilySoiled
+            - washDryHardToRemove
+            - washDryPresoaking
+            - washDryBlankets
+            - washDrySoft
+            - washDryDrymark
+            - washDryCleanRinsing
+            - washDryDisinfection
+            - washDryOilStrains
+            - washDryMemory
+            - washDryDetergentSaving
+            - washDryLightlySoiled
+            - washDrySmallAmountQuick
+            - washDryTankCleaning
+            description: '_washDryNoWash (ja: 洗濯なし, en: No washing) washDryStandard
+              (ja: 標準, en: Standard) washDrySilent (ja: 静音, en: Silent) washDryHeavilySoiled
+              (ja: 汚れ大, en: Heavily soiled clothes) washDryHardToRemove (ja: しつこい汚れ,
+              en: Hard-to-remove stains) washDryPresoaking (ja: つけおき, en: Presoaking)
+              washDryBlankets (ja: 毛布, en: Blankets) washDrySoft (ja: ソフト, en: Soft)
+              washDryDrymark (ja: ドライ, en: Dry) washDryCleanRinsing (ja: 清潔すすぎ, en:
+              Clean rinsing) washDryDisinfection (ja: 除菌, en: Disinfection) washDryOilStrains
+              (ja: 油汚れ, en: Oil stains) washDryMemory (ja: メモリー, en: Memory) washDryDetergentSaving
+              (ja: 省洗剤, en: Detergent saving) washDryLightlySoiled (ja: 汚れ少, en: Lightly
+              soiled clothes) washDrySmallAmountQuick (ja: 少量短時間, en: Quick wash of
+              small amount of laundry) washDryTankCleaning (ja: 槽洗浄, en: Tank cleaning) '
+          description: '[ja: 設定可能コース情報2, en: Washer and dryer cycle option list 2] '
+    washerDryerCycleOptions3WasherDryer:
+      description: '[ja: 設定可能コース情報3, en: Washer and dryer cycle option list 3]'
+      type: object
+      properties:
+        washerDryerCycleOptions3:
+          type: array
+          items:
+            type: string
+            enum:
+            - dryNoDrying
+            - dryStandard
+            - dryBlankets
+            - drySoft
+            - dryDrymark
+            - dryIroning
+            - dryHangDrying
+            - dryThick
+            - dryDisinfection
+            - dryShrinkageMinimization
+            - dryFinishing
+            - dryStationaryDrying
+            - dryUserDefinedTime
+            - dryWarming
+            - dryHeaterCurrentLimit
+            - dryTankDrying
+            description: '_dryNoDrying (ja: 乾燥なし, en: No drying) dryStandard (ja:
+              標準, en: Standard) dryBlankets (ja: 毛布, en: Blankets) drySoft (ja: ソフト,
+              en: Soft) dryDrymark (ja: ドライ, en: Dry) dryIroning (ja: アイロン／Y シャツ,
+              en: Ironing/business shirts) dryHangDrying (ja: 吊り干し, en: Hang drying)
+              dryThick (ja: 厚物, en: Thick clothes) dryDisinfection (ja: 除菌, en: Disinfection)
+              dryShrinkageMinimization (ja: 縮み低減, en: Shrinkage minimization) dryFinishing
+              (ja: 仕上げ, en: Finishing) dryStationaryDrying (ja: 静止乾燥, en: Stationary
+              drying) dryUserDefinedTime (ja: 時間指定, en: User definition of drying
+              time) dryWarming (ja: 衣類あたため, en: Garment warming) dryHeaterCurrentLimit
+              (ja: ヒータ入力制限, en: Heater current limit) dryTankDrying (ja: 槽乾燥, en:
+              Tank drying) '
+          description: '[ja: 設定可能コース情報3, en: Washer and dryer cycle option list 3] '
+    waterFlowRateWasherDryer:
+      description: '[ja: 水流設定, en: Water flow rate setting]'
+      type: object
+      properties:
+        waterFlowRate:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 1
+                maximum: 16
+                multipleOf: 1
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -8
+                maximum: 8
+                multipleOf: 1
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 水流設定, en: Water flow rate setting] '
+    spinDryingRotationSpeedWasherDryer:
+      description: '[ja: 脱水回転数設定値, en: Rotation speed for spin drying setting]'
+      type: object
+      properties:
+        spinDryingRotationSpeed:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 4095
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -2048
+                maximum: 2048
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 脱水回転数設定値, en: Rotation speed for spin drying setting] '
+    dryingDegreeWasherDryer:
+      description: '[ja: 乾燥度設定, en: Degree of drying setting]'
+      type: object
+      properties:
+        dryingDegree:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 1
+                maximum: 16
+                multipleOf: 1
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -8
+                maximum: 8
+                multipleOf: 1
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 乾燥度設定, en: Degree of drying setting] '
+    washingTimeRemainingWasherDryer:
+      description: '[ja: 洗濯残り時間, en: Remaining washing time]'
+      type: object
+      properties:
+        washingTimeRemaining:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 15299
+          - type: string
+            enum:
+            - unknown
+            description: '_unknown (ja: 残り時間不明, en: Remaining time unknown) '
+          description: '[ja: 洗濯残り時間, en: Remaining washing time] '
+    dryingTimeRemainingWasherDryer:
+      description: '[ja: 乾燥残り時間, en: Remaining drying time]'
+      type: object
+      properties:
+        dryingTimeRemaining:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 15299
+          - type: string
+            enum:
+            - unknown
+            description: '_unknown (ja: 残り時間不明, en: Remaining time unknown) '
+          description: '[ja: 乾燥残り時間, en: Remaining drying time] '
+    onTimerElapsedWasherDryer:
+      description: '[ja: ONタイマ経過時間, en: Elapsed time on the ON timer]'
+      type: object
+      properties:
+        onTimerElapsed:
+          type: number
+          minimum: 0
+          maximum: 15359
+          description: '[ja: ONタイマ経過時間, en: Elapsed time on the ON timer] '
+    presoakingTimeWasherDryer:
+      description: '[ja: つけおき行程時間設定値, en: Presoaking time setting]'
+      type: object
+      properties:
+        presoakingTime:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 1439
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -60
+                maximum: 60
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: つけおき行程時間設定値, en: Presoaking time setting] '
+    currentStageWasherDryer:
+      description: '[ja: 洗濯乾燥遷移状態, en: Current stage of washer and dryer cycle]'
+      type: object
+      properties:
+        currentStage:
+          type: string
+          enum:
+          - washing
+          - rinsing
+          - spinDrying
+          - suspended
+          - washingCompleted
+          - washingDryingCompleted
+          - drying
+          - wrinkleMinimizing
+          - dryingWrinkleMinimizingCompleted
+          - standby
+          - 1stRinsing
+          - 2ndRinsing
+          - 3rdRinsing
+          - 4thRinsing
+          - 5thRinsing
+          - 6thRinsing
+          - 7thRinsing
+          - 8thRinsing
+          - 1stSpinDrying
+          - 2ndSpinDrying
+          - 3rdSpinDrying
+          - 4thSpinDrying
+          - 5thSpinDrying
+          - 6thSpinDrying
+          - 7thSpinDrying
+          - 8thSpinDrying
+          - preheatSpinDrying
+          description: '[ja: 洗濯乾燥遷移状態, en: Current stage of washer and dryer cycle]
+            _washing (ja: 洗い, en: Washing) rinsing (ja: すすぎ, en: Rinsing) spinDrying
+            (ja: 脱水, en: Spin drying) suspended (ja: 一時停止, en: Suspended) washingCompleted
+            (ja: 洗濯完了, en: Washing completed) washingDryingCompleted (ja: 洗濯／乾燥 (ソフトキープなし)
+            完了, en: Washing/drying (without wrinkling minimization) completed) drying
+            (ja: 乾燥, en: Drying) wrinkleMinimizing (ja: ソフトキープ, en: Wrinkling minimization)
+            dryingWrinkleMinimizingCompleted (ja: 乾燥 (ソフトキープあり) 完了, en: Drying (with
+            wrinkling minimization) completed) standby (ja: 運転前待機中, en: Standing by
+            to start) 1stRinsing (ja: 第1すすぎ, en: 1st rinsing) 2ndRinsing (ja: 第2すすぎ,
+            en: 2nd rinsing) 3rdRinsing (ja: 第3すすぎ, en: 3rd rinsing) 4thRinsing (ja:
+            第4すすぎ, en: 4th rinsing) 5thRinsing (ja: 第5すすぎ, en: 5th rinsing) 6thRinsing
+            (ja: 第6すすぎ, en: 6th rinsing) 7thRinsing (ja: 第7すすぎ, en: 7th rinsing) 8thRinsing
+            (ja: 第8すすぎ, en: 8th rinsing) 1stSpinDrying (ja: 第1脱水, en: 1st spin drying)
+            2ndSpinDrying (ja: 第2脱水, en: 2nd spin drying) 3rdSpinDrying (ja: 第3脱水,
+            en: 3rd spin drying) 4thSpinDrying (ja: 第4脱水, en: 4th spin drying) 5thSpinDrying
+            (ja: 第5脱水, en: 5th spin drying) 6thSpinDrying (ja: 第6脱水, en: 6th spin
+            drying) 7thSpinDrying (ja: 第7脱水, en: 7th spin drying) 8thSpinDrying (ja:
+            第8脱水, en: 8th spin drying) preheatSpinDrying (ja: プリヒート脱水, en: Preheat
+            spin drying) '
+    waterVolumeByLiterWasherDryer:
+      description: '[ja: 水量設定1, en: Water volume setting 1]'
+      type: object
+      properties:
+        waterVolumeByLiter:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 127
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -32
+                maximum: 32
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 水量設定1, en: Water volume setting 1] '
+    waterVolumeByStepWasherDryer:
+      description: '[ja: 水量設定2, en: Water volume setting 2]'
+      type: object
+      properties:
+        waterVolumeByStep:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 1
+                maximum: 16
+                multipleOf: 1
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -8
+                maximum: 8
+                multipleOf: 1
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 水量設定2, en: Water volume setting 2] '
+    washingTimeWasherDryer:
+      description: '[ja: 洗い時間設定値, en: Washing time setting]'
+      type: object
+      properties:
+        washingTime:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 1439
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -60
+                maximum: 60
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 洗い時間設定値, en: Washing time setting] '
+    rinsingCountWasherDryer:
+      description: '[ja: すすぎ回数設定値, en: Number of times of rinsing setting]'
+      type: object
+      properties:
+        rinsingCount:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 8
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Automatic) '
+          description: '[ja: すすぎ回数設定値, en: Number of times of rinsing setting] '
+    rinsingProcessWasherDryer:
+      description: '[ja: すすぎモード設定, en: Rinsing process setting]'
+      type: object
+      properties:
+        rinsingProcess:
+          type: array
+          minItems: 1
+          maxItems: 8
+          items:
+            type: string
+            enum:
+            - auto
+            - withoutAdditionalWater
+            - withAdditionalWater
+            - shower
+            description: '_auto (ja: モード自動設定, en: Automatic mode) withoutAdditionalWater
+              (ja: 溜めすすぎ, en: Rinsing without additional feeding of water from the
+              tap) withAdditionalWater (ja: 流水すすぎ, en: Rinsing with additional feeding
+              of water from the tap) shower (ja: シャワーすすぎ, en: Shower rinsing) '
+          description: '[ja: すすぎモード設定, en: Rinsing process setting] '
+    spinDryingTimeWasherDryer:
+      description: '[ja: 脱水時間設定値, en: Spin drying time setting]'
+      type: object
+      properties:
+        spinDryingTime:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 59
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -32
+                maximum: 32
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 脱水時間設定値, en: Spin drying time setting] '
+    dryingTimeWasherDryer:
+      description: '[ja: 乾燥時間設定値, en: Drying time setting]'
+      type: object
+      properties:
+        dryingTime:
+          oneOf:
+          - type: object
+            properties:
+              absolute:
+                type: number
+                minimum: 0
+                maximum: 1439
+                description: '[ja: 絶対値指定, en: Absolute setting] _'
+          - type: object
+            properties:
+              relative:
+                type: number
+                minimum: -60
+                maximum: 60
+                description: '[ja: 自動からの相対指定 (0は自動設定), en: Relative setting relative
+                  to the automatic setting (0 means Automatic setting)] _'
+          description: '[ja: 乾燥時間設定値, en: Drying time setting] '
+    waterTemperatureWasherDryer:
+      description: '[ja: 洗い温水設定値, en: Warm water setting]'
+      type: object
+      properties:
+        waterTemperature:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - noWarmWater
+            - auto
+            description: '_noWarmWater (ja: 温水不使用, en: Not to use warm water) auto
+              (ja: 温度自動設定, en: Automatic water temperature setting) '
+          description: '[ja: 洗い温水設定値, en: Warm water setting] '
+    bathtubWaterRecycleWasherDryer:
+      description: '[ja: 風呂水設定, en: Bathtub water recycle setting]'
+      type: object
+      properties:
+        bathtubWaterRecycle:
+          type: string
+          enum:
+          - none
+          - washing
+          - rinsingWithoutFinal
+          - rinsing
+          - washingRinsingWithoutFinal
+          - washingRinsing
+          description: '[ja: 風呂水設定, en: Bathtub water recycle setting] _none (ja:
+            風呂水給水なし, en: Bathtub water not used) washing (ja: 洗いのみ, en: Washing only)
+            rinsingWithoutFinal (ja: すすぎのみ (除く最終すすぎ), en: Rinsing only (excluding
+            the final rinsing)) rinsing (ja: 全すすぎ, en: All rinsing processes) washingRinsingWithoutFinal
+            (ja: 洗い+すすぎ (除く最終すすぎ), en: Washing + rinsing (excluding the final rinsing))
+            washingRinsing (ja: 洗い＋全すすぎ, en: Washing + all rinsing processes) '
+    wrinklingMinimizationWasherDryer:
+      description: '[ja: ソフトキープ設定, en: Wrinkling minimization setting]'
+      type: object
+      properties:
+        wrinklingMinimization:
+          type: string
+          enum:
+          - enable
+          - disable
+          description: '[ja: ソフトキープ設定, en: Wrinkling minimization setting] _enable
+            (ja: ソフトキープ入り, en: Wrinkling minimization function on) disable (ja: ソフトキープ切り,
+            en: Wrinkling minimization function off) '
+    washingDryingTimeRemainingWasherDryer:
+      description: '[ja: 洗濯乾燥残り時間, en: Time remaining to complete washer and dryer
+        cycle]'
+      type: object
+      properties:
+        washingDryingTimeRemaining:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 15299
+          - type: string
+            enum:
+            - unknown
+            description: '_unknown (ja: 残り時間不明, en: Remaining time unknown) '
+          description: '[ja: 洗濯乾燥残り時間, en: Time remaining to complete washer and dryer
+            cycle] '
+    doorLockStatusWasherDryer:
+      description: '[ja: 運転中扉・蓋ロック設定, en: Door/cover lock setting]'
+      type: object
+      properties:
+        doorLockStatus:
+          type: boolean
+          description: '[ja: 運転中扉・蓋ロック設定, en: Door/cover lock setting] _True (ja:
+            ロック, en: Locked) False (ja: アンロック, en: Unlocked) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

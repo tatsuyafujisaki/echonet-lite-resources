@@ -1,0 +1,176 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: GasMeter
+  description: tag for Gas meter
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - GasMeter
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesGasMeter
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesGasMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeGasConsumption:
+    get:
+      tags:
+      - GasMeter
+      summary: 'Get: Cumulative amount of gas consumption measurement value'
+      operationId: getDevicesPropertiesCumulativeGasConsumptionGasMeter
+      description: '取得: 積算ガス消費量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeGasConsumptionGasMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeGasConsumptionLog:
+    get:
+      tags:
+      - GasMeter
+      summary: 'Get: Cumulative amounts of gas consumption measurement log'
+      operationId: getDevicesPropertiesCumulativeGasConsumptionLogGasMeter
+      description: '取得: 積算ガス消費量計測値履歴'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeGasConsumptionLogGasMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesGasMeter:
+      description: propertiesGasMeter
+      type: object
+      properties:
+        cumulativeGasConsumption:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算ガス消費量計測値, en: Cumulative amount of gas consumption
+            measurement value] '
+        cumulativeGasConsumptionLog:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+              maximum: 999999.999
+              multipleOf: 0.001
+            - type: string
+              enum:
+              - noData
+              description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算ガス消費量計測値履歴, en: Cumulative amounts of gas consumption
+            measurement log] '
+    cumulativeGasConsumptionGasMeter:
+      description: '[ja: 積算ガス消費量計測値, en: Cumulative amount of gas consumption measurement
+        value]'
+      type: object
+      properties:
+        cumulativeGasConsumption:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算ガス消費量計測値, en: Cumulative amount of gas consumption
+            measurement value] '
+    cumulativeGasConsumptionLogGasMeter:
+      description: '[ja: 積算ガス消費量計測値履歴, en: Cumulative amounts of gas consumption measurement
+        log]'
+      type: object
+      properties:
+        cumulativeGasConsumptionLog:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+              maximum: 999999.999
+              multipleOf: 0.001
+            - type: string
+              enum:
+              - noData
+              description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算ガス消費量計測値履歴, en: Cumulative amounts of gas consumption
+            measurement log] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

@@ -1,0 +1,166 @@
+{
+    "properties": {
+        "descriptions": {
+            "descriptions": {
+                "ja": "groupの説明",
+                "en": "explanation of group"
+            },
+            "writable": true,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ja": {
+                        "type": "string"
+                    },
+                    "en": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "members": {
+            "descriptions": {
+                "ja": "groupに属する機器のdevice idのリスト",
+                "en": "list of device ids in this group"
+            },
+            "writable": true,
+            "observable": false,
+            "schema": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "deviceId": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "composed": {
+            "descriptions": {
+                "ja": "仮想混合デバイスの設定",
+                "en": "setting of virtual compound device"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "boolean"
+            }
+        },
+        "preConfigured": {
+            "descriptions": {
+                "ja": "サーバ事前登録によるGroupか否か",
+                "en": "setting of server preconfigration"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "boolean"
+            }
+        }
+    },
+    "actions": {
+        "getAllProperties": {
+            "descriptions": {
+                "ja": "グループに存在する機器の全プロパティを読み出す",
+                "en": "Read all properties of all devices in this group"
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "responses": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "deviceId": {
+                                    "type": "string"
+                                },
+                                "properties": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "getProperty": {
+            "descriptions": {
+                "ja": "グループに存在する機器の指定プロパティ値の取得",
+                "en": "Read the specified property of all devices in this group"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "propertyName": {
+                        "type": "string"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "responses": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "deviceId": {
+                                    "type": "string"
+                                },
+                                "body": {
+                                    "type": "object"
+                                },
+                                "statusCode": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "setProperty": {
+            "descriptions": {
+                "ja": "グループに存在する機器の指定プロパティ値の設定",
+                "en": "Write the specified property of all devices in this group"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "propertyName": {
+                        "type": "string"
+                    },
+                    "propertyValue": {
+                        "type": "object"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "responses": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "deviceId": {
+                                    "type": "string"
+                                },
+                                "body": {
+                                    "type": "object"
+                                },
+                                "statusCode": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

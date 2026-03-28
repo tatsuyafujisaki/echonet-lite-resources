@@ -1,0 +1,2824 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: FrequencyRegulation
+  description: tag for Frequency regulation
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesFrequencyRegulation
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/controlPoint:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Control point'
+      operationId: getDevicesPropertiesControlPointFrequencyRegulation
+      description: '取得: 制御ポイント'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/controlPointFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FrequencyRegulation
+      summary: 'Set: Control point'
+      operationId: putDevicesPropertiesControlPointFrequencyRegulation
+      description: '設定: 制御ポイント'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/controlPointFrequencyRegulation'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/controlPointFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/frequencyRegulationParameter:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Frequency regulation parameter setting'
+      operationId: getDevicesPropertiesFrequencyRegulationParameterFrequencyRegulation
+      description: '取得: 周波数制御パラメータ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/frequencyRegulationParameterFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FrequencyRegulation
+      summary: 'Set: Frequency regulation parameter setting'
+      operationId: putDevicesPropertiesFrequencyRegulationParameterFrequencyRegulation
+      description: '設定: 周波数制御パラメータ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/frequencyRegulationParameterFrequencyRegulation'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/frequencyRegulationParameterFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/emTargetPowerValue:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: EM target power value'
+      operationId: getDevicesPropertiesEmTargetPowerValueFrequencyRegulation
+      description: '取得: EM電力目標値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emTargetPowerValueFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FrequencyRegulation
+      summary: 'Set: EM target power value'
+      operationId: putDevicesPropertiesEmTargetPowerValueFrequencyRegulation
+      description: '設定: EM電力目標値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/emTargetPowerValueFrequencyRegulation'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emTargetPowerValueFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/commandControlParameter:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Command control parameter setting'
+      operationId: getDevicesPropertiesCommandControlParameterFrequencyRegulation
+      description: '取得: 指令制御パラメータ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/commandControlParameterFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FrequencyRegulation
+      summary: 'Set: Command control parameter setting'
+      operationId: putDevicesPropertiesCommandControlParameterFrequencyRegulation
+      description: '設定: 指令制御パラメータ設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/commandControlParameterFrequencyRegulation'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/commandControlParameterFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/autonomousControlParameter1:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Autonomous control parameter setting 1'
+      operationId: getDevicesPropertiesAutonomousControlParameter1FrequencyRegulation
+      description: '取得: 自端制御パラメータ設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autonomousControlParameter1FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FrequencyRegulation
+      summary: 'Set: Autonomous control parameter setting 1'
+      operationId: putDevicesPropertiesAutonomousControlParameter1FrequencyRegulation
+      description: '設定: 自端制御パラメータ設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/autonomousControlParameter1FrequencyRegulation'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autonomousControlParameter1FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/autonomousControlParameter2:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Autonomous control parameter setting 2'
+      operationId: getDevicesPropertiesAutonomousControlParameter2FrequencyRegulation
+      description: '取得: 自端制御パラメータ設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autonomousControlParameter2FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FrequencyRegulation
+      summary: 'Set: Autonomous control parameter setting 2'
+      operationId: putDevicesPropertiesAutonomousControlParameter2FrequencyRegulation
+      description: '設定: 自端制御パラメータ設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/autonomousControlParameter2FrequencyRegulation'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autonomousControlParameter2FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/autonomousControlParameter3:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Autonomous control parameter setting 3'
+      operationId: getDevicesPropertiesAutonomousControlParameter3FrequencyRegulation
+      description: '取得: 自端制御パラメータ設定3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autonomousControlParameter3FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FrequencyRegulation
+      summary: 'Set: Autonomous control parameter setting 3'
+      operationId: putDevicesPropertiesAutonomousControlParameter3FrequencyRegulation
+      description: '設定: 自端制御パラメータ設定3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/autonomousControlParameter3FrequencyRegulation'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/autonomousControlParameter3FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/referenceFrequencyCorrectionValue:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Correction value for reference frequency'
+      operationId: getDevicesPropertiesReferenceFrequencyCorrectionValueFrequencyRegulation
+      description: '取得: 基準周波数補正値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/referenceFrequencyCorrectionValueFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FrequencyRegulation
+      summary: 'Set: Correction value for reference frequency'
+      operationId: putDevicesPropertiesReferenceFrequencyCorrectionValueFrequencyRegulation
+      description: '設定: 基準周波数補正値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/referenceFrequencyCorrectionValueFrequencyRegulation'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/referenceFrequencyCorrectionValueFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/transmittableReceivableCycle:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Transmittable/receivable cycle'
+      operationId: getDevicesPropertiesTransmittableReceivableCycleFrequencyRegulation
+      description: '取得: 送受信可能周期'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/transmittableReceivableCycleFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/deviceType:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Device type'
+      operationId: getDevicesPropertiesDeviceTypeFrequencyRegulation
+      description: '取得: 機器種別'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceTypeFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acMaxPower:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Values of AC max power'
+      operationId: getDevicesPropertiesAcMaxPowerFrequencyRegulation
+      description: '取得: 最大電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acMaxPowerFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/contractPower:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Value of contract power'
+      operationId: getDevicesPropertiesContractPowerFrequencyRegulation
+      description: '取得: 契約電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contractPowerFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/deviceControlPerformance:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Device control performance'
+      operationId: getDevicesPropertiesDeviceControlPerformanceFrequencyRegulation
+      description: '取得: 機器制御性能'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceControlPerformanceFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/frequencyRegulationInformation:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Information of frequency regulation'
+      operationId: getDevicesPropertiesFrequencyRegulationInformationFrequencyRegulation
+      description: '取得: 周波数制御情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/frequencyRegulationInformationFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/informationOnControlContinuation:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Detailed information of whether the device can continue to control'
+      operationId: getDevicesPropertiesInformationOnControlContinuationFrequencyRegulation
+      description: '取得: 制御続行可否詳細情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/informationOnControlContinuationFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/emInformation:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Information of EM'
+      operationId: getDevicesPropertiesEmInformationFrequencyRegulation
+      description: '取得: EM情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emInformationFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/pcsMeasuredInstantaneousValue:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Measured instantaneous values of PCS'
+      operationId: getDevicesPropertiesPcsMeasuredInstantaneousValueFrequencyRegulation
+      description: '取得: PCS瞬時計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pcsMeasuredInstantaneousValueFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/responseInformation:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Response information'
+      operationId: getDevicesPropertiesResponseInformationFrequencyRegulation
+      description: '取得: 応動情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/responseInformationFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerCapability:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Instantaneous input and output power capability value'
+      operationId: getDevicesPropertiesPowerCapabilityFrequencyRegulation
+      description: '取得: 瞬時入出力可能電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerCapabilityFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargeableDischargeablePower:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Instantaneous chargeable and dischargeable power values'
+      operationId: getDevicesPropertiesChargeableDischargeablePowerFrequencyRegulation
+      description: '取得: 瞬時充放電可能電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargeableDischargeablePowerFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/batteryStatus:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Battery status'
+      operationId: getDevicesPropertiesBatteryStatusFrequencyRegulation
+      description: '取得: 蓄電池状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/batteryStatusFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeEnergy:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Cumulative electric energy measurement values'
+      operationId: getDevicesPropertiesCumulativeEnergyFrequencyRegulation
+      description: '取得: 積算電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeEnergyFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeFrequencyRegulationEnergy:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Cumulative electric energy measurement by frequency regulation'
+      operationId: getDevicesPropertiesCumulativeFrequencyRegulationEnergyFrequencyRegulation
+      description: '取得: 周波数制御積算電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeFrequencyRegulationEnergyFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/emPlanInformation:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: EM planned information'
+      operationId: getDevicesPropertiesEmPlanInformationFrequencyRegulation
+      description: '取得: EM計画情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emPlanInformationFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/emPlan1:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: EM planned value 1'
+      operationId: getDevicesPropertiesEmPlan1FrequencyRegulation
+      description: '取得: EM計画値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emPlan1FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/emPlan2:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: EM planned value 2'
+      operationId: getDevicesPropertiesEmPlan2FrequencyRegulation
+      description: '取得: EM計画値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emPlan2FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/upSupplyPlanInformation:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Information of supply plan for regulation up'
+      operationId: getDevicesPropertiesUpSupplyPlanInformationFrequencyRegulation
+      description: '取得: 上げ調整力供出計画情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/upSupplyPlanInformationFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/upSupplyPlan1:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Supply plan-1 for regulation up'
+      operationId: getDevicesPropertiesUpSupplyPlan1FrequencyRegulation
+      description: '取得: 上げ調整力供出計画値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/upSupplyPlan1FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/upSupplyPlan2:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Supply plan-2 for regulation up'
+      operationId: getDevicesPropertiesUpSupplyPlan2FrequencyRegulation
+      description: '取得: 上げ調整力供出計画値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/upSupplyPlan2FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/downSupplyPlanInformation:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Information of supply plan for regulation down'
+      operationId: getDevicesPropertiesDownSupplyPlanInformationFrequencyRegulation
+      description: '取得: 下げ調整力供出計画情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/downSupplyPlanInformationFrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/downSupplyPlan1:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Supply plan-1 for regulation down'
+      operationId: getDevicesPropertiesDownSupplyPlan1FrequencyRegulation
+      description: '取得: 下げ調整力供出計画値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/downSupplyPlan1FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/downSupplyPlan2:
+    get:
+      tags:
+      - FrequencyRegulation
+      summary: 'Get: Supply plan-2 for regulation down'
+      operationId: getDevicesPropertiesDownSupplyPlan2FrequencyRegulation
+      description: '取得: 下げ調整力供出計画値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/downSupplyPlan2FrequencyRegulation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesFrequencyRegulation:
+      description: propertiesFrequencyRegulation
+      type: object
+      properties:
+        controlPoint:
+          type: string
+          enum:
+          - devicePoint
+          - powerReceivingPoint
+          description: '[ja: 制御ポイント, en: Control point] _devicePoint (ja: 機器点, en:
+            Device point) powerReceivingPoint (ja: 受電点, en: Power receiving point) '
+        frequencyRegulationParameter:
+          type: object
+          properties:
+            frequencyRegulationMode:
+              type: object
+              properties:
+                commandControl:
+                  type: boolean
+                  description: '[ja: 指令制御, en: Command control] _True (ja: 制御有り, en:
+                    With control) False (ja: 制御無し, en: Without control) '
+                autonomousControl:
+                  type: boolean
+                  description: '[ja: 自端制御, en: Autonomous control] _True (ja: 制御有り,
+                    en: With control) False (ja: 制御無し, en: Without control) '
+                emPlannedValueControl:
+                  type: boolean
+                  description: '[ja: EM計画値制御, en: EM planned value control] _True
+                    (ja: 制御有り, en: With control) False (ja: 制御無し, en: Without control) '
+                emTargetValueControl:
+                  type: boolean
+                  description: '[ja: EM目標値制御, en: EM target value control] _True (ja:
+                    制御有り, en: With control) False (ja: 制御無し, en: Without control) '
+              description: '[ja: 周波数制御モード, en: frequency regulation mode] _'
+            noCommunicationWatchdogTimer:
+              type: number
+              minimum: 0
+              maximum: 655350
+              multipleOf: 10
+              description: '[ja: 無通信監視タイマ, en: No-communication watchdog timer] _'
+          description: '[ja: 周波数制御パラメータ設定, en: Frequency regulation parameter setting] '
+        emTargetPowerValue:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: EM電力目標値, en: EM target power value] '
+        commandControlParameter:
+          type: object
+          properties:
+            instructionNo:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力指令制御指示No., en: Command control instruction number]
+                _'
+            powerValue:
+              type: number
+              minimum: -999999999
+              maximum: 999999999
+              description: '[ja: 電力指令値(W), en: Power value for the instruction. (W)]
+                _'
+          description: '[ja: 指令制御パラメータ設定, en: Command control parameter setting] '
+        autonomousControlParameter1:
+          type: object
+          properties:
+            deadBandWidthPlus:
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 不感帯幅(プラス側)(mHz), en: Width of dead band. (Plus side)
+                (mHz)] _'
+            deadBandWidthMinus:
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 不感帯幅(マイナス側)(mHz), en: Width of dead band. (Minus
+                side) (mHz)] _'
+            powerControlRateNormal:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化率(順方向)(W/mHz), en: Rate of power control.  (Normal
+                direction) (W/mHz)] _'
+            powerControlRateReverse:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化率(逆方向)(W/mHz), en: Rate of power control.  (Reverse
+                direction) (W/mHz)] _'
+            powerUpperLimitNormal:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 自端制御電力上限値(順方向)(W), en: Power upper limit for autonomous
+                control. (Normal direction) (W)] _'
+            powerUpperLimitReverse:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 自端制御電力上限値(逆方向)(W), en: Power upper limit for autonomous
+                control. (Reverse direction) (W)] _'
+            abnormalFrequencyDeviationThreshold (mHz):
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 異常周波数偏差閾値(mHz), en: Abnormal frequency deviation
+                threshold (mHz)] _'
+          description: '[ja: 自端制御パラメータ設定1, en: Autonomous control parameter setting
+            1] '
+        autonomousControlParameter2:
+          type: object
+          properties:
+            timeConstantLpf:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: フィルタ時定数(LPF), en: Time constant for filter. (LPF)]
+                _'
+            timeConstantHpf:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: フィルタ時定数(HPF), en: Time constant for filter. (HPF)]
+                _'
+            pIControlProportionalGain:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: PI制御係数(比例ゲイン), en: PI control coefficient. (Proportional
+                gain)] _'
+            pIControlIntegralGain:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: PI制御係数(積分ゲイン), en: PI control coefficient. (Integral
+                gain)] _'
+            rateLimiterNormal:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: レートリミッタ(順方向)(W/sec), en: Rate limiter. (Normal direction)
+                (W/sec)] _'
+            rateLimiterReverse:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: レートリミッタ(逆方向)(W/sec), en: Rate limiter. (Reverse direction)
+                (W/sec)] _'
+          description: '[ja: 自端制御パラメータ設定2, en: Autonomous control parameter setting
+            2] '
+        autonomousControlParameter3:
+          type: array
+          minItems: 5
+          maxItems: 5
+          items:
+            type: object
+            properties:
+              powerBeforeCorrection:
+                type: number
+                minimum: -999999999
+                maximum: 999999999
+                description: '[ja: 補正前自端制御電力(W), en: Autonomous control power before
+                  correction] _'
+              powerAfterCorrection:
+                type: number
+                minimum: -999999999
+                maximum: 999999999
+                description: '[ja: 補正後自端制御電力(W), en: Autonomous control power after
+                  correction] _'
+          description: '[ja: 自端制御パラメータ設定3, en: Autonomous control parameter setting
+            3] '
+        referenceFrequencyCorrectionValue:
+          type: number
+          minimum: -100
+          maximum: 100
+          description: '[ja: 基準周波数補正値, en: Correction value for reference frequency] '
+        transmittableReceivableCycle:
+          type: number
+          minimum: 0
+          maximum: 655350
+          multipleOf: 10
+          description: '[ja: 送受信可能周期, en: Transmittable/receivable cycle] '
+        deviceType:
+          type: string
+          description: '[ja: 機器種別, en: Device type] '
+        acMaxPower:
+          type: object
+          properties:
+            input:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大入力電力値, en: Maximum input power] _'
+            output:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大出力電力値, en: Maximum output power] _'
+          description: '[ja: 最大電力値, en: Values of AC max power] '
+        contractPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 契約電力値, en: Value of contract power] '
+        deviceControlPerformance:
+          type: object
+          properties:
+            deadBandWidthUpperLimit:
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 不感帯幅上限値(mHz), en: Upper limit of dead band width.
+                (mHz)] _'
+            deadBandWidthLowerLimit:
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 不感帯幅下限値(mHz), en: Lower limit of dead band width.
+                (mHz)] _'
+            powerChangeRateUpperLimit:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化率上限値(W/mHz), en: Upper limit of power change
+                rate. (W/mHz)] _'
+            powerChangeRateLowerLimit:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化率下限値(W/mHz), en: Lower limit of power change
+                rate. (W/mHz)] _'
+            powerChangeSpeedUpperLimit:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化速度上限値(W/sec), en: Upper limit of power change
+                speed. (W/sec)] _'
+            powerChangeSpeedLowerLimit:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化速度下限値(W/sec), en: Lower limit of power change
+                speed. (W/sec)] _'
+          description: '[ja: 機器制御性能, en: Device control performance] '
+        frequencyRegulationInformation:
+          type: object
+          properties:
+            possibilityToParticipate:
+              type: object
+              properties:
+                commandControl:
+                  type: string
+                  enum:
+                  - impossible
+                  - possible
+                  description: '[ja: 指令制御, en: Command control] _impossible (ja: 参加不可,
+                    en: Non participation) possible (ja: 参加可能, en: Participation is
+                    possible) '
+                autonomousControl:
+                  type: string
+                  enum:
+                  - impossible
+                  - possible
+                  description: '[ja: 自端制御, en: Autonomous control] _impossible (ja:
+                    参加不可, en: Non participation) possible (ja: 参加可能, en: Participation
+                    is possible) '
+                emPlannedValueControl:
+                  type: string
+                  enum:
+                  - impossible
+                  - possible
+                  description: '[ja: EM計画値制御, en: EM planned value control] _impossible
+                    (ja: 参加不可, en: Non participation) possible (ja: 参加可能, en: Participation
+                    is possible) '
+                emTargetValueControl:
+                  type: string
+                  enum:
+                  - impossible
+                  - possible
+                  description: '[ja: EM目標値制御, en: EM target value control] _impossible
+                    (ja: 参加不可, en: Non participation) possible (ja: 参加可能, en: Participation
+                    is possible) '
+              description: '[ja: 周波数調整サービスへの参加可否, en: Possibility to participate in
+                the frequency regulation service.] _'
+            frequencyRegulationStatus:
+              type: object
+              properties:
+                commandControl:
+                  type: boolean
+                  description: '[ja: 指令制御, en: Command control] _True (ja: 制御有り, en:
+                    With control) False (ja: 制御無し, en: Without control) '
+                autonomousControl:
+                  type: boolean
+                  description: '[ja: 自端制御, en: Autonomous control] _True (ja: 制御有り,
+                    en: With control) False (ja: 制御無し, en: Without control) '
+                emPlannedValueControl:
+                  type: boolean
+                  description: '[ja: EM計画値制御, en: EM planned value control] _True
+                    (ja: 制御有り, en: With control) False (ja: 制御無し, en: Without control) '
+                emTargetValueControl:
+                  type: boolean
+                  description: '[ja: EM目標値制御, en: EM target value control] _True (ja:
+                    制御有り, en: With control) False (ja: 制御無し, en: Without control) '
+                unableToControl:
+                  type: boolean
+                  description: '[ja: 制御不可, en: Unable to control] _False (ja: 当該状態ではない,
+                    en: Not in this state) True (ja: 当該状態である, en: In this state) '
+              description: '[ja: 周波数制御状態, en: frequency regulation status.] _'
+          description: '[ja: 周波数制御情報, en: Information of frequency regulation] '
+        informationOnControlContinuation:
+          type: string
+          description: '[ja: 制御続行可否詳細情報, en: Detailed information of whether the device
+            can continue to control] '
+        emInformation:
+          type: object
+          properties:
+            chargeStartTime:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 充電開始時刻 (HH:MM), en: Charge start time in the HH:MM
+                format.] _'
+            chargeEndTime:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 充電終了時刻 (HH:MM), en: Charge end time in the HH:MM
+                format.] _'
+            dischargeStartTime:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 放電開始時刻 (HH:MM), en: Discharge start time in the HH:MM
+                format.] _'
+            dischargeEndTime:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 放電終了時刻 (HH:MM), en: Discharge end time in the HH:MM
+                format.] _'
+            dischargeLowerLimit:
+              type: number
+              minimum: 0
+              maximum: 100
+              description: '[ja: 放電下限SOC(%), en: SOC of discharge lower limit. (%)]
+                _'
+            chargeUpperLimit:
+              type: number
+              minimum: 0
+              maximum: 100
+              description: '[ja: 充電上限SOC(%), en: SOC of charge upper limit. (%)] _'
+            peakCutPowerThreshold:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: ピークカット電力閾値(W), en: Peak cut power threshold. (W)]
+                _'
+            peakCutEnergyThreshold:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: ピークカット電力量閾値(Wh), en: Peak cut electric energy threshold.
+                (Wh)] _'
+            pvSurplusCharging:
+              type: boolean
+              description: '[ja: PV余剰充電有無, en: Existence of PV surplus charging.]
+                _True (ja: 有, en: YES) False (ja: 無, en: NO) '
+            pvReversePowerFlow:
+              type: boolean
+              description: '[ja: PV逆潮有無, en: Existence of PV reverse power flow.]
+                _True (ja: 有, en: YES) False (ja: 無, en: NO) '
+            pcsPushUpEffect:
+              type: boolean
+              description: '[ja: 押し上げ効果有無, en: Existence of PCS push-up effect.] _True
+                (ja: 有, en: YES) False (ja: 無, en: NO) '
+          description: '[ja: EM情報, en: Information of EM] '
+        pcsMeasuredInstantaneousValue:
+          type: object
+          properties:
+            frequency:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 周波数計測値(mHz), en: Frequency measurement value. (mHz)]
+                _'
+            powerAtDevicePoint:
+              type: number
+              minimum: -999999999
+              maximum: 999999999
+              description: '[ja: 機器点瞬時電力計測値(W), en: Instantaneous power measurement
+                value at device point. (W)] _'
+            powerAtReceivingPoint:
+              oneOf:
+              - type: number
+                minimum: -999999999
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid value) '
+              description: '[ja: 受電点瞬時電力計測値(W), en: Instantaneous power measurement
+                value at power receiving point. (W)] _'
+          description: '[ja: PCS瞬時計測値, en: Measured instantaneous values of PCS] '
+        responseInformation:
+          type: object
+          properties:
+            acPower:
+              type: number
+              minimum: -999999999
+              maximum: 999999999
+              description: '[ja: AC瞬時電力計測値(W), en: AC power measurement. (W)] _'
+            emControlPower:
+              oneOf:
+              - type: number
+                minimum: -999999999
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: EM制御電力値(W), en: Power value of EM control. (W)] _'
+            commandControlPower:
+              oneOf:
+              - type: number
+                minimum: -999999999
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid value) '
+              description: '[ja: 指令制御電力値(W), en: Power value of command control. (W)]
+                _'
+            autonomousControlPower:
+              oneOf:
+              - type: number
+                minimum: -999999999
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid value) '
+              description: '[ja: 自端制御電力値(W), en: Power value of autonomous control.
+                (W)] _'
+            instructionNo:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 電力指令制御指示No., en: Command control instruction number.]
+                _'
+            frequencyDeviation:
+              type: number
+              minimum: -3000
+              maximum: 3000
+              description: '[ja: 系統周波数偏差(mHz), en: Grid frequency deviation. (mHz)]
+                _'
+          description: '[ja: 応動情報, en: Response information] '
+        powerCapability:
+          type: object
+          properties:
+            input:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 瞬時入力可能電力値(W), en: Instantaneous input power capability
+                value.] _'
+            output:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 瞬時出力可能電力値(W), en: Instantaneous output power capability
+                value.] _'
+          description: '[ja: 瞬時入出力可能電力値, en: Instantaneous input and output power
+            capability value] '
+        chargeableDischargeablePower:
+          type: object
+          properties:
+            chargeablePower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 瞬時充電可能電力値(W), en: Instantaneous chargeable power
+                value. (W)] _'
+            dischargeablePower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 瞬時放電可能電力値(W), en: Instantaneous dischargeable power
+                value. (W)] _'
+          description: '[ja: 瞬時充放電可能電力値, en: Instantaneous chargeable and dischargeable
+            power values] '
+        batteryStatus:
+          type: object
+          properties:
+            chargeableEnergy:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 充電可能電力量(Wh), en: Chargeable electric energy value.
+                (AC value) (Wh)] _'
+            dischargeableEnergy:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 放電可能電力量(Wh), en: Dischargeable electric energy value.
+                (AC value) (Wh)] _'
+            storedEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 蓄電残量(DC値)(Wh), en: Remaining stored electricity.
+                (DC value) (Wh)] _'
+            storedEnergyPercent:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 100
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 蓄電残量(%), en: Remaining stored electricity. (State
+                of charge) (%)] _'
+            healthState:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 100
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 劣化状態(健康状態)(%), en: State of Health. (%)] _'
+          description: '[ja: 蓄電池状態, en: Battery status] '
+        cumulativeEnergy:
+          type: object
+          properties:
+            inputEnergyAtDevicePoint:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 積算入力電力量計測値(機器点順方向 Wh), en: Measured cumulative amount
+                of input electric energy for PCS. (Normal direction at device point)
+                (Wh)] _'
+            outputEnergyAtDevicePoint:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 積算出力電力量計測値(機器点逆方向 Wh), en: Measured cumulative amount
+                of output electric energy by PCS. (Reverse direction at device point)
+                (Wh)] _'
+            boughtEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算系統買電電力量計測値(Wh), en: Measured cumulative amount
+                of electric energy bought from grid. (Wh)] _'
+            soldEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算系統売電電力量計測値(Wh), en: Measured cumulative amount
+                of electric energy sold for grid. (Wh)] _'
+            loadEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算負荷電力量計測(Wh), en: Measured cumulative amount of
+                load electric energy. (Wh)] _'
+            pvEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算太陽光発電電力量計測値(DC Wh), en: Measured cumulative amount
+                of electric energy by PV. (DC value) (Wh)] _'
+            chargeEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算充電電力量計測値(DC Wh), en: Measured cumulative amount
+                of charge electric energy to battery. (DC value) (Wh)] _'
+            dischargeEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算放電電力量計測値(DC Wh), en: Measured cumulative amount
+                of discharge electric energy from battery. (DC value) (Wh)] _'
+          description: '[ja: 積算電力量計測値, en: Cumulative electric energy measurement
+            values] '
+        cumulativeFrequencyRegulationEnergy:
+          type: object
+          properties:
+            emControlEnergy:
+              type: array
+              minItems: 4
+              maxItems: 4
+              items:
+                type: number
+                minimum: 0
+                maximum: 999999999
+              description: '[ja: EM制御積算電力量計測値(Wh), en: Cumulative electric energy
+                measurement by EM control (Wh)] _'
+            commandControlEnergy:
+              type: array
+              minItems: 4
+              maxItems: 4
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - invalid
+                  description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 指令制御積算電力量計測値(Wh), en: Cumulative electric energy
+                measurement by command control (Wh)] _'
+            autonomousControlEnergy:
+              type: array
+              minItems: 4
+              maxItems: 4
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - invalid
+                  description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 自端制御積算電力量計測値(Wh), en: Cumulative electric energy
+                measurement by autonomous control (Wh)] _'
+          description: '[ja: 周波数制御積算電力量計測値, en: Cumulative electric energy measurement
+            by frequency regulation] '
+        emPlanInformation:
+          type: object
+          properties:
+            updateId:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: 更新ID, en: Update ID] _'
+            numberOfData:
+              type: number
+              minimum: 0
+              maximum: 96
+              description: '[ja: データ数, en: Number of data] _'
+            firstDataMmDd:
+              type: string
+              format: date
+              description: '[ja: 先頭データ月日 (MMDD), en: First data in the MMDD format.]
+                _'
+            firstDataHhMm:
+              type: string
+              format: time
+              description: '[ja: 先頭データ時分 (HHMM), en: Hour and minute of first data
+                in the HHMM format.] _'
+          description: '[ja: EM計画情報, en: EM planned information] '
+        emPlan1:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: EM計画値1, en: EM planned value 1] '
+        emPlan2:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: EM計画値2, en: EM planned value 2] '
+        upSupplyPlanInformation:
+          type: object
+          properties:
+            updateId:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: 更新ID, en: Update ID] _'
+            numberOfData:
+              type: number
+              minimum: 0
+              maximum: 96
+              description: '[ja: データ数, en: Number of data] _'
+            firstDataMmDd:
+              type: string
+              format: date
+              description: '[ja: 先頭データ月日 (MMDD), en: First data in the MMDD format.]
+                _'
+            firstDataHhMm:
+              type: string
+              format: time
+              description: '[ja: 先頭データ時分 (HHMM), en: Hour and minute of first data
+                in the HHMM format.] _'
+          description: '[ja: 上げ調整力供出計画情報, en: Information of supply plan for regulation
+            up] '
+        upSupplyPlan1:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: 上げ調整力供出計画値1, en: Supply plan-1 for regulation up] '
+        upSupplyPlan2:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: 上げ調整力供出計画値2, en: Supply plan-2 for regulation up] '
+        downSupplyPlanInformation:
+          type: object
+          properties:
+            updateId:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: 更新ID, en: Update ID] _'
+            numberOfData:
+              type: number
+              minimum: 0
+              maximum: 96
+              description: '[ja: データ数, en: Number of data] _'
+            firstDataMmDd:
+              type: string
+              format: date
+              description: '[ja: 先頭データ月日 (MMDD), en: First data in the MMDD format.]
+                _'
+            firstDataHhMm:
+              type: string
+              format: time
+              description: '[ja: 先頭データ時分 (HHMM), en: Hour and minute of first data
+                in the HHMM format.] _'
+          description: '[ja: 下げ調整力供出計画情報, en: Information of supply plan for regulation
+            down] '
+        downSupplyPlan1:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: 下げ調整力供出計画値1, en: Supply plan-1 for regulation down] '
+        downSupplyPlan2:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: 下げ調整力供出計画値2, en: Supply plan-2 for regulation down] '
+    controlPointFrequencyRegulation:
+      description: '[ja: 制御ポイント, en: Control point]'
+      type: object
+      properties:
+        controlPoint:
+          type: string
+          enum:
+          - devicePoint
+          - powerReceivingPoint
+          description: '[ja: 制御ポイント, en: Control point] _devicePoint (ja: 機器点, en:
+            Device point) powerReceivingPoint (ja: 受電点, en: Power receiving point) '
+    frequencyRegulationParameterFrequencyRegulation:
+      description: '[ja: 周波数制御パラメータ設定, en: Frequency regulation parameter setting]'
+      type: object
+      properties:
+        frequencyRegulationParameter:
+          type: object
+          properties:
+            frequencyRegulationMode:
+              type: object
+              properties:
+                commandControl:
+                  type: boolean
+                  description: '[ja: 指令制御, en: Command control] _True (ja: 制御有り, en:
+                    With control) False (ja: 制御無し, en: Without control) '
+                autonomousControl:
+                  type: boolean
+                  description: '[ja: 自端制御, en: Autonomous control] _True (ja: 制御有り,
+                    en: With control) False (ja: 制御無し, en: Without control) '
+                emPlannedValueControl:
+                  type: boolean
+                  description: '[ja: EM計画値制御, en: EM planned value control] _True
+                    (ja: 制御有り, en: With control) False (ja: 制御無し, en: Without control) '
+                emTargetValueControl:
+                  type: boolean
+                  description: '[ja: EM目標値制御, en: EM target value control] _True (ja:
+                    制御有り, en: With control) False (ja: 制御無し, en: Without control) '
+              description: '[ja: 周波数制御モード, en: frequency regulation mode] _'
+            noCommunicationWatchdogTimer:
+              type: number
+              minimum: 0
+              maximum: 655350
+              multipleOf: 10
+              description: '[ja: 無通信監視タイマ, en: No-communication watchdog timer] _'
+          description: '[ja: 周波数制御パラメータ設定, en: Frequency regulation parameter setting] '
+    emTargetPowerValueFrequencyRegulation:
+      description: '[ja: EM電力目標値, en: EM target power value]'
+      type: object
+      properties:
+        emTargetPowerValue:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: EM電力目標値, en: EM target power value] '
+    commandControlParameterFrequencyRegulation:
+      description: '[ja: 指令制御パラメータ設定, en: Command control parameter setting]'
+      type: object
+      properties:
+        commandControlParameter:
+          type: object
+          properties:
+            instructionNo:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力指令制御指示No., en: Command control instruction number]
+                _'
+            powerValue:
+              type: number
+              minimum: -999999999
+              maximum: 999999999
+              description: '[ja: 電力指令値(W), en: Power value for the instruction. (W)]
+                _'
+          description: '[ja: 指令制御パラメータ設定, en: Command control parameter setting] '
+    autonomousControlParameter1FrequencyRegulation:
+      description: '[ja: 自端制御パラメータ設定1, en: Autonomous control parameter setting 1]'
+      type: object
+      properties:
+        autonomousControlParameter1:
+          type: object
+          properties:
+            deadBandWidthPlus:
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 不感帯幅(プラス側)(mHz), en: Width of dead band. (Plus side)
+                (mHz)] _'
+            deadBandWidthMinus:
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 不感帯幅(マイナス側)(mHz), en: Width of dead band. (Minus
+                side) (mHz)] _'
+            powerControlRateNormal:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化率(順方向)(W/mHz), en: Rate of power control.  (Normal
+                direction) (W/mHz)] _'
+            powerControlRateReverse:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化率(逆方向)(W/mHz), en: Rate of power control.  (Reverse
+                direction) (W/mHz)] _'
+            powerUpperLimitNormal:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 自端制御電力上限値(順方向)(W), en: Power upper limit for autonomous
+                control. (Normal direction) (W)] _'
+            powerUpperLimitReverse:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 自端制御電力上限値(逆方向)(W), en: Power upper limit for autonomous
+                control. (Reverse direction) (W)] _'
+            abnormalFrequencyDeviationThreshold (mHz):
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 異常周波数偏差閾値(mHz), en: Abnormal frequency deviation
+                threshold (mHz)] _'
+          description: '[ja: 自端制御パラメータ設定1, en: Autonomous control parameter setting
+            1] '
+    autonomousControlParameter2FrequencyRegulation:
+      description: '[ja: 自端制御パラメータ設定2, en: Autonomous control parameter setting 2]'
+      type: object
+      properties:
+        autonomousControlParameter2:
+          type: object
+          properties:
+            timeConstantLpf:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: フィルタ時定数(LPF), en: Time constant for filter. (LPF)]
+                _'
+            timeConstantHpf:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: フィルタ時定数(HPF), en: Time constant for filter. (HPF)]
+                _'
+            pIControlProportionalGain:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: PI制御係数(比例ゲイン), en: PI control coefficient. (Proportional
+                gain)] _'
+            pIControlIntegralGain:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: PI制御係数(積分ゲイン), en: PI control coefficient. (Integral
+                gain)] _'
+            rateLimiterNormal:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: レートリミッタ(順方向)(W/sec), en: Rate limiter. (Normal direction)
+                (W/sec)] _'
+            rateLimiterReverse:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: レートリミッタ(逆方向)(W/sec), en: Rate limiter. (Reverse direction)
+                (W/sec)] _'
+          description: '[ja: 自端制御パラメータ設定2, en: Autonomous control parameter setting
+            2] '
+    autonomousControlParameter3FrequencyRegulation:
+      description: '[ja: 自端制御パラメータ設定3, en: Autonomous control parameter setting 3]'
+      type: object
+      properties:
+        autonomousControlParameter3:
+          type: array
+          minItems: 5
+          maxItems: 5
+          items:
+            type: object
+            properties:
+              powerBeforeCorrection:
+                type: number
+                minimum: -999999999
+                maximum: 999999999
+                description: '[ja: 補正前自端制御電力(W), en: Autonomous control power before
+                  correction] _'
+              powerAfterCorrection:
+                type: number
+                minimum: -999999999
+                maximum: 999999999
+                description: '[ja: 補正後自端制御電力(W), en: Autonomous control power after
+                  correction] _'
+          description: '[ja: 自端制御パラメータ設定3, en: Autonomous control parameter setting
+            3] '
+    referenceFrequencyCorrectionValueFrequencyRegulation:
+      description: '[ja: 基準周波数補正値, en: Correction value for reference frequency]'
+      type: object
+      properties:
+        referenceFrequencyCorrectionValue:
+          type: number
+          minimum: -100
+          maximum: 100
+          description: '[ja: 基準周波数補正値, en: Correction value for reference frequency] '
+    transmittableReceivableCycleFrequencyRegulation:
+      description: '[ja: 送受信可能周期, en: Transmittable/receivable cycle]'
+      type: object
+      properties:
+        transmittableReceivableCycle:
+          type: number
+          minimum: 0
+          maximum: 655350
+          multipleOf: 10
+          description: '[ja: 送受信可能周期, en: Transmittable/receivable cycle] '
+    deviceTypeFrequencyRegulation:
+      description: '[ja: 機器種別, en: Device type]'
+      type: object
+      properties:
+        deviceType:
+          type: string
+          description: '[ja: 機器種別, en: Device type] '
+    acMaxPowerFrequencyRegulation:
+      description: '[ja: 最大電力値, en: Values of AC max power]'
+      type: object
+      properties:
+        acMaxPower:
+          type: object
+          properties:
+            input:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大入力電力値, en: Maximum input power] _'
+            output:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大出力電力値, en: Maximum output power] _'
+          description: '[ja: 最大電力値, en: Values of AC max power] '
+    contractPowerFrequencyRegulation:
+      description: '[ja: 契約電力値, en: Value of contract power]'
+      type: object
+      properties:
+        contractPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 契約電力値, en: Value of contract power] '
+    deviceControlPerformanceFrequencyRegulation:
+      description: '[ja: 機器制御性能, en: Device control performance]'
+      type: object
+      properties:
+        deviceControlPerformance:
+          type: object
+          properties:
+            deadBandWidthUpperLimit:
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 不感帯幅上限値(mHz), en: Upper limit of dead band width.
+                (mHz)] _'
+            deadBandWidthLowerLimit:
+              type: number
+              minimum: 0
+              maximum: 1000
+              description: '[ja: 不感帯幅下限値(mHz), en: Lower limit of dead band width.
+                (mHz)] _'
+            powerChangeRateUpperLimit:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化率上限値(W/mHz), en: Upper limit of power change
+                rate. (W/mHz)] _'
+            powerChangeRateLowerLimit:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化率下限値(W/mHz), en: Lower limit of power change
+                rate. (W/mHz)] _'
+            powerChangeSpeedUpperLimit:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化速度上限値(W/sec), en: Upper limit of power change
+                speed. (W/sec)] _'
+            powerChangeSpeedLowerLimit:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 電力変化速度下限値(W/sec), en: Lower limit of power change
+                speed. (W/sec)] _'
+          description: '[ja: 機器制御性能, en: Device control performance] '
+    frequencyRegulationInformationFrequencyRegulation:
+      description: '[ja: 周波数制御情報, en: Information of frequency regulation]'
+      type: object
+      properties:
+        frequencyRegulationInformation:
+          type: object
+          properties:
+            possibilityToParticipate:
+              type: object
+              properties:
+                commandControl:
+                  type: string
+                  enum:
+                  - impossible
+                  - possible
+                  description: '[ja: 指令制御, en: Command control] _impossible (ja: 参加不可,
+                    en: Non participation) possible (ja: 参加可能, en: Participation is
+                    possible) '
+                autonomousControl:
+                  type: string
+                  enum:
+                  - impossible
+                  - possible
+                  description: '[ja: 自端制御, en: Autonomous control] _impossible (ja:
+                    参加不可, en: Non participation) possible (ja: 参加可能, en: Participation
+                    is possible) '
+                emPlannedValueControl:
+                  type: string
+                  enum:
+                  - impossible
+                  - possible
+                  description: '[ja: EM計画値制御, en: EM planned value control] _impossible
+                    (ja: 参加不可, en: Non participation) possible (ja: 参加可能, en: Participation
+                    is possible) '
+                emTargetValueControl:
+                  type: string
+                  enum:
+                  - impossible
+                  - possible
+                  description: '[ja: EM目標値制御, en: EM target value control] _impossible
+                    (ja: 参加不可, en: Non participation) possible (ja: 参加可能, en: Participation
+                    is possible) '
+              description: '[ja: 周波数調整サービスへの参加可否, en: Possibility to participate in
+                the frequency regulation service.] _'
+            frequencyRegulationStatus:
+              type: object
+              properties:
+                commandControl:
+                  type: boolean
+                  description: '[ja: 指令制御, en: Command control] _True (ja: 制御有り, en:
+                    With control) False (ja: 制御無し, en: Without control) '
+                autonomousControl:
+                  type: boolean
+                  description: '[ja: 自端制御, en: Autonomous control] _True (ja: 制御有り,
+                    en: With control) False (ja: 制御無し, en: Without control) '
+                emPlannedValueControl:
+                  type: boolean
+                  description: '[ja: EM計画値制御, en: EM planned value control] _True
+                    (ja: 制御有り, en: With control) False (ja: 制御無し, en: Without control) '
+                emTargetValueControl:
+                  type: boolean
+                  description: '[ja: EM目標値制御, en: EM target value control] _True (ja:
+                    制御有り, en: With control) False (ja: 制御無し, en: Without control) '
+                unableToControl:
+                  type: boolean
+                  description: '[ja: 制御不可, en: Unable to control] _False (ja: 当該状態ではない,
+                    en: Not in this state) True (ja: 当該状態である, en: In this state) '
+              description: '[ja: 周波数制御状態, en: frequency regulation status.] _'
+          description: '[ja: 周波数制御情報, en: Information of frequency regulation] '
+    informationOnControlContinuationFrequencyRegulation:
+      description: '[ja: 制御続行可否詳細情報, en: Detailed information of whether the device
+        can continue to control]'
+      type: object
+      properties:
+        informationOnControlContinuation:
+          type: string
+          description: '[ja: 制御続行可否詳細情報, en: Detailed information of whether the device
+            can continue to control] '
+    emInformationFrequencyRegulation:
+      description: '[ja: EM情報, en: Information of EM]'
+      type: object
+      properties:
+        emInformation:
+          type: object
+          properties:
+            chargeStartTime:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 充電開始時刻 (HH:MM), en: Charge start time in the HH:MM
+                format.] _'
+            chargeEndTime:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 充電終了時刻 (HH:MM), en: Charge end time in the HH:MM
+                format.] _'
+            dischargeStartTime:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 放電開始時刻 (HH:MM), en: Discharge start time in the HH:MM
+                format.] _'
+            dischargeEndTime:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 放電終了時刻 (HH:MM), en: Discharge end time in the HH:MM
+                format.] _'
+            dischargeLowerLimit:
+              type: number
+              minimum: 0
+              maximum: 100
+              description: '[ja: 放電下限SOC(%), en: SOC of discharge lower limit. (%)]
+                _'
+            chargeUpperLimit:
+              type: number
+              minimum: 0
+              maximum: 100
+              description: '[ja: 充電上限SOC(%), en: SOC of charge upper limit. (%)] _'
+            peakCutPowerThreshold:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: ピークカット電力閾値(W), en: Peak cut power threshold. (W)]
+                _'
+            peakCutEnergyThreshold:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: ピークカット電力量閾値(Wh), en: Peak cut electric energy threshold.
+                (Wh)] _'
+            pvSurplusCharging:
+              type: boolean
+              description: '[ja: PV余剰充電有無, en: Existence of PV surplus charging.]
+                _True (ja: 有, en: YES) False (ja: 無, en: NO) '
+            pvReversePowerFlow:
+              type: boolean
+              description: '[ja: PV逆潮有無, en: Existence of PV reverse power flow.]
+                _True (ja: 有, en: YES) False (ja: 無, en: NO) '
+            pcsPushUpEffect:
+              type: boolean
+              description: '[ja: 押し上げ効果有無, en: Existence of PCS push-up effect.] _True
+                (ja: 有, en: YES) False (ja: 無, en: NO) '
+          description: '[ja: EM情報, en: Information of EM] '
+    pcsMeasuredInstantaneousValueFrequencyRegulation:
+      description: '[ja: PCS瞬時計測値, en: Measured instantaneous values of PCS]'
+      type: object
+      properties:
+        pcsMeasuredInstantaneousValue:
+          type: object
+          properties:
+            frequency:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 周波数計測値(mHz), en: Frequency measurement value. (mHz)]
+                _'
+            powerAtDevicePoint:
+              type: number
+              minimum: -999999999
+              maximum: 999999999
+              description: '[ja: 機器点瞬時電力計測値(W), en: Instantaneous power measurement
+                value at device point. (W)] _'
+            powerAtReceivingPoint:
+              oneOf:
+              - type: number
+                minimum: -999999999
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid value) '
+              description: '[ja: 受電点瞬時電力計測値(W), en: Instantaneous power measurement
+                value at power receiving point. (W)] _'
+          description: '[ja: PCS瞬時計測値, en: Measured instantaneous values of PCS] '
+    responseInformationFrequencyRegulation:
+      description: '[ja: 応動情報, en: Response information]'
+      type: object
+      properties:
+        responseInformation:
+          type: object
+          properties:
+            acPower:
+              type: number
+              minimum: -999999999
+              maximum: 999999999
+              description: '[ja: AC瞬時電力計測値(W), en: AC power measurement. (W)] _'
+            emControlPower:
+              oneOf:
+              - type: number
+                minimum: -999999999
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: EM制御電力値(W), en: Power value of EM control. (W)] _'
+            commandControlPower:
+              oneOf:
+              - type: number
+                minimum: -999999999
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid value) '
+              description: '[ja: 指令制御電力値(W), en: Power value of command control. (W)]
+                _'
+            autonomousControlPower:
+              oneOf:
+              - type: number
+                minimum: -999999999
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid value) '
+              description: '[ja: 自端制御電力値(W), en: Power value of autonomous control.
+                (W)] _'
+            instructionNo:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 電力指令制御指示No., en: Command control instruction number.]
+                _'
+            frequencyDeviation:
+              type: number
+              minimum: -3000
+              maximum: 3000
+              description: '[ja: 系統周波数偏差(mHz), en: Grid frequency deviation. (mHz)]
+                _'
+          description: '[ja: 応動情報, en: Response information] '
+    powerCapabilityFrequencyRegulation:
+      description: '[ja: 瞬時入出力可能電力値, en: Instantaneous input and output power capability
+        value]'
+      type: object
+      properties:
+        powerCapability:
+          type: object
+          properties:
+            input:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 瞬時入力可能電力値(W), en: Instantaneous input power capability
+                value.] _'
+            output:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 瞬時出力可能電力値(W), en: Instantaneous output power capability
+                value.] _'
+          description: '[ja: 瞬時入出力可能電力値, en: Instantaneous input and output power
+            capability value] '
+    chargeableDischargeablePowerFrequencyRegulation:
+      description: '[ja: 瞬時充放電可能電力値, en: Instantaneous chargeable and dischargeable
+        power values]'
+      type: object
+      properties:
+        chargeableDischargeablePower:
+          type: object
+          properties:
+            chargeablePower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 瞬時充電可能電力値(W), en: Instantaneous chargeable power
+                value. (W)] _'
+            dischargeablePower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 瞬時放電可能電力値(W), en: Instantaneous dischargeable power
+                value. (W)] _'
+          description: '[ja: 瞬時充放電可能電力値, en: Instantaneous chargeable and dischargeable
+            power values] '
+    batteryStatusFrequencyRegulation:
+      description: '[ja: 蓄電池状態, en: Battery status]'
+      type: object
+      properties:
+        batteryStatus:
+          type: object
+          properties:
+            chargeableEnergy:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 充電可能電力量(Wh), en: Chargeable electric energy value.
+                (AC value) (Wh)] _'
+            dischargeableEnergy:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 放電可能電力量(Wh), en: Dischargeable electric energy value.
+                (AC value) (Wh)] _'
+            storedEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 蓄電残量(DC値)(Wh), en: Remaining stored electricity.
+                (DC value) (Wh)] _'
+            storedEnergyPercent:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 100
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 蓄電残量(%), en: Remaining stored electricity. (State
+                of charge) (%)] _'
+            healthState:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 100
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: 劣化状態(健康状態)(%), en: State of Health. (%)] _'
+          description: '[ja: 蓄電池状態, en: Battery status] '
+    cumulativeEnergyFrequencyRegulation:
+      description: '[ja: 積算電力量計測値, en: Cumulative electric energy measurement values]'
+      type: object
+      properties:
+        cumulativeEnergy:
+          type: object
+          properties:
+            inputEnergyAtDevicePoint:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 積算入力電力量計測値(機器点順方向 Wh), en: Measured cumulative amount
+                of input electric energy for PCS. (Normal direction at device point)
+                (Wh)] _'
+            outputEnergyAtDevicePoint:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 積算出力電力量計測値(機器点逆方向 Wh), en: Measured cumulative amount
+                of output electric energy by PCS. (Reverse direction at device point)
+                (Wh)] _'
+            boughtEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算系統買電電力量計測値(Wh), en: Measured cumulative amount
+                of electric energy bought from grid. (Wh)] _'
+            soldEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算系統売電電力量計測値(Wh), en: Measured cumulative amount
+                of electric energy sold for grid. (Wh)] _'
+            loadEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算負荷電力量計測(Wh), en: Measured cumulative amount of
+                load electric energy. (Wh)] _'
+            pvEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算太陽光発電電力量計測値(DC Wh), en: Measured cumulative amount
+                of electric energy by PV. (DC value) (Wh)] _'
+            chargeEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算充電電力量計測値(DC Wh), en: Measured cumulative amount
+                of charge electric energy to battery. (DC value) (Wh)] _'
+            dischargeEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - invalid
+                description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 積算放電電力量計測値(DC Wh), en: Measured cumulative amount
+                of discharge electric energy from battery. (DC value) (Wh)] _'
+          description: '[ja: 積算電力量計測値, en: Cumulative electric energy measurement
+            values] '
+    cumulativeFrequencyRegulationEnergyFrequencyRegulation:
+      description: '[ja: 周波数制御積算電力量計測値, en: Cumulative electric energy measurement
+        by frequency regulation]'
+      type: object
+      properties:
+        cumulativeFrequencyRegulationEnergy:
+          type: object
+          properties:
+            emControlEnergy:
+              type: array
+              minItems: 4
+              maxItems: 4
+              items:
+                type: number
+                minimum: 0
+                maximum: 999999999
+              description: '[ja: EM制御積算電力量計測値(Wh), en: Cumulative electric energy
+                measurement by EM control (Wh)] _'
+            commandControlEnergy:
+              type: array
+              minItems: 4
+              maxItems: 4
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - invalid
+                  description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 指令制御積算電力量計測値(Wh), en: Cumulative electric energy
+                measurement by command control (Wh)] _'
+            autonomousControlEnergy:
+              type: array
+              minItems: 4
+              maxItems: 4
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - invalid
+                  description: '_invalid (ja: 無効値, en: invalid value) '
+              description: '[ja: 自端制御積算電力量計測値(Wh), en: Cumulative electric energy
+                measurement by autonomous control (Wh)] _'
+          description: '[ja: 周波数制御積算電力量計測値, en: Cumulative electric energy measurement
+            by frequency regulation] '
+    emPlanInformationFrequencyRegulation:
+      description: '[ja: EM計画情報, en: EM planned information]'
+      type: object
+      properties:
+        emPlanInformation:
+          type: object
+          properties:
+            updateId:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: 更新ID, en: Update ID] _'
+            numberOfData:
+              type: number
+              minimum: 0
+              maximum: 96
+              description: '[ja: データ数, en: Number of data] _'
+            firstDataMmDd:
+              type: string
+              format: date
+              description: '[ja: 先頭データ月日 (MMDD), en: First data in the MMDD format.]
+                _'
+            firstDataHhMm:
+              type: string
+              format: time
+              description: '[ja: 先頭データ時分 (HHMM), en: Hour and minute of first data
+                in the HHMM format.] _'
+          description: '[ja: EM計画情報, en: EM planned information] '
+    emPlan1FrequencyRegulation:
+      description: '[ja: EM計画値1, en: EM planned value 1]'
+      type: object
+      properties:
+        emPlan1:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: EM計画値1, en: EM planned value 1] '
+    emPlan2FrequencyRegulation:
+      description: '[ja: EM計画値2, en: EM planned value 2]'
+      type: object
+      properties:
+        emPlan2:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: EM計画値2, en: EM planned value 2] '
+    upSupplyPlanInformationFrequencyRegulation:
+      description: '[ja: 上げ調整力供出計画情報, en: Information of supply plan for regulation
+        up]'
+      type: object
+      properties:
+        upSupplyPlanInformation:
+          type: object
+          properties:
+            updateId:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: 更新ID, en: Update ID] _'
+            numberOfData:
+              type: number
+              minimum: 0
+              maximum: 96
+              description: '[ja: データ数, en: Number of data] _'
+            firstDataMmDd:
+              type: string
+              format: date
+              description: '[ja: 先頭データ月日 (MMDD), en: First data in the MMDD format.]
+                _'
+            firstDataHhMm:
+              type: string
+              format: time
+              description: '[ja: 先頭データ時分 (HHMM), en: Hour and minute of first data
+                in the HHMM format.] _'
+          description: '[ja: 上げ調整力供出計画情報, en: Information of supply plan for regulation
+            up] '
+    upSupplyPlan1FrequencyRegulation:
+      description: '[ja: 上げ調整力供出計画値1, en: Supply plan-1 for regulation up]'
+      type: object
+      properties:
+        upSupplyPlan1:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: 上げ調整力供出計画値1, en: Supply plan-1 for regulation up] '
+    upSupplyPlan2FrequencyRegulation:
+      description: '[ja: 上げ調整力供出計画値2, en: Supply plan-2 for regulation up]'
+      type: object
+      properties:
+        upSupplyPlan2:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: 上げ調整力供出計画値2, en: Supply plan-2 for regulation up] '
+    downSupplyPlanInformationFrequencyRegulation:
+      description: '[ja: 下げ調整力供出計画情報, en: Information of supply plan for regulation
+        down]'
+      type: object
+      properties:
+        downSupplyPlanInformation:
+          type: object
+          properties:
+            updateId:
+              type: number
+              minimum: 0
+              maximum: 65535
+              description: '[ja: 更新ID, en: Update ID] _'
+            numberOfData:
+              type: number
+              minimum: 0
+              maximum: 96
+              description: '[ja: データ数, en: Number of data] _'
+            firstDataMmDd:
+              type: string
+              format: date
+              description: '[ja: 先頭データ月日 (MMDD), en: First data in the MMDD format.]
+                _'
+            firstDataHhMm:
+              type: string
+              format: time
+              description: '[ja: 先頭データ時分 (HHMM), en: Hour and minute of first data
+                in the HHMM format.] _'
+          description: '[ja: 下げ調整力供出計画情報, en: Information of supply plan for regulation
+            down] '
+    downSupplyPlan1FrequencyRegulation:
+      description: '[ja: 下げ調整力供出計画値1, en: Supply plan-1 for regulation down]'
+      type: object
+      properties:
+        downSupplyPlan1:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: 下げ調整力供出計画値1, en: Supply plan-1 for regulation down] '
+    downSupplyPlan2FrequencyRegulation:
+      description: '[ja: 下げ調整力供出計画値2, en: Supply plan-2 for regulation down]'
+      type: object
+      properties:
+        downSupplyPlan2:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            type: number
+            minimum: -999999999
+            maximum: 999999999
+          description: '[ja: 下げ調整力供出計画値2, en: Supply plan-2 for regulation down] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

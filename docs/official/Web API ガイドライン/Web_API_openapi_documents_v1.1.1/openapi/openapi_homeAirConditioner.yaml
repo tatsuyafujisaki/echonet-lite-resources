@@ -1,0 +1,3270 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: HomeAirConditioner
+  description: tag for Home air conditioner
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesHomeAirConditioner
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservation:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: ON timer-based reservation setting'
+      operationId: getDevicesPropertiesOnTimerReservationHomeAirConditioner
+      description: '取得: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: ON timer-based reservation setting'
+      operationId: putDevicesPropertiesOnTimerReservationHomeAirConditioner
+      description: '設定: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservationHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOnTimer:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: ON timer setting (time)'
+      operationId: getDevicesPropertiesTimeOfOnTimerHomeAirConditioner
+      description: '取得: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOnTimerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: ON timer setting (time)'
+      operationId: putDevicesPropertiesTimeOfOnTimerHomeAirConditioner
+      description: '設定: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOnTimerHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOnTimerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOnTimer:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: ON timer setting (relative time)'
+      operationId: getDevicesPropertiesRelativeTimeOfOnTimerHomeAirConditioner
+      description: '取得: ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: ON timer setting (relative time)'
+      operationId: putDevicesPropertiesRelativeTimeOfOnTimerHomeAirConditioner
+      description: '設定: ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOnTimerHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/offTimerReservation:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: OFF timer-based reservation setting'
+      operationId: getDevicesPropertiesOffTimerReservationHomeAirConditioner
+      description: '取得: OFFタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: OFF timer-based reservation setting'
+      operationId: putDevicesPropertiesOffTimerReservationHomeAirConditioner
+      description: '設定: OFFタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offTimerReservationHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOffTimer:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: OFF timer setting (time)'
+      operationId: getDevicesPropertiesTimeOfOffTimerHomeAirConditioner
+      description: '取得: OFFタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: OFF timer setting (time)'
+      operationId: putDevicesPropertiesTimeOfOffTimerHomeAirConditioner
+      description: '設定: OFFタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOffTimerHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOffTimer:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: OFF timer setting (relative time)'
+      operationId: getDevicesPropertiesRelativeTimeOfOffTimerHomeAirConditioner
+      description: '取得: OFFタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: OFF timer setting (relative time)'
+      operationId: putDevicesPropertiesRelativeTimeOfOffTimerHomeAirConditioner
+      description: '設定: OFFタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOffTimerHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airFlowLevel:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Air flow rate setting'
+      operationId: getDevicesPropertiesAirFlowLevelHomeAirConditioner
+      description: '取得: 風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowLevelHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Air flow rate setting'
+      operationId: putDevicesPropertiesAirFlowLevelHomeAirConditioner
+      description: '設定: 風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airFlowLevelHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowLevelHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticControlAirFlowDirection:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Automatic control of air flow direction setting'
+      operationId: getDevicesPropertiesAutomaticControlAirFlowDirectionHomeAirConditioner
+      description: '取得: 風向自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticControlAirFlowDirectionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Automatic control of air flow direction setting'
+      operationId: putDevicesPropertiesAutomaticControlAirFlowDirectionHomeAirConditioner
+      description: '設定: 風向自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticControlAirFlowDirectionHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticControlAirFlowDirectionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticSwingAirFlow:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Automatic swing of air flow setting'
+      operationId: getDevicesPropertiesAutomaticSwingAirFlowHomeAirConditioner
+      description: '取得: 風向スイング設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticSwingAirFlowHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Automatic swing of air flow setting'
+      operationId: putDevicesPropertiesAutomaticSwingAirFlowHomeAirConditioner
+      description: '設定: 風向スイング設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticSwingAirFlowHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticSwingAirFlowHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airFlowDirectionVertical:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Air flow direction (vertical) setting'
+      operationId: getDevicesPropertiesAirFlowDirectionVerticalHomeAirConditioner
+      description: '取得: 風向上下設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowDirectionVerticalHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Air flow direction (vertical) setting'
+      operationId: putDevicesPropertiesAirFlowDirectionVerticalHomeAirConditioner
+      description: '設定: 風向上下設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airFlowDirectionVerticalHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowDirectionVerticalHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airFlowDirectionHorizontal:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Air flow direction (horizontal) setting'
+      operationId: getDevicesPropertiesAirFlowDirectionHorizontalHomeAirConditioner
+      description: '取得: 風向左右設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowDirectionHorizontalHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Air flow direction (horizontal) setting'
+      operationId: putDevicesPropertiesAirFlowDirectionHorizontalHomeAirConditioner
+      description: '設定: 風向左右設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airFlowDirectionHorizontalHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowDirectionHorizontalHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/specialState:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Special state'
+      operationId: getDevicesPropertiesSpecialStateHomeAirConditioner
+      description: '取得: 特殊状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/specialStateHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/nonPriorityState:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Non-priority state'
+      operationId: getDevicesPropertiesNonPriorityStateHomeAirConditioner
+      description: '取得: 非優先状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/nonPriorityStateHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationMode:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Operation mode setting'
+      operationId: getDevicesPropertiesOperationModeHomeAirConditioner
+      description: '取得: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Operation mode setting'
+      operationId: putDevicesPropertiesOperationModeHomeAirConditioner
+      description: '設定: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationModeHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticTemperatureControl:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Automatic temperature control setting'
+      operationId: getDevicesPropertiesAutomaticTemperatureControlHomeAirConditioner
+      description: '取得: 温度自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticTemperatureControlHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Automatic temperature control setting'
+      operationId: putDevicesPropertiesAutomaticTemperatureControlHomeAirConditioner
+      description: '設定: 温度自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticTemperatureControlHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticTemperatureControlHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/highspeedOperation:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Normal/highspeed/silent operation setting'
+      operationId: getDevicesPropertiesHighspeedOperationHomeAirConditioner
+      description: '取得: 急速動作モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/highspeedOperationHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Normal/highspeed/silent operation setting'
+      operationId: putDevicesPropertiesHighspeedOperationHomeAirConditioner
+      description: '設定: 急速動作モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/highspeedOperationHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/highspeedOperationHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetTemperature:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Set temperature value'
+      operationId: getDevicesPropertiesTargetTemperatureHomeAirConditioner
+      description: '取得: 温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Set temperature value'
+      operationId: putDevicesPropertiesTargetTemperatureHomeAirConditioner
+      description: '設定: 温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetTemperatureHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeHumidityDehumidifying:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Set value of relative humidity in dehumidifying mode'
+      operationId: getDevicesPropertiesRelativeHumidityDehumidifyingHomeAirConditioner
+      description: '取得: 除湿モード時相対湿度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeHumidityDehumidifyingHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Set value of relative humidity in dehumidifying mode'
+      operationId: putDevicesPropertiesRelativeHumidityDehumidifyingHomeAirConditioner
+      description: '設定: 除湿モード時相対湿度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeHumidityDehumidifyingHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeHumidityDehumidifyingHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetTemperatureCooling:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Set temperature value in cooling mode'
+      operationId: getDevicesPropertiesTargetTemperatureCoolingHomeAirConditioner
+      description: '取得: 冷房モード時温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureCoolingHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Set temperature value in cooling mode'
+      operationId: putDevicesPropertiesTargetTemperatureCoolingHomeAirConditioner
+      description: '設定: 冷房モード時温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetTemperatureCoolingHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureCoolingHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetTemperatureHeating:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Set temperature value in heating mode'
+      operationId: getDevicesPropertiesTargetTemperatureHeatingHomeAirConditioner
+      description: '取得: 暖房モード時温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureHeatingHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Set temperature value in heating mode'
+      operationId: putDevicesPropertiesTargetTemperatureHeatingHomeAirConditioner
+      description: '設定: 暖房モード時温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetTemperatureHeatingHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureHeatingHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetTemperatureDehumidifying:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Set temperature value in dehumidifying mode'
+      operationId: getDevicesPropertiesTargetTemperatureDehumidifyingHomeAirConditioner
+      description: '取得: 除湿モード時温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureDehumidifyingHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Set temperature value in dehumidifying mode'
+      operationId: putDevicesPropertiesTargetTemperatureDehumidifyingHomeAirConditioner
+      description: '設定: 除湿モード時温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetTemperatureDehumidifyingHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureDehumidifyingHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedPowerConsumption:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Rated power consumption'
+      operationId: getDevicesPropertiesRatedPowerConsumptionHomeAirConditioner
+      description: '取得: 定格消費電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedPowerConsumptionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/currentConsumption:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Measured value of current consumption'
+      operationId: getDevicesPropertiesCurrentConsumptionHomeAirConditioner
+      description: '取得: 消費電流計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentConsumptionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/humidity:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Measured value of room relative humidity'
+      operationId: getDevicesPropertiesHumidityHomeAirConditioner
+      description: '取得: 室内相対湿度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/humidityHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/roomTemperature:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Measured value of room temperature'
+      operationId: getDevicesPropertiesRoomTemperatureHomeAirConditioner
+      description: '取得: 室内温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/roomTemperatureHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/temperatureUserRemoteControl:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Set temperature value of user remote control'
+      operationId: getDevicesPropertiesTemperatureUserRemoteControlHomeAirConditioner
+      description: '取得: ユーザリモコン温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/temperatureUserRemoteControlHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airFlowTemperature:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Measured cooled air temperature'
+      operationId: getDevicesPropertiesAirFlowTemperatureHomeAirConditioner
+      description: '取得: 吹き出し温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airFlowTemperatureHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outdoorTemperature:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Measured outdoor air temperature'
+      operationId: getDevicesPropertiesOutdoorTemperatureHomeAirConditioner
+      description: '取得: 外気温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outdoorTemperatureHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTemperature:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Relative temperature setting'
+      operationId: getDevicesPropertiesRelativeTemperatureHomeAirConditioner
+      description: '取得: 相対温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTemperatureHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Relative temperature setting'
+      operationId: putDevicesPropertiesRelativeTemperatureHomeAirConditioner
+      description: '設定: 相対温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTemperatureHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTemperatureHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ventilationFunction:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Ventilation function setting'
+      operationId: getDevicesPropertiesVentilationFunctionHomeAirConditioner
+      description: '取得: 換気モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Ventilation function setting'
+      operationId: putDevicesPropertiesVentilationFunctionHomeAirConditioner
+      description: '設定: 換気モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ventilationFunctionHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/humidifierFunction:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Humidifier function setting'
+      operationId: getDevicesPropertiesHumidifierFunctionHomeAirConditioner
+      description: '取得: 加湿モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/humidifierFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Humidifier function setting'
+      operationId: putDevicesPropertiesHumidifierFunctionHomeAirConditioner
+      description: '設定: 加湿モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/humidifierFunctionHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/humidifierFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ventilationAirFlowLevel:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Ventilation air flow rate setting'
+      operationId: getDevicesPropertiesVentilationAirFlowLevelHomeAirConditioner
+      description: '取得: 換気風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationAirFlowLevelHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Ventilation air flow rate setting'
+      operationId: putDevicesPropertiesVentilationAirFlowLevelHomeAirConditioner
+      description: '設定: 換気風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ventilationAirFlowLevelHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationAirFlowLevelHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/humidificationLevel:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Degree of humidification setting'
+      operationId: getDevicesPropertiesHumidificationLevelHomeAirConditioner
+      description: '取得: 加湿量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/humidificationLevelHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Degree of humidification setting'
+      operationId: putDevicesPropertiesHumidificationLevelHomeAirConditioner
+      description: '設定: 加湿量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/humidificationLevelHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/humidificationLevelHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airCleaningMethod:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Mounted air cleaning method'
+      operationId: getDevicesPropertiesAirCleaningMethodHomeAirConditioner
+      description: '取得: 搭載空気清浄方法'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airCleaningMethodHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airPurifierFunction:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Air purifier function setting'
+      operationId: getDevicesPropertiesAirPurifierFunctionHomeAirConditioner
+      description: '取得: 空気清浄機能モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airPurifierFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Air purifier function setting'
+      operationId: putDevicesPropertiesAirPurifierFunctionHomeAirConditioner
+      description: '設定: 空気清浄機能モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airPurifierFunctionHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airPurifierFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airRefreshMethod:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Mounted air refresh method'
+      operationId: getDevicesPropertiesAirRefreshMethodHomeAirConditioner
+      description: '取得: 搭載リフレッシュ方法'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airRefreshMethodHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airRefresherFunction:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Air refresher function setting'
+      operationId: getDevicesPropertiesAirRefresherFunctionHomeAirConditioner
+      description: '取得: リフレッシュ機能モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airRefresherFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Air refresher function setting'
+      operationId: putDevicesPropertiesAirRefresherFunctionHomeAirConditioner
+      description: '設定: リフレッシュ機能モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airRefresherFunctionHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airRefresherFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/selfCleaningMethod:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Mounted self-cleaning method'
+      operationId: getDevicesPropertiesSelfCleaningMethodHomeAirConditioner
+      description: '取得: 搭載自己洗浄方法'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/selfCleaningMethodHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/selfCleaningFunction:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Self-cleaning function setting'
+      operationId: getDevicesPropertiesSelfCleaningFunctionHomeAirConditioner
+      description: '取得: 自己洗浄機能モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/selfCleaningFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Self-cleaning function setting'
+      operationId: putDevicesPropertiesSelfCleaningFunctionHomeAirConditioner
+      description: '設定: 自己洗浄機能モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/selfCleaningFunctionHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/selfCleaningFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/specialFunction:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Special function setting'
+      operationId: getDevicesPropertiesSpecialFunctionHomeAirConditioner
+      description: '取得: 特別運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/specialFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Special function setting'
+      operationId: putDevicesPropertiesSpecialFunctionHomeAirConditioner
+      description: '設定: 特別運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/specialFunctionHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/specialFunctionHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/componentsOperationStatus:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Operation status of components'
+      operationId: getDevicesPropertiesComponentsOperationStatusHomeAirConditioner
+      description: '取得: 内部動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/componentsOperationStatusHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/thermostatOverride:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Thermostat setting override function'
+      operationId: getDevicesPropertiesThermostatOverrideHomeAirConditioner
+      description: '取得: 強制サーモモード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thermostatOverrideHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Thermostat setting override function'
+      operationId: putDevicesPropertiesThermostatOverrideHomeAirConditioner
+      description: '設定: 強制サーモモード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/thermostatOverrideHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thermostatOverrideHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/airPurification:
+    get:
+      tags:
+      - HomeAirConditioner
+      summary: 'Get: Air purification mode setting'
+      operationId: getDevicesPropertiesAirPurificationHomeAirConditioner
+      description: '取得: 空気清浄モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airPurificationHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - HomeAirConditioner
+      summary: 'Set: Air purification mode setting'
+      operationId: putDevicesPropertiesAirPurificationHomeAirConditioner
+      description: '設定: 空気清浄モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/airPurificationHomeAirConditioner'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/airPurificationHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/beepBuzzer:
+    post:
+      tags:
+      - HomeAirConditioner
+      summary: 'Post: Buzzer'
+      operationId: postDevicesActionsBeepBuzzerHomeAirConditioner
+      description: '実行: ブザー'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/beepBuzzerHomeAirConditioner'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesHomeAirConditioner:
+      description: propertiesHomeAirConditioner
+      type: object
+      properties:
+        onTimerReservation:
+          type: object
+          properties:
+            timeBased:
+              type: boolean
+              description: '_True (ja: 予約入, en: Reservation ON) False (ja: 予約切, en:
+                Reservation OFF) '
+            relativeTimeBased:
+              type: boolean
+              description: '_True (ja: 予約入, en: Reservation ON) False (ja: 予約切, en:
+                Reservation OFF) '
+          description: '[ja: ONタイマ予約設定, en: ON timer-based reservation setting] '
+        timeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting (time)] '
+        relativeTimeOfOnTimer:
+          type: number
+          minimum: 0
+          maximum: 15359
+          multipleOf: 1
+          description: '[ja: ONタイマ相対時間設定値, en: ON timer setting (relative time)] '
+        offTimerReservation:
+          type: object
+          properties:
+            timeBased:
+              type: boolean
+              description: '_True (ja: 予約入, en: Reservation ON) False (ja: 予約切, en:
+                Reservation OFF) '
+            relativeTimeBased:
+              type: boolean
+              description: '_True (ja: 予約入, en: Reservation ON) False (ja: 予約切, en:
+                Reservation OFF) '
+          description: '[ja: OFFタイマ予約設定, en: OFF timer-based reservation setting] '
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ時刻設定値, en: OFF timer setting (time)] '
+        relativeTimeOfOffTimer:
+          type: number
+          minimum: 0
+          maximum: 15359
+          multipleOf: 1
+          description: '[ja: OFFタイマ相対時間設定値, en: OFF timer setting (relative time)] '
+        airFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 風量自動設定, en: Automatic air flow rate control function
+              used.) '
+          description: '[ja: 風量設定, en: Air flow rate setting] '
+        automaticControlAirFlowDirection:
+          type: string
+          enum:
+          - auto
+          - nonAuto
+          - autoVertical
+          - autoHorizontal
+          description: '[ja: 風向自動設定, en: Automatic control of air flow direction setting]
+            _auto (ja: AUTO, en: Automatic) nonAuto (ja: 非AUTO, en: Non-automatic)
+            autoVertical (ja: 上下AUTO, en: Automatic (vertical)) autoHorizontal (ja:
+            左右AUTO, en: Automatic (horizontal)) '
+        automaticSwingAirFlow:
+          type: string
+          enum:
+          - 'off'
+          - vertical
+          - horizontal
+          - verticalAndHorizontal
+          description: '[ja: 風向スイング設定, en: Automatic swing of air flow setting] _off
+            (ja: OFF, en: OFF) vertical (ja: 上下, en: Vertical) horizontal (ja: 左右,
+            en: Horizontal) verticalAndHorizontal (ja: 上下左右, en: Vertical and Horizontal) '
+        airFlowDirectionVertical:
+          type: string
+          enum:
+          - uppermost
+          - lowermost
+          - central
+          - upperCenter
+          - lowerCenter
+          description: '[ja: 風向上下設定, en: Air flow direction (vertical) setting] _uppermost
+            (ja: 上, en: Uppermost) lowermost (ja: 下, en: Lowermost) central (ja: 中央,
+            en: Central) upperCenter (ja: 上中, en: Midpoint between uppermost and central)
+            lowerCenter (ja: 下中, en: Midpoint between lowermost and central) '
+        airFlowDirectionHorizontal:
+          type: string
+          enum:
+          - rc_r
+          - l_lc
+          - lc_c_rc
+          - l_lc_rc_r
+          - r
+          - rc
+          - c
+          - c_r
+          - c_rc
+          - c_rc_r
+          - lc
+          - lc_r
+          - lc_rc
+          - lc_rc_r
+          - lc_c
+          - lc_c_r
+          - lc_c_rc_r
+          - l
+          - l_r
+          - l_rc
+          - l_rc_r
+          - l_c
+          - l_c_r
+          - l_c_rc
+          - l_c_rc_r
+          - l_lc_r
+          - l_lc_rc
+          - l_lc_c
+          - l_lc_c_r
+          - l_lc_c_rc
+          - l_lc_c_rc_r
+          description: '[ja: 風向左右設定, en: Air flow direction (horizontal) setting]
+            _rc_r (ja: 右中・右, en: Right center and Right) l_lc (ja: 左・左中, en: Left
+            and Left center) lc_c_rc (ja: 左中・中・右中, en: Left center, Center and Right
+            center) l_lc_rc_r (ja: 左・左中・右中・右, en: Left, Left center, Right center
+            and Right) r (ja: 右, en: Right) rc (ja: 右中, en: Right center) c (ja: 中,
+            en: Center) c_r (ja: 中・右, en: Center and right) c_rc (ja: 中・右中, en: Center
+            and Right center) c_rc_r (ja: 中・右中・右, en: Center, Right center and Right)
+            lc (ja: 左中, en: Left center) lc_r (ja: 左中・右, en: Left center and Right)
+            lc_rc (ja: 左中・右中, en: Left center and Right center) lc_rc_r (ja: 左中・右中・右,
+            en: Left center, Right center and Right) lc_c (ja: 左中・中, en: Left center
+            and Center) lc_c_r (ja: 左中・中・右, en: Left center, Center and Right) lc_c_rc_r
+            (ja: 左中・中・右中・右, en: Left center, Center, Right center and Right) l (ja:
+            左, en: Left) l_r (ja: 左・右, en: Left and Right) l_rc (ja: 左・右中, en: Left
+            and Right center) l_rc_r (ja: 左・右中・右, en: Left, Right center and Right)
+            l_c (ja: 左・中, en: Left and Center) l_c_r (ja: 左・中・右, en: Left, Center
+            and Right) l_c_rc (ja: 左・中・右中, en: Left, Center and Right center) l_c_rc_r
+            (ja: 左・中・右中・右, en: Left, Center, Right center and Right) l_lc_r (ja: 左・左中・右,
+            en: Left, Left center and Right) l_lc_rc (ja: 左・左中・右中, en: Left, Left
+            center and Right center) l_lc_c (ja: 左・左中・中, en: Left, Left center and
+            center) l_lc_c_r (ja: 左・左中・中・右, en: Left, Left center, Center and Right)
+            l_lc_c_rc (ja: 左・左中・中・右中, en: Left, Left center, Center and Right center)
+            l_lc_c_rc_r (ja: 左・左中・中・右中・右, en: Left, Left center, Center, Right center
+            and Right) '
+        specialState:
+          type: string
+          enum:
+          - normal
+          - defrosting
+          - preheating
+          - heatRemoval
+          description: '[ja: 特殊状態, en: Special state] _normal (ja: 通常状態, en: Normal
+            operation) defrosting (ja: 除霜状態, en: Defrosting) preheating (ja: 予熱状態,
+            en: Preheating) heatRemoval (ja: 排熱状態, en: Heat removal) '
+        nonPriorityState:
+          type: boolean
+          description: '[ja: 非優先状態, en: Non-priority state] _False (ja: 通常状態, en:
+            Normal) True (ja: 非優先状態, en: Non-priority) '
+        operationMode:
+          type: string
+          enum:
+          - auto
+          - cooling
+          - heating
+          - dehumidification
+          - circulation
+          - other
+          description: '[ja: 運転モード設定, en: Operation mode setting] _auto (ja: 自動, en:
+            Automatic) cooling (ja: 冷房, en: Cooling) heating (ja: 暖房, en: Heating)
+            dehumidification (ja: 除湿, en: Dehumidification) circulation (ja: 送風, en:
+            Air circulation) other (ja: その他, en: Other) '
+        automaticTemperatureControl:
+          type: boolean
+          description: '[ja: 温度自動設定, en: Automatic temperature control setting] _True
+            (ja: AUTO, en: Automatic) False (ja: 非AUTO, en: Non-automatic) '
+        highspeedOperation:
+          type: string
+          enum:
+          - normal
+          - highspeed
+          - silent
+          description: '[ja: 急速動作モード設定, en: Normal/highspeed/silent operation setting]
+            _normal (ja: 通常運転, en: Normal operation) highspeed (ja: 急速, en: High-speed
+            operation) silent (ja: 静音, en: Silent operation) '
+        targetTemperature:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 温度設定値, en: Set temperature value] '
+        relativeHumidityDehumidifying:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 除湿モード時相対湿度設定値, en: Set value of relative humidity in
+            dehumidifying mode] '
+        targetTemperatureCooling:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 冷房モード時温度設定値, en: Set temperature value in cooling mode] '
+        targetTemperatureHeating:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 暖房モード時温度設定値, en: Set temperature value in heating mode] '
+        targetTemperatureDehumidifying:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 除湿モード時温度設定値, en: Set temperature value in dehumidifying
+            mode] '
+        ratedPowerConsumption:
+          type: object
+          properties:
+            cooling:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - unsupported
+                description: '_unsupported (ja: 未サポート, en: Unsupported) '
+              description: '[ja: 冷房, en: Cooling] _'
+            heating:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - unsupported
+                description: '_unsupported (ja: 未サポート, en: Unsupported) '
+              description: '[ja: 暖房, en: Heating] _'
+            dehumidifying:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - unsupported
+                description: '_unsupported (ja: 未サポート, en: Unsupported) '
+              description: '[ja: 除湿, en: Dehumidifying] _'
+            circulation:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - unsupported
+                description: '_unsupported (ja: 未サポート, en: Unsupported) '
+              description: '[ja: 送風, en: Circulation] _'
+          description: '[ja: 定格消費電力値, en: Rated power consumption] '
+        currentConsumption:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 消費電流計測値, en: Measured value of current consumption] '
+        humidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 室内相対湿度計測値, en: Measured value of room relative humidity] '
+        roomTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 室内温度計測値, en: Measured value of room temperature] '
+        temperatureUserRemoteControl:
+          type: number
+          minimum: 0
+          maximum: 50
+          description: '[ja: ユーザリモコン温度設定値, en: Set temperature value of user remote
+            control] '
+        airFlowTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 吹き出し温度計測値, en: Measured cooled air temperature] '
+        outdoorTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 外気温度計測値, en: Measured outdoor air temperature] '
+        relativeTemperature:
+          oneOf:
+          - type: number
+            minimum: -12.7
+            maximum: 12.5
+            multipleOf: 0.1
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 相対温度設定値, en: Relative temperature setting] '
+        ventilationFunction:
+          type: string
+          enum:
+          - onOutlet
+          - 'off'
+          - onIntake
+          - onOutletAndIntake
+          description: '[ja: 換気モード設定, en: Ventilation function setting] _onOutlet
+            (ja: 換気ON (排気方向), en: Ventilation function ON (outlet direction)) off
+            (ja: 換気OFF, en: Ventilation function OFF) onIntake (ja: 換気ON (吸気方向), en:
+            Ventilation function ON (intake direction)) onOutletAndIntake (ja: 換気ON
+            (吸排気方向), en: Ventilation function ON (outlet and intake direction)) '
+        humidifierFunction:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 加湿モード設定, en: Humidifier function setting] _on (ja: 加湿ON,
+            en: Humidifier function ON) off (ja: 加湿OFF, en: Humidifier function OFF) '
+        ventilationAirFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 換気風量自動, en: Automatic control of ventilation
+              air flow rate) '
+          description: '[ja: 換気風量設定, en: Ventilation air flow rate setting] '
+        humidificationLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 加湿量自動, en: Automatic control of the degree of
+              humidification) '
+          description: '[ja: 加湿量設定, en: Degree of humidification setting] '
+        airCleaningMethod:
+          type: object
+          properties:
+            equippedElectronic:
+              type: boolean
+              description: '[ja: 電気集塵方式搭載情報, en: Electronic dust collection] _False
+                (ja: 非搭載, en: Not equipped) True (ja: 搭載, en: Equipped) '
+            equippedClusterIon:
+              type: boolean
+              description: '[ja: クラスタイオン方式搭載情報, en: Cluster ion] _False (ja: 非搭載,
+                en: Not equipped) True (ja: 搭載, en: Equipped) '
+          description: '[ja: 搭載空気清浄方法, en: Mounted air cleaning method] '
+        airPurifierFunction:
+          type: object
+          properties:
+            levelOfElectronic:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: 電気集塵方式：制御レベル, en: Electronic dust collection:Level]
+                _'
+            modeOfElectronic:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: 電気集塵方式：動作モード, en: Electronic dust collection:Mode]
+                _off (ja: OFF, en: OFF) on (ja: ON, en: ON) '
+            autoOfElectronic:
+              type: boolean
+              description: '[ja: 電気集塵方式：制御状態, en: Electronic dust collection:Auto
+                function] _False (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en:
+                Automatic) '
+            levelOfClusterIon:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: クラスタイオン方式：制御レベル, en: Cluster ion:Level] _'
+            modeOfClusterIon:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: クラスタイオン方式：動作モード, en: Cluster ion:Mode] _off (ja:
+                OFF, en: OFF) on (ja: ON, en: ON) '
+            autoOfClusterIon:
+              type: boolean
+              description: '[ja: クラスタイオン方式：制御状態, en: Cluster ion:Auto function] _False
+                (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+          description: '[ja: 空気清浄機能モード設定, en: Air purifier function setting] '
+        airRefreshMethod:
+          type: object
+          properties:
+            equippedMinusIon:
+              type: boolean
+              description: '[ja: マイナスイオン方式搭載情報, en: Minus ion collection] _False (ja:
+                非搭載, en: Not equipped) True (ja: 搭載, en: Equipped) '
+            equippedClusterIon:
+              type: boolean
+              description: '[ja: クラスタイオン方式搭載情報, en: Cluster ion] _False (ja: 非搭載,
+                en: Not equipped) True (ja: 搭載, en: Equipped) '
+          description: '[ja: 搭載リフレッシュ方法, en: Mounted air refresh method] '
+        airRefresherFunction:
+          type: object
+          properties:
+            levelOfMinusIon:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: マイナスイオン方式：制御レベル, en: Minus ion:Level] _'
+            modeOfMinusIon:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: マイナスイオン方式：動作モード, en: Minus ion:Mode] _off (ja: OFF,
+                en: OFF) on (ja: ON, en: ON) '
+            autoOfMinusIon:
+              type: boolean
+              description: '[ja: マイナスイオン方式：制御状態, en: Minus ion:Auto function] _False
+                (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+            levelOfClusterIon:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: クラスタイオン方式：制御レベル, en: Cluster ion:Level] _'
+            modeOfClusterIon:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: クラスタイオン方式：動作モード, en: Cluster ion:Mode] _off (ja:
+                OFF, en: OFF) on (ja: ON, en: ON) '
+            autoOfClusterIon:
+              type: boolean
+              description: '[ja: クラスタイオン方式：制御状態, en: Cluster ion:Auto function] _False
+                (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+          description: '[ja: リフレッシュ機能モード設定, en: Air refresher function setting] '
+        selfCleaningMethod:
+          type: object
+          properties:
+            equippedOzone:
+              type: boolean
+              description: '[ja: オゾン洗浄方式搭載情報, en: Information about ozone cleaning
+                method mounting] _False (ja: 非搭載, en: Not equipped) True (ja: 搭載,
+                en: Equipped) '
+            equippedDrying:
+              type: boolean
+              description: '[ja: 乾燥方式搭載情報, en: Information about drying method mounting]
+                _False (ja: 非搭載, en: Not equipped) True (ja: 搭載, en: Equipped) '
+          description: '[ja: 搭載自己洗浄方法, en: Mounted self-cleaning method] '
+        selfCleaningFunction:
+          type: object
+          properties:
+            levelOfOzone:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: オゾン洗浄方式：制御レベル, en: Ozone cleaning:Level] _'
+            modeOfOzone:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: オゾン洗浄方式：動作モード, en: Ozone cleaning:Mode] _off (ja:
+                OFF, en: OFF) on (ja: ON, en: ON) '
+            autoOfOzone:
+              type: boolean
+              description: '[ja: オゾン洗浄方式：制御状態, en: Ozone cleaning:Auto function] _False
+                (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+            levelOfDrying:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: 乾燥方式：制御レベル, en: Drying:Level] _'
+            modeOfDrying:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: 乾燥方式：動作モード, en: Drying:Mode] _off (ja: OFF, en: OFF)
+                on (ja: ON, en: ON) '
+            autoOfDrying:
+              type: boolean
+              description: '[ja: 乾燥方式：制御状態, en: Drying:Auto function] _False (ja:
+                非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+          description: '[ja: 自己洗浄機能モード設定, en: Self-cleaning function setting] '
+        specialFunction:
+          type: string
+          enum:
+          - noSetting
+          - clothesDryer
+          - condensationSuppressor
+          - miteAndMoldControl
+          - activeDefrosting
+          description: '[ja: 特別運転モード設定, en: Special function setting] _noSetting (ja:
+            設定なし, en: No setting) clothesDryer (ja: 衣類乾燥, en: Clothes dryer function)
+            condensationSuppressor (ja: 結露抑制, en: Condensation suppressor function)
+            miteAndMoldControl (ja: ダニカビ抑制, en: Mite and mold control function) activeDefrosting
+            (ja: 強制除霜, en: Active defrosting function) '
+        componentsOperationStatus:
+          type: object
+          properties:
+            compressor:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: コンプレッサ動作状態, en: Operation status of the compressor]
+                _off (ja: 停止中, en: Not operating) on (ja: 動作中, en: In operation) '
+            thermostat:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: サーモON/OFF状態, en: Operation status of the thermostat]
+                _off (ja: OFF, en: OFF) on (ja: ON, en: ON) '
+          description: '[ja: 内部動作状態, en: Operation status of components] '
+        thermostatOverride:
+          type: string
+          enum:
+          - normal
+          - 'on'
+          - 'off'
+          description: '[ja: 強制サーモモード設定, en: Thermostat setting override function]
+            _normal (ja: 通常設定, en: Normal setting) on (ja: 強制サーモON, en: Thermostat
+            setting override function ON) off (ja: 強制サーモOFF, en: Thermostat setting
+            override function OFF) '
+        airPurification:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 空気清浄モード設定, en: Air purification mode setting] _on (ja:
+            空気清浄ON, en: Air purification ON) off (ja: 空気清浄OFF, en: Air purification
+            OFF) '
+    onTimerReservationHomeAirConditioner:
+      description: '[ja: ONタイマ予約設定, en: ON timer-based reservation setting]'
+      type: object
+      properties:
+        onTimerReservation:
+          type: object
+          properties:
+            timeBased:
+              type: boolean
+              description: '_True (ja: 予約入, en: Reservation ON) False (ja: 予約切, en:
+                Reservation OFF) '
+            relativeTimeBased:
+              type: boolean
+              description: '_True (ja: 予約入, en: Reservation ON) False (ja: 予約切, en:
+                Reservation OFF) '
+          description: '[ja: ONタイマ予約設定, en: ON timer-based reservation setting] '
+    timeOfOnTimerHomeAirConditioner:
+      description: '[ja: ONタイマ時刻設定値, en: ON timer setting (time)]'
+      type: object
+      properties:
+        timeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting (time)] '
+    relativeTimeOfOnTimerHomeAirConditioner:
+      description: '[ja: ONタイマ相対時間設定値, en: ON timer setting (relative time)]'
+      type: object
+      properties:
+        relativeTimeOfOnTimer:
+          type: number
+          minimum: 0
+          maximum: 15359
+          multipleOf: 1
+          description: '[ja: ONタイマ相対時間設定値, en: ON timer setting (relative time)] '
+    offTimerReservationHomeAirConditioner:
+      description: '[ja: OFFタイマ予約設定, en: OFF timer-based reservation setting]'
+      type: object
+      properties:
+        offTimerReservation:
+          type: object
+          properties:
+            timeBased:
+              type: boolean
+              description: '_True (ja: 予約入, en: Reservation ON) False (ja: 予約切, en:
+                Reservation OFF) '
+            relativeTimeBased:
+              type: boolean
+              description: '_True (ja: 予約入, en: Reservation ON) False (ja: 予約切, en:
+                Reservation OFF) '
+          description: '[ja: OFFタイマ予約設定, en: OFF timer-based reservation setting] '
+    timeOfOffTimerHomeAirConditioner:
+      description: '[ja: OFFタイマ時刻設定値, en: OFF timer setting (time)]'
+      type: object
+      properties:
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ時刻設定値, en: OFF timer setting (time)] '
+    relativeTimeOfOffTimerHomeAirConditioner:
+      description: '[ja: OFFタイマ相対時間設定値, en: OFF timer setting (relative time)]'
+      type: object
+      properties:
+        relativeTimeOfOffTimer:
+          type: number
+          minimum: 0
+          maximum: 15359
+          multipleOf: 1
+          description: '[ja: OFFタイマ相対時間設定値, en: OFF timer setting (relative time)] '
+    airFlowLevelHomeAirConditioner:
+      description: '[ja: 風量設定, en: Air flow rate setting]'
+      type: object
+      properties:
+        airFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 風量自動設定, en: Automatic air flow rate control function
+              used.) '
+          description: '[ja: 風量設定, en: Air flow rate setting] '
+    automaticControlAirFlowDirectionHomeAirConditioner:
+      description: '[ja: 風向自動設定, en: Automatic control of air flow direction setting]'
+      type: object
+      properties:
+        automaticControlAirFlowDirection:
+          type: string
+          enum:
+          - auto
+          - nonAuto
+          - autoVertical
+          - autoHorizontal
+          description: '[ja: 風向自動設定, en: Automatic control of air flow direction setting]
+            _auto (ja: AUTO, en: Automatic) nonAuto (ja: 非AUTO, en: Non-automatic)
+            autoVertical (ja: 上下AUTO, en: Automatic (vertical)) autoHorizontal (ja:
+            左右AUTO, en: Automatic (horizontal)) '
+    automaticSwingAirFlowHomeAirConditioner:
+      description: '[ja: 風向スイング設定, en: Automatic swing of air flow setting]'
+      type: object
+      properties:
+        automaticSwingAirFlow:
+          type: string
+          enum:
+          - 'off'
+          - vertical
+          - horizontal
+          - verticalAndHorizontal
+          description: '[ja: 風向スイング設定, en: Automatic swing of air flow setting] _off
+            (ja: OFF, en: OFF) vertical (ja: 上下, en: Vertical) horizontal (ja: 左右,
+            en: Horizontal) verticalAndHorizontal (ja: 上下左右, en: Vertical and Horizontal) '
+    airFlowDirectionVerticalHomeAirConditioner:
+      description: '[ja: 風向上下設定, en: Air flow direction (vertical) setting]'
+      type: object
+      properties:
+        airFlowDirectionVertical:
+          type: string
+          enum:
+          - uppermost
+          - lowermost
+          - central
+          - upperCenter
+          - lowerCenter
+          description: '[ja: 風向上下設定, en: Air flow direction (vertical) setting] _uppermost
+            (ja: 上, en: Uppermost) lowermost (ja: 下, en: Lowermost) central (ja: 中央,
+            en: Central) upperCenter (ja: 上中, en: Midpoint between uppermost and central)
+            lowerCenter (ja: 下中, en: Midpoint between lowermost and central) '
+    airFlowDirectionHorizontalHomeAirConditioner:
+      description: '[ja: 風向左右設定, en: Air flow direction (horizontal) setting]'
+      type: object
+      properties:
+        airFlowDirectionHorizontal:
+          type: string
+          enum:
+          - rc_r
+          - l_lc
+          - lc_c_rc
+          - l_lc_rc_r
+          - r
+          - rc
+          - c
+          - c_r
+          - c_rc
+          - c_rc_r
+          - lc
+          - lc_r
+          - lc_rc
+          - lc_rc_r
+          - lc_c
+          - lc_c_r
+          - lc_c_rc_r
+          - l
+          - l_r
+          - l_rc
+          - l_rc_r
+          - l_c
+          - l_c_r
+          - l_c_rc
+          - l_c_rc_r
+          - l_lc_r
+          - l_lc_rc
+          - l_lc_c
+          - l_lc_c_r
+          - l_lc_c_rc
+          - l_lc_c_rc_r
+          description: '[ja: 風向左右設定, en: Air flow direction (horizontal) setting]
+            _rc_r (ja: 右中・右, en: Right center and Right) l_lc (ja: 左・左中, en: Left
+            and Left center) lc_c_rc (ja: 左中・中・右中, en: Left center, Center and Right
+            center) l_lc_rc_r (ja: 左・左中・右中・右, en: Left, Left center, Right center
+            and Right) r (ja: 右, en: Right) rc (ja: 右中, en: Right center) c (ja: 中,
+            en: Center) c_r (ja: 中・右, en: Center and right) c_rc (ja: 中・右中, en: Center
+            and Right center) c_rc_r (ja: 中・右中・右, en: Center, Right center and Right)
+            lc (ja: 左中, en: Left center) lc_r (ja: 左中・右, en: Left center and Right)
+            lc_rc (ja: 左中・右中, en: Left center and Right center) lc_rc_r (ja: 左中・右中・右,
+            en: Left center, Right center and Right) lc_c (ja: 左中・中, en: Left center
+            and Center) lc_c_r (ja: 左中・中・右, en: Left center, Center and Right) lc_c_rc_r
+            (ja: 左中・中・右中・右, en: Left center, Center, Right center and Right) l (ja:
+            左, en: Left) l_r (ja: 左・右, en: Left and Right) l_rc (ja: 左・右中, en: Left
+            and Right center) l_rc_r (ja: 左・右中・右, en: Left, Right center and Right)
+            l_c (ja: 左・中, en: Left and Center) l_c_r (ja: 左・中・右, en: Left, Center
+            and Right) l_c_rc (ja: 左・中・右中, en: Left, Center and Right center) l_c_rc_r
+            (ja: 左・中・右中・右, en: Left, Center, Right center and Right) l_lc_r (ja: 左・左中・右,
+            en: Left, Left center and Right) l_lc_rc (ja: 左・左中・右中, en: Left, Left
+            center and Right center) l_lc_c (ja: 左・左中・中, en: Left, Left center and
+            center) l_lc_c_r (ja: 左・左中・中・右, en: Left, Left center, Center and Right)
+            l_lc_c_rc (ja: 左・左中・中・右中, en: Left, Left center, Center and Right center)
+            l_lc_c_rc_r (ja: 左・左中・中・右中・右, en: Left, Left center, Center, Right center
+            and Right) '
+    specialStateHomeAirConditioner:
+      description: '[ja: 特殊状態, en: Special state]'
+      type: object
+      properties:
+        specialState:
+          type: string
+          enum:
+          - normal
+          - defrosting
+          - preheating
+          - heatRemoval
+          description: '[ja: 特殊状態, en: Special state] _normal (ja: 通常状態, en: Normal
+            operation) defrosting (ja: 除霜状態, en: Defrosting) preheating (ja: 予熱状態,
+            en: Preheating) heatRemoval (ja: 排熱状態, en: Heat removal) '
+    nonPriorityStateHomeAirConditioner:
+      description: '[ja: 非優先状態, en: Non-priority state]'
+      type: object
+      properties:
+        nonPriorityState:
+          type: boolean
+          description: '[ja: 非優先状態, en: Non-priority state] _False (ja: 通常状態, en:
+            Normal) True (ja: 非優先状態, en: Non-priority) '
+    operationModeHomeAirConditioner:
+      description: '[ja: 運転モード設定, en: Operation mode setting]'
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - auto
+          - cooling
+          - heating
+          - dehumidification
+          - circulation
+          - other
+          description: '[ja: 運転モード設定, en: Operation mode setting] _auto (ja: 自動, en:
+            Automatic) cooling (ja: 冷房, en: Cooling) heating (ja: 暖房, en: Heating)
+            dehumidification (ja: 除湿, en: Dehumidification) circulation (ja: 送風, en:
+            Air circulation) other (ja: その他, en: Other) '
+    automaticTemperatureControlHomeAirConditioner:
+      description: '[ja: 温度自動設定, en: Automatic temperature control setting]'
+      type: object
+      properties:
+        automaticTemperatureControl:
+          type: boolean
+          description: '[ja: 温度自動設定, en: Automatic temperature control setting] _True
+            (ja: AUTO, en: Automatic) False (ja: 非AUTO, en: Non-automatic) '
+    highspeedOperationHomeAirConditioner:
+      description: '[ja: 急速動作モード設定, en: Normal/highspeed/silent operation setting]'
+      type: object
+      properties:
+        highspeedOperation:
+          type: string
+          enum:
+          - normal
+          - highspeed
+          - silent
+          description: '[ja: 急速動作モード設定, en: Normal/highspeed/silent operation setting]
+            _normal (ja: 通常運転, en: Normal operation) highspeed (ja: 急速, en: High-speed
+            operation) silent (ja: 静音, en: Silent operation) '
+    targetTemperatureHomeAirConditioner:
+      description: '[ja: 温度設定値, en: Set temperature value]'
+      type: object
+      properties:
+        targetTemperature:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 温度設定値, en: Set temperature value] '
+    relativeHumidityDehumidifyingHomeAirConditioner:
+      description: '[ja: 除湿モード時相対湿度設定値, en: Set value of relative humidity in dehumidifying
+        mode]'
+      type: object
+      properties:
+        relativeHumidityDehumidifying:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 除湿モード時相対湿度設定値, en: Set value of relative humidity in
+            dehumidifying mode] '
+    targetTemperatureCoolingHomeAirConditioner:
+      description: '[ja: 冷房モード時温度設定値, en: Set temperature value in cooling mode]'
+      type: object
+      properties:
+        targetTemperatureCooling:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 冷房モード時温度設定値, en: Set temperature value in cooling mode] '
+    targetTemperatureHeatingHomeAirConditioner:
+      description: '[ja: 暖房モード時温度設定値, en: Set temperature value in heating mode]'
+      type: object
+      properties:
+        targetTemperatureHeating:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 暖房モード時温度設定値, en: Set temperature value in heating mode] '
+    targetTemperatureDehumidifyingHomeAirConditioner:
+      description: '[ja: 除湿モード時温度設定値, en: Set temperature value in dehumidifying mode]'
+      type: object
+      properties:
+        targetTemperatureDehumidifying:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 除湿モード時温度設定値, en: Set temperature value in dehumidifying
+            mode] '
+    ratedPowerConsumptionHomeAirConditioner:
+      description: '[ja: 定格消費電力値, en: Rated power consumption]'
+      type: object
+      properties:
+        ratedPowerConsumption:
+          type: object
+          properties:
+            cooling:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - unsupported
+                description: '_unsupported (ja: 未サポート, en: Unsupported) '
+              description: '[ja: 冷房, en: Cooling] _'
+            heating:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - unsupported
+                description: '_unsupported (ja: 未サポート, en: Unsupported) '
+              description: '[ja: 暖房, en: Heating] _'
+            dehumidifying:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - unsupported
+                description: '_unsupported (ja: 未サポート, en: Unsupported) '
+              description: '[ja: 除湿, en: Dehumidifying] _'
+            circulation:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 65533
+              - type: string
+                enum:
+                - unsupported
+                description: '_unsupported (ja: 未サポート, en: Unsupported) '
+              description: '[ja: 送風, en: Circulation] _'
+          description: '[ja: 定格消費電力値, en: Rated power consumption] '
+    currentConsumptionHomeAirConditioner:
+      description: '[ja: 消費電流計測値, en: Measured value of current consumption]'
+      type: object
+      properties:
+        currentConsumption:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 消費電流計測値, en: Measured value of current consumption] '
+    humidityHomeAirConditioner:
+      description: '[ja: 室内相対湿度計測値, en: Measured value of room relative humidity]'
+      type: object
+      properties:
+        humidity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 室内相対湿度計測値, en: Measured value of room relative humidity] '
+    roomTemperatureHomeAirConditioner:
+      description: '[ja: 室内温度計測値, en: Measured value of room temperature]'
+      type: object
+      properties:
+        roomTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 室内温度計測値, en: Measured value of room temperature] '
+    temperatureUserRemoteControlHomeAirConditioner:
+      description: '[ja: ユーザリモコン温度設定値, en: Set temperature value of user remote control]'
+      type: object
+      properties:
+        temperatureUserRemoteControl:
+          type: number
+          minimum: 0
+          maximum: 50
+          description: '[ja: ユーザリモコン温度設定値, en: Set temperature value of user remote
+            control] '
+    airFlowTemperatureHomeAirConditioner:
+      description: '[ja: 吹き出し温度計測値, en: Measured cooled air temperature]'
+      type: object
+      properties:
+        airFlowTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 吹き出し温度計測値, en: Measured cooled air temperature] '
+    outdoorTemperatureHomeAirConditioner:
+      description: '[ja: 外気温度計測値, en: Measured outdoor air temperature]'
+      type: object
+      properties:
+        outdoorTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 外気温度計測値, en: Measured outdoor air temperature] '
+    relativeTemperatureHomeAirConditioner:
+      description: '[ja: 相対温度設定値, en: Relative temperature setting]'
+      type: object
+      properties:
+        relativeTemperature:
+          oneOf:
+          - type: number
+            minimum: -12.7
+            maximum: 12.5
+            multipleOf: 0.1
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測不能, en: Unmeasurable) '
+          description: '[ja: 相対温度設定値, en: Relative temperature setting] '
+    ventilationFunctionHomeAirConditioner:
+      description: '[ja: 換気モード設定, en: Ventilation function setting]'
+      type: object
+      properties:
+        ventilationFunction:
+          type: string
+          enum:
+          - onOutlet
+          - 'off'
+          - onIntake
+          - onOutletAndIntake
+          description: '[ja: 換気モード設定, en: Ventilation function setting] _onOutlet
+            (ja: 換気ON (排気方向), en: Ventilation function ON (outlet direction)) off
+            (ja: 換気OFF, en: Ventilation function OFF) onIntake (ja: 換気ON (吸気方向), en:
+            Ventilation function ON (intake direction)) onOutletAndIntake (ja: 換気ON
+            (吸排気方向), en: Ventilation function ON (outlet and intake direction)) '
+    humidifierFunctionHomeAirConditioner:
+      description: '[ja: 加湿モード設定, en: Humidifier function setting]'
+      type: object
+      properties:
+        humidifierFunction:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 加湿モード設定, en: Humidifier function setting] _on (ja: 加湿ON,
+            en: Humidifier function ON) off (ja: 加湿OFF, en: Humidifier function OFF) '
+    ventilationAirFlowLevelHomeAirConditioner:
+      description: '[ja: 換気風量設定, en: Ventilation air flow rate setting]'
+      type: object
+      properties:
+        ventilationAirFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 換気風量自動, en: Automatic control of ventilation
+              air flow rate) '
+          description: '[ja: 換気風量設定, en: Ventilation air flow rate setting] '
+    humidificationLevelHomeAirConditioner:
+      description: '[ja: 加湿量設定, en: Degree of humidification setting]'
+      type: object
+      properties:
+        humidificationLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 加湿量自動, en: Automatic control of the degree of
+              humidification) '
+          description: '[ja: 加湿量設定, en: Degree of humidification setting] '
+    airCleaningMethodHomeAirConditioner:
+      description: '[ja: 搭載空気清浄方法, en: Mounted air cleaning method]'
+      type: object
+      properties:
+        airCleaningMethod:
+          type: object
+          properties:
+            equippedElectronic:
+              type: boolean
+              description: '[ja: 電気集塵方式搭載情報, en: Electronic dust collection] _False
+                (ja: 非搭載, en: Not equipped) True (ja: 搭載, en: Equipped) '
+            equippedClusterIon:
+              type: boolean
+              description: '[ja: クラスタイオン方式搭載情報, en: Cluster ion] _False (ja: 非搭載,
+                en: Not equipped) True (ja: 搭載, en: Equipped) '
+          description: '[ja: 搭載空気清浄方法, en: Mounted air cleaning method] '
+    airPurifierFunctionHomeAirConditioner:
+      description: '[ja: 空気清浄機能モード設定, en: Air purifier function setting]'
+      type: object
+      properties:
+        airPurifierFunction:
+          type: object
+          properties:
+            levelOfElectronic:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: 電気集塵方式：制御レベル, en: Electronic dust collection:Level]
+                _'
+            modeOfElectronic:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: 電気集塵方式：動作モード, en: Electronic dust collection:Mode]
+                _off (ja: OFF, en: OFF) on (ja: ON, en: ON) '
+            autoOfElectronic:
+              type: boolean
+              description: '[ja: 電気集塵方式：制御状態, en: Electronic dust collection:Auto
+                function] _False (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en:
+                Automatic) '
+            levelOfClusterIon:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: クラスタイオン方式：制御レベル, en: Cluster ion:Level] _'
+            modeOfClusterIon:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: クラスタイオン方式：動作モード, en: Cluster ion:Mode] _off (ja:
+                OFF, en: OFF) on (ja: ON, en: ON) '
+            autoOfClusterIon:
+              type: boolean
+              description: '[ja: クラスタイオン方式：制御状態, en: Cluster ion:Auto function] _False
+                (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+          description: '[ja: 空気清浄機能モード設定, en: Air purifier function setting] '
+    airRefreshMethodHomeAirConditioner:
+      description: '[ja: 搭載リフレッシュ方法, en: Mounted air refresh method]'
+      type: object
+      properties:
+        airRefreshMethod:
+          type: object
+          properties:
+            equippedMinusIon:
+              type: boolean
+              description: '[ja: マイナスイオン方式搭載情報, en: Minus ion collection] _False (ja:
+                非搭載, en: Not equipped) True (ja: 搭載, en: Equipped) '
+            equippedClusterIon:
+              type: boolean
+              description: '[ja: クラスタイオン方式搭載情報, en: Cluster ion] _False (ja: 非搭載,
+                en: Not equipped) True (ja: 搭載, en: Equipped) '
+          description: '[ja: 搭載リフレッシュ方法, en: Mounted air refresh method] '
+    airRefresherFunctionHomeAirConditioner:
+      description: '[ja: リフレッシュ機能モード設定, en: Air refresher function setting]'
+      type: object
+      properties:
+        airRefresherFunction:
+          type: object
+          properties:
+            levelOfMinusIon:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: マイナスイオン方式：制御レベル, en: Minus ion:Level] _'
+            modeOfMinusIon:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: マイナスイオン方式：動作モード, en: Minus ion:Mode] _off (ja: OFF,
+                en: OFF) on (ja: ON, en: ON) '
+            autoOfMinusIon:
+              type: boolean
+              description: '[ja: マイナスイオン方式：制御状態, en: Minus ion:Auto function] _False
+                (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+            levelOfClusterIon:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: クラスタイオン方式：制御レベル, en: Cluster ion:Level] _'
+            modeOfClusterIon:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: クラスタイオン方式：動作モード, en: Cluster ion:Mode] _off (ja:
+                OFF, en: OFF) on (ja: ON, en: ON) '
+            autoOfClusterIon:
+              type: boolean
+              description: '[ja: クラスタイオン方式：制御状態, en: Cluster ion:Auto function] _False
+                (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+          description: '[ja: リフレッシュ機能モード設定, en: Air refresher function setting] '
+    selfCleaningMethodHomeAirConditioner:
+      description: '[ja: 搭載自己洗浄方法, en: Mounted self-cleaning method]'
+      type: object
+      properties:
+        selfCleaningMethod:
+          type: object
+          properties:
+            equippedOzone:
+              type: boolean
+              description: '[ja: オゾン洗浄方式搭載情報, en: Information about ozone cleaning
+                method mounting] _False (ja: 非搭載, en: Not equipped) True (ja: 搭載,
+                en: Equipped) '
+            equippedDrying:
+              type: boolean
+              description: '[ja: 乾燥方式搭載情報, en: Information about drying method mounting]
+                _False (ja: 非搭載, en: Not equipped) True (ja: 搭載, en: Equipped) '
+          description: '[ja: 搭載自己洗浄方法, en: Mounted self-cleaning method] '
+    selfCleaningFunctionHomeAirConditioner:
+      description: '[ja: 自己洗浄機能モード設定, en: Self-cleaning function setting]'
+      type: object
+      properties:
+        selfCleaningFunction:
+          type: object
+          properties:
+            levelOfOzone:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: オゾン洗浄方式：制御レベル, en: Ozone cleaning:Level] _'
+            modeOfOzone:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: オゾン洗浄方式：動作モード, en: Ozone cleaning:Mode] _off (ja:
+                OFF, en: OFF) on (ja: ON, en: ON) '
+            autoOfOzone:
+              type: boolean
+              description: '[ja: オゾン洗浄方式：制御状態, en: Ozone cleaning:Auto function] _False
+                (ja: 非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+            levelOfDrying:
+              type: number
+              minimum: 1
+              maximum: 8
+              multipleOf: 1
+              description: '[ja: 乾燥方式：制御レベル, en: Drying:Level] _'
+            modeOfDrying:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: 乾燥方式：動作モード, en: Drying:Mode] _off (ja: OFF, en: OFF)
+                on (ja: ON, en: ON) '
+            autoOfDrying:
+              type: boolean
+              description: '[ja: 乾燥方式：制御状態, en: Drying:Auto function] _False (ja:
+                非AUTO, en: Non-automatic) True (ja: AUTO, en: Automatic) '
+          description: '[ja: 自己洗浄機能モード設定, en: Self-cleaning function setting] '
+    specialFunctionHomeAirConditioner:
+      description: '[ja: 特別運転モード設定, en: Special function setting]'
+      type: object
+      properties:
+        specialFunction:
+          type: string
+          enum:
+          - noSetting
+          - clothesDryer
+          - condensationSuppressor
+          - miteAndMoldControl
+          - activeDefrosting
+          description: '[ja: 特別運転モード設定, en: Special function setting] _noSetting (ja:
+            設定なし, en: No setting) clothesDryer (ja: 衣類乾燥, en: Clothes dryer function)
+            condensationSuppressor (ja: 結露抑制, en: Condensation suppressor function)
+            miteAndMoldControl (ja: ダニカビ抑制, en: Mite and mold control function) activeDefrosting
+            (ja: 強制除霜, en: Active defrosting function) '
+    componentsOperationStatusHomeAirConditioner:
+      description: '[ja: 内部動作状態, en: Operation status of components]'
+      type: object
+      properties:
+        componentsOperationStatus:
+          type: object
+          properties:
+            compressor:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: コンプレッサ動作状態, en: Operation status of the compressor]
+                _off (ja: 停止中, en: Not operating) on (ja: 動作中, en: In operation) '
+            thermostat:
+              type: string
+              enum:
+              - 'off'
+              - 'on'
+              description: '[ja: サーモON/OFF状態, en: Operation status of the thermostat]
+                _off (ja: OFF, en: OFF) on (ja: ON, en: ON) '
+          description: '[ja: 内部動作状態, en: Operation status of components] '
+    thermostatOverrideHomeAirConditioner:
+      description: '[ja: 強制サーモモード設定, en: Thermostat setting override function]'
+      type: object
+      properties:
+        thermostatOverride:
+          type: string
+          enum:
+          - normal
+          - 'on'
+          - 'off'
+          description: '[ja: 強制サーモモード設定, en: Thermostat setting override function]
+            _normal (ja: 通常設定, en: Normal setting) on (ja: 強制サーモON, en: Thermostat
+            setting override function ON) off (ja: 強制サーモOFF, en: Thermostat setting
+            override function OFF) '
+    airPurificationHomeAirConditioner:
+      description: '[ja: 空気清浄モード設定, en: Air purification mode setting]'
+      type: object
+      properties:
+        airPurification:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 空気清浄モード設定, en: Air purification mode setting] _on (ja:
+            空気清浄ON, en: Air purification ON) off (ja: 空気清浄OFF, en: Air purification
+            OFF) '
+    beepBuzzerHomeAirConditioner: {}
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

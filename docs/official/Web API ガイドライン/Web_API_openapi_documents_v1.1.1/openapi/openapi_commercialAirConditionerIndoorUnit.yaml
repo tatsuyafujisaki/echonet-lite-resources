@@ -1,0 +1,503 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: CommercialAirConditionerIndoorUnit
+  description: tag for Package-type commercial air conditioner (indoor unit) (except
+    those for facilities)
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesCommercialAirConditionerIndoorUnit
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/thermostatState:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: Thermostat state'
+      operationId: getDevicesPropertiesThermostatStateCommercialAirConditionerIndoorUnit
+      description: '取得: サーモ状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thermostatStateCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticOperationModeStatus:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: Current function (automatic operation mode)'
+      operationId: getDevicesPropertiesAutomaticOperationModeStatusCommercialAirConditionerIndoorUnit
+      description: '取得: 自動運転時運転モード状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticOperationModeStatusCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationMode:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: Operation mode setting'
+      operationId: getDevicesPropertiesOperationModeCommercialAirConditionerIndoorUnit
+      description: '取得: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Set: Operation mode setting'
+      operationId: putDevicesPropertiesOperationModeCommercialAirConditionerIndoorUnit
+      description: '設定: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationModeCommercialAirConditionerIndoorUnit'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetTemperature:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: Temperature setting'
+      operationId: getDevicesPropertiesTargetTemperatureCommercialAirConditionerIndoorUnit
+      description: '取得: 温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Set: Temperature setting'
+      operationId: putDevicesPropertiesTargetTemperatureCommercialAirConditionerIndoorUnit
+      description: '設定: 温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetTemperatureCommercialAirConditionerIndoorUnit'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperatureCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/roomTemperature:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: Measured indoor unit temperature'
+      operationId: getDevicesPropertiesRoomTemperatureCommercialAirConditionerIndoorUnit
+      description: '取得: 室内機温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/roomTemperatureCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/groupInformation:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: Group information'
+      operationId: getDevicesPropertiesGroupInformationCommercialAirConditionerIndoorUnit
+      description: '取得: グループ情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupInformationCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerConsumption:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: Power consumption range for indoor units'
+      operationId: getDevicesPropertiesPowerConsumptionCommercialAirConditionerIndoorUnit
+      description: '取得: 室内機消費電力範囲'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerConsumptionCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/groupDeviceList:
+    get:
+      tags:
+      - CommercialAirConditionerIndoorUnit
+      summary: 'Get: List of devices in group'
+      operationId: getDevicesPropertiesGroupDeviceListCommercialAirConditionerIndoorUnit
+      description: '取得: グループ内デバイスリスト'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupDeviceListCommercialAirConditionerIndoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesCommercialAirConditionerIndoorUnit:
+      description: propertiesCommercialAirConditionerIndoorUnit
+      type: object
+      properties:
+        thermostatState:
+          type: boolean
+          description: '[ja: サーモ状態, en: Thermostat state] _True (ja: サーモON, en: Thermostat
+            ON) False (ja: サーモOFF, en: Thermostat OFF) '
+        automaticOperationModeStatus:
+          type: string
+          enum:
+          - cooling
+          - heating
+          - dehumidification
+          - circulation
+          - other
+          description: '[ja: 自動運転時運転モード状態, en: Current function (automatic operation
+            mode)] _cooling (ja: 冷房, en: Cooling) heating (ja: 暖房, en: Heating) dehumidification
+            (ja: 除湿, en: Dehumidification) circulation (ja: 送風, en: Air circulation)
+            other (ja: その他, en: Other) '
+        operationMode:
+          type: string
+          enum:
+          - auto
+          - cooling
+          - heating
+          - dehumidification
+          - circulation
+          description: '[ja: 運転モード設定, en: Operation mode setting] _auto (ja: 自動, en:
+            Automatic) cooling (ja: 冷房, en: Cooling) heating (ja: 暖房, en: Heating)
+            dehumidification (ja: 除湿, en: Dehumidification) circulation (ja: 送風, en:
+            Air circulation) '
+        targetTemperature:
+          type: number
+          minimum: 0
+          maximum: 50
+          description: '[ja: 温度設定値, en: Temperature setting] '
+        roomTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測値を返せない, en: When the measurement value
+              cannot be returned) '
+          description: '[ja: 室内機温度計測値, en: Measured indoor unit temperature] '
+        groupInformation:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 253
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: グループ情報, en: Group information] '
+        powerConsumption:
+          type: string
+          enum:
+          - less50W
+          - less100W
+          - less150W
+          - less200W
+          - 200WOrMore
+          - undefined
+          description: '[ja: 室内機消費電力範囲, en: Power consumption range for indoor units]
+            _less50W (ja: 50W未満, en: Up to 50W) less100W (ja: 50W以上～100W未満, en: 50W-100W)
+            less150W (ja: 100W以上～150W未満, en: 100W-150W) less200W (ja: 150W以上～200W未満,
+            en: 150W-200W) 200WOrMore (ja: 200W以上, en: 200W-) undefined (ja: 未定, en:
+            Undefined) '
+        groupDeviceList:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              deviceType:
+                type: string
+          description: '[ja: グループ内デバイスリスト, en: List of devices in group] '
+    thermostatStateCommercialAirConditionerIndoorUnit:
+      description: '[ja: サーモ状態, en: Thermostat state]'
+      type: object
+      properties:
+        thermostatState:
+          type: boolean
+          description: '[ja: サーモ状態, en: Thermostat state] _True (ja: サーモON, en: Thermostat
+            ON) False (ja: サーモOFF, en: Thermostat OFF) '
+    automaticOperationModeStatusCommercialAirConditionerIndoorUnit:
+      description: '[ja: 自動運転時運転モード状態, en: Current function (automatic operation mode)]'
+      type: object
+      properties:
+        automaticOperationModeStatus:
+          type: string
+          enum:
+          - cooling
+          - heating
+          - dehumidification
+          - circulation
+          - other
+          description: '[ja: 自動運転時運転モード状態, en: Current function (automatic operation
+            mode)] _cooling (ja: 冷房, en: Cooling) heating (ja: 暖房, en: Heating) dehumidification
+            (ja: 除湿, en: Dehumidification) circulation (ja: 送風, en: Air circulation)
+            other (ja: その他, en: Other) '
+    operationModeCommercialAirConditionerIndoorUnit:
+      description: '[ja: 運転モード設定, en: Operation mode setting]'
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - auto
+          - cooling
+          - heating
+          - dehumidification
+          - circulation
+          description: '[ja: 運転モード設定, en: Operation mode setting] _auto (ja: 自動, en:
+            Automatic) cooling (ja: 冷房, en: Cooling) heating (ja: 暖房, en: Heating)
+            dehumidification (ja: 除湿, en: Dehumidification) circulation (ja: 送風, en:
+            Air circulation) '
+    targetTemperatureCommercialAirConditionerIndoorUnit:
+      description: '[ja: 温度設定値, en: Temperature setting]'
+      type: object
+      properties:
+        targetTemperature:
+          type: number
+          minimum: 0
+          maximum: 50
+          description: '[ja: 温度設定値, en: Temperature setting] '
+    roomTemperatureCommercialAirConditionerIndoorUnit:
+      description: '[ja: 室内機温度計測値, en: Measured indoor unit temperature]'
+      type: object
+      properties:
+        roomTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - unmeasurable
+            description: '_unmeasurable (ja: 計測値を返せない, en: When the measurement value
+              cannot be returned) '
+          description: '[ja: 室内機温度計測値, en: Measured indoor unit temperature] '
+    groupInformationCommercialAirConditionerIndoorUnit:
+      description: '[ja: グループ情報, en: Group information]'
+      type: object
+      properties:
+        groupInformation:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 253
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: グループ情報, en: Group information] '
+    powerConsumptionCommercialAirConditionerIndoorUnit:
+      description: '[ja: 室内機消費電力範囲, en: Power consumption range for indoor units]'
+      type: object
+      properties:
+        powerConsumption:
+          type: string
+          enum:
+          - less50W
+          - less100W
+          - less150W
+          - less200W
+          - 200WOrMore
+          - undefined
+          description: '[ja: 室内機消費電力範囲, en: Power consumption range for indoor units]
+            _less50W (ja: 50W未満, en: Up to 50W) less100W (ja: 50W以上～100W未満, en: 50W-100W)
+            less150W (ja: 100W以上～150W未満, en: 100W-150W) less200W (ja: 150W以上～200W未満,
+            en: 150W-200W) 200WOrMore (ja: 200W以上, en: 200W-) undefined (ja: 未定, en:
+            Undefined) '
+    groupDeviceListCommercialAirConditionerIndoorUnit:
+      description: '[ja: グループ内デバイスリスト, en: List of devices in group]'
+      type: object
+      properties:
+        groupDeviceList:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              deviceType:
+                type: string
+          description: '[ja: グループ内デバイスリスト, en: List of devices in group] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

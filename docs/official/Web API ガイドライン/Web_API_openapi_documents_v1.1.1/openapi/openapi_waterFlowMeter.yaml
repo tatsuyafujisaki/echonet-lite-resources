@@ -1,0 +1,516 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: WaterFlowMeter
+  description: tag for Water flowmeter
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesWaterFlowMeter
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterFlowMeterClassification:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: Water flowmeter classification'
+      operationId: getDevicesPropertiesWaterFlowMeterClassificationWaterFlowMeter
+      description: '取得: 水流量メータ区分'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterFlowMeterClassificationWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WaterFlowMeter
+      summary: 'Set: Water flowmeter classification'
+      operationId: putDevicesPropertiesWaterFlowMeterClassificationWaterFlowMeter
+      description: '設定: 水流量メータ区分'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterFlowMeterClassificationWaterFlowMeter'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterFlowMeterClassificationWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ownerClassification:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: Owner classification'
+      operationId: getDevicesPropertiesOwnerClassificationWaterFlowMeter
+      description: '取得: 所有者区分'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ownerClassificationWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WaterFlowMeter
+      summary: 'Set: Owner classification'
+      operationId: putDevicesPropertiesOwnerClassificationWaterFlowMeter
+      description: '設定: 所有者区分'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ownerClassificationWaterFlowMeter'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ownerClassificationWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeFlowingWater:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: Measured cumulative amount of flowing water'
+      operationId: getDevicesPropertiesCumulativeFlowingWaterWaterFlowMeter
+      description: '取得: 積算水流量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeFlowingWaterWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/abnormalDetection:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: Detection of abnormal value in metering data'
+      operationId: getDevicesPropertiesAbnormalDetectionWaterFlowMeter
+      description: '取得: 検針データ異常検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/abnormalDetectionWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/securityDataInformation:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: Security data information'
+      operationId: getDevicesPropertiesSecurityDataInformationWaterFlowMeter
+      description: '取得: セキュリティデータ情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/securityDataInformationWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/idNumber:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: ID number setting'
+      operationId: getDevicesPropertiesIdNumberWaterFlowMeter
+      description: '取得: ID番号設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/idNumberWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WaterFlowMeter
+      summary: 'Set: ID number setting'
+      operationId: putDevicesPropertiesIdNumberWaterFlowMeter
+      description: '設定: ID番号設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/idNumberWaterFlowMeter'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/idNumberWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/verificationExpirationInformation:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: Verification expiration information'
+      operationId: getDevicesPropertiesVerificationExpirationInformationWaterFlowMeter
+      description: '取得: 検定満期情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verificationExpirationInformationWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - WaterFlowMeter
+      summary: 'Set: Verification expiration information'
+      operationId: putDevicesPropertiesVerificationExpirationInformationWaterFlowMeter
+      description: '設定: 検定満期情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/verificationExpirationInformationWaterFlowMeter'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/verificationExpirationInformationWaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeFlowingWaterLog2:
+    get:
+      tags:
+      - WaterFlowMeter
+      summary: 'Get: Historical data 2 of measured cumulative amount of flowing water'
+      operationId: getDevicesPropertiesCumulativeFlowingWaterLog2WaterFlowMeter
+      description: '取得: 積算水流量計測値履歴2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeFlowingWaterLog2WaterFlowMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesWaterFlowMeter:
+      description: propertiesWaterFlowMeter
+      type: object
+      properties:
+        waterFlowMeterClassification:
+          type: string
+          enum:
+          - runningWater
+          - recycledWater
+          - sewageWater
+          - otherWater
+          description: '[ja: 水流量メータ区分, en: Water flowmeter classification] _runningWater
+            (ja: 上水, en: running water) recycledWater (ja: 中水, en: recycled water)
+            sewageWater (ja: 下水, en: sewage water) otherWater (ja: その他, en: other
+            water) '
+        ownerClassification:
+          type: string
+          enum:
+          - notSpecified
+          - publicWaterworksCompany
+          - privateSectorCompany
+          - individual
+          description: '[ja: 所有者区分, en: Owner classification] _notSpecified (ja: 指定なし,
+            en: Not specified) publicWaterworksCompany (ja: 事業体, en: Public waterworks
+            company) privateSectorCompany (ja: 民間会社, en: Private sector company) individual
+            (ja: 個人, en: Individual) '
+        cumulativeFlowingWater:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 積算水流量計測値, en: Measured cumulative amount of flowing water] '
+        abnormalDetection:
+          type: boolean
+          description: '[ja: 検針データ異常検知状態, en: Detection of abnormal value in metering
+            data] _True (ja: 検知有, en: Detected) False (ja: 検知無, en: Not detected) '
+        securityDataInformation:
+          type: number
+          minimum: 0
+          maximum: 4294967295
+          description: '[ja: セキュリティデータ情報, en: Security data information] '
+        idNumber:
+          type: string
+          description: '[ja: ID番号設定, en: ID number setting] '
+        verificationExpirationInformation:
+          type: string
+          description: '[ja: 検定満期情報, en: Verification expiration information] '
+        cumulativeFlowingWaterLog2:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+            - type: string
+              enum:
+              - noData
+              description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算水流量計測値履歴2, en: Historical data 2 of measured cumulative
+            amount of flowing water] '
+    waterFlowMeterClassificationWaterFlowMeter:
+      description: '[ja: 水流量メータ区分, en: Water flowmeter classification]'
+      type: object
+      properties:
+        waterFlowMeterClassification:
+          type: string
+          enum:
+          - runningWater
+          - recycledWater
+          - sewageWater
+          - otherWater
+          description: '[ja: 水流量メータ区分, en: Water flowmeter classification] _runningWater
+            (ja: 上水, en: running water) recycledWater (ja: 中水, en: recycled water)
+            sewageWater (ja: 下水, en: sewage water) otherWater (ja: その他, en: other
+            water) '
+    ownerClassificationWaterFlowMeter:
+      description: '[ja: 所有者区分, en: Owner classification]'
+      type: object
+      properties:
+        ownerClassification:
+          type: string
+          enum:
+          - notSpecified
+          - publicWaterworksCompany
+          - privateSectorCompany
+          - individual
+          description: '[ja: 所有者区分, en: Owner classification] _notSpecified (ja: 指定なし,
+            en: Not specified) publicWaterworksCompany (ja: 事業体, en: Public waterworks
+            company) privateSectorCompany (ja: 民間会社, en: Private sector company) individual
+            (ja: 個人, en: Individual) '
+    cumulativeFlowingWaterWaterFlowMeter:
+      description: '[ja: 積算水流量計測値, en: Measured cumulative amount of flowing water]'
+      type: object
+      properties:
+        cumulativeFlowingWater:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 積算水流量計測値, en: Measured cumulative amount of flowing water] '
+    abnormalDetectionWaterFlowMeter:
+      description: '[ja: 検針データ異常検知状態, en: Detection of abnormal value in metering
+        data]'
+      type: object
+      properties:
+        abnormalDetection:
+          type: boolean
+          description: '[ja: 検針データ異常検知状態, en: Detection of abnormal value in metering
+            data] _True (ja: 検知有, en: Detected) False (ja: 検知無, en: Not detected) '
+    securityDataInformationWaterFlowMeter:
+      description: '[ja: セキュリティデータ情報, en: Security data information]'
+      type: object
+      properties:
+        securityDataInformation:
+          type: number
+          minimum: 0
+          maximum: 4294967295
+          description: '[ja: セキュリティデータ情報, en: Security data information] '
+    idNumberWaterFlowMeter:
+      description: '[ja: ID番号設定, en: ID number setting]'
+      type: object
+      properties:
+        idNumber:
+          type: string
+          description: '[ja: ID番号設定, en: ID number setting] '
+    verificationExpirationInformationWaterFlowMeter:
+      description: '[ja: 検定満期情報, en: Verification expiration information]'
+      type: object
+      properties:
+        verificationExpirationInformation:
+          type: string
+          description: '[ja: 検定満期情報, en: Verification expiration information] '
+    cumulativeFlowingWaterLog2WaterFlowMeter:
+      description: '[ja: 積算水流量計測値履歴2, en: Historical data 2 of measured cumulative
+        amount of flowing water]'
+      type: object
+      properties:
+        cumulativeFlowingWaterLog2:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+            - type: string
+              enum:
+              - noData
+              description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算水流量計測値履歴2, en: Historical data 2 of measured cumulative
+            amount of flowing water] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

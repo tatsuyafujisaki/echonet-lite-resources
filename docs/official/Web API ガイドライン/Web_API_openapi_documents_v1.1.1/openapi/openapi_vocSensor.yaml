@@ -1,0 +1,213 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: VocSensor
+  description: tag for VOC sensor
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - VocSensor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesVocSensor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesVocSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/thresholdLevel:
+    get:
+      tags:
+      - VocSensor
+      summary: 'Get: Detection threshold level'
+      operationId: getDevicesPropertiesThresholdLevelVocSensor
+      description: '取得: 検知閾値レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thresholdLevelVocSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - VocSensor
+      summary: 'Set: Detection threshold level'
+      operationId: putDevicesPropertiesThresholdLevelVocSensor
+      description: '設定: 検知閾値レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/thresholdLevelVocSensor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thresholdLevelVocSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/detection:
+    get:
+      tags:
+      - VocSensor
+      summary: 'Get: VOC detection status'
+      operationId: getDevicesPropertiesDetectionVocSensor
+      description: '取得: VOC 検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detectionVocSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/value:
+    get:
+      tags:
+      - VocSensor
+      summary: 'Get: Measured value of VOC concentration'
+      operationId: getDevicesPropertiesValueVocSensor
+      description: '取得: VOC 濃度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/valueVocSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesVocSensor:
+      description: propertiesVocSensor
+      type: object
+      properties:
+        thresholdLevel:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 検知閾値レベル設定, en: Detection threshold level] '
+        detection:
+          type: boolean
+          description: '[ja: VOC 検知状態, en: VOC detection status] _True (ja: 検知有, en:
+            Detected) False (ja: 検知無, en: Not detected) '
+        value:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: VOC 濃度計測値, en: Measured value of VOC concentration] '
+    thresholdLevelVocSensor:
+      description: '[ja: 検知閾値レベル設定, en: Detection threshold level]'
+      type: object
+      properties:
+        thresholdLevel:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 検知閾値レベル設定, en: Detection threshold level] '
+    detectionVocSensor:
+      description: '[ja: VOC 検知状態, en: VOC detection status]'
+      type: object
+      properties:
+        detection:
+          type: boolean
+          description: '[ja: VOC 検知状態, en: VOC detection status] _True (ja: 検知有, en:
+            Detected) False (ja: 検知無, en: Not detected) '
+    valueVocSensor:
+      description: '[ja: VOC 濃度計測値, en: Measured value of VOC concentration]'
+      type: object
+      properties:
+        value:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: VOC 濃度計測値, en: Measured value of VOC concentration] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

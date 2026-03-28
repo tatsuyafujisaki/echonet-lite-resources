@@ -1,0 +1,1138 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: DrElectricEnergyMeter
+  description: tag for distributed generator's electric energy meter
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesDrElectricEnergyMeter
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/deviceType:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Device type'
+      operationId: getDevicesPropertiesDeviceTypeDrElectricEnergyMeter
+      description: '取得: 機器種別'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceTypeDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/deviceId:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Device ID'
+      operationId: getDevicesPropertiesDeviceIdDrElectricEnergyMeter
+      description: '取得: 機器ID'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceIdDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/toleranceClass:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Tolerance class'
+      operationId: getDevicesPropertiesToleranceClassDrElectricEnergyMeter
+      description: '取得: 公差階級'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/toleranceClassDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/retentionDaysOfCumulativeElectricEnergyLog:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Number of days to retain historical data of measured cumulative
+        amounts of electric energy'
+      operationId: getDevicesPropertiesRetentionDaysOfCumulativeElectricEnergyLogDrElectricEnergyMeter
+      description: '取得: 積算電力量計測値履歴保持日数'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retentionDaysOfCumulativeElectricEnergyLogDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetDeviceId:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Identification number of device to be metered'
+      operationId: getDevicesPropertiesTargetDeviceIdDrElectricEnergyMeter
+      description: '取得: 計量対象機器識別番号'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetDeviceIdDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/currentTime:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Current hour, minute, and second setting'
+      operationId: getDevicesPropertiesCurrentTimeDrElectricEnergyMeter
+      description: '取得: 現在時分秒設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentTimeDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Set: Current hour, minute, and second setting'
+      operationId: putDevicesPropertiesCurrentTimeDrElectricEnergyMeter
+      description: '設定: 現在時分秒設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/currentTimeDrElectricEnergyMeter'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentTimeDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeSynchronizationStatus:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Time synchronization status'
+      operationId: getDevicesPropertiesTimeSynchronizationStatusDrElectricEnergyMeter
+      description: '取得: 時刻同期状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeSynchronizationStatusDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acInputCumulativeElectricEnergy:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Measured cumulative amounts of electric energy (AC input)'
+      operationId: getDevicesPropertiesAcInputCumulativeElectricEnergyDrElectricEnergyMeter
+      description: '取得: 積算電力量計測値(交流入力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acInputCumulativeElectricEnergyDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acInputCumulativeElectricEnergyLog:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Historical data of measured cumulative amounts of electric energy
+        (AC input)'
+      operationId: getDevicesPropertiesAcInputCumulativeElectricEnergyLogDrElectricEnergyMeter
+      description: '取得: 積算電力量計測値履歴(交流入力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acInputCumulativeElectricEnergyLogDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acOutputCumulativeElectricEnergy:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Measured cumulative amounts of electric energy (AC output)'
+      operationId: getDevicesPropertiesAcOutputCumulativeElectricEnergyDrElectricEnergyMeter
+      description: '取得: 積算電力量計測値(交流出力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acOutputCumulativeElectricEnergyDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acOutputCumulativeElectricEnergyLog:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Historical data of measured cumulative amounts of electric energy
+        (AC output)'
+      operationId: getDevicesPropertiesAcOutputCumulativeElectricEnergyLogDrElectricEnergyMeter
+      description: '取得: 積算電力量計測値履歴(交流出力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acOutputCumulativeElectricEnergyLogDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/independentOperationCumulativeElectricEnergy:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Measured cumulative amounts of electric energy (output during
+        a power outage)'
+      operationId: getDevicesPropertiesIndependentOperationCumulativeElectricEnergyDrElectricEnergyMeter
+      description: '取得: 積算電力量計測値(自立出力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/independentOperationCumulativeElectricEnergyDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/independentOperationCumulativeElectricEnergyLog:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Historical data of measured cumulative amounts of electric energy
+        (output during a power outage )'
+      operationId: getDevicesPropertiesIndependentOperationCumulativeElectricEnergyLogDrElectricEnergyMeter
+      description: '取得: 積算電力量計測値履歴(自立出力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/independentOperationCumulativeElectricEnergyLogDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acInputCumulativeElectricEnergyAtEvery30Min:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Cumulative amounts of electric energy measured at fixed time
+        (AC input)'
+      operationId: getDevicesPropertiesAcInputCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter
+      description: '取得: 定時積算電力量計測値(交流入力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acInputCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acOutputCumulativeElectricEnergyAtEvery30Min:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Cumulative amounts of electric energy measured at fixed time
+        (AC output)'
+      operationId: getDevicesPropertiesAcOutputCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter
+      description: '取得: 定時積算電力量計測値(交流出力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acOutputCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/independentOperationCumulativeElectricEnergyAtEvery30Min:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Cumulative amounts of electric energy measured at fixed time
+        (output during a power outage)'
+      operationId: getDevicesPropertiesIndependentOperationCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter
+      description: '取得: 定時積算電力量計測値(自立出力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/independentOperationCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/acInstantaneousElectricPower:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Measured instantaneous electric power (AC input/output)'
+      operationId: getDevicesPropertiesAcInstantaneousElectricPowerDrElectricEnergyMeter
+      description: '取得: 瞬時電力計測値(交流入出力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acInstantaneousElectricPowerDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/independentOperationInstantaneousElectricPower:
+    get:
+      tags:
+      - DrElectricEnergyMeter
+      summary: 'Get: Measured instantaneous electric power (output during a power
+        outage)'
+      operationId: getDevicesPropertiesIndependentOperationInstantaneousElectricPowerDrElectricEnergyMeter
+      description: '取得: 瞬時電力計測値(自立出力)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/independentOperationInstantaneousElectricPowerDrElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesDrElectricEnergyMeter:
+      description: propertiesDrElectricEnergyMeter
+      type: object
+      properties:
+        deviceType:
+          type: string
+          description: '[ja: 機器種別, en: Device type] '
+        deviceId:
+          type: string
+          description: '[ja: 機器ID, en: Device ID] '
+        toleranceClass:
+          type: string
+          enum:
+          - n1
+          - n2
+          - n3
+          - n4
+          - n5
+          - n6
+          - n7
+          - others
+          description: '[ja: 公差階級, en: Tolerance class] _n1 (ja: n1, en: n1) n2 (ja:
+            n2, en: n2) n3 (ja: n3, en: n3) n4 (ja: n4, en: n4) n5 (ja: n5, en: n5)
+            n6 (ja: n6, en: n6) n7 (ja: n7, en: n7) others (ja: その他, en: others) '
+        retentionDaysOfCumulativeElectricEnergyLog:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 99
+          - type: string
+            enum:
+            - historyUnavailable
+            description: '_historyUnavailable (ja: 履歴未対応, en: History unavailable) '
+          description: '[ja: 積算電力量計測値履歴保持日数, en: Number of days to retain historical
+            data of measured cumulative amounts of electric energy] '
+        targetDeviceId:
+          type: string
+          description: '[ja: 計量対象機器識別番号, en: Identification number of device to be
+            metered] '
+        currentTime:
+          type: string
+          format: time
+          description: '[ja: 現在時分秒設定, en: Current hour, minute, and second setting] '
+        timeSynchronizationStatus:
+          type: string
+          enum:
+          - noSync
+          - success
+          - fail
+          - notImplemented
+          description: '[ja: 時刻同期状態, en: Time synchronization status] _noSync (ja:
+            時刻同期なし, en: no time synchronization) success (ja: 時刻同期成功, en: time synchronization
+            successful) fail (ja: 時刻同期失敗, en: time synchronization failed) notImplemented
+            (ja: 時刻同期機能未搭載, en: time synchronization function not implemented) '
+        acInputCumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 積算電力量計測値(交流入力), en: Measured cumulative amounts of electric
+            energy (AC input)] '
+        acInputCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - initialValue
+                description: '_initialValue (ja: 初期値(未設定), en: initial value (not
+                  set)) '
+              description: '[ja: 積算履歴収集日, en: Day on which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amounts of electric
+                energy] _'
+          description: '[ja: 積算電力量計測値履歴(交流入力), en: Historical data of measured cumulative
+            amounts of electric energy (AC input)] '
+        acOutputCumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 積算電力量計測値(交流出力), en: Measured cumulative amounts of electric
+            energy (AC output)] '
+        acOutputCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - initialValue
+                description: '_initialValue (ja: 初期値(未設定), en: initial value (not
+                  set)) '
+              description: '[ja: 積算履歴収集日, en: Day on which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amounts of electric
+                energy] _'
+          description: '[ja: 積算電力量計測値履歴(交流出力), en: Historical data of measured cumulative
+            amounts of electric energy (AC output)] '
+        independentOperationCumulativeElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 999999999
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測値(自立出力), en: Measured cumulative amounts of electric
+            energy (output during a power outage)] '
+        independentOperationCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - initialValue
+                description: '_initialValue (ja: 初期値(未設定), en: initial value (not
+                  set)) '
+              description: '[ja: 積算履歴収集日, en: Day on which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amounts of electric
+                energy] _'
+          description: '[ja: 積算電力量計測値履歴(自立出力), en: Historical data of measured cumulative
+            amounts of electric energy (output during a power outage )] '
+        acInputCumulativeElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy
+                measured] _'
+          description: '[ja: 定時積算電力量計測値(交流入力), en: Cumulative amounts of electric
+            energy measured at fixed time (AC input)] '
+        acOutputCumulativeElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy
+                measured] _'
+          description: '[ja: 定時積算電力量計測値(交流出力), en: Cumulative amounts of electric
+            energy measured at fixed time (AC output)] '
+        independentOperationCumulativeElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy
+                measured] _'
+          description: '[ja: 定時積算電力量計測値(自立出力), en: Cumulative amounts of electric
+            energy measured at fixed time (output during a power outage)] '
+        acInstantaneousElectricPower:
+          oneOf:
+          - type: number
+            minimum: -2147483647
+            maximum: 2147483645
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 瞬時電力計測値(交流入出力), en: Measured instantaneous electric power
+            (AC input/output)] '
+        independentOperationInstantaneousElectricPower:
+          oneOf:
+          - type: number
+            minimum: -2147483647
+            maximum: 2147483645
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 瞬時電力計測値(自立出力), en: Measured instantaneous electric power
+            (output during a power outage)] '
+    deviceTypeDrElectricEnergyMeter:
+      description: '[ja: 機器種別, en: Device type]'
+      type: object
+      properties:
+        deviceType:
+          type: string
+          description: '[ja: 機器種別, en: Device type] '
+    deviceIdDrElectricEnergyMeter:
+      description: '[ja: 機器ID, en: Device ID]'
+      type: object
+      properties:
+        deviceId:
+          type: string
+          description: '[ja: 機器ID, en: Device ID] '
+    toleranceClassDrElectricEnergyMeter:
+      description: '[ja: 公差階級, en: Tolerance class]'
+      type: object
+      properties:
+        toleranceClass:
+          type: string
+          enum:
+          - n1
+          - n2
+          - n3
+          - n4
+          - n5
+          - n6
+          - n7
+          - others
+          description: '[ja: 公差階級, en: Tolerance class] _n1 (ja: n1, en: n1) n2 (ja:
+            n2, en: n2) n3 (ja: n3, en: n3) n4 (ja: n4, en: n4) n5 (ja: n5, en: n5)
+            n6 (ja: n6, en: n6) n7 (ja: n7, en: n7) others (ja: その他, en: others) '
+    retentionDaysOfCumulativeElectricEnergyLogDrElectricEnergyMeter:
+      description: '[ja: 積算電力量計測値履歴保持日数, en: Number of days to retain historical data
+        of measured cumulative amounts of electric energy]'
+      type: object
+      properties:
+        retentionDaysOfCumulativeElectricEnergyLog:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 99
+          - type: string
+            enum:
+            - historyUnavailable
+            description: '_historyUnavailable (ja: 履歴未対応, en: History unavailable) '
+          description: '[ja: 積算電力量計測値履歴保持日数, en: Number of days to retain historical
+            data of measured cumulative amounts of electric energy] '
+    targetDeviceIdDrElectricEnergyMeter:
+      description: '[ja: 計量対象機器識別番号, en: Identification number of device to be metered]'
+      type: object
+      properties:
+        targetDeviceId:
+          type: string
+          description: '[ja: 計量対象機器識別番号, en: Identification number of device to be
+            metered] '
+    currentTimeDrElectricEnergyMeter:
+      description: '[ja: 現在時分秒設定, en: Current hour, minute, and second setting]'
+      type: object
+      properties:
+        currentTime:
+          type: string
+          format: time
+          description: '[ja: 現在時分秒設定, en: Current hour, minute, and second setting] '
+    timeSynchronizationStatusDrElectricEnergyMeter:
+      description: '[ja: 時刻同期状態, en: Time synchronization status]'
+      type: object
+      properties:
+        timeSynchronizationStatus:
+          type: string
+          enum:
+          - noSync
+          - success
+          - fail
+          - notImplemented
+          description: '[ja: 時刻同期状態, en: Time synchronization status] _noSync (ja:
+            時刻同期なし, en: no time synchronization) success (ja: 時刻同期成功, en: time synchronization
+            successful) fail (ja: 時刻同期失敗, en: time synchronization failed) notImplemented
+            (ja: 時刻同期機能未搭載, en: time synchronization function not implemented) '
+    acInputCumulativeElectricEnergyDrElectricEnergyMeter:
+      description: '[ja: 積算電力量計測値(交流入力), en: Measured cumulative amounts of electric
+        energy (AC input)]'
+      type: object
+      properties:
+        acInputCumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 積算電力量計測値(交流入力), en: Measured cumulative amounts of electric
+            energy (AC input)] '
+    acInputCumulativeElectricEnergyLogDrElectricEnergyMeter:
+      description: '[ja: 積算電力量計測値履歴(交流入力), en: Historical data of measured cumulative
+        amounts of electric energy (AC input)]'
+      type: object
+      properties:
+        acInputCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - initialValue
+                description: '_initialValue (ja: 初期値(未設定), en: initial value (not
+                  set)) '
+              description: '[ja: 積算履歴収集日, en: Day on which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amounts of electric
+                energy] _'
+          description: '[ja: 積算電力量計測値履歴(交流入力), en: Historical data of measured cumulative
+            amounts of electric energy (AC input)] '
+    acOutputCumulativeElectricEnergyDrElectricEnergyMeter:
+      description: '[ja: 積算電力量計測値(交流出力), en: Measured cumulative amounts of electric
+        energy (AC output)]'
+      type: object
+      properties:
+        acOutputCumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 積算電力量計測値(交流出力), en: Measured cumulative amounts of electric
+            energy (AC output)] '
+    acOutputCumulativeElectricEnergyLogDrElectricEnergyMeter:
+      description: '[ja: 積算電力量計測値履歴(交流出力), en: Historical data of measured cumulative
+        amounts of electric energy (AC output)]'
+      type: object
+      properties:
+        acOutputCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - initialValue
+                description: '_initialValue (ja: 初期値(未設定), en: initial value (not
+                  set)) '
+              description: '[ja: 積算履歴収集日, en: Day on which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amounts of electric
+                energy] _'
+          description: '[ja: 積算電力量計測値履歴(交流出力), en: Historical data of measured cumulative
+            amounts of electric energy (AC output)] '
+    independentOperationCumulativeElectricEnergyDrElectricEnergyMeter:
+      description: '[ja: 積算電力量計測値(自立出力), en: Measured cumulative amounts of electric
+        energy (output during a power outage)]'
+      type: object
+      properties:
+        independentOperationCumulativeElectricEnergy:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 999999999
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測値(自立出力), en: Measured cumulative amounts of electric
+            energy (output during a power outage)] '
+    independentOperationCumulativeElectricEnergyLogDrElectricEnergyMeter:
+      description: '[ja: 積算電力量計測値履歴(自立出力), en: Historical data of measured cumulative
+        amounts of electric energy (output during a power outage )]'
+      type: object
+      properties:
+        independentOperationCumulativeElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - initialValue
+                description: '_initialValue (ja: 初期値(未設定), en: initial value (not
+                  set)) '
+              description: '[ja: 積算履歴収集日, en: Day on which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            electricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 999999999
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Measured cumulative amounts of electric
+                energy] _'
+          description: '[ja: 積算電力量計測値履歴(自立出力), en: Historical data of measured cumulative
+            amounts of electric energy (output during a power outage )] '
+    acInputCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter:
+      description: '[ja: 定時積算電力量計測値(交流入力), en: Cumulative amounts of electric energy
+        measured at fixed time (AC input)]'
+      type: object
+      properties:
+        acInputCumulativeElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy
+                measured] _'
+          description: '[ja: 定時積算電力量計測値(交流入力), en: Cumulative amounts of electric
+            energy measured at fixed time (AC input)] '
+    acOutputCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter:
+      description: '[ja: 定時積算電力量計測値(交流出力), en: Cumulative amounts of electric energy
+        measured at fixed time (AC output)]'
+      type: object
+      properties:
+        acOutputCumulativeElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy
+                measured] _'
+          description: '[ja: 定時積算電力量計測値(交流出力), en: Cumulative amounts of electric
+            energy measured at fixed time (AC output)] '
+    independentOperationCumulativeElectricEnergyAtEvery30MinDrElectricEnergyMeter:
+      description: '[ja: 定時積算電力量計測値(自立出力), en: Cumulative amounts of electric energy
+        measured at fixed time (output during a power outage)]'
+      type: object
+      properties:
+        independentOperationCumulativeElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            electricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 999999999
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy
+                measured] _'
+          description: '[ja: 定時積算電力量計測値(自立出力), en: Cumulative amounts of electric
+            energy measured at fixed time (output during a power outage)] '
+    acInstantaneousElectricPowerDrElectricEnergyMeter:
+      description: '[ja: 瞬時電力計測値(交流入出力), en: Measured instantaneous electric power
+        (AC input/output)]'
+      type: object
+      properties:
+        acInstantaneousElectricPower:
+          oneOf:
+          - type: number
+            minimum: -2147483647
+            maximum: 2147483645
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 瞬時電力計測値(交流入出力), en: Measured instantaneous electric power
+            (AC input/output)] '
+    independentOperationInstantaneousElectricPowerDrElectricEnergyMeter:
+      description: '[ja: 瞬時電力計測値(自立出力), en: Measured instantaneous electric power
+        (output during a power outage)]'
+      type: object
+      properties:
+        independentOperationInstantaneousElectricPower:
+          oneOf:
+          - type: number
+            minimum: -2147483647
+            maximum: 2147483645
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 瞬時電力計測値(自立出力), en: Measured instantaneous electric power
+            (output during a power outage)] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

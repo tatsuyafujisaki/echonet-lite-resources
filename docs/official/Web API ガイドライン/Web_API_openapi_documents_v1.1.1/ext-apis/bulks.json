@@ -1,0 +1,192 @@
+{
+    "properties": {
+        "descriptions": {
+            "descriptions": {
+                "ja": "bulkの説明",
+                "en": "explanation of bulk"
+            },
+            "writable": true,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ja": {
+                        "type": "string"
+                    },
+                    "en": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "base": {
+            "descriptions": {
+                "ja": "ベースのURI",
+                "en": "base URI"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string"
+            }
+        },
+        "processMode": {
+            "descriptions": {
+                "ja": "処理モード",
+                "en": "processing mode"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "concurrent",
+                    "sequential"
+                ]
+            }
+        },
+        "requests": {
+            "descriptions": {
+                "ja": "bulkの中の要求命令セット",
+                "en": "set of request commands in a bulk"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "method": {
+                            "type": "string",
+                            "enum": [
+                                "GET",
+                                "PUT",
+                                "POST",
+                                "PATCH",
+                                "DELETE"
+                            ]
+                        },
+                        "path": {
+                            "type": "string"
+                        },
+                        "body": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "actions": {
+        "execute": {
+            "descriptions": {
+                "ja": "bulkを実行",
+                "en": "Execute a bulk"
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "executionId": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "abort": {
+            "descriptions": {
+                "ja": "bulk実行中断",
+                "en": "Abort an execution of a bulk"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "executionId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "executionId": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "getResults": {
+            "descriptions": {
+                "ja": "実行結果の取得",
+                "en": "Get results"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "executionId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "base": {
+                        "type": "string"
+                    },
+                    "total": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "processStatus": {
+                        "type": "string",
+                        "enum": [
+                            "succeeded",
+                            "failed",
+                            "inProgress",
+                            "aborted"
+                        ]
+                    },
+                    "responses": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "method": {
+                                    "type": "string",
+                                    "enum": [
+                                        "GET",
+                                        "PUT",
+                                        "POST",
+                                        "PATCH",
+                                        "DELETE"
+                                    ]
+                                },
+                                "path": {
+                                    "type": "string"
+                                },
+                                "body": {
+                                    "type": "object"
+                                },
+                                "progress": {
+                                    "type": "string",
+                                    "enum": [
+                                        "unexecuted",
+                                        "executing",
+                                        "completed",
+                                        "failed",
+                                        "timeout",
+                                        "aborted"
+                                    ]
+                                },
+                                "statusCode": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

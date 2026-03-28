@@ -1,0 +1,2448 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: EvChargerDischarger
+  description: tag for EV charger and discharger
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesEvChargerDischarger
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargeableCapacity1:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Dischargeable capacity of vehicle mounted battery 1'
+      operationId: getDevicesPropertiesDischargeableCapacity1EvChargerDischarger
+      description: '取得: 車載電池の放電可能容量値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargeableCapacity1EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargeableCapacity2:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Dischargeable capacity of vehicle mounted battery 2'
+      operationId: getDevicesPropertiesDischargeableCapacity2EvChargerDischarger
+      description: '取得: 車載電池の放電可能容量値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargeableCapacity2EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingDischargeableCapacity1:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Remaining dischargeable capacity of vehicle mounted battery 1'
+      operationId: getDevicesPropertiesRemainingDischargeableCapacity1EvChargerDischarger
+      description: '取得: 車載電池の放電可能残容量1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingDischargeableCapacity1EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingDischargeableCapacity2:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Remaining dischargeable capacity of vehicle mounted battery 2'
+      operationId: getDevicesPropertiesRemainingDischargeableCapacity2EvChargerDischarger
+      description: '取得: 車載電池の放電可能残容量2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingDischargeableCapacity2EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingDischargeableCapacity3:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Remaining dischargeable capacity of vehicle mounted battery 3'
+      operationId: getDevicesPropertiesRemainingDischargeableCapacity3EvChargerDischarger
+      description: '取得: 車載電池の放電可能残容量3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingDischargeableCapacity3EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedChargeElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Rated charge capacity'
+      operationId: getDevicesPropertiesRatedChargeElectricPowerEvChargerDischarger
+      description: '取得: 定格充電能力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedChargeElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedDischargeElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Rated discharge capacity'
+      operationId: getDevicesPropertiesRatedDischargeElectricPowerEvChargerDischarger
+      description: '取得: 定格放電能力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedDischargeElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargeDischargeStatus:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Vehicle connection and chargeable/dischargeable status'
+      operationId: getDevicesPropertiesChargeDischargeStatusEvChargerDischarger
+      description: '取得: 車両接続・充放電可否状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargeDischargeStatusEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumChargingElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Minimum/maximum charging electric energy'
+      operationId: getDevicesPropertiesMinimumAndMaximumChargingElectricPowerEvChargerDischarger
+      description: '取得: 最小最大充電電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumChargingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumDischargingElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Minimum/maximum discharging electric energy'
+      operationId: getDevicesPropertiesMinimumAndMaximumDischargingElectricPowerEvChargerDischarger
+      description: '取得: 最小最大放電電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumDischargingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumChargingCurrent:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Minimum/maximum charging current'
+      operationId: getDevicesPropertiesMinimumAndMaximumChargingCurrentEvChargerDischarger
+      description: '取得: 最小最大充電電流値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumChargingCurrentEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/minimumAndMaximumDischargingCurrent:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Minimum/maximum discharging current'
+      operationId: getDevicesPropertiesMinimumAndMaximumDischargingCurrentEvChargerDischarger
+      description: '取得: 最小最大放電電流値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/minimumAndMaximumDischargingCurrentEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/equipmentType:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Charger/Discharger type'
+      operationId: getDevicesPropertiesEquipmentTypeEvChargerDischarger
+      description: '取得: 充放電器タイプ'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/equipmentTypeEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargeableCapacity:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Chargeable capacity of vehicle mounted battery'
+      operationId: getDevicesPropertiesChargeableCapacityEvChargerDischarger
+      description: '取得: 車載電池の充電可能容量値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargeableCapacityEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingChargeableCapacity:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Remaining chargeable capacity of vehicle mounted battery'
+      operationId: getDevicesPropertiesRemainingChargeableCapacityEvChargerDischarger
+      description: '取得: 車載電池の充電可能残容量値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingChargeableCapacityEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/usedCapacity1:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Used capacity of vehicle mounted battery 1'
+      operationId: getDevicesPropertiesUsedCapacity1EvChargerDischarger
+      description: '取得: 車載電池の使用容量値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usedCapacity1EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/usedCapacity2:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Used capacity of vehicle mounted battery 2'
+      operationId: getDevicesPropertiesUsedCapacity2EvChargerDischarger
+      description: '取得: 車載電池の使用容量値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usedCapacity2EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedVoltage:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Rated voltage'
+      operationId: getDevicesPropertiesRatedVoltageEvChargerDischarger
+      description: '取得: 定格電圧'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedVoltageEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Measured instantaneous charging/discharging electric energy'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerEvChargerDischarger
+      description: '取得: 瞬時充放電電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousCurrent:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Measured instantaneous charging/discharging current'
+      operationId: getDevicesPropertiesInstantaneousCurrentEvChargerDischarger
+      description: '取得: 瞬時充放電電流計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousCurrentEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousVoltage:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Measured instantaneous charging/discharging voltage'
+      operationId: getDevicesPropertiesInstantaneousVoltageEvChargerDischarger
+      description: '取得: 瞬時充放電電圧計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousVoltageEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeDischargingElectricEnergy:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Measured cumulative amount of discharging electric energy'
+      operationId: getDevicesPropertiesCumulativeDischargingElectricEnergyEvChargerDischarger
+      description: '取得: 積算放電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeDischargingElectricEnergyEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeChargingElectricEnergy:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Measured cumulative amount of charging electric energy'
+      operationId: getDevicesPropertiesCumulativeChargingElectricEnergyEvChargerDischarger
+      description: '取得: 積算充電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeChargingElectricEnergyEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationMode:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Operation mode setting'
+      operationId: getDevicesPropertiesOperationModeEvChargerDischarger
+      description: '取得: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Operation mode setting'
+      operationId: putDevicesPropertiesOperationModeEvChargerDischarger
+      description: '設定: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationModeEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerSystemInterconnectionStatus:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: System interconnected type'
+      operationId: getDevicesPropertiesPowerSystemInterconnectionStatusEvChargerDischarger
+      description: '取得: 系統連系状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerSystemInterconnectionStatusEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingMethod:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Charging method'
+      operationId: getDevicesPropertiesChargingMethodEvChargerDischarger
+      description: '取得: 充電方式'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingMethodEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Charging method'
+      operationId: putDevicesPropertiesChargingMethodEvChargerDischarger
+      description: '設定: 充電方式'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingMethodEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingMethodEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingMethod:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Discharging method'
+      operationId: getDevicesPropertiesDischargingMethodEvChargerDischarger
+      description: '取得: 放電方式'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingMethodEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Discharging method'
+      operationId: putDevicesPropertiesDischargingMethodEvChargerDischarger
+      description: '設定: 放電方式'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dischargingMethodEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingMethodEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/purchasingElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Purchasing electric power setting'
+      operationId: getDevicesPropertiesPurchasingElectricPowerEvChargerDischarger
+      description: '取得: 買電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purchasingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Purchasing electric power setting'
+      operationId: putDevicesPropertiesPurchasingElectricPowerEvChargerDischarger
+      description: '設定: 買電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/purchasingElectricPowerEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purchasingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reInterconnectionPermission:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Re-interconnection permission setting'
+      operationId: getDevicesPropertiesReInterconnectionPermissionEvChargerDischarger
+      description: '取得: 再連系許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reInterconnectionPermissionEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Re-interconnection permission setting'
+      operationId: putDevicesPropertiesReInterconnectionPermissionEvChargerDischarger
+      description: '設定: 再連系許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reInterconnectionPermissionEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reInterconnectionPermissionEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingDischargingElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Charging/Discharging electric power setting'
+      operationId: getDevicesPropertiesChargingDischargingElectricPowerEvChargerDischarger
+      description: '取得: 充放電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingDischargingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Charging/Discharging electric power setting'
+      operationId: putDevicesPropertiesChargingDischargingElectricPowerEvChargerDischarger
+      description: '設定: 充放電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingDischargingElectricPowerEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingDischargingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/actualOperationMode:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Actual operation mode'
+      operationId: getDevicesPropertiesActualOperationModeEvChargerDischarger
+      description: '取得: 運転動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/actualOperationModeEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingCapacity1:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Remaining stored electricity of vehicle mounted battery1'
+      operationId: getDevicesPropertiesRemainingCapacity1EvChargerDischarger
+      description: '取得: 車載電池の電池残容量1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingCapacity1EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingCapacity2:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Remaining stored electricity of vehicle mounted battery2'
+      operationId: getDevicesPropertiesRemainingCapacity2EvChargerDischarger
+      description: '取得: 車載電池の電池残容量2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingCapacity2EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingCapacity3:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Remaining stored electricity of vehicle mounted battery3'
+      operationId: getDevicesPropertiesRemainingCapacity3EvChargerDischarger
+      description: '取得: 車載電池の電池残容量3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingCapacity3EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/maintenanceStatus:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Maintenance status'
+      operationId: getDevicesPropertiesMaintenanceStatusEvChargerDischarger
+      description: '取得: メンテナンス状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/maintenanceStatusEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/vehicleId:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Vehicle ID'
+      operationId: getDevicesPropertiesVehicleIdEvChargerDischarger
+      description: '取得: 車両ID'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/vehicleIdEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetChargingElectricEnergy1:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Charging amount setting 1'
+      operationId: getDevicesPropertiesTargetChargingElectricEnergy1EvChargerDischarger
+      description: '取得: 充電量設定値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetChargingElectricEnergy1EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Charging amount setting 1'
+      operationId: putDevicesPropertiesTargetChargingElectricEnergy1EvChargerDischarger
+      description: '設定: 充電量設定値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetChargingElectricEnergy1EvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetChargingElectricEnergy1EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetChargingElectricEnergy2:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Charging amount setting 2'
+      operationId: getDevicesPropertiesTargetChargingElectricEnergy2EvChargerDischarger
+      description: '取得: 充電量設定値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetChargingElectricEnergy2EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Charging amount setting 2'
+      operationId: putDevicesPropertiesTargetChargingElectricEnergy2EvChargerDischarger
+      description: '設定: 充電量設定値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetChargingElectricEnergy2EvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetChargingElectricEnergy2EvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetDischargingElectricEnergy:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Discharging electric energy setting'
+      operationId: getDevicesPropertiesTargetDischargingElectricEnergyEvChargerDischarger
+      description: '取得: 放電量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetDischargingElectricEnergyEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Discharging electric energy setting'
+      operationId: putDevicesPropertiesTargetDischargingElectricEnergyEvChargerDischarger
+      description: '設定: 放電量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetDischargingElectricEnergyEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetDischargingElectricEnergyEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Charging electric energy setting'
+      operationId: getDevicesPropertiesChargingElectricPowerEvChargerDischarger
+      description: '取得: 充電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Charging electric energy setting'
+      operationId: putDevicesPropertiesChargingElectricPowerEvChargerDischarger
+      description: '設定: 充電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingElectricPowerEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingElectricPower:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Discharging electric energy setting'
+      operationId: getDevicesPropertiesDischargingElectricPowerEvChargerDischarger
+      description: '取得: 放電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Discharging electric energy setting'
+      operationId: putDevicesPropertiesDischargingElectricPowerEvChargerDischarger
+      description: '設定: 放電電力設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dischargingElectricPowerEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingElectricPowerEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/chargingCurrent:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Charging current setting'
+      operationId: getDevicesPropertiesChargingCurrentEvChargerDischarger
+      description: '取得: 充電電流設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingCurrentEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Charging current setting'
+      operationId: putDevicesPropertiesChargingCurrentEvChargerDischarger
+      description: '設定: 充電電流設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/chargingCurrentEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/chargingCurrentEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargingCurrent:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Discharging current setting'
+      operationId: getDevicesPropertiesDischargingCurrentEvChargerDischarger
+      description: '取得: 放電電流設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingCurrentEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - EvChargerDischarger
+      summary: 'Set: Discharging current setting'
+      operationId: putDevicesPropertiesDischargingCurrentEvChargerDischarger
+      description: '設定: 放電電流設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dischargingCurrentEvChargerDischarger'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargingCurrentEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedVoltageOfIndependentOperation:
+    get:
+      tags:
+      - EvChargerDischarger
+      summary: 'Get: Rated voltage (Independent)'
+      operationId: getDevicesPropertiesRatedVoltageOfIndependentOperationEvChargerDischarger
+      description: '取得: 定格電圧 (独立時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedVoltageOfIndependentOperationEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/resetCumulativeDischargingElectricEnergy:
+    post:
+      tags:
+      - EvChargerDischarger
+      summary: 'Post: Cumulative amount of discharging electric energy reset setting'
+      operationId: postDevicesActionsResetCumulativeDischargingElectricEnergyEvChargerDischarger
+      description: '実行: 積算放電電力量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resetCumulativeDischargingElectricEnergyEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/resetCumulativeChargingElectricEnergy:
+    post:
+      tags:
+      - EvChargerDischarger
+      summary: 'Post: Cumulative amount of charging electric energy reset setting'
+      operationId: postDevicesActionsResetCumulativeChargingElectricEnergyEvChargerDischarger
+      description: '実行: 積算充電電力量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resetCumulativeChargingElectricEnergyEvChargerDischarger'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesEvChargerDischarger:
+      description: propertiesEvChargerDischarger
+      type: object
+      properties:
+        dischargeableCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の放電可能容量値1, en: Dischargeable capacity of vehicle
+            mounted battery 1] '
+        dischargeableCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 車載電池の放電可能容量値2, en: Dischargeable capacity of vehicle
+            mounted battery 2] '
+        remainingDischargeableCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の放電可能残容量1, en: Remaining dischargeable capacity of
+            vehicle mounted battery 1] '
+        remainingDischargeableCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 車載電池の放電可能残容量2, en: Remaining dischargeable capacity of
+            vehicle mounted battery 2] '
+        remainingDischargeableCapacity3:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 車載電池の放電可能残容量3, en: Remaining dischargeable capacity of
+            vehicle mounted battery 3] '
+        ratedChargeElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 定格充電能力, en: Rated charge capacity] '
+        ratedDischargeElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 定格放電能力, en: Rated discharge capacity] '
+        chargeDischargeStatus:
+          type: string
+          enum:
+          - undefined
+          - notConnected
+          - connected
+          - chargeable
+          - dischargeable
+          - chargeableDischargeable
+          - unknown
+          description: '[ja: 車両接続・充放電可否状態, en: Vehicle connection and chargeable/dischargeable
+            status] _undefined (ja: 不定, en: Undefined) notConnected (ja: 車両未接続, en:
+            Not Connected) connected (ja: 車両接続・充電不可・放電不可, en: Connected) chargeable
+            (ja: 車両接続・充電可・放電不可, en: Chargeable) dischargeable (ja: 車両接続・充電不可・放電可,
+            en: Dischargeable) chargeableDischargeable (ja: 車両接続・充電可・放電可, en: Chargeable
+            and Dischargeable) unknown (ja: 車両接続・充電可否不明, en: Unknown of Chargeability) '
+        minimumAndMaximumChargingElectricPower:
+          type: object
+          properties:
+            minimumElectricPower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小充電電力値, en: Minimum charging electric energy] _'
+            maximumElectricPower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大充電電力値, en: Maximum charging electric energy] _'
+          description: '[ja: 最小最大充電電力値, en: Minimum/maximum charging electric energy] '
+        minimumAndMaximumDischargingElectricPower:
+          type: object
+          properties:
+            minimumElectricPower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小放電電力値, en: Minimum discharging electric energy]
+                _'
+            maximumElectricPower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大放電電力値, en: Maximum discharging electric energy]
+                _'
+          description: '[ja: 最小最大放電電力値, en: Minimum/maximum discharging electric energy] '
+        minimumAndMaximumChargingCurrent:
+          type: object
+          properties:
+            minimumCurrent:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小充電電流値, en: Minimum charging current] _'
+            maximumCurrent:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大充電電流値, en: Maximum charging current] _'
+          description: '[ja: 最小最大充電電流値, en: Minimum/maximum charging current] '
+        minimumAndMaximumDischargingCurrent:
+          type: object
+          properties:
+            minimumCurrent:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小放電電流値, en: Minimum discharging current] _'
+            maximumCurrent:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大放電電流値, en: Maximum discharging current] _'
+          description: '[ja: 最小最大放電電流値, en: Minimum/maximum discharging current] '
+        equipmentType:
+          type: string
+          enum:
+          - ac_cplt
+          - ac_hlc_charge
+          - ac_hlc_chargedischarge
+          - dc_aa_charge
+          - dc_aa_chargedischarge
+          - dc_aa_discharge
+          - dc_bb_charge
+          - dc_bb_chargedischarge
+          - dc_bb_discharge
+          - dc_ee_charge
+          - dc_ee_chargedischarge
+          - dc_ee_discharge
+          - dc_ff_charge
+          - dc_ff_chargedischarge
+          - dc_ff_discharge
+          description: '[ja: 充放電器タイプ, en: Charger/Discharger type] _ac_cplt (ja: AC_CPLT,
+            en: AC_CPLT) ac_hlc_charge (ja: AC_HLC (充電のみ), en: AC_HLC_Charge) ac_hlc_chargedischarge
+            (ja: AC_HLC (充放電可), en: AC_HLC_ChargeDischarge) dc_aa_charge (ja: DCタイプ_AA
+            (充電のみ), en: DC_AA_Charge) dc_aa_chargedischarge (ja: DCタイプ_AA (充放電可),
+            en: DC_AA_ChargeDischarge) dc_aa_discharge (ja: DCタイプ_AA (放電のみ), en: DC_AA_Discharge)
+            dc_bb_charge (ja: DCタイプ_BB (充電のみ), en: DC_BB_Charge) dc_bb_chargedischarge
+            (ja: DCタイプ_BB (充放電可), en: DC_BB_ChargeDischarge) dc_bb_discharge (ja:
+            DCタイプ_BB (放電のみ), en: DC_BB_Discharge) dc_ee_charge (ja: DCタイプ_EE (充電のみ),
+            en: DC_EE_Charge) dc_ee_chargedischarge (ja: DCタイプ_EE (充放電可), en: DC_EE_ChargeDischarge)
+            dc_ee_discharge (ja: DCタイプ_EE (放電のみ), en: DC_EE_Discharge) dc_ff_charge
+            (ja: DCタイプ_FF (充電のみ), en: DC_FF_Charge) dc_ff_chargedischarge (ja: DCタイプ_FF
+            (充放電可), en: DC_FF_ChargeDischarge) dc_ff_discharge (ja: DCタイプ_FF (放電のみ),
+            en: DC_FF_Discharge) '
+        chargeableCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の充電可能容量値, en: Chargeable capacity of vehicle mounted
+            battery] '
+        remainingChargeableCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の充電可能残容量値, en: Remaining chargeable capacity of vehicle
+            mounted battery] '
+        usedCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の使用容量値1, en: Used capacity of vehicle mounted battery
+            1] '
+        usedCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 車載電池の使用容量値2, en: Used capacity of vehicle mounted battery
+            2] '
+        ratedVoltage:
+          type: number
+          minimum: 0
+          maximum: 32766
+          description: '[ja: 定格電圧, en: Rated voltage] '
+        instantaneousElectricPower:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: 瞬時充放電電力計測値, en: Measured instantaneous charging/discharging
+            electric energy] '
+        instantaneousCurrent:
+          type: number
+          minimum: -3276.7
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 瞬時充放電電流計測値, en: Measured instantaneous charging/discharging
+            current] '
+        instantaneousVoltage:
+          type: number
+          minimum: -32767
+          maximum: 32766
+          description: '[ja: 瞬時充放電電圧計測値, en: Measured instantaneous charging/discharging
+            voltage] '
+        cumulativeDischargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算放電電力量計測値, en: Measured cumulative amount of discharging
+            electric energy] '
+        cumulativeChargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算充電電力量計測値, en: Measured cumulative amount of charging
+            electric energy] '
+        operationMode:
+          type: string
+          enum:
+          - charge
+          - discharge
+          - standby
+          - chargingDischarging
+          - idle
+          - preparation
+          - automatic
+          - other
+          description: '[ja: 運転モード設定, en: Operation mode setting] _charge (ja: 充電,
+            en: Charge) discharge (ja: 放電, en: Discharge) standby (ja: 待機, en: Standby)
+            chargingDischarging (ja: 充放電, en: Charging/Discharging) idle (ja: 停止,
+            en: Idle) preparation (ja: 準備, en: Preparation) automatic (ja: 自動, en:
+            Automatic) other (ja: その他, en: Other) '
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          description: '[ja: 系統連系状態, en: System interconnected type] _reversePowerFlowAcceptable
+            (ja: 系統連系 (逆潮流可), en: Grid connection (reverse flow acceptable)) independent
+            (ja: 独立, en: Independent operation) reversePowerFlowNotAcceptable (ja:
+            系統連系 (逆潮流不可), en: Grid connection (reverse flow not acceptable)) '
+        chargingMethod:
+          type: string
+          enum:
+          - others
+          - maximumChargingElectricPower
+          - surplusElectricPower
+          - designatedElectricPower
+          - designatedElectricCurrent
+          - designatedPurchasingElectricPower
+          - v2G
+          description: '[ja: 充電方式, en: Charging method] _others (ja: その他, en: Others)
+            maximumChargingElectricPower (ja: 最大充電電力充電, en: Maximum charging electric
+            power charging) surplusElectricPower (ja: 余剰電力充電, en: Surplus electric
+            power charging) designatedElectricPower (ja: 指定電力充電, en: Designated electric
+            power charging) designatedElectricCurrent (ja: 指定電流充電, en: Designated
+            electric current charging) designatedPurchasingElectricPower (ja: 買電電力指定充電,
+            en: Designated purchasing electric power charging) v2G (ja: V2G, en: V2G) '
+        dischargingMethod:
+          type: string
+          enum:
+          - others
+          - maximumDischargingElectricPower
+          - loadFollowing
+          - designatedElectricPower
+          - designatedElectricCurrent
+          - designatedPurchasingElectricPower
+          - v2G
+          description: '[ja: 放電方式, en: Discharging method] _others (ja: その他, en: Others)
+            maximumDischargingElectricPower (ja: 最大放電電力充電, en: Maximum discharging
+            electric power charging) loadFollowing (ja: 負荷追従放電, en: Load-following
+            discharging) designatedElectricPower (ja: 指定電力放電, en: Designated electric
+            power discharging) designatedElectricCurrent (ja: 指定電流放電, en: Designated
+            electric current discharging) designatedPurchasingElectricPower (ja: 買電電力指定放電,
+            en: Designated purchasing electric power discharging) v2G (ja: V2G, en:
+            V2G) '
+        purchasingElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 買電電力設定値, en: Purchasing electric power setting] '
+        reInterconnectionPermission:
+          type: string
+          enum:
+          - permitted
+          - prohibited
+          description: '[ja: 再連系許可設定, en: Re-interconnection permission setting] _permitted
+            (ja: 許可, en: Permitted) prohibited (ja: 禁止, en: Prohibited) '
+        chargingDischargingElectricPower:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: 充放電電力設定値, en: Charging/Discharging electric power setting] '
+        actualOperationMode:
+          type: string
+          enum:
+          - charge
+          - discharge
+          - standby
+          - idle
+          - preparation
+          - other
+          description: '[ja: 運転動作状態, en: Actual operation mode] _charge (ja: 充電, en:
+            Charge) discharge (ja: 放電, en: Discharge) standby (ja: 待機, en: Standby)
+            idle (ja: 停止, en: Idle) preparation (ja: 準備, en: Preparation) other (ja:
+            その他, en: Other) '
+        remainingCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の電池残容量1, en: Remaining stored electricity of vehicle
+            mounted battery1] '
+        remainingCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 車載電池の電池残容量2, en: Remaining stored electricity of vehicle
+            mounted battery2] '
+        remainingCapacity3:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 車載電池の電池残容量3, en: Remaining stored electricity of vehicle
+            mounted battery3] '
+        maintenanceStatus:
+          type: string
+          enum:
+          - necessary
+          - notNecessary
+          description: '[ja: メンテナンス状態, en: Maintenance status] _necessary (ja: 発生有,
+            en: Occurrence status found) notNecessary (ja: 発生無, en: Occurrence status
+            not found) '
+        vehicleId:
+          type: string
+          description: '[ja: 車両ID, en: Vehicle ID] '
+        targetChargingElectricEnergy1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 充電量設定値1, en: Charging amount setting 1] '
+        targetChargingElectricEnergy2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 充電量設定値2, en: Charging amount setting 2] '
+        targetDischargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 放電量設定値, en: Discharging electric energy setting] '
+        chargingElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 充電電力設定値, en: Charging electric energy setting] '
+        dischargingElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 放電電力設定値, en: Discharging electric energy setting] '
+        chargingCurrent:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 充電電流設定値, en: Charging current setting] '
+        dischargingCurrent:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 放電電流設定値, en: Discharging current setting] '
+        ratedVoltageOfIndependentOperation:
+          type: number
+          minimum: 0
+          maximum: 32766
+          description: '[ja: 定格電圧 (独立時), en: Rated voltage (Independent)] '
+    dischargeableCapacity1EvChargerDischarger:
+      description: '[ja: 車載電池の放電可能容量値1, en: Dischargeable capacity of vehicle mounted
+        battery 1]'
+      type: object
+      properties:
+        dischargeableCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の放電可能容量値1, en: Dischargeable capacity of vehicle
+            mounted battery 1] '
+    dischargeableCapacity2EvChargerDischarger:
+      description: '[ja: 車載電池の放電可能容量値2, en: Dischargeable capacity of vehicle mounted
+        battery 2]'
+      type: object
+      properties:
+        dischargeableCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 車載電池の放電可能容量値2, en: Dischargeable capacity of vehicle
+            mounted battery 2] '
+    remainingDischargeableCapacity1EvChargerDischarger:
+      description: '[ja: 車載電池の放電可能残容量1, en: Remaining dischargeable capacity of vehicle
+        mounted battery 1]'
+      type: object
+      properties:
+        remainingDischargeableCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の放電可能残容量1, en: Remaining dischargeable capacity of
+            vehicle mounted battery 1] '
+    remainingDischargeableCapacity2EvChargerDischarger:
+      description: '[ja: 車載電池の放電可能残容量2, en: Remaining dischargeable capacity of vehicle
+        mounted battery 2]'
+      type: object
+      properties:
+        remainingDischargeableCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 車載電池の放電可能残容量2, en: Remaining dischargeable capacity of
+            vehicle mounted battery 2] '
+    remainingDischargeableCapacity3EvChargerDischarger:
+      description: '[ja: 車載電池の放電可能残容量3, en: Remaining dischargeable capacity of vehicle
+        mounted battery 3]'
+      type: object
+      properties:
+        remainingDischargeableCapacity3:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 車載電池の放電可能残容量3, en: Remaining dischargeable capacity of
+            vehicle mounted battery 3] '
+    ratedChargeElectricPowerEvChargerDischarger:
+      description: '[ja: 定格充電能力, en: Rated charge capacity]'
+      type: object
+      properties:
+        ratedChargeElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 定格充電能力, en: Rated charge capacity] '
+    ratedDischargeElectricPowerEvChargerDischarger:
+      description: '[ja: 定格放電能力, en: Rated discharge capacity]'
+      type: object
+      properties:
+        ratedDischargeElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 定格放電能力, en: Rated discharge capacity] '
+    chargeDischargeStatusEvChargerDischarger:
+      description: '[ja: 車両接続・充放電可否状態, en: Vehicle connection and chargeable/dischargeable
+        status]'
+      type: object
+      properties:
+        chargeDischargeStatus:
+          type: string
+          enum:
+          - undefined
+          - notConnected
+          - connected
+          - chargeable
+          - dischargeable
+          - chargeableDischargeable
+          - unknown
+          description: '[ja: 車両接続・充放電可否状態, en: Vehicle connection and chargeable/dischargeable
+            status] _undefined (ja: 不定, en: Undefined) notConnected (ja: 車両未接続, en:
+            Not Connected) connected (ja: 車両接続・充電不可・放電不可, en: Connected) chargeable
+            (ja: 車両接続・充電可・放電不可, en: Chargeable) dischargeable (ja: 車両接続・充電不可・放電可,
+            en: Dischargeable) chargeableDischargeable (ja: 車両接続・充電可・放電可, en: Chargeable
+            and Dischargeable) unknown (ja: 車両接続・充電可否不明, en: Unknown of Chargeability) '
+    minimumAndMaximumChargingElectricPowerEvChargerDischarger:
+      description: '[ja: 最小最大充電電力値, en: Minimum/maximum charging electric energy]'
+      type: object
+      properties:
+        minimumAndMaximumChargingElectricPower:
+          type: object
+          properties:
+            minimumElectricPower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小充電電力値, en: Minimum charging electric energy] _'
+            maximumElectricPower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大充電電力値, en: Maximum charging electric energy] _'
+          description: '[ja: 最小最大充電電力値, en: Minimum/maximum charging electric energy] '
+    minimumAndMaximumDischargingElectricPowerEvChargerDischarger:
+      description: '[ja: 最小最大放電電力値, en: Minimum/maximum discharging electric energy]'
+      type: object
+      properties:
+        minimumAndMaximumDischargingElectricPower:
+          type: object
+          properties:
+            minimumElectricPower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最小放電電力値, en: Minimum discharging electric energy]
+                _'
+            maximumElectricPower:
+              type: number
+              minimum: 0
+              maximum: 999999999
+              description: '[ja: 最大放電電力値, en: Maximum discharging electric energy]
+                _'
+          description: '[ja: 最小最大放電電力値, en: Minimum/maximum discharging electric energy] '
+    minimumAndMaximumChargingCurrentEvChargerDischarger:
+      description: '[ja: 最小最大充電電流値, en: Minimum/maximum charging current]'
+      type: object
+      properties:
+        minimumAndMaximumChargingCurrent:
+          type: object
+          properties:
+            minimumCurrent:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小充電電流値, en: Minimum charging current] _'
+            maximumCurrent:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大充電電流値, en: Maximum charging current] _'
+          description: '[ja: 最小最大充電電流値, en: Minimum/maximum charging current] '
+    minimumAndMaximumDischargingCurrentEvChargerDischarger:
+      description: '[ja: 最小最大放電電流値, en: Minimum/maximum discharging current]'
+      type: object
+      properties:
+        minimumAndMaximumDischargingCurrent:
+          type: object
+          properties:
+            minimumCurrent:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最小放電電流値, en: Minimum discharging current] _'
+            maximumCurrent:
+              type: number
+              minimum: 0
+              maximum: 3276.6
+              multipleOf: 0.1
+              description: '[ja: 最大放電電流値, en: Maximum discharging current] _'
+          description: '[ja: 最小最大放電電流値, en: Minimum/maximum discharging current] '
+    equipmentTypeEvChargerDischarger:
+      description: '[ja: 充放電器タイプ, en: Charger/Discharger type]'
+      type: object
+      properties:
+        equipmentType:
+          type: string
+          enum:
+          - ac_cplt
+          - ac_hlc_charge
+          - ac_hlc_chargedischarge
+          - dc_aa_charge
+          - dc_aa_chargedischarge
+          - dc_aa_discharge
+          - dc_bb_charge
+          - dc_bb_chargedischarge
+          - dc_bb_discharge
+          - dc_ee_charge
+          - dc_ee_chargedischarge
+          - dc_ee_discharge
+          - dc_ff_charge
+          - dc_ff_chargedischarge
+          - dc_ff_discharge
+          description: '[ja: 充放電器タイプ, en: Charger/Discharger type] _ac_cplt (ja: AC_CPLT,
+            en: AC_CPLT) ac_hlc_charge (ja: AC_HLC (充電のみ), en: AC_HLC_Charge) ac_hlc_chargedischarge
+            (ja: AC_HLC (充放電可), en: AC_HLC_ChargeDischarge) dc_aa_charge (ja: DCタイプ_AA
+            (充電のみ), en: DC_AA_Charge) dc_aa_chargedischarge (ja: DCタイプ_AA (充放電可),
+            en: DC_AA_ChargeDischarge) dc_aa_discharge (ja: DCタイプ_AA (放電のみ), en: DC_AA_Discharge)
+            dc_bb_charge (ja: DCタイプ_BB (充電のみ), en: DC_BB_Charge) dc_bb_chargedischarge
+            (ja: DCタイプ_BB (充放電可), en: DC_BB_ChargeDischarge) dc_bb_discharge (ja:
+            DCタイプ_BB (放電のみ), en: DC_BB_Discharge) dc_ee_charge (ja: DCタイプ_EE (充電のみ),
+            en: DC_EE_Charge) dc_ee_chargedischarge (ja: DCタイプ_EE (充放電可), en: DC_EE_ChargeDischarge)
+            dc_ee_discharge (ja: DCタイプ_EE (放電のみ), en: DC_EE_Discharge) dc_ff_charge
+            (ja: DCタイプ_FF (充電のみ), en: DC_FF_Charge) dc_ff_chargedischarge (ja: DCタイプ_FF
+            (充放電可), en: DC_FF_ChargeDischarge) dc_ff_discharge (ja: DCタイプ_FF (放電のみ),
+            en: DC_FF_Discharge) '
+    chargeableCapacityEvChargerDischarger:
+      description: '[ja: 車載電池の充電可能容量値, en: Chargeable capacity of vehicle mounted
+        battery]'
+      type: object
+      properties:
+        chargeableCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の充電可能容量値, en: Chargeable capacity of vehicle mounted
+            battery] '
+    remainingChargeableCapacityEvChargerDischarger:
+      description: '[ja: 車載電池の充電可能残容量値, en: Remaining chargeable capacity of vehicle
+        mounted battery]'
+      type: object
+      properties:
+        remainingChargeableCapacity:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の充電可能残容量値, en: Remaining chargeable capacity of vehicle
+            mounted battery] '
+    usedCapacity1EvChargerDischarger:
+      description: '[ja: 車載電池の使用容量値1, en: Used capacity of vehicle mounted battery
+        1]'
+      type: object
+      properties:
+        usedCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の使用容量値1, en: Used capacity of vehicle mounted battery
+            1] '
+    usedCapacity2EvChargerDischarger:
+      description: '[ja: 車載電池の使用容量値2, en: Used capacity of vehicle mounted battery
+        2]'
+      type: object
+      properties:
+        usedCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 車載電池の使用容量値2, en: Used capacity of vehicle mounted battery
+            2] '
+    ratedVoltageEvChargerDischarger:
+      description: '[ja: 定格電圧, en: Rated voltage]'
+      type: object
+      properties:
+        ratedVoltage:
+          type: number
+          minimum: 0
+          maximum: 32766
+          description: '[ja: 定格電圧, en: Rated voltage] '
+    instantaneousElectricPowerEvChargerDischarger:
+      description: '[ja: 瞬時充放電電力計測値, en: Measured instantaneous charging/discharging
+        electric energy]'
+      type: object
+      properties:
+        instantaneousElectricPower:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: 瞬時充放電電力計測値, en: Measured instantaneous charging/discharging
+            electric energy] '
+    instantaneousCurrentEvChargerDischarger:
+      description: '[ja: 瞬時充放電電流計測値, en: Measured instantaneous charging/discharging
+        current]'
+      type: object
+      properties:
+        instantaneousCurrent:
+          type: number
+          minimum: -3276.7
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 瞬時充放電電流計測値, en: Measured instantaneous charging/discharging
+            current] '
+    instantaneousVoltageEvChargerDischarger:
+      description: '[ja: 瞬時充放電電圧計測値, en: Measured instantaneous charging/discharging
+        voltage]'
+      type: object
+      properties:
+        instantaneousVoltage:
+          type: number
+          minimum: -32767
+          maximum: 32766
+          description: '[ja: 瞬時充放電電圧計測値, en: Measured instantaneous charging/discharging
+            voltage] '
+    cumulativeDischargingElectricEnergyEvChargerDischarger:
+      description: '[ja: 積算放電電力量計測値, en: Measured cumulative amount of discharging
+        electric energy]'
+      type: object
+      properties:
+        cumulativeDischargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算放電電力量計測値, en: Measured cumulative amount of discharging
+            electric energy] '
+    cumulativeChargingElectricEnergyEvChargerDischarger:
+      description: '[ja: 積算充電電力量計測値, en: Measured cumulative amount of charging electric
+        energy]'
+      type: object
+      properties:
+        cumulativeChargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算充電電力量計測値, en: Measured cumulative amount of charging
+            electric energy] '
+    operationModeEvChargerDischarger:
+      description: '[ja: 運転モード設定, en: Operation mode setting]'
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - charge
+          - discharge
+          - standby
+          - chargingDischarging
+          - idle
+          - preparation
+          - automatic
+          - other
+          description: '[ja: 運転モード設定, en: Operation mode setting] _charge (ja: 充電,
+            en: Charge) discharge (ja: 放電, en: Discharge) standby (ja: 待機, en: Standby)
+            chargingDischarging (ja: 充放電, en: Charging/Discharging) idle (ja: 停止,
+            en: Idle) preparation (ja: 準備, en: Preparation) automatic (ja: 自動, en:
+            Automatic) other (ja: その他, en: Other) '
+    powerSystemInterconnectionStatusEvChargerDischarger:
+      description: '[ja: 系統連系状態, en: System interconnected type]'
+      type: object
+      properties:
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          description: '[ja: 系統連系状態, en: System interconnected type] _reversePowerFlowAcceptable
+            (ja: 系統連系 (逆潮流可), en: Grid connection (reverse flow acceptable)) independent
+            (ja: 独立, en: Independent operation) reversePowerFlowNotAcceptable (ja:
+            系統連系 (逆潮流不可), en: Grid connection (reverse flow not acceptable)) '
+    chargingMethodEvChargerDischarger:
+      description: '[ja: 充電方式, en: Charging method]'
+      type: object
+      properties:
+        chargingMethod:
+          type: string
+          enum:
+          - others
+          - maximumChargingElectricPower
+          - surplusElectricPower
+          - designatedElectricPower
+          - designatedElectricCurrent
+          - designatedPurchasingElectricPower
+          - v2G
+          description: '[ja: 充電方式, en: Charging method] _others (ja: その他, en: Others)
+            maximumChargingElectricPower (ja: 最大充電電力充電, en: Maximum charging electric
+            power charging) surplusElectricPower (ja: 余剰電力充電, en: Surplus electric
+            power charging) designatedElectricPower (ja: 指定電力充電, en: Designated electric
+            power charging) designatedElectricCurrent (ja: 指定電流充電, en: Designated
+            electric current charging) designatedPurchasingElectricPower (ja: 買電電力指定充電,
+            en: Designated purchasing electric power charging) v2G (ja: V2G, en: V2G) '
+    dischargingMethodEvChargerDischarger:
+      description: '[ja: 放電方式, en: Discharging method]'
+      type: object
+      properties:
+        dischargingMethod:
+          type: string
+          enum:
+          - others
+          - maximumDischargingElectricPower
+          - loadFollowing
+          - designatedElectricPower
+          - designatedElectricCurrent
+          - designatedPurchasingElectricPower
+          - v2G
+          description: '[ja: 放電方式, en: Discharging method] _others (ja: その他, en: Others)
+            maximumDischargingElectricPower (ja: 最大放電電力充電, en: Maximum discharging
+            electric power charging) loadFollowing (ja: 負荷追従放電, en: Load-following
+            discharging) designatedElectricPower (ja: 指定電力放電, en: Designated electric
+            power discharging) designatedElectricCurrent (ja: 指定電流放電, en: Designated
+            electric current discharging) designatedPurchasingElectricPower (ja: 買電電力指定放電,
+            en: Designated purchasing electric power discharging) v2G (ja: V2G, en:
+            V2G) '
+    purchasingElectricPowerEvChargerDischarger:
+      description: '[ja: 買電電力設定値, en: Purchasing electric power setting]'
+      type: object
+      properties:
+        purchasingElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 買電電力設定値, en: Purchasing electric power setting] '
+    reInterconnectionPermissionEvChargerDischarger:
+      description: '[ja: 再連系許可設定, en: Re-interconnection permission setting]'
+      type: object
+      properties:
+        reInterconnectionPermission:
+          type: string
+          enum:
+          - permitted
+          - prohibited
+          description: '[ja: 再連系許可設定, en: Re-interconnection permission setting] _permitted
+            (ja: 許可, en: Permitted) prohibited (ja: 禁止, en: Prohibited) '
+    chargingDischargingElectricPowerEvChargerDischarger:
+      description: '[ja: 充放電電力設定値, en: Charging/Discharging electric power setting]'
+      type: object
+      properties:
+        chargingDischargingElectricPower:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: 充放電電力設定値, en: Charging/Discharging electric power setting] '
+    actualOperationModeEvChargerDischarger:
+      description: '[ja: 運転動作状態, en: Actual operation mode]'
+      type: object
+      properties:
+        actualOperationMode:
+          type: string
+          enum:
+          - charge
+          - discharge
+          - standby
+          - idle
+          - preparation
+          - other
+          description: '[ja: 運転動作状態, en: Actual operation mode] _charge (ja: 充電, en:
+            Charge) discharge (ja: 放電, en: Discharge) standby (ja: 待機, en: Standby)
+            idle (ja: 停止, en: Idle) preparation (ja: 準備, en: Preparation) other (ja:
+            その他, en: Other) '
+    remainingCapacity1EvChargerDischarger:
+      description: '[ja: 車載電池の電池残容量1, en: Remaining stored electricity of vehicle
+        mounted battery1]'
+      type: object
+      properties:
+        remainingCapacity1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 車載電池の電池残容量1, en: Remaining stored electricity of vehicle
+            mounted battery1] '
+    remainingCapacity2EvChargerDischarger:
+      description: '[ja: 車載電池の電池残容量2, en: Remaining stored electricity of vehicle
+        mounted battery2]'
+      type: object
+      properties:
+        remainingCapacity2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 車載電池の電池残容量2, en: Remaining stored electricity of vehicle
+            mounted battery2] '
+    remainingCapacity3EvChargerDischarger:
+      description: '[ja: 車載電池の電池残容量3, en: Remaining stored electricity of vehicle
+        mounted battery3]'
+      type: object
+      properties:
+        remainingCapacity3:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 車載電池の電池残容量3, en: Remaining stored electricity of vehicle
+            mounted battery3] '
+    maintenanceStatusEvChargerDischarger:
+      description: '[ja: メンテナンス状態, en: Maintenance status]'
+      type: object
+      properties:
+        maintenanceStatus:
+          type: string
+          enum:
+          - necessary
+          - notNecessary
+          description: '[ja: メンテナンス状態, en: Maintenance status] _necessary (ja: 発生有,
+            en: Occurrence status found) notNecessary (ja: 発生無, en: Occurrence status
+            not found) '
+    vehicleIdEvChargerDischarger:
+      description: '[ja: 車両ID, en: Vehicle ID]'
+      type: object
+      properties:
+        vehicleId:
+          type: string
+          description: '[ja: 車両ID, en: Vehicle ID] '
+    targetChargingElectricEnergy1EvChargerDischarger:
+      description: '[ja: 充電量設定値1, en: Charging amount setting 1]'
+      type: object
+      properties:
+        targetChargingElectricEnergy1:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 充電量設定値1, en: Charging amount setting 1] '
+    targetChargingElectricEnergy2EvChargerDischarger:
+      description: '[ja: 充電量設定値2, en: Charging amount setting 2]'
+      type: object
+      properties:
+        targetChargingElectricEnergy2:
+          type: number
+          minimum: 0
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 充電量設定値2, en: Charging amount setting 2] '
+    targetDischargingElectricEnergyEvChargerDischarger:
+      description: '[ja: 放電量設定値, en: Discharging electric energy setting]'
+      type: object
+      properties:
+        targetDischargingElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 放電量設定値, en: Discharging electric energy setting] '
+    chargingElectricPowerEvChargerDischarger:
+      description: '[ja: 充電電力設定値, en: Charging electric energy setting]'
+      type: object
+      properties:
+        chargingElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 充電電力設定値, en: Charging electric energy setting] '
+    dischargingElectricPowerEvChargerDischarger:
+      description: '[ja: 放電電力設定値, en: Discharging electric energy setting]'
+      type: object
+      properties:
+        dischargingElectricPower:
+          type: number
+          minimum: 0
+          maximum: 999999999
+          description: '[ja: 放電電力設定値, en: Discharging electric energy setting] '
+    chargingCurrentEvChargerDischarger:
+      description: '[ja: 充電電流設定値, en: Charging current setting]'
+      type: object
+      properties:
+        chargingCurrent:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 充電電流設定値, en: Charging current setting] '
+    dischargingCurrentEvChargerDischarger:
+      description: '[ja: 放電電流設定値, en: Discharging current setting]'
+      type: object
+      properties:
+        dischargingCurrent:
+          type: number
+          minimum: 0
+          maximum: 6553.3
+          multipleOf: 0.1
+          description: '[ja: 放電電流設定値, en: Discharging current setting] '
+    ratedVoltageOfIndependentOperationEvChargerDischarger:
+      description: '[ja: 定格電圧 (独立時), en: Rated voltage (Independent)]'
+      type: object
+      properties:
+        ratedVoltageOfIndependentOperation:
+          type: number
+          minimum: 0
+          maximum: 32766
+          description: '[ja: 定格電圧 (独立時), en: Rated voltage (Independent)] '
+    resetCumulativeDischargingElectricEnergyEvChargerDischarger: {}
+    resetCumulativeChargingElectricEnergyEvChargerDischarger: {}
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

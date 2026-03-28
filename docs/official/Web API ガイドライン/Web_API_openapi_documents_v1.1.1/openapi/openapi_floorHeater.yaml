@@ -1,0 +1,1222 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: FloorHeater
+  description: tag for Floor heater
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesFloorHeater
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservation:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: ON timer reservation setting'
+      operationId: getDevicesPropertiesOnTimerReservationFloorHeater
+      description: '取得: ON タイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: ON timer reservation setting'
+      operationId: putDevicesPropertiesOnTimerReservationFloorHeater
+      description: '設定: ON タイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservationFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOnTimer:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Time set by ON timer'
+      operationId: getDevicesPropertiesTimeOfOnTimerFloorHeater
+      description: '取得: ON タイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOnTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Time set by ON timer'
+      operationId: putDevicesPropertiesTimeOfOnTimerFloorHeater
+      description: '設定: ON タイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOnTimerFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOnTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOnTimer:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Relative ON timer setting'
+      operationId: getDevicesPropertiesRelativeTimeOfOnTimerFloorHeater
+      description: '取得: ON タイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Relative ON timer setting'
+      operationId: putDevicesPropertiesRelativeTimeOfOnTimerFloorHeater
+      description: '設定: ON タイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOnTimerFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/offTimerReservation:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: OFF timer reservation setting'
+      operationId: getDevicesPropertiesOffTimerReservationFloorHeater
+      description: '取得: OFF タイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: OFF timer reservation setting'
+      operationId: putDevicesPropertiesOffTimerReservationFloorHeater
+      description: '設定: OFF タイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offTimerReservationFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOffTimer:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Time set by OFF timer'
+      operationId: getDevicesPropertiesTimeOfOffTimerFloorHeater
+      description: '取得: OFF タイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Time set by OFF timer'
+      operationId: putDevicesPropertiesTimeOfOffTimerFloorHeater
+      description: '設定: OFF タイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOffTimerFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOffTimer:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Relative OFF timer setting'
+      operationId: getDevicesPropertiesRelativeTimeOfOffTimerFloorHeater
+      description: '取得: OFF タイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Relative OFF timer setting'
+      operationId: putDevicesPropertiesRelativeTimeOfOffTimerFloorHeater
+      description: '設定: OFF タイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOffTimerFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/maximumTargetTemperature2:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Maximum temperature level'
+      operationId: getDevicesPropertiesMaximumTargetTemperature2FloorHeater
+      description: '取得: 温度設定2設定可能最大レベル'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/maximumTargetTemperature2FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetTemperature1:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Set temperature value'
+      operationId: getDevicesPropertiesTargetTemperature1FloorHeater
+      description: '取得: 温度設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperature1FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Set temperature value'
+      operationId: putDevicesPropertiesTargetTemperature1FloorHeater
+      description: '設定: 温度設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetTemperature1FloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperature1FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetTemperature2:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Set temperature level by 15 steps'
+      operationId: getDevicesPropertiesTargetTemperature2FloorHeater
+      description: '取得: 温度設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperature2FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Set temperature level by 15 steps'
+      operationId: putDevicesPropertiesTargetTemperature2FloorHeater
+      description: '設定: 温度設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetTemperature2FloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetTemperature2FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measuredRoomTemperature:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Measured room temperature'
+      operationId: getDevicesPropertiesMeasuredRoomTemperatureFloorHeater
+      description: '取得: 室内温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measuredRoomTemperatureFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/measuredFloorTemperature:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Measured floor temperature'
+      operationId: getDevicesPropertiesMeasuredFloorTemperatureFloorHeater
+      description: '取得: 床温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/measuredFloorTemperatureFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/controllableZone:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Zone change setting'
+      operationId: getDevicesPropertiesControllableZoneFloorHeater
+      description: '取得: ゾーン切替え設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/controllableZoneFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Zone change setting'
+      operationId: putDevicesPropertiesControllableZoneFloorHeater
+      description: '設定: ゾーン切替え設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/controllableZoneFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/controllableZoneFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/specialOperationMode:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Special operation setting'
+      operationId: getDevicesPropertiesSpecialOperationModeFloorHeater
+      description: '取得: 特殊運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/specialOperationModeFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Special operation setting'
+      operationId: putDevicesPropertiesSpecialOperationModeFloorHeater
+      description: '設定: 特殊運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/specialOperationModeFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/specialOperationModeFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dailyTimer:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Daily timer setting'
+      operationId: getDevicesPropertiesDailyTimerFloorHeater
+      description: '取得: デイリータイマー設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dailyTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Daily timer setting'
+      operationId: putDevicesPropertiesDailyTimerFloorHeater
+      description: '設定: デイリータイマー設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dailyTimerFloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dailyTimerFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/workedDailyTimer1:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Daily timer setting 1'
+      operationId: getDevicesPropertiesWorkedDailyTimer1FloorHeater
+      description: '取得: デイリータイマー1設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workedDailyTimer1FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Daily timer setting 1'
+      operationId: putDevicesPropertiesWorkedDailyTimer1FloorHeater
+      description: '設定: デイリータイマー1設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/workedDailyTimer1FloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workedDailyTimer1FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/workedDailyTimer2:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Daily timer setting 2'
+      operationId: getDevicesPropertiesWorkedDailyTimer2FloorHeater
+      description: '取得: デイリータイマー2設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workedDailyTimer2FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - FloorHeater
+      summary: 'Set: Daily timer setting 2'
+      operationId: putDevicesPropertiesWorkedDailyTimer2FloorHeater
+      description: '設定: デイリータイマー2設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/workedDailyTimer2FloorHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workedDailyTimer2FloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedPowerConsumption:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Rated power consumption'
+      operationId: getDevicesPropertiesRatedPowerConsumptionFloorHeater
+      description: '取得: 定格消費電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedPowerConsumptionFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerMeasurementMethod:
+    get:
+      tags:
+      - FloorHeater
+      summary: 'Get: Power consumption measurement method'
+      operationId: getDevicesPropertiesPowerMeasurementMethodFloorHeater
+      description: '取得: 消費電力計測方法'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerMeasurementMethodFloorHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesFloorHeater:
+      description: propertiesFloorHeater
+      type: object
+      properties:
+        onTimerReservation:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: ON タイマ予約設定, en: ON timer reservation setting] _on (ja:
+            予約入, en: ON) off (ja: 予約切, en: OFF) '
+        timeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ON タイマ時刻設定値, en: Time set by ON timer] '
+        relativeTimeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ON タイマ相対時間設定値, en: Relative ON timer setting] '
+        offTimerReservation:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: OFF タイマ予約設定, en: OFF timer reservation setting] _on (ja:
+            予約入, en: ON) off (ja: 予約切, en: OFF) '
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFF タイマ時刻設定値, en: Time set by OFF timer] '
+        relativeTimeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFF タイマ相対時間設定値, en: Relative OFF timer setting] '
+        maximumTargetTemperature2:
+          type: number
+          minimum: 1
+          maximum: 15
+          multipleOf: 1
+          description: '[ja: 温度設定2設定可能最大レベル, en: Maximum temperature level] '
+        targetTemperature1:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Auto) '
+          description: '[ja: 温度設定1, en: Set temperature value] '
+        targetTemperature2:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 15
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Auto) '
+          description: '[ja: 温度設定2, en: Set temperature level by 15 steps] '
+        measuredRoomTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 室内温度計測値, en: Measured room temperature] '
+        measuredFloorTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 床温度計測値, en: Measured floor temperature] '
+        controllableZone:
+          type: array
+          minItems: 8
+          maxItems: 8
+          items:
+            type: boolean
+            description: '_True (ja: 制御有り, en: With control) False (ja: 制御無し, en:
+              Without control) '
+          description: '[ja: ゾーン切替え設定, en: Zone change setting] '
+        specialOperationMode:
+          type: string
+          enum:
+          - normal
+          - modest
+          - highPower
+          description: '[ja: 特殊運転設定, en: Special operation setting] _normal (ja: 通常運転,
+            en: Normal) modest (ja: ひかえめ運転, en: Modest) highPower (ja: ハイパワー運転, en:
+            High power) '
+        dailyTimer:
+          type: string
+          enum:
+          - 'off'
+          - timer1
+          - timer2
+          description: '[ja: デイリータイマー設定, en: Daily timer setting] _off (ja: タイマー切,
+            en: OFF) timer1 (ja: タイマー1, en: Timer1) timer2 (ja: タイマー2, en: Timer2) '
+        workedDailyTimer1:
+          type: array
+          minItems: 0
+          maxItems: 24
+          items:
+            type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 運転開始時間, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 運転停止時間, en: End time] _'
+          description: '[ja: デイリータイマー1設定, en: Daily timer setting 1] '
+        workedDailyTimer2:
+          type: array
+          minItems: 0
+          maxItems: 24
+          items:
+            type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 運転開始時間, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 運転停止時間, en: End time] _'
+          description: '[ja: デイリータイマー2設定, en: Daily timer setting 2] '
+        ratedPowerConsumption:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 定格消費電力値, en: Rated power consumption] '
+        powerMeasurementMethod:
+          type: string
+          enum:
+          - node
+          - class
+          - instance
+          description: '[ja: 消費電力計測方法, en: Power consumption measurement method] _node
+            (ja: ノード単位, en: Node unit) class (ja: クラス単位, en: Class unit) instance
+            (ja: インスタンス単位, en: Instance unit) '
+    onTimerReservationFloorHeater:
+      description: '[ja: ON タイマ予約設定, en: ON timer reservation setting]'
+      type: object
+      properties:
+        onTimerReservation:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: ON タイマ予約設定, en: ON timer reservation setting] _on (ja:
+            予約入, en: ON) off (ja: 予約切, en: OFF) '
+    timeOfOnTimerFloorHeater:
+      description: '[ja: ON タイマ時刻設定値, en: Time set by ON timer]'
+      type: object
+      properties:
+        timeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ON タイマ時刻設定値, en: Time set by ON timer] '
+    relativeTimeOfOnTimerFloorHeater:
+      description: '[ja: ON タイマ相対時間設定値, en: Relative ON timer setting]'
+      type: object
+      properties:
+        relativeTimeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ON タイマ相対時間設定値, en: Relative ON timer setting] '
+    offTimerReservationFloorHeater:
+      description: '[ja: OFF タイマ予約設定, en: OFF timer reservation setting]'
+      type: object
+      properties:
+        offTimerReservation:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: OFF タイマ予約設定, en: OFF timer reservation setting] _on (ja:
+            予約入, en: ON) off (ja: 予約切, en: OFF) '
+    timeOfOffTimerFloorHeater:
+      description: '[ja: OFF タイマ時刻設定値, en: Time set by OFF timer]'
+      type: object
+      properties:
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFF タイマ時刻設定値, en: Time set by OFF timer] '
+    relativeTimeOfOffTimerFloorHeater:
+      description: '[ja: OFF タイマ相対時間設定値, en: Relative OFF timer setting]'
+      type: object
+      properties:
+        relativeTimeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFF タイマ相対時間設定値, en: Relative OFF timer setting] '
+    maximumTargetTemperature2FloorHeater:
+      description: '[ja: 温度設定2設定可能最大レベル, en: Maximum temperature level]'
+      type: object
+      properties:
+        maximumTargetTemperature2:
+          type: number
+          minimum: 1
+          maximum: 15
+          multipleOf: 1
+          description: '[ja: 温度設定2設定可能最大レベル, en: Maximum temperature level] '
+    targetTemperature1FloorHeater:
+      description: '[ja: 温度設定1, en: Set temperature value]'
+      type: object
+      properties:
+        targetTemperature1:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 50
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Auto) '
+          description: '[ja: 温度設定1, en: Set temperature value] '
+    targetTemperature2FloorHeater:
+      description: '[ja: 温度設定2, en: Set temperature level by 15 steps]'
+      type: object
+      properties:
+        targetTemperature2:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 15
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Auto) '
+          description: '[ja: 温度設定2, en: Set temperature level by 15 steps] '
+    measuredRoomTemperatureFloorHeater:
+      description: '[ja: 室内温度計測値, en: Measured room temperature]'
+      type: object
+      properties:
+        measuredRoomTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 室内温度計測値, en: Measured room temperature] '
+    measuredFloorTemperatureFloorHeater:
+      description: '[ja: 床温度計測値, en: Measured floor temperature]'
+      type: object
+      properties:
+        measuredFloorTemperature:
+          oneOf:
+          - type: number
+            minimum: -127
+            maximum: 125
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 床温度計測値, en: Measured floor temperature] '
+    controllableZoneFloorHeater:
+      description: '[ja: ゾーン切替え設定, en: Zone change setting]'
+      type: object
+      properties:
+        controllableZone:
+          type: array
+          minItems: 8
+          maxItems: 8
+          items:
+            type: boolean
+            description: '_True (ja: 制御有り, en: With control) False (ja: 制御無し, en:
+              Without control) '
+          description: '[ja: ゾーン切替え設定, en: Zone change setting] '
+    specialOperationModeFloorHeater:
+      description: '[ja: 特殊運転設定, en: Special operation setting]'
+      type: object
+      properties:
+        specialOperationMode:
+          type: string
+          enum:
+          - normal
+          - modest
+          - highPower
+          description: '[ja: 特殊運転設定, en: Special operation setting] _normal (ja: 通常運転,
+            en: Normal) modest (ja: ひかえめ運転, en: Modest) highPower (ja: ハイパワー運転, en:
+            High power) '
+    dailyTimerFloorHeater:
+      description: '[ja: デイリータイマー設定, en: Daily timer setting]'
+      type: object
+      properties:
+        dailyTimer:
+          type: string
+          enum:
+          - 'off'
+          - timer1
+          - timer2
+          description: '[ja: デイリータイマー設定, en: Daily timer setting] _off (ja: タイマー切,
+            en: OFF) timer1 (ja: タイマー1, en: Timer1) timer2 (ja: タイマー2, en: Timer2) '
+    workedDailyTimer1FloorHeater:
+      description: '[ja: デイリータイマー1設定, en: Daily timer setting 1]'
+      type: object
+      properties:
+        workedDailyTimer1:
+          type: array
+          minItems: 0
+          maxItems: 24
+          items:
+            type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 運転開始時間, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 運転停止時間, en: End time] _'
+          description: '[ja: デイリータイマー1設定, en: Daily timer setting 1] '
+    workedDailyTimer2FloorHeater:
+      description: '[ja: デイリータイマー2設定, en: Daily timer setting 2]'
+      type: object
+      properties:
+        workedDailyTimer2:
+          type: array
+          minItems: 0
+          maxItems: 24
+          items:
+            type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 運転開始時間, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 運転停止時間, en: End time] _'
+          description: '[ja: デイリータイマー2設定, en: Daily timer setting 2] '
+    ratedPowerConsumptionFloorHeater:
+      description: '[ja: 定格消費電力値, en: Rated power consumption]'
+      type: object
+      properties:
+        ratedPowerConsumption:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 定格消費電力値, en: Rated power consumption] '
+    powerMeasurementMethodFloorHeater:
+      description: '[ja: 消費電力計測方法, en: Power consumption measurement method]'
+      type: object
+      properties:
+        powerMeasurementMethod:
+          type: string
+          enum:
+          - node
+          - class
+          - instance
+          description: '[ja: 消費電力計測方法, en: Power consumption measurement method] _node
+            (ja: ノード単位, en: Node unit) class (ja: クラス単位, en: Class unit) instance
+            (ja: インスタンス単位, en: Instance unit) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

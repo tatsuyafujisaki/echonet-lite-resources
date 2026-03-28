@@ -1,0 +1,981 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: GroupHistories
+  description: tag for GroupHistories
+security:
+- api_key: []
+paths:
+  /elapi/v1/groupHistories/{groupHistoryID}/properties:
+    get:
+      tags:
+      - GroupHistories
+      summary: 'Get: properties'
+      operationId: getGroupHistoriesPropertiesGroupHistories
+      description: '取得: properties'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/prepareRetrieveDataBySync:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Prepare data to retrieve by sync'
+      operationId: postGroupHistoriesActionsPrepareRetrieveDataBySyncGroupHistories
+      description: '実行: 取得用データの準備を指示する(Sync)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prepareRetrieveDataBySyncInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prepareRetrieveDataBySyncGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/retrieveBySync:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Retrieve histories data by sync'
+      operationId: postGroupHistoriesActionsRetrieveBySyncGroupHistories
+      description: '実行: 履歴データを取得する(Sync)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/retrieveBySyncInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retrieveBySyncGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/prepareRetrieveDataByAsync:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Prepare data to retrieve by async'
+      operationId: postGroupHistoriesActionsPrepareRetrieveDataByAsyncGroupHistories
+      description: '実行: 取得用データの準備を指示する(Async)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prepareRetrieveDataByAsyncInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prepareRetrieveDataByAsyncGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/inquireByAsync:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Check readiness to retrieve historical data subsets by async'
+      operationId: postGroupHistoriesActionsInquireByAsyncGroupHistories
+      description: '実行: 履歴データサブセットの取得準備状況を確認する(Async)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/inquireByAsyncInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inquireByAsyncGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/retrieveByAsync:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Retrieve histories data by async'
+      operationId: postGroupHistoriesActionsRetrieveByAsyncGroupHistories
+      description: '実行: 履歴データを取得する(Async)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/retrieveByAsyncInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retrieveByAsyncGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/prepareRetrieveDataByFile:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Prepare data to retrieve by file'
+      operationId: postGroupHistoriesActionsPrepareRetrieveDataByFileGroupHistories
+      description: '実行: 取得用データの準備を指示する(File)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prepareRetrieveDataByFileInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prepareRetrieveDataByFileGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/retrieveByFile:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Retrieve histories data by file'
+      operationId: postGroupHistoriesActionsRetrieveByFileGroupHistories
+      description: '実行: 履歴データを取得する(File)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/retrieveByFileInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retrieveByFileGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/abortPrepareRetrieveDataByAsync:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Abort a prepareRetrieveDataByAsync execution by async'
+      operationId: postGroupHistoriesActionsAbortPrepareRetrieveDataByAsyncGroupHistories
+      description: '実行: prepareRetrieveDataByAsync実⾏の中断(Async)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/abortPrepareRetrieveDataByAsyncInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/abortPrepareRetrieveDataByAsyncGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/abortPrepareRetrieveDataByFile:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Abort a prepareRetrieveDataByFile execution by file'
+      operationId: postGroupHistoriesActionsAbortPrepareRetrieveDataByFileGroupHistories
+      description: '実行: prepareRetrieveDataByFile実⾏の中断(File)'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/abortPrepareRetrieveDataByFileInputGroupHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/abortPrepareRetrieveDataByFileGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/getDeviceType:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Get a list of group Types for a groupHistory ID'
+      operationId: postGroupHistoriesActionsGetDeviceTypeGroupHistories
+      description: '実行: groupHistory IDに対応するdeviceType一覧の取得'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getDeviceTypeGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/getDeviceId:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Get a list of devices for a groupHistory ID'
+      operationId: postGroupHistoriesActionsGetDeviceIdGroupHistories
+      description: '実行: groupHistory IDに対応する機器一覧の取得'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getDeviceIdGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/groupHistories/{groupHistoryID}/actions/getGroupId:
+    post:
+      tags:
+      - GroupHistories
+      summary: 'Post: Get a list of group IDs for a groupHistory ID'
+      operationId: postGroupHistoriesActionsGetGroupIdGroupHistories
+      description: '実行: groupHistory IDに対応するgroup ID一覧の取得'
+      parameters:
+      - description: group history id
+        name: groupHistoryID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getGroupIdGroupHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesGroupHistories:
+      description: propertiesGroupHistories
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: group historyの説明, en: explanation of group history] '
+        resourceType:
+          type: string
+          enum:
+          - property
+          - action
+          - event
+          description: '[ja: リソースタイプ, en: resource type] '
+        resourceName:
+          type: string
+          description: '[ja: リソース名, en: resource name] '
+        timing:
+          type: object
+          properties:
+            timingType:
+              type: string
+              enum:
+              - onChange
+              - interval
+            intervalValue:
+              type: number
+            intervalUnit:
+              type: string
+              enum:
+              - sec
+              - min
+              - hour
+              - day
+              - month
+              - year
+          description: '[ja: 複数機器履歴データの取得タイミング, en: timing to record group history
+            data] '
+        period:
+          type: object
+          properties:
+            first:
+              type: string
+              format: date-time
+            last:
+              type: string
+              format: date-time
+            duration:
+              type: object
+              properties:
+                value:
+                  type: number
+                  multipleOf: 1
+          description: '[ja: 複数機器履歴データの取り扱い期間, en: period of time to keep group history
+            data] '
+        maxRequestDuration:
+          type: object
+          properties:
+            value:
+              type: number
+              multipleOf: 1
+          description: '[ja: 複数機器履歴データの取得可能な期間, en: maximum duration for which group
+            history data can be retrieved] '
+        maxRequestNumberOfDevices:
+          type: number
+          multipleOf: 1
+          description: '[ja: 複数機器履歴データ取得可能な最大要求台数, en: maximum number of devices requested] '
+        retrieveMethod:
+          type: string
+          enum:
+          - sync
+          - async
+          - file
+          description: '[ja: データ取得方法, en: method to retrieve group history data] '
+        dataStructure:
+          type: array
+          items:
+            type: string
+            enum:
+            - device
+            - time
+          description: '[ja: 複数機器履歴データの型, en: type of group history data] '
+    descriptionsGroupHistories:
+      description: '[ja: group historyの説明, en: explanation of group history]'
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: group historyの説明, en: explanation of group history] '
+    resourceTypeGroupHistories:
+      description: '[ja: リソースタイプ, en: resource type]'
+      type: object
+      properties:
+        resourceType:
+          type: string
+          enum:
+          - property
+          - action
+          - event
+          description: '[ja: リソースタイプ, en: resource type] '
+    resourceNameGroupHistories:
+      description: '[ja: リソース名, en: resource name]'
+      type: object
+      properties:
+        resourceName:
+          type: string
+          description: '[ja: リソース名, en: resource name] '
+    timingGroupHistories:
+      description: '[ja: 複数機器履歴データの取得タイミング, en: timing to record group history data]'
+      type: object
+      properties:
+        timing:
+          type: object
+          properties:
+            timingType:
+              type: string
+              enum:
+              - onChange
+              - interval
+            intervalValue:
+              type: number
+            intervalUnit:
+              type: string
+              enum:
+              - sec
+              - min
+              - hour
+              - day
+              - month
+              - year
+          description: '[ja: 複数機器履歴データの取得タイミング, en: timing to record group history
+            data] '
+    periodGroupHistories:
+      description: '[ja: 複数機器履歴データの取り扱い期間, en: period of time to keep group history
+        data]'
+      type: object
+      properties:
+        period:
+          type: object
+          properties:
+            first:
+              type: string
+              format: date-time
+            last:
+              type: string
+              format: date-time
+            duration:
+              type: object
+              properties:
+                value:
+                  type: number
+                  multipleOf: 1
+          description: '[ja: 複数機器履歴データの取り扱い期間, en: period of time to keep group history
+            data] '
+    maxRequestDurationGroupHistories:
+      description: '[ja: 複数機器履歴データの取得可能な期間, en: maximum duration for which group history
+        data can be retrieved]'
+      type: object
+      properties:
+        maxRequestDuration:
+          type: object
+          properties:
+            value:
+              type: number
+              multipleOf: 1
+          description: '[ja: 複数機器履歴データの取得可能な期間, en: maximum duration for which group
+            history data can be retrieved] '
+    maxRequestNumberOfDevicesGroupHistories:
+      description: '[ja: 複数機器履歴データ取得可能な最大要求台数, en: maximum number of devices requested]'
+      type: object
+      properties:
+        maxRequestNumberOfDevices:
+          type: number
+          multipleOf: 1
+          description: '[ja: 複数機器履歴データ取得可能な最大要求台数, en: maximum number of devices requested] '
+    retrieveMethodGroupHistories:
+      description: '[ja: データ取得方法, en: method to retrieve group history data]'
+      type: object
+      properties:
+        retrieveMethod:
+          type: string
+          enum:
+          - sync
+          - async
+          - file
+          description: '[ja: データ取得方法, en: method to retrieve group history data] '
+    dataStructureGroupHistories:
+      description: '[ja: 複数機器履歴データの型, en: type of group history data]'
+      type: object
+      properties:
+        dataStructure:
+          type: array
+          items:
+            type: string
+            enum:
+            - device
+            - time
+          description: '[ja: 複数機器履歴データの型, en: type of group history data] '
+    prepareRetrieveDataBySyncGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        count:
+          type: number
+          minimum: 0
+          multipleOf: 1
+        countPerPage:
+          type: number
+          minimum: 1
+          multipleOf: 1
+        expirationTime:
+          type: string
+          format: date-time
+    prepareRetrieveDataBySyncInputGroupHistories:
+      type: object
+      properties:
+        groupId:
+          type: array
+          items:
+            type: string
+        deviceId:
+          type: array
+          items:
+            type: string
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+        dataStructure:
+          type: string
+          enum:
+          - device
+          - time
+    retrieveBySyncGroupHistories:
+      type: object
+      properties:
+        processStatus:
+          type: string
+          enum:
+          - succeeded
+          - failed
+        resourceType:
+          type: string
+          enum:
+          - property
+          - action
+          - event
+        resourceName:
+          type: string
+        expirationTime:
+          type: string
+          format: date-time
+        data:
+          oneOf:
+          - type: array
+            items:
+              type: object
+              properties:
+                deviceId:
+                  type: string
+                deviceData:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      time:
+                        type: string
+                        format: date-time
+                      value:
+                        type:
+                        - string
+                        - number
+                        - boolean
+                        - object
+                        - array
+          - type: array
+            items:
+              type: object
+              properties:
+                time:
+                  type: string
+                  format: date-time
+                deviceId:
+                  type: string
+                value:
+                  type:
+                  - string
+                  - number
+                  - boolean
+                  - object
+                  - array
+    retrieveBySyncInputGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        page:
+          type: number
+          minimum: 1
+          multipleOf: 1
+    prepareRetrieveDataByAsyncGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        estimatedTimeOfCompletion:
+          type: string
+          format: date-time
+        expirationTime:
+          type: string
+          format: date-time
+    prepareRetrieveDataByAsyncInputGroupHistories:
+      type: object
+      properties:
+        groupId:
+          type: array
+          items:
+            type: string
+        deviceId:
+          type: array
+          items:
+            type: string
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+        dataStructure:
+          type: string
+          enum:
+          - device
+          - time
+    inquireByAsyncGroupHistories:
+      type: object
+      properties:
+        processStatus:
+          type: string
+          enum:
+          - succeeded
+          - failed
+          - inProgress
+          - aborted
+        count:
+          type: number
+          multipleOf: 1
+        countPerPage:
+          type: number
+          multipleOf: 1
+        estimatedTimeOfCompletion:
+          type: string
+          format: date-time
+        expirationTime:
+          type: string
+          format: date-time
+    inquireByAsyncInputGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+    retrieveByAsyncGroupHistories:
+      type: object
+      properties:
+        processStatus:
+          type: string
+          enum:
+          - succeeded
+          - failed
+          - inProgress
+          - aborted
+        resourceType:
+          type: string
+          enum:
+          - property
+          - action
+          - event
+        resourceName:
+          type: string
+        expirationTime:
+          type: string
+          format: date-time
+        data:
+          oneOf:
+          - type: array
+            items:
+              type: object
+              properties:
+                deviceId:
+                  type: string
+                deviceData:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      time:
+                        type: string
+                        format: date-time
+                      value:
+                        type:
+                        - string
+                        - number
+                        - boolean
+                        - object
+                        - array
+          - type: array
+            items:
+              type: object
+              properties:
+                time:
+                  type: string
+                  format: date-time
+                deviceId:
+                  type: string
+                value:
+                  type:
+                  - string
+                  - number
+                  - boolean
+                  - object
+                  - array
+    retrieveByAsyncInputGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        page:
+          type: number
+          minimum: 1
+          multipleOf: 1
+    prepareRetrieveDataByFileGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        estimatedTimeOfCompletion:
+          type: string
+          format: date-time
+        expirationTime:
+          type: string
+          format: date-time
+    prepareRetrieveDataByFileInputGroupHistories:
+      type: object
+      properties:
+        groupId:
+          type: array
+          items:
+            type: string
+        deviceId:
+          type: array
+          items:
+            type: string
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+        dataStructure:
+          type: string
+          enum:
+          - device
+          - time
+    retrieveByFileGroupHistories:
+      type: object
+      properties:
+        processStatus:
+          type: string
+          enum:
+          - succeeded
+          - failed
+          - inProgress
+          - aborted
+        resourceType:
+          type: string
+          enum:
+          - property
+          - action
+          - event
+        resourceName:
+          type: string
+        url:
+          type: string
+        estimatedTimeOfCompletion:
+          type: string
+          format: date-time
+        expirationTime:
+          type: string
+          format: date-time
+    retrieveByFileInputGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+    abortPrepareRetrieveDataByAsyncGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+    abortPrepareRetrieveDataByAsyncInputGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+    abortPrepareRetrieveDataByFileGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+    abortPrepareRetrieveDataByFileInputGroupHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+    getDeviceTypeGroupHistories:
+      type: object
+      properties:
+        deviceType:
+          type: array
+          items:
+            type: string
+    getDeviceIdGroupHistories:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              deviceType:
+                type: string
+              protocol:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  version:
+                    type: string
+              manufacturer:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  descriptions:
+                    type: object
+                    properties:
+                      ja:
+                        type: string
+                      en:
+                        type: string
+    getGroupIdGroupHistories:
+      type: object
+      properties:
+        groups:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              descriptions:
+                type: object
+                properties:
+                  ja:
+                    type: string
+                  en:
+                    type: string
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

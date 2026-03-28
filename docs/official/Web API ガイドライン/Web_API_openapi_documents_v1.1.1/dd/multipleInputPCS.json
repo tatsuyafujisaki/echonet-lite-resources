@@ -1,0 +1,124 @@
+{
+  "deviceType": "multipleInputPCS",
+  "metaData": {
+    "version": "1.6.0"
+  },
+  "eoj": "0x02A5",
+  "descriptions": {
+    "ja": "マルチ入力PCS",
+    "en": "Multiple input pcs"
+  },
+  "properties": {
+    "powerSystemInterconnectionStatus": {
+      "epc": "0xD0",
+      "descriptions": {
+        "ja": "系統連系状態",
+        "en": "System interconnection status"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "reversePowerFlowAcceptable",
+          "independent",
+          "reversePowerFlowNotAcceptable"
+        ],
+        "values": [
+          {
+            "value": "reversePowerFlowAcceptable",
+            "descriptions": {
+              "ja": "系統連系(逆潮流可)",
+              "en": "System-interconnected type (reverse power flow acceptable)"
+            },
+            "edt": "0x00"
+          },
+          {
+            "value": "independent",
+            "descriptions": {
+              "ja": "独立",
+              "en": "Independent type"
+            },
+            "edt": "0x01"
+          },
+          {
+            "value": "reversePowerFlowNotAcceptable",
+            "descriptions": {
+              "ja": "系統連系(逆潮流不可)",
+              "en": "System-interconnected type (reverse power flow not acceptable)"
+            },
+            "edt": "0x02"
+          }
+        ]
+      }
+    },
+    "normalDirectionElectricEnergy": {
+      "epc": "0xE0",
+      "descriptions": {
+        "ja": "積算電力量計測値(正方向)",
+        "en": "Measured cumulative amount of electric energy (normal direction)"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "kWh",
+        "minimum": 0,
+        "maximum": 999999.999,
+        "multipleOf": 0.001
+      }
+    },
+    "reverseDirectionElectricEnergy": {
+      "epc": "0xE3",
+      "descriptions": {
+        "ja": "積算電力量計測値(逆方向)",
+        "en": "Measured cumulative amount of electric energy (reverse direction)"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "kWh",
+        "minimum": 0,
+        "maximum": 999999.999,
+        "multipleOf": 0.001
+      }
+    },
+    "instantaneousElectricPower": {
+      "epc": "0xE7",
+      "descriptions": {
+        "ja": "瞬時電力計測値",
+        "en": "Measured instantaneous electric power"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "W",
+        "minimum": -2147483647,
+        "maximum": 2147483645
+      }
+    },
+    "connectedDeviceList": {
+      "epc": "0xE8",
+      "descriptions": {
+        "ja": "接続機器リスト",
+        "en": "List of connected devices"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 10,
+        "items": {
+          "type": "string"
+        }
+      },
+      "note": {
+        "ja": "接続機器オブジェクト(EOJ 3Byte)のリスト(最大10)",
+        "en": "EOJ List of connected devices (max. 10)."
+      }
+    }
+  }
+}

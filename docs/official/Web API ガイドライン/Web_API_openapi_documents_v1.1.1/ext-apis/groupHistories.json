@@ -1,0 +1,821 @@
+{
+    "properties": {
+        "descriptions": {
+            "descriptions": {
+                "ja": "group historyの説明",
+                "en": "explanation of group history"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ja": {
+                        "type": "string"
+                    },
+                    "en": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "resourceType": {
+            "descriptions": {
+                "ja": "リソースタイプ",
+                "en": "resource type"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "property",
+                    "action",
+                    "event"
+                ]
+            }
+        },
+        "resourceName": {
+            "descriptions": {
+                "ja": "リソース名",
+                "en": "resource name"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string"
+            }
+        },
+        "timing": {
+            "descriptions": {
+                "ja": "複数機器履歴データの取得タイミング",
+                "en": "timing to record group history data"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "timingType": {
+                        "type": "string",
+                        "enum": [
+                            "onChange",
+                            "interval"
+                        ]
+                    },
+                    "intervalValue": {
+                        "type": "number"
+                    },
+                    "intervalUnit": {
+                        "type": "string",
+                        "enum": [
+                            "sec",
+                            "min",
+                            "hour",
+                            "day",
+                            "month",
+                            "year"
+                        ]
+                    }
+                }
+            }
+        },
+        "period": {
+            "descriptions": {
+                "ja": "複数機器履歴データの取り扱い期間",
+                "en": "period of time to keep group history data"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "first": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "last": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "duration": {
+                        "type": "object",
+                        "properties": {
+                            "value": {
+                                "type": "number",
+                                "multipleOf": 1
+                            },
+                            "unit": {
+                                "type": "string",
+                                "enum": [
+                                    "day",
+                                    "month",
+                                    "year"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "maxRequestDuration": {
+            "descriptions": {
+                "ja": "複数機器履歴データの取得可能な期間",
+                "en": "maximum duration for which group history data can be retrieved"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "number",
+                        "multipleOf": 1
+                    },
+                    "unit": {
+                        "type": "string",
+                        "enum": [
+                            "day",
+                            "month",
+                            "year"
+                        ]
+                    }
+                }
+            }
+        },
+        "maxRequestNumberOfDevices": {
+            "descriptions": {
+                "ja": "複数機器履歴データ取得可能な最大要求台数",
+                "en": "maximum number of devices requested"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "number",
+                "multipleOf": 1
+            }
+        },
+        "retrieveMethod": {
+            "descriptions": {
+                "ja": "データ取得方法",
+                "en": "method to retrieve group history data"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "sync",
+                    "async",
+                    "file"
+                ]
+            }
+        },
+        "dataStructure": {
+            "descriptions": {
+                "ja": "複数機器履歴データの型",
+                "en": "type of group history data"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "enum": [
+                        "device",
+                        "time"
+                    ]
+                }
+            }
+        }
+    },
+    "actions": {
+        "prepareRetrieveDataBySync": {
+            "descriptions": {
+                "ja": "取得用データの準備を指示する(Sync)",
+                "en": "Prepare data to retrieve by sync"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "groupId": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "deviceId": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "to": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "dataStructure": {
+                        "type": "string",
+                        "enum": [
+                            "device",
+                            "time"
+                        ]
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "count": {
+                        "type": "number",
+                        "minimum": 0,
+                        "multipleOf": 1
+                    },
+                    "countPerPage": {
+                        "type": "number",
+                        "minimum": 1,
+                        "multipleOf": 1
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        },
+        "retrieveBySync": {
+            "descriptions": {
+                "ja": "履歴データを取得する(Sync)",
+                "en": "Retrieve histories data by sync"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "page": {
+                        "type": "number",
+                        "minimum": 1,
+                        "multipleOf": 1
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "processStatus": {
+                        "type": "string",
+                        "enum": [
+                            "succeeded",
+                            "failed"
+                        ]
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "enum": [
+                            "property",
+                            "action",
+                            "event"
+                        ]
+                    },
+                    "resourceName": {
+                        "type": "string"
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "data": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "deviceId": {
+                                            "type": "string"
+                                        },
+                                        "deviceData": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "time": {
+                                                        "type": "string",
+                                                        "format": "date-time"
+                                                    },
+                                                    "value": {
+                                                        "type": [
+                                                            "string",
+                                                            "number",
+                                                            "boolean",
+                                                            "object",
+                                                            "array"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "time": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "deviceId": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": [
+                                                "string",
+                                                "number",
+                                                "boolean",
+                                                "object",
+                                                "array"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "prepareRetrieveDataByAsync": {
+            "descriptions": {
+                "ja": "取得用データの準備を指示する(Async)",
+                "en": "Prepare data to retrieve by async"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "groupId": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "deviceId": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "to": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "dataStructure": {
+                        "type": "string",
+                        "enum": [
+                            "device",
+                            "time"
+                        ]
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "estimatedTimeOfCompletion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        },
+        "inquireByAsync": {
+            "descriptions": {
+                "ja": "履歴データサブセットの取得準備状況を確認する(Async)",
+                "en": "Check readiness to retrieve historical data subsets by async"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "processStatus": {
+                        "type": "string",
+                        "enum": [
+                            "succeeded",
+                            "failed",
+                            "inProgress",
+                            "aborted"
+                        ]
+                    },
+                    "count": {
+                        "type": "number",
+                        "multipleOf": 1
+                    },
+                    "countPerPage": {
+                        "type": "number",
+                        "multipleOf": 1
+                    },
+                    "estimatedTimeOfCompletion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        },
+        "retrieveByAsync": {
+            "descriptions": {
+                "ja": "履歴データを取得する(Async)",
+                "en": "Retrieve histories data by async"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "page": {
+                        "type": "number",
+                        "minimum": 1,
+                        "multipleOf": 1
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "processStatus": {
+                        "type": "string",
+                        "enum": [
+                            "succeeded",
+                            "failed",
+                            "inProgress",
+                            "aborted"
+                        ]
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "enum": [
+                            "property",
+                            "action",
+                            "event"
+                        ]
+                    },
+                    "resourceName": {
+                        "type": "string"
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "data": {
+                        "oneOf": [
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "deviceId": {
+                                            "type": "string"
+                                        },
+                                        "deviceData": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "time": {
+                                                        "type": "string",
+                                                        "format": "date-time"
+                                                    },
+                                                    "value": {
+                                                        "type": [
+                                                            "string",
+                                                            "number",
+                                                            "boolean",
+                                                            "object",
+                                                            "array"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "time": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "deviceId": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": [
+                                                "string",
+                                                "number",
+                                                "boolean",
+                                                "object",
+                                                "array"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "prepareRetrieveDataByFile": {
+            "descriptions": {
+                "ja": "取得用データの準備を指示する(File)",
+                "en": "Prepare data to retrieve by file"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "groupId": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "deviceId": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "to": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "dataStructure": {
+                        "type": "string",
+                        "enum": [
+                            "device",
+                            "time"
+                        ]
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "estimatedTimeOfCompletion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        },
+        "retrieveByFile": {
+            "descriptions": {
+                "ja": "履歴データを取得する(File)",
+                "en": "Retrieve histories data by file"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "processStatus": {
+                        "type": "string",
+                        "enum": [
+                            "succeeded",
+                            "failed",
+                            "inProgress",
+                            "aborted"
+                        ]
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "enum": [
+                            "property",
+                            "action",
+                            "event"
+                        ]
+                    },
+                    "resourceName": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "estimatedTimeOfCompletion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "expirationTime": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        },
+        "abortPrepareRetrieveDataByAsync": {
+            "descriptions": {
+                "ja": "prepareRetrieveDataByAsync実⾏の中断(Async)",
+                "en": "Abort a prepareRetrieveDataByAsync execution by async"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "abortPrepareRetrieveDataByFile": {
+            "descriptions": {
+                "ja": "prepareRetrieveDataByFile実⾏の中断(File)",
+                "en": "Abort a prepareRetrieveDataByFile execution by file"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    }
+                }
+            }
+
+        },
+        "getDeviceType": {
+            "descriptions": {
+                "ja": "groupHistory IDに対応するdeviceType一覧の取得",
+                "en": "Get a list of group Types for a groupHistory ID"
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "deviceType": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "getDeviceId": {
+            "descriptions": {
+                "ja": "groupHistory IDに対応する機器一覧の取得",
+                "en": "Get a list of devices for a groupHistory ID"
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "devices": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "deviceType": {
+                                    "type": "string"
+                                },
+                                "protocol": {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "manufacturer": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": {
+                                            "type": "string"
+                                        },
+                                        "descriptions": {
+                                            "type": "object",
+                                            "properties": {
+                                                "ja": {
+                                                    "type": "string"
+                                                },
+                                                "en": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "getGroupId": {
+            "descriptions": {
+                "ja": "groupHistory IDに対応するgroup ID一覧の取得",
+                "en": "Get a list of group IDs for a groupHistory ID"
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "descriptions": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ja": {
+                                            "type": "string"
+                                        },
+                                        "en": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

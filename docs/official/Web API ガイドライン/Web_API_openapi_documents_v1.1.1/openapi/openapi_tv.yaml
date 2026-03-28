@@ -1,0 +1,445 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Tv
+  description: tag for Television
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - Tv
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesTv
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesTv'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/displayControlStatus:
+    get:
+      tags:
+      - Tv
+      summary: 'Get: Display control setting'
+      operationId: getDevicesPropertiesDisplayControlStatusTv
+      description: '取得: 表示制御設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/displayControlStatusTv'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Tv
+      summary: 'Set: Display control setting'
+      operationId: putDevicesPropertiesDisplayControlStatusTv
+      description: '設定: 表示制御設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/displayControlStatusTv'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/displayControlStatusTv'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/stringSettingAcceptanceStatus:
+    get:
+      tags:
+      - Tv
+      summary: 'Get: Character string setting acceptance status'
+      operationId: getDevicesPropertiesStringSettingAcceptanceStatusTv
+      description: '取得: 文字列設定受付可能状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/stringSettingAcceptanceStatusTv'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/supportedCharacterCode:
+    get:
+      tags:
+      - Tv
+      summary: 'Get: Supported character codes'
+      operationId: getDevicesPropertiesSupportedCharacterCodeTv
+      description: '取得: 表示可能文字コード'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/supportedCharacterCodeTv'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/characterStringPresented:
+    get:
+      tags:
+      - Tv
+      summary: 'Get: Character string to present to the user'
+      operationId: getDevicesPropertiesCharacterStringPresentedTv
+      description: '取得: 伝達文字列設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/characterStringPresentedTv'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Tv
+      summary: 'Set: Character string to present to the user'
+      operationId: putDevicesPropertiesCharacterStringPresentedTv
+      description: '設定: 伝達文字列設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/characterStringPresentedTv'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/characterStringPresentedTv'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/lengthOfStringAccepted:
+    get:
+      tags:
+      - Tv
+      summary: 'Get: Length of character string accepted'
+      operationId: getDevicesPropertiesLengthOfStringAcceptedTv
+      description: '取得: 受付け伝達文字列長'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lengthOfStringAcceptedTv'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesTv:
+      description: propertiesTv
+      type: object
+      properties:
+        displayControlStatus:
+          type: string
+          enum:
+          - enabled
+          - disabled
+          description: '[ja: 表示制御設定, en: Display control setting] _enabled (ja: 表示,
+            en: Displaying enabled) disabled (ja: 非表示, en: Displaying disabled) '
+        stringSettingAcceptanceStatus:
+          type: string
+          enum:
+          - ready
+          - busy
+          description: '[ja: 文字列設定受付可能状態, en: Character string setting acceptance
+            status] _ready (ja: Ready, en: Ready) busy (ja: Busy, en: Busy) '
+        supportedCharacterCode:
+          type: object
+          properties:
+            ansiX34Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            shiftJisEquipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            jisEquipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            japaneseEucEquipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            ucs4Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            ucs2Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            latin1Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            utf8Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+          description: '[ja: 表示可能文字コード, en: Supported character codes] '
+        characterStringPresented:
+          type: object
+          properties:
+            length:
+              type: number
+              minimum: 0
+              maximum: 244
+              description: '[ja: 伝達文字バイトコード列データ長の16 進換算値, en: Byte code sequence data
+                length of the character string to present to the user converted to
+                the hexadecimal format] _'
+            characterCode:
+              type: string
+              enum:
+              - ansi_x3_4
+              - shift_jis
+              - jis
+              - japanese_euc
+              - ucs_4
+              - ucs_2
+              - latin_1
+              - utf_8
+              description: '[ja: 使用文字コード, en: Character code to use] _ansi_x3_4 (ja:
+                ANSI X3.4, en: ANSI X3.4) shift_jis (ja: Shift-JIS, en: Shift-JIS)
+                jis (ja: JIS, en: JIS) japanese_euc (ja: 日本語EUC, en: Japanese EUC)
+                ucs_4 (ja: UCS-4, en: UCS-4) ucs_2 (ja: UCS-2, en: UCS-2) latin_1
+                (ja: Latin-1, en: Latin-1) utf_8 (ja: UTF-8, en: UTF-8) '
+            characterString:
+              type: string
+              description: '[ja: Max244Byte 分の伝達文字列バイトコード列, en: Byte code sequence
+                of the character string to present to the user (max.244 bytes)] _'
+          description: '[ja: 伝達文字列設定, en: Character string to present to the user] '
+        lengthOfStringAccepted:
+          type: object
+          properties:
+            length:
+              type: number
+              minimum: 0
+              maximum: 244
+              description: '[ja: 文字列の総バイト数, en: data size of the string] _'
+          description: '[ja: 受付け伝達文字列長, en: Length of character string accepted] '
+    displayControlStatusTv:
+      description: '[ja: 表示制御設定, en: Display control setting]'
+      type: object
+      properties:
+        displayControlStatus:
+          type: string
+          enum:
+          - enabled
+          - disabled
+          description: '[ja: 表示制御設定, en: Display control setting] _enabled (ja: 表示,
+            en: Displaying enabled) disabled (ja: 非表示, en: Displaying disabled) '
+    stringSettingAcceptanceStatusTv:
+      description: '[ja: 文字列設定受付可能状態, en: Character string setting acceptance status]'
+      type: object
+      properties:
+        stringSettingAcceptanceStatus:
+          type: string
+          enum:
+          - ready
+          - busy
+          description: '[ja: 文字列設定受付可能状態, en: Character string setting acceptance
+            status] _ready (ja: Ready, en: Ready) busy (ja: Busy, en: Busy) '
+    supportedCharacterCodeTv:
+      description: '[ja: 表示可能文字コード, en: Supported character codes]'
+      type: object
+      properties:
+        supportedCharacterCode:
+          type: object
+          properties:
+            ansiX34Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            shiftJisEquipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            jisEquipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            japaneseEucEquipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            ucs4Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            ucs2Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            latin1Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+            utf8Equipped:
+              type: boolean
+              description: '_False (ja: 非搭載, en: Not implemented) True (ja: 搭載, en:
+                Implemented) '
+          description: '[ja: 表示可能文字コード, en: Supported character codes] '
+    characterStringPresentedTv:
+      description: '[ja: 伝達文字列設定, en: Character string to present to the user]'
+      type: object
+      properties:
+        characterStringPresented:
+          type: object
+          properties:
+            length:
+              type: number
+              minimum: 0
+              maximum: 244
+              description: '[ja: 伝達文字バイトコード列データ長の16 進換算値, en: Byte code sequence data
+                length of the character string to present to the user converted to
+                the hexadecimal format] _'
+            characterCode:
+              type: string
+              enum:
+              - ansi_x3_4
+              - shift_jis
+              - jis
+              - japanese_euc
+              - ucs_4
+              - ucs_2
+              - latin_1
+              - utf_8
+              description: '[ja: 使用文字コード, en: Character code to use] _ansi_x3_4 (ja:
+                ANSI X3.4, en: ANSI X3.4) shift_jis (ja: Shift-JIS, en: Shift-JIS)
+                jis (ja: JIS, en: JIS) japanese_euc (ja: 日本語EUC, en: Japanese EUC)
+                ucs_4 (ja: UCS-4, en: UCS-4) ucs_2 (ja: UCS-2, en: UCS-2) latin_1
+                (ja: Latin-1, en: Latin-1) utf_8 (ja: UTF-8, en: UTF-8) '
+            characterString:
+              type: string
+              description: '[ja: Max244Byte 分の伝達文字列バイトコード列, en: Byte code sequence
+                of the character string to present to the user (max.244 bytes)] _'
+          description: '[ja: 伝達文字列設定, en: Character string to present to the user] '
+    lengthOfStringAcceptedTv:
+      description: '[ja: 受付け伝達文字列長, en: Length of character string accepted]'
+      type: object
+      properties:
+        lengthOfStringAccepted:
+          type: object
+          properties:
+            length:
+              type: number
+              minimum: 0
+              maximum: 244
+              description: '[ja: 文字列の総バイト数, en: data size of the string] _'
+          description: '[ja: 受付け伝達文字列長, en: Length of character string accepted] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

@@ -1,0 +1,1337 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: ColdOrHotWaterHeatSourceEquipment
+  description: tag for Cold or hot water heat source equipment
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesColdOrHotWaterHeatSourceEquipment
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservation:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: ON timer reservation setting'
+      operationId: getDevicesPropertiesOnTimerReservationColdOrHotWaterHeatSourceEquipment
+      description: '取得: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: ON timer reservation setting'
+      operationId: putDevicesPropertiesOnTimerReservationColdOrHotWaterHeatSourceEquipment
+      description: '設定: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservationColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOnTimer:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: ON timer setting'
+      operationId: getDevicesPropertiesTimeOfOnTimerColdOrHotWaterHeatSourceEquipment
+      description: '取得: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOnTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: ON timer setting'
+      operationId: putDevicesPropertiesTimeOfOnTimerColdOrHotWaterHeatSourceEquipment
+      description: '設定: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOnTimerColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOnTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOnTimer:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Relative ON timer setting'
+      operationId: getDevicesPropertiesRelativeTimeOfOnTimerColdOrHotWaterHeatSourceEquipment
+      description: '取得: ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Relative ON timer setting'
+      operationId: putDevicesPropertiesRelativeTimeOfOnTimerColdOrHotWaterHeatSourceEquipment
+      description: '設定: ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOnTimerColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/offTimerReservation:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: OFF timer reservation setting'
+      operationId: getDevicesPropertiesOffTimerReservationColdOrHotWaterHeatSourceEquipment
+      description: '取得: OFFタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: OFF timer reservation setting'
+      operationId: putDevicesPropertiesOffTimerReservationColdOrHotWaterHeatSourceEquipment
+      description: '設定: OFFタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offTimerReservationColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOffTimer:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Time set by OFF timer'
+      operationId: getDevicesPropertiesTimeOfOffTimerColdOrHotWaterHeatSourceEquipment
+      description: '取得: OFFタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Time set by OFF timer'
+      operationId: putDevicesPropertiesTimeOfOffTimerColdOrHotWaterHeatSourceEquipment
+      description: '設定: OFFタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOffTimerColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOffTimer:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Relative OFF timer setting'
+      operationId: getDevicesPropertiesRelativeTimeOfOffTimerColdOrHotWaterHeatSourceEquipment
+      description: '取得: OFFタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Relative OFF timer setting'
+      operationId: putDevicesPropertiesRelativeTimeOfOffTimerColdOrHotWaterHeatSourceEquipment
+      description: '設定: OFFタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOffTimerColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/coldWaterTemperatue2MaximumLevel:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Cold water temperature setting 2 Maximum allowable setting level'
+      operationId: getDevicesPropertiesColdWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment
+      description: '取得: 冷水温設定2設定可能最大レベル'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coldWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Cold water temperature setting 2 Maximum allowable setting level'
+      operationId: putDevicesPropertiesColdWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment
+      description: '設定: 冷水温設定2設定可能最大レベル'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/coldWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coldWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/warmWaterTemperatue2MaximumLevel:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Warm water temperature setting 2 Maximum allowable setting level'
+      operationId: getDevicesPropertiesWarmWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment
+      description: '取得: 温水温設定2設定可能最大レベル'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/warmWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Warm water temperature setting 2 Maximum allowable setting level'
+      operationId: putDevicesPropertiesWarmWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment
+      description: '設定: 温水温設定2設定可能最大レベル'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/warmWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/warmWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationMode:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Operation mode setting'
+      operationId: getDevicesPropertiesOperationModeColdOrHotWaterHeatSourceEquipment
+      description: '取得: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Operation mode setting'
+      operationId: putDevicesPropertiesOperationModeColdOrHotWaterHeatSourceEquipment
+      description: '設定: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationModeColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterTemperature1:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Water temperature setting 1'
+      operationId: getDevicesPropertiesWaterTemperature1ColdOrHotWaterHeatSourceEquipment
+      description: '取得: 水温設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterTemperature1ColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Water temperature setting 1'
+      operationId: putDevicesPropertiesWaterTemperature1ColdOrHotWaterHeatSourceEquipment
+      description: '設定: 水温設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterTemperature1ColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterTemperature1ColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterTemperature2:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Water temperature setting 2'
+      operationId: getDevicesPropertiesWaterTemperature2ColdOrHotWaterHeatSourceEquipment
+      description: '取得: 水温設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterTemperature2ColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Water temperature setting 2'
+      operationId: putDevicesPropertiesWaterTemperature2ColdOrHotWaterHeatSourceEquipment
+      description: '設定: 水温設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterTemperature2ColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterTemperature2ColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outwardWaterTemperatureExit:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Measured temperature of outward water (Exit water Temperature)'
+      operationId: getDevicesPropertiesOutwardWaterTemperatureExitColdOrHotWaterHeatSourceEquipment
+      description: '取得: 往き水温計測値(出口水温)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outwardWaterTemperatureExitColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/inwardWaterTemperatureEntrance:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Measured temperature of inward water (Entrance water Temperature)'
+      operationId: getDevicesPropertiesInwardWaterTemperatureEntranceColdOrHotWaterHeatSourceEquipment
+      description: '取得: 戻り水温計測値(入口水温)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inwardWaterTemperatureEntranceColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/specialOperation:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Special operation setting'
+      operationId: getDevicesPropertiesSpecialOperationColdOrHotWaterHeatSourceEquipment
+      description: '取得: 特殊運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/specialOperationColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Special operation setting'
+      operationId: putDevicesPropertiesSpecialOperationColdOrHotWaterHeatSourceEquipment
+      description: '設定: 特殊運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/specialOperationColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/specialOperationColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dailyTimer:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Daily timer setting'
+      operationId: getDevicesPropertiesDailyTimerColdOrHotWaterHeatSourceEquipment
+      description: '取得: デイリータイマー設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dailyTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Daily timer setting'
+      operationId: putDevicesPropertiesDailyTimerColdOrHotWaterHeatSourceEquipment
+      description: '設定: デイリータイマー設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dailyTimerColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dailyTimerColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dailyTimer1:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Daily timer setting 1'
+      operationId: getDevicesPropertiesDailyTimer1ColdOrHotWaterHeatSourceEquipment
+      description: '取得: デイリータイマー1設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dailyTimer1ColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Daily timer setting 1'
+      operationId: putDevicesPropertiesDailyTimer1ColdOrHotWaterHeatSourceEquipment
+      description: '設定: デイリータイマー1設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dailyTimer1ColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dailyTimer1ColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dailyTimer2:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Daily timer setting 2'
+      operationId: getDevicesPropertiesDailyTimer2ColdOrHotWaterHeatSourceEquipment
+      description: '取得: デイリータイマー2設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dailyTimer2ColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Set: Daily timer setting 2'
+      operationId: putDevicesPropertiesDailyTimer2ColdOrHotWaterHeatSourceEquipment
+      description: '設定: デイリータイマー2設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dailyTimer2ColdOrHotWaterHeatSourceEquipment'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dailyTimer2ColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedPowerconsumption:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Rated power consumption'
+      operationId: getDevicesPropertiesRatedPowerconsumptionColdOrHotWaterHeatSourceEquipment
+      description: '取得: 定格消費電力値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedPowerconsumptionColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerConsumptionMeasurementMethod:
+    get:
+      tags:
+      - ColdOrHotWaterHeatSourceEquipment
+      summary: 'Get: Power consumption measurement method'
+      operationId: getDevicesPropertiesPowerConsumptionMeasurementMethodColdOrHotWaterHeatSourceEquipment
+      description: '取得: 消費電力計測方法'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerConsumptionMeasurementMethodColdOrHotWaterHeatSourceEquipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesColdOrHotWaterHeatSourceEquipment:
+      description: propertiesColdOrHotWaterHeatSourceEquipment
+      type: object
+      properties:
+        onTimerReservation:
+          type: boolean
+          description: '[ja: ONタイマ予約設定, en: ON timer reservation setting] _True (ja:
+            予約入, en: ON) False (ja: 予約切, en: OFF) '
+        timeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting] '
+        relativeTimeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ相対時間設定値, en: Relative ON timer setting] '
+        offTimerReservation:
+          type: boolean
+          description: '[ja: OFFタイマ予約設定, en: OFF timer reservation setting] _True
+            (ja: 予約入, en: ON) False (ja: 予約切, en: OFF) '
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ時刻設定値, en: Time set by OFF timer] '
+        relativeTimeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ相対時間設定値, en: Relative OFF timer setting] '
+        coldWaterTemperatue2MaximumLevel:
+          type: number
+          minimum: 1
+          maximum: 15
+          multipleOf: 1
+          description: '[ja: 冷水温設定2設定可能最大レベル, en: Cold water temperature setting 2
+            Maximum allowable setting level] '
+        warmWaterTemperatue2MaximumLevel:
+          type: number
+          minimum: 17
+          maximum: 31
+          multipleOf: 1
+          description: '[ja: 温水温設定2設定可能最大レベル, en: Warm water temperature setting 2
+            Maximum allowable setting level] '
+        operationMode:
+          type: string
+          enum:
+          - heating
+          - cooling
+          description: '[ja: 運転モード設定, en: Operation mode setting] _heating (ja: 暖房,
+            en: Heating) cooling (ja: 冷房, en: Cooling) '
+        waterTemperature1:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: AUTO, en: AUTO) '
+          description: '[ja: 水温設定1, en: Water temperature setting 1] '
+        waterTemperature2:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 31
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Auto) '
+          description: '[ja: 水温設定2, en: Water temperature setting 2] '
+        outwardWaterTemperatureExit:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 往き水温計測値(出口水温), en: Measured temperature of outward water
+            (Exit water Temperature)] '
+        inwardWaterTemperatureEntrance:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 戻り水温計測値(入口水温), en: Measured temperature of inward water
+            (Entrance water Temperature)] '
+        specialOperation:
+          type: string
+          enum:
+          - normal
+          - modest
+          - highPower
+          description: '[ja: 特殊運転設定, en: Special operation setting] _normal (ja: 通常運転,
+            en: Normal operation) modest (ja: ひかえめ運転, en: Modest operation) highPower
+            (ja: ハイパワー運転, en: High power operation) '
+        dailyTimer:
+          type: string
+          enum:
+          - timerOff
+          - timer1
+          - timer2
+          description: '[ja: デイリータイマー設定, en: Daily timer setting] _timerOff (ja: タイマー切,
+            en: Timer OFF) timer1 (ja: タイマー1, en: Timer 1) timer2 (ja: タイマー2, en:
+            Timer 2) '
+        dailyTimer1:
+          type: array
+          minItems: 0
+          maxItems: 24
+          items:
+            type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 運転開始時間, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 運転停止時間, en: End time] _'
+          description: '[ja: デイリータイマー1設定, en: Daily timer setting 1] '
+        dailyTimer2:
+          type: array
+          minItems: 0
+          maxItems: 24
+          items:
+            type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 運転開始時間, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 運転停止時間, en: End time] _'
+          description: '[ja: デイリータイマー2設定, en: Daily timer setting 2] '
+        ratedPowerconsumption:
+          type: object
+          properties:
+            heating:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 暖房(温水)運転モード時の定格消費電力, en: Rated power consumption
+                of heater (hot water) mode in watts] _'
+            cooling:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 冷房(冷水)運転モード時の定格消費電力, en: Rated power consumption
+                of cooler (cold water) mode in watts] _'
+          description: '[ja: 定格消費電力値, en: Rated power consumption] '
+        powerConsumptionMeasurementMethod:
+          type: string
+          enum:
+          - nodeUnit
+          - classUnit
+          - instanceUnit
+          description: '[ja: 消費電力計測方法, en: Power consumption measurement method] _nodeUnit
+            (ja: ノード単位, en: Node unit) classUnit (ja: クラス単位, en: Class unit) instanceUnit
+            (ja: インスタンス単位, en: Instance unit) '
+    onTimerReservationColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: ONタイマ予約設定, en: ON timer reservation setting]'
+      type: object
+      properties:
+        onTimerReservation:
+          type: boolean
+          description: '[ja: ONタイマ予約設定, en: ON timer reservation setting] _True (ja:
+            予約入, en: ON) False (ja: 予約切, en: OFF) '
+    timeOfOnTimerColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: ONタイマ時刻設定値, en: ON timer setting]'
+      type: object
+      properties:
+        timeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting] '
+    relativeTimeOfOnTimerColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: ONタイマ相対時間設定値, en: Relative ON timer setting]'
+      type: object
+      properties:
+        relativeTimeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ相対時間設定値, en: Relative ON timer setting] '
+    offTimerReservationColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: OFFタイマ予約設定, en: OFF timer reservation setting]'
+      type: object
+      properties:
+        offTimerReservation:
+          type: boolean
+          description: '[ja: OFFタイマ予約設定, en: OFF timer reservation setting] _True
+            (ja: 予約入, en: ON) False (ja: 予約切, en: OFF) '
+    timeOfOffTimerColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: OFFタイマ時刻設定値, en: Time set by OFF timer]'
+      type: object
+      properties:
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ時刻設定値, en: Time set by OFF timer] '
+    relativeTimeOfOffTimerColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: OFFタイマ相対時間設定値, en: Relative OFF timer setting]'
+      type: object
+      properties:
+        relativeTimeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ相対時間設定値, en: Relative OFF timer setting] '
+    coldWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 冷水温設定2設定可能最大レベル, en: Cold water temperature setting 2 Maximum
+        allowable setting level]'
+      type: object
+      properties:
+        coldWaterTemperatue2MaximumLevel:
+          type: number
+          minimum: 1
+          maximum: 15
+          multipleOf: 1
+          description: '[ja: 冷水温設定2設定可能最大レベル, en: Cold water temperature setting 2
+            Maximum allowable setting level] '
+    warmWaterTemperatue2MaximumLevelColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 温水温設定2設定可能最大レベル, en: Warm water temperature setting 2 Maximum
+        allowable setting level]'
+      type: object
+      properties:
+        warmWaterTemperatue2MaximumLevel:
+          type: number
+          minimum: 17
+          maximum: 31
+          multipleOf: 1
+          description: '[ja: 温水温設定2設定可能最大レベル, en: Warm water temperature setting 2
+            Maximum allowable setting level] '
+    operationModeColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 運転モード設定, en: Operation mode setting]'
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - heating
+          - cooling
+          description: '[ja: 運転モード設定, en: Operation mode setting] _heating (ja: 暖房,
+            en: Heating) cooling (ja: 冷房, en: Cooling) '
+    waterTemperature1ColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 水温設定1, en: Water temperature setting 1]'
+      type: object
+      properties:
+        waterTemperature1:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: AUTO, en: AUTO) '
+          description: '[ja: 水温設定1, en: Water temperature setting 1] '
+    waterTemperature2ColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 水温設定2, en: Water temperature setting 2]'
+      type: object
+      properties:
+        waterTemperature2:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 31
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Auto) '
+          description: '[ja: 水温設定2, en: Water temperature setting 2] '
+    outwardWaterTemperatureExitColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 往き水温計測値(出口水温), en: Measured temperature of outward water
+        (Exit water Temperature)]'
+      type: object
+      properties:
+        outwardWaterTemperatureExit:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 往き水温計測値(出口水温), en: Measured temperature of outward water
+            (Exit water Temperature)] '
+    inwardWaterTemperatureEntranceColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 戻り水温計測値(入口水温), en: Measured temperature of inward water (Entrance
+        water Temperature)]'
+      type: object
+      properties:
+        inwardWaterTemperatureEntrance:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 戻り水温計測値(入口水温), en: Measured temperature of inward water
+            (Entrance water Temperature)] '
+    specialOperationColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 特殊運転設定, en: Special operation setting]'
+      type: object
+      properties:
+        specialOperation:
+          type: string
+          enum:
+          - normal
+          - modest
+          - highPower
+          description: '[ja: 特殊運転設定, en: Special operation setting] _normal (ja: 通常運転,
+            en: Normal operation) modest (ja: ひかえめ運転, en: Modest operation) highPower
+            (ja: ハイパワー運転, en: High power operation) '
+    dailyTimerColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: デイリータイマー設定, en: Daily timer setting]'
+      type: object
+      properties:
+        dailyTimer:
+          type: string
+          enum:
+          - timerOff
+          - timer1
+          - timer2
+          description: '[ja: デイリータイマー設定, en: Daily timer setting] _timerOff (ja: タイマー切,
+            en: Timer OFF) timer1 (ja: タイマー1, en: Timer 1) timer2 (ja: タイマー2, en:
+            Timer 2) '
+    dailyTimer1ColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: デイリータイマー1設定, en: Daily timer setting 1]'
+      type: object
+      properties:
+        dailyTimer1:
+          type: array
+          minItems: 0
+          maxItems: 24
+          items:
+            type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 運転開始時間, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 運転停止時間, en: End time] _'
+          description: '[ja: デイリータイマー1設定, en: Daily timer setting 1] '
+    dailyTimer2ColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: デイリータイマー2設定, en: Daily timer setting 2]'
+      type: object
+      properties:
+        dailyTimer2:
+          type: array
+          minItems: 0
+          maxItems: 24
+          items:
+            type: object
+            properties:
+              startTime:
+                type: string
+                format: time
+                description: '[ja: 運転開始時間, en: Start time] _'
+              endTime:
+                type: string
+                format: time
+                description: '[ja: 運転停止時間, en: End time] _'
+          description: '[ja: デイリータイマー2設定, en: Daily timer setting 2] '
+    ratedPowerconsumptionColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 定格消費電力値, en: Rated power consumption]'
+      type: object
+      properties:
+        ratedPowerconsumption:
+          type: object
+          properties:
+            heating:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 暖房(温水)運転モード時の定格消費電力, en: Rated power consumption
+                of heater (hot water) mode in watts] _'
+            cooling:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 冷房(冷水)運転モード時の定格消費電力, en: Rated power consumption
+                of cooler (cold water) mode in watts] _'
+          description: '[ja: 定格消費電力値, en: Rated power consumption] '
+    powerConsumptionMeasurementMethodColdOrHotWaterHeatSourceEquipment:
+      description: '[ja: 消費電力計測方法, en: Power consumption measurement method]'
+      type: object
+      properties:
+        powerConsumptionMeasurementMethod:
+          type: string
+          enum:
+          - nodeUnit
+          - classUnit
+          - instanceUnit
+          description: '[ja: 消費電力計測方法, en: Power consumption measurement method] _nodeUnit
+            (ja: ノード単位, en: Node unit) classUnit (ja: クラス単位, en: Class unit) instanceUnit
+            (ja: インスタンス単位, en: Instance unit) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

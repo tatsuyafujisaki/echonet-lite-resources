@@ -1,0 +1,2212 @@
+{
+  "deviceType": "frequencyRegulation",
+  "metaData": {
+    "version": "1.6.0"
+  },
+  "eoj": "0x02A7",
+  "descriptions": {
+    "ja": "周波数制御",
+    "en": "Frequency regulation"
+  },
+  "properties": {
+    "controlPoint": {
+      "epc": "0xC0",
+      "descriptions": {
+        "ja": "制御ポイント",
+        "en": "Control point"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "devicePoint",
+          "powerReceivingPoint"
+        ],
+        "values": [
+          {
+            "value": "devicePoint",
+            "descriptions": {
+              "ja": "機器点",
+              "en": "Device point"
+            },
+            "edt": "0x30"
+          },
+          {
+            "value": "powerReceivingPoint",
+            "descriptions": {
+              "ja": "受電点",
+              "en": "Power receiving point"
+            },
+            "edt": "0x31"
+          }
+        ]
+      }
+    },
+    "frequencyRegulationParameter": {
+      "epc": "0xC1",
+      "descriptions": {
+        "ja": "周波数制御パラメータ設定",
+        "en": "Frequency regulation parameter setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "frequencyRegulationMode": {
+            "descriptions": {
+              "ja": "周波数制御モード",
+              "en": "frequency regulation mode"
+            },
+            "type": "object",
+            "properties": {
+              "commandControl": {
+                "descriptions": {
+                  "ja": "指令制御",
+                  "en": "Command control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "制御有り",
+                      "en": "With control"
+                    },
+                    "edt": "0x01"
+                  },
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "制御無し",
+                      "en": "Without control"
+                    },
+                    "edt": "0x00"
+                  }
+                ]
+              },
+              "autonomousControl": {
+                "descriptions": {
+                  "ja": "自端制御",
+                  "en": "Autonomous control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "制御有り",
+                      "en": "With control"
+                    },
+                    "edt": "0x01"
+                  },
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "制御無し",
+                      "en": "Without control"
+                    },
+                    "edt": "0x00"
+                  }
+                ]
+              },
+              "emPlannedValueControl": {
+                "descriptions": {
+                  "ja": "EM計画値制御",
+                  "en": "EM planned value control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "制御有り",
+                      "en": "With control"
+                    },
+                    "edt": "0x01"
+                  },
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "制御無し",
+                      "en": "Without control"
+                    },
+                    "edt": "0x00"
+                  }
+                ]
+              },
+              "emTargetValueControl": {
+                "descriptions": {
+                  "ja": "EM目標値制御",
+                  "en": "EM target value control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "制御有り",
+                      "en": "With control"
+                    },
+                    "edt": "0x01"
+                  },
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "制御無し",
+                      "en": "Without control"
+                    },
+                    "edt": "0x00"
+                  }
+                ]
+              }
+            }
+          },
+          "noCommunicationWatchdogTimer": {
+            "descriptions": {
+              "ja": "無通信監視タイマ",
+              "en": "No-communication watchdog timer"
+            },
+            "type": "number",
+            "unit": "ms",
+            "minimum": 0,
+            "maximum": 655350,
+            "multipleOf": 10
+          }
+        }
+      },
+      "note": {
+        "ja": "周波数制御モードと周波数制御情報は指令制御、自端制御の何れかおよび、EM目標値制御の搭載を必須とする。",
+        "en": "Frequency regulation mode in \"Frequency regulation parameter setting\" property and \"Information of frequency regulation\" property are required to install \"EM target value control\" and either \"command control\" or \"autonomous control\"."
+      }
+    },
+    "emTargetPowerValue": {
+      "epc": "0xC2",
+      "descriptions": {
+        "ja": "EM電力目標値",
+        "en": "EM target power value"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "W",
+        "minimum": -999999999,
+        "maximum": 999999999
+      }
+    },
+    "commandControlParameter": {
+      "epc": "0xC3",
+      "descriptions": {
+        "ja": "指令制御パラメータ設定",
+        "en": "Command control parameter setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "instructionNo": {
+            "descriptions": {
+              "ja": "電力指令制御指示No.",
+              "en": "Command control instruction number"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "powerValue": {
+            "descriptions": {
+              "ja": "電力指令値(W)",
+              "en": "Power value for the instruction. (W)"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": -999999999,
+            "maximum": 999999999
+          }
+        }
+      },
+      "note": {
+        "ja": "指令制御機能を有する機器は搭載を必須とする。",
+        "en": "Devices with command control functions are mandatory."
+      }
+    },
+    "autonomousControlParameter1": {
+      "epc": "0xC4",
+      "descriptions": {
+        "ja": "自端制御パラメータ設定1",
+        "en": "Autonomous control parameter setting 1"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "deadBandWidthPlus": {
+            "descriptions": {
+              "ja": "不感帯幅(プラス側)(mHz)",
+              "en": "Width of dead band. (Plus side) (mHz)"
+            },
+            "type": "number",
+            "unit": "mHz",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "deadBandWidthMinus": {
+            "descriptions": {
+              "ja": "不感帯幅(マイナス側)(mHz)",
+              "en": "Width of dead band. (Minus side) (mHz)"
+            },
+            "type": "number",
+            "unit": "mHz",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "powerControlRateNormal": {
+            "descriptions": {
+              "ja": "電力変化率(順方向)(W/mHz)",
+              "en": "Rate of power control.  (Normal direction) (W/mHz)"
+            },
+            "type": "number",
+            "unit": "W/mHz",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "powerControlRateReverse": {
+            "descriptions": {
+              "ja": "電力変化率(逆方向)(W/mHz)",
+              "en": "Rate of power control.  (Reverse direction) (W/mHz)"
+            },
+            "type": "number",
+            "unit": "W/mHz",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "powerUpperLimitNormal": {
+            "descriptions": {
+              "ja": "自端制御電力上限値(順方向)(W)",
+              "en": "Power upper limit for autonomous control. (Normal direction) (W)"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "powerUpperLimitReverse": {
+            "descriptions": {
+              "ja": "自端制御電力上限値(逆方向)(W)",
+              "en": "Power upper limit for autonomous control. (Reverse direction) (W)"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "abnormalFrequencyDeviationThreshold (mHz)": {
+            "descriptions": {
+              "ja": "異常周波数偏差閾値(mHz)",
+              "en": "Abnormal frequency deviation threshold (mHz)"
+            },
+            "type": "number",
+            "unit": "mHz",
+            "minimum": 0,
+            "maximum": 1000
+          }
+        }
+      },
+      "note": {
+        "ja": "自端制御機能を有する機器は搭載を必須とする",
+        "en": "Devices with autonomous control functions are mandatory."
+      }
+    },
+    "autonomousControlParameter2": {
+      "epc": "0xC5",
+      "descriptions": {
+        "ja": "自端制御パラメータ設定2",
+        "en": "Autonomous control parameter setting 2"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "timeConstantLpf": {
+            "descriptions": {
+              "ja": "フィルタ時定数(LPF)",
+              "en": "Time constant for filter. (LPF)"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "timeConstantHpf": {
+            "descriptions": {
+              "ja": "フィルタ時定数(HPF)",
+              "en": "Time constant for filter. (HPF)"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "pIControlProportionalGain": {
+            "descriptions": {
+              "ja": "PI制御係数(比例ゲイン)",
+              "en": "PI control coefficient. (Proportional gain)"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "pIControlIntegralGain": {
+            "descriptions": {
+              "ja": "PI制御係数(積分ゲイン)",
+              "en": "PI control coefficient. (Integral gain)"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "rateLimiterNormal": {
+            "descriptions": {
+              "ja": "レートリミッタ(順方向)(W/sec)",
+              "en": "Rate limiter. (Normal direction) (W/sec)"
+            },
+            "type": "number",
+            "unit": "W/sec",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "rateLimiterReverse": {
+            "descriptions": {
+              "ja": "レートリミッタ(逆方向)(W/sec)",
+              "en": "Rate limiter. (Reverse direction) (W/sec)"
+            },
+            "type": "number",
+            "unit": "W/sec",
+            "minimum": 0,
+            "maximum": 999999999
+          }
+        }
+      }
+    },
+    "autonomousControlParameter3": {
+      "epc": "0xC6",
+      "descriptions": {
+        "ja": "自端制御パラメータ設定3",
+        "en": "Autonomous control parameter setting 3"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "array",
+        "minItems": 5,
+        "maxItems": 5,
+        "items": {
+          "type": "object",
+          "properties": {
+            "powerBeforeCorrection": {
+              "descriptions": {
+                "ja": "補正前自端制御電力(W)",
+                "en": "Autonomous control power before correction"
+              },
+              "type": "number",
+              "unit": "W",
+              "minimum": -999999999,
+              "maximum": 999999999
+            },
+            "powerAfterCorrection": {
+              "descriptions": {
+                "ja": "補正後自端制御電力(W)",
+                "en": "Autonomous control power after correction"
+              },
+              "type": "number",
+              "unit": "W",
+              "minimum": -999999999,
+              "maximum": 999999999
+            }
+          }
+        }
+      }
+    },
+    "referenceFrequencyCorrectionValue": {
+      "epc": "0xC7",
+      "descriptions": {
+        "ja": "基準周波数補正値",
+        "en": "Correction value for reference frequency"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "mHz",
+        "minimum": -100,
+        "maximum": 100
+      }
+    },
+    "transmittableReceivableCycle": {
+      "epc": "0xD0",
+      "descriptions": {
+        "ja": "送受信可能周期",
+        "en": "Transmittable/receivable cycle"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "ms",
+        "minimum": 0,
+        "maximum": 655350,
+        "multipleOf": 10
+      }
+    },
+    "deviceType": {
+      "epc": "0xD1",
+      "descriptions": {
+        "ja": "機器種別",
+        "en": "Device type"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string"
+      }
+    },
+    "acMaxPower": {
+      "epc": "0xD2",
+      "descriptions": {
+        "ja": "最大電力値",
+        "en": "Values of AC max power"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "descriptions": {
+              "ja": "最大入力電力値",
+              "en": "Maximum input power"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "output": {
+            "descriptions": {
+              "ja": "最大出力電力値",
+              "en": "Maximum output power"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": 0,
+            "maximum": 999999999
+          }
+        }
+      }
+    },
+    "contractPower": {
+      "epc": "0xD3",
+      "descriptions": {
+        "ja": "契約電力値",
+        "en": "Value of contract power"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "W",
+        "minimum": 0,
+        "maximum": 999999999
+      }
+    },
+    "deviceControlPerformance": {
+      "epc": "0xD4",
+      "descriptions": {
+        "ja": "機器制御性能",
+        "en": "Device control performance"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "deadBandWidthUpperLimit": {
+            "descriptions": {
+              "ja": "不感帯幅上限値(mHz)",
+              "en": "Upper limit of dead band width. (mHz)"
+            },
+            "type": "number",
+            "unit": "mHz",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "deadBandWidthLowerLimit": {
+            "descriptions": {
+              "ja": "不感帯幅下限値(mHz)",
+              "en": "Lower limit of dead band width. (mHz)"
+            },
+            "type": "number",
+            "unit": "mHz",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "powerChangeRateUpperLimit": {
+            "descriptions": {
+              "ja": "電力変化率上限値(W/mHz)",
+              "en": "Upper limit of power change rate. (W/mHz)"
+            },
+            "type": "number",
+            "unit": "W/mHz",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "powerChangeRateLowerLimit": {
+            "descriptions": {
+              "ja": "電力変化率下限値(W/mHz)",
+              "en": "Lower limit of power change rate. (W/mHz)"
+            },
+            "type": "number",
+            "unit": "W/mHz",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "powerChangeSpeedUpperLimit": {
+            "descriptions": {
+              "ja": "電力変化速度上限値(W/sec)",
+              "en": "Upper limit of power change speed. (W/sec)"
+            },
+            "type": "number",
+            "unit": "W/sec",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "powerChangeSpeedLowerLimit": {
+            "descriptions": {
+              "ja": "電力変化速度下限値(W/sec)",
+              "en": "Lower limit of power change speed. (W/sec)"
+            },
+            "type": "number",
+            "unit": "W/sec",
+            "minimum": 0,
+            "maximum": 999999999
+          }
+        }
+      },
+      "note": {
+        "ja": "自端制御機能を有する機器は搭載を必須とする。",
+        "en": "Devices with autonomous control functions are mandatory."
+      }
+    },
+    "frequencyRegulationInformation": {
+      "epc": "0xD5",
+      "descriptions": {
+        "ja": "周波数制御情報",
+        "en": "Information of frequency regulation"
+      },
+      "writable": false,
+      "observable": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "possibilityToParticipate": {
+            "descriptions": {
+              "ja": "周波数調整サービスへの参加可否",
+              "en": "Possibility to participate in the frequency regulation service."
+            },
+            "type": "object",
+            "properties": {
+              "commandControl": {
+                "descriptions": {
+                  "ja": "指令制御",
+                  "en": "Command control"
+                },
+                "type": "string",
+                "enum": [
+                  "impossible",
+                  "possible"
+                ],
+                "values": [
+                  {
+                    "value": "impossible",
+                    "descriptions": {
+                      "ja": "参加不可",
+                      "en": "Non participation"
+                    },
+                    "edt": "0x00"
+                  },
+                  {
+                    "value": "possible",
+                    "descriptions": {
+                      "ja": "参加可能",
+                      "en": "Participation is possible"
+                    },
+                    "edt": "0x01"
+                  }
+                ]
+              },
+              "autonomousControl": {
+                "descriptions": {
+                  "ja": "自端制御",
+                  "en": "Autonomous control"
+                },
+                "type": "string",
+                "enum": [
+                  "impossible",
+                  "possible"
+                ],
+                "values": [
+                  {
+                    "value": "impossible",
+                    "descriptions": {
+                      "ja": "参加不可",
+                      "en": "Non participation"
+                    },
+                    "edt": "0x00"
+                  },
+                  {
+                    "value": "possible",
+                    "descriptions": {
+                      "ja": "参加可能",
+                      "en": "Participation is possible"
+                    },
+                    "edt": "0x01"
+                  }
+                ]
+              },
+              "emPlannedValueControl": {
+                "descriptions": {
+                  "ja": "EM計画値制御",
+                  "en": "EM planned value control"
+                },
+                "type": "string",
+                "enum": [
+                  "impossible",
+                  "possible"
+                ],
+                "values": [
+                  {
+                    "value": "impossible",
+                    "descriptions": {
+                      "ja": "参加不可",
+                      "en": "Non participation"
+                    },
+                    "edt": "0x00"
+                  },
+                  {
+                    "value": "possible",
+                    "descriptions": {
+                      "ja": "参加可能",
+                      "en": "Participation is possible"
+                    },
+                    "edt": "0x01"
+                  }
+                ]
+              },
+              "emTargetValueControl": {
+                "descriptions": {
+                  "ja": "EM目標値制御",
+                  "en": "EM target value control"
+                },
+                "type": "string",
+                "enum": [
+                  "impossible",
+                  "possible"
+                ],
+                "values": [
+                  {
+                    "value": "impossible",
+                    "descriptions": {
+                      "ja": "参加不可",
+                      "en": "Non participation"
+                    },
+                    "edt": "0x00"
+                  },
+                  {
+                    "value": "possible",
+                    "descriptions": {
+                      "ja": "参加可能",
+                      "en": "Participation is possible"
+                    },
+                    "edt": "0x01"
+                  }
+                ]
+              }
+            }
+          },
+          "frequencyRegulationStatus": {
+            "descriptions": {
+              "ja": "周波数制御状態",
+              "en": "frequency regulation status."
+            },
+            "type": "object",
+            "properties": {
+              "commandControl": {
+                "descriptions": {
+                  "ja": "指令制御",
+                  "en": "Command control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "制御有り",
+                      "en": "With control"
+                    },
+                    "edt": "0x01"
+                  },
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "制御無し",
+                      "en": "Without control"
+                    },
+                    "edt": "0x00"
+                  }
+                ]
+              },
+              "autonomousControl": {
+                "descriptions": {
+                  "ja": "自端制御",
+                  "en": "Autonomous control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "制御有り",
+                      "en": "With control"
+                    },
+                    "edt": "0x01"
+                  },
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "制御無し",
+                      "en": "Without control"
+                    },
+                    "edt": "0x00"
+                  }
+                ]
+              },
+              "emPlannedValueControl": {
+                "descriptions": {
+                  "ja": "EM計画値制御",
+                  "en": "EM planned value control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "制御有り",
+                      "en": "With control"
+                    },
+                    "edt": "0x01"
+                  },
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "制御無し",
+                      "en": "Without control"
+                    },
+                    "edt": "0x00"
+                  }
+                ]
+              },
+              "emTargetValueControl": {
+                "descriptions": {
+                  "ja": "EM目標値制御",
+                  "en": "EM target value control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "制御有り",
+                      "en": "With control"
+                    },
+                    "edt": "0x01"
+                  },
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "制御無し",
+                      "en": "Without control"
+                    },
+                    "edt": "0x00"
+                  }
+                ]
+              },
+              "unableToControl": {
+                "descriptions": {
+                  "ja": "制御不可",
+                  "en": "Unable to control"
+                },
+                "type": "boolean",
+                "values": [
+                  {
+                    "value": false,
+                    "descriptions": {
+                      "ja": "当該状態ではない",
+                      "en": "Not in this state"
+                    },
+                    "edt": "0x00"
+                  },
+                  {
+                    "value": true,
+                    "descriptions": {
+                      "ja": "当該状態である",
+                      "en": "In this state"
+                    },
+                    "edt": "0x01"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "note": {
+        "ja": "周波数制御モードと周波数制御情報は指令制御、自端制御の何れかおよび、EM 目標値制御の搭載を必須とする。",
+        "en": "Frequency regulation mode and frequency regulation state must be either command control or autonomous control, and EM target value control must be installed."
+      }
+    },
+    "informationOnControlContinuation": {
+      "epc": "0xD6",
+      "descriptions": {
+        "ja": "制御続行可否詳細情報",
+        "en": "Detailed information of whether the device can continue to control"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string"
+      },
+      "note": {
+        "ja": "上位バイトは制御続行の可否状態を示し、下位バイトは制御制限や継続不可の詳細情報を示す。APPENDIXの「制御続行可否詳細情報プロパティ」詳細説明参照",
+        "en": "The upper byte indicates whether control can be continued or not. The lower byte indicates detailed information on control restrictions and continuation impossibility. Refer to \"(18) Detailed information of whether the device can continue to control\" in APPENDIX."
+      }
+    },
+    "emInformation": {
+      "epc": "0xD7",
+      "descriptions": {
+        "ja": "EM情報",
+        "en": "Information of EM"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "chargeStartTime": {
+            "descriptions": {
+              "ja": "充電開始時刻 (HH:MM)",
+              "en": "Charge start time in the HH:MM format."
+            },
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "time"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid data"
+                    },
+                    "edt": "0xFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "chargeEndTime": {
+            "descriptions": {
+              "ja": "充電終了時刻 (HH:MM)",
+              "en": "Charge end time in the HH:MM format."
+            },
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "time"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid data"
+                    },
+                    "edt": "0xFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "dischargeStartTime": {
+            "descriptions": {
+              "ja": "放電開始時刻 (HH:MM)",
+              "en": "Discharge start time in the HH:MM format."
+            },
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "time"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid data"
+                    },
+                    "edt": "0xFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "dischargeEndTime": {
+            "descriptions": {
+              "ja": "放電終了時刻 (HH:MM)",
+              "en": "Discharge end time in the HH:MM format."
+            },
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "time"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid data"
+                    },
+                    "edt": "0xFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "dischargeLowerLimit": {
+            "descriptions": {
+              "ja": "放電下限SOC(%)",
+              "en": "SOC of discharge lower limit. (%)"
+            },
+            "type": "number",
+            "unit": "%",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "chargeUpperLimit": {
+            "descriptions": {
+              "ja": "充電上限SOC(%)",
+              "en": "SOC of charge upper limit. (%)"
+            },
+            "type": "number",
+            "unit": "%",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "peakCutPowerThreshold": {
+            "descriptions": {
+              "ja": "ピークカット電力閾値(W)",
+              "en": "Peak cut power threshold. (W)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "W",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "peakCutEnergyThreshold": {
+            "descriptions": {
+              "ja": "ピークカット電力量閾値(Wh)",
+              "en": "Peak cut electric energy threshold. (Wh)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "Wh",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "pvSurplusCharging": {
+            "descriptions": {
+              "ja": "PV余剰充電有無",
+              "en": "Existence of PV surplus charging."
+            },
+            "type": "boolean",
+            "values": [
+              {
+                "value": true,
+                "descriptions": {
+                  "ja": "有",
+                  "en": "YES"
+                },
+                "edt": "0x41"
+              },
+              {
+                "value": false,
+                "descriptions": {
+                  "ja": "無",
+                  "en": "NO"
+                },
+                "edt": "0x42"
+              }
+            ]
+          },
+          "pvReversePowerFlow": {
+            "descriptions": {
+              "ja": "PV逆潮有無",
+              "en": "Existence of PV reverse power flow."
+            },
+            "type": "boolean",
+            "values": [
+              {
+                "value": true,
+                "descriptions": {
+                  "ja": "有",
+                  "en": "YES"
+                },
+                "edt": "0x41"
+              },
+              {
+                "value": false,
+                "descriptions": {
+                  "ja": "無",
+                  "en": "NO"
+                },
+                "edt": "0x42"
+              }
+            ]
+          },
+          "pcsPushUpEffect": {
+            "descriptions": {
+              "ja": "押し上げ効果有無",
+              "en": "Existence of PCS push-up effect."
+            },
+            "type": "boolean",
+            "values": [
+              {
+                "value": true,
+                "descriptions": {
+                  "ja": "有",
+                  "en": "YES"
+                },
+                "edt": "0x41"
+              },
+              {
+                "value": false,
+                "descriptions": {
+                  "ja": "無",
+                  "en": "NO"
+                },
+                "edt": "0x42"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "pcsMeasuredInstantaneousValue": {
+      "epc": "0xD8",
+      "descriptions": {
+        "ja": "PCS瞬時計測値",
+        "en": "Measured instantaneous values of PCS"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "frequency": {
+            "descriptions": {
+              "ja": "周波数計測値(mHz)",
+              "en": "Frequency measurement value. (mHz)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "mHz",
+                "minimum": 0,
+                "maximum": 65533
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid data"
+                    },
+                    "edt": "0xFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "powerAtDevicePoint": {
+            "descriptions": {
+              "ja": "機器点瞬時電力計測値(W)",
+              "en": "Instantaneous power measurement value at device point. (W)"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": -999999999,
+            "maximum": 999999999
+          },
+          "powerAtReceivingPoint": {
+            "descriptions": {
+              "ja": "受電点瞬時電力計測値(W)",
+              "en": "Instantaneous power measurement value at power receiving point. (W)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "W",
+                "minimum": -999999999,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid value"
+                    },
+                    "edt": "0x7FFFFFFF"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "note": {
+        "ja": "受電点を制御ポイントとできる機器は、受電点瞬時電力計測値(W)の搭載を必須とし、無効値を許容しない。",
+        "en": "Devices that can use the power receiving point as a control point must implement the instantaneous power measurement value (W) at the power receiving point, and invalid are not allowed."
+      }
+    },
+    "responseInformation": {
+      "epc": "0xD9",
+      "descriptions": {
+        "ja": "応動情報",
+        "en": "Response information"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "acPower": {
+            "descriptions": {
+              "ja": "AC瞬時電力計測値(W)",
+              "en": "AC power measurement. (W)"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": -999999999,
+            "maximum": 999999999
+          },
+          "emControlPower": {
+            "descriptions": {
+              "ja": "EM制御電力値(W)",
+              "en": "Power value of EM control. (W)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "W",
+                "minimum": -999999999,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "commandControlPower": {
+            "descriptions": {
+              "ja": "指令制御電力値(W)",
+              "en": "Power value of command control. (W)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "W",
+                "minimum": -999999999,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid value"
+                    },
+                    "edt": "0x7FFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "autonomousControlPower": {
+            "descriptions": {
+              "ja": "自端制御電力値(W)",
+              "en": "Power value of autonomous control. (W)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "W",
+                "minimum": -999999999,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid value"
+                    },
+                    "edt": "0x7FFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "instructionNo": {
+            "descriptions": {
+              "ja": "電力指令制御指示No.",
+              "en": "Command control instruction number."
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "frequencyDeviation": {
+            "descriptions": {
+              "ja": "系統周波数偏差(mHz)",
+              "en": "Grid frequency deviation. (mHz)"
+            },
+            "type": "number",
+            "unit": "mHz",
+            "minimum": -3000,
+            "maximum": 3000
+          }
+        }
+      },
+      "note": {
+        "ja": "当該する制御を行っていない場合は無効値とする。",
+        "en": "If the relevant control is not performed, the value is invalid."
+      }
+    },
+    "powerCapability": {
+      "epc": "0xDA",
+      "descriptions": {
+        "ja": "瞬時入出力可能電力値",
+        "en": "Instantaneous input and output power capability value"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "descriptions": {
+              "ja": "瞬時入力可能電力値(W)",
+              "en": "Instantaneous input power capability value."
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "output": {
+            "descriptions": {
+              "ja": "瞬時出力可能電力値(W)",
+              "en": "Instantaneous output power capability value."
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": 0,
+            "maximum": 999999999
+          }
+        }
+      }
+    },
+    "chargeableDischargeablePower": {
+      "epc": "0xDB",
+      "descriptions": {
+        "ja": "瞬時充放電可能電力値",
+        "en": "Instantaneous chargeable and dischargeable power values"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "chargeablePower": {
+            "descriptions": {
+              "ja": "瞬時充電可能電力値(W)",
+              "en": "Instantaneous chargeable power value. (W)"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "dischargeablePower": {
+            "descriptions": {
+              "ja": "瞬時放電可能電力値(W)",
+              "en": "Instantaneous dischargeable power value. (W)"
+            },
+            "type": "number",
+            "unit": "W",
+            "minimum": 0,
+            "maximum": 999999999
+          }
+        }
+      }
+    },
+    "batteryStatus": {
+      "epc": "0xDC",
+      "descriptions": {
+        "ja": "蓄電池状態",
+        "en": "Battery status"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "chargeableEnergy": {
+            "descriptions": {
+              "ja": "充電可能電力量(Wh)",
+              "en": "Chargeable electric energy value. (AC value) (Wh)"
+            },
+            "type": "number",
+            "unit": "Wh",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "dischargeableEnergy": {
+            "descriptions": {
+              "ja": "放電可能電力量(Wh)",
+              "en": "Dischargeable electric energy value. (AC value) (Wh)"
+            },
+            "type": "number",
+            "unit": "Wh",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "storedEnergy": {
+            "descriptions": {
+              "ja": "蓄電残量(DC値)(Wh)",
+              "en": "Remaining stored electricity. (DC value) (Wh)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "Wh",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "storedEnergyPercent": {
+            "descriptions": {
+              "ja": "蓄電残量(%)",
+              "en": "Remaining stored electricity. (State of charge) (%)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "%",
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid data"
+                    },
+                    "edt": "0xFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "healthState": {
+            "descriptions": {
+              "ja": "劣化状態(健康状態)(%)",
+              "en": "State of Health. (%)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "%",
+                "minimum": 0,
+                "maximum": 100
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "Invalid data"
+                    },
+                    "edt": "0xFF"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "note": {
+        "ja": "充電可能電力量(Wh) 、放電可能電力量(Wh) の搭載を必須とする。また、蓄電残量(DC Wh) と蓄電残量(%) の何れかの搭載を必須とする。なお、非搭載の値は無効値とする。",
+        "en": "It is mandatory to implement chargeable power (Wh) and dischargeable power (Wh). In addition, it is mandatory to implement either the remaining stored electricity (DC Wh) or the state of charge (%). And non-implemented values should be treated as invalid values."
+      }
+    },
+    "cumulativeEnergy": {
+      "epc": "0xDE",
+      "descriptions": {
+        "ja": "積算電力量計測値",
+        "en": "Cumulative electric energy measurement values"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "inputEnergyAtDevicePoint": {
+            "descriptions": {
+              "ja": "積算入力電力量計測値(機器点順方向 Wh)",
+              "en": "Measured cumulative amount of input electric energy for PCS. (Normal direction at device point) (Wh)"
+            },
+            "type": "number",
+            "unit": "Wh",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "outputEnergyAtDevicePoint": {
+            "descriptions": {
+              "ja": "積算出力電力量計測値(機器点逆方向 Wh)",
+              "en": "Measured cumulative amount of output electric energy by PCS. (Reverse direction at device point) (Wh)"
+            },
+            "type": "number",
+            "unit": "Wh",
+            "minimum": 0,
+            "maximum": 999999999
+          },
+          "boughtEnergy": {
+            "descriptions": {
+              "ja": "積算系統買電電力量計測値(Wh)",
+              "en": "Measured cumulative amount of electric energy bought from grid. (Wh)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "Wh",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "soldEnergy": {
+            "descriptions": {
+              "ja": "積算系統売電電力量計測値(Wh)",
+              "en": "Measured cumulative amount of electric energy sold for grid. (Wh)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "Wh",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "loadEnergy": {
+            "descriptions": {
+              "ja": "積算負荷電力量計測(Wh)",
+              "en": "Measured cumulative amount of load electric energy. (Wh)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "Wh",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "pvEnergy": {
+            "descriptions": {
+              "ja": "積算太陽光発電電力量計測値(DC Wh)",
+              "en": "Measured cumulative amount of electric energy by PV. (DC value) (Wh)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "Wh",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "chargeEnergy": {
+            "descriptions": {
+              "ja": "積算充電電力量計測値(DC Wh)",
+              "en": "Measured cumulative amount of charge electric energy to battery. (DC value) (Wh)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "Wh",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          },
+          "dischargeEnergy": {
+            "descriptions": {
+              "ja": "積算放電電力量計測値(DC Wh)",
+              "en": "Measured cumulative amount of discharge electric energy from battery. (DC value) (Wh)"
+            },
+            "oneOf": [
+              {
+                "type": "number",
+                "unit": "Wh",
+                "minimum": 0,
+                "maximum": 999999999
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "invalid"
+                ],
+                "values": [
+                  {
+                    "value": "invalid",
+                    "descriptions": {
+                      "ja": "無効値",
+                      "en": "invalid value"
+                    },
+                    "edt": "0xFFFFFFFF"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "note": {
+        "ja": "積算入力電力量計測値（機器点順方向 Wh）、積算出力電力量計測値（機器点逆方向 Wh）の搭載を必須とし、非搭載の値は無効値とする。また、受電点を制御ポイントとできる機器は積算系統買電電力量計測値(Wh)、積算系統売電電力量計測値(Wh)の搭載を推奨する。",
+        "en": "It is mandatory to install the measured cumulative amount of input electric energy (normal direction at device point) (Wh) and the measured cumulative amount of output electric energy (reverse direction at device point) (Wh).In addition, it is recommended that devices that can use the power receiving point as a control point should be equipped with the measured cumulative amount of electric energy bought from grid (Wh) and the measured cumulative amount of electric energy sold to grid (Wh)."
+      }
+    },
+    "cumulativeFrequencyRegulationEnergy": {
+      "epc": "0xDF",
+      "descriptions": {
+        "ja": "周波数制御積算電力量計測値",
+        "en": "Cumulative electric energy measurement by frequency regulation"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "emControlEnergy": {
+            "descriptions": {
+              "ja": "EM制御積算電力量計測値(Wh)",
+              "en": "Cumulative electric energy measurement by EM control (Wh)"
+            },
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "number",
+              "unit": "Wh",
+              "minimum": 0,
+              "maximum": 999999999
+            }
+          },
+          "commandControlEnergy": {
+            "descriptions": {
+              "ja": "指令制御積算電力量計測値(Wh)",
+              "en": "Cumulative electric energy measurement by command control (Wh)"
+            },
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "number",
+                  "unit": "Wh",
+                  "minimum": 0,
+                  "maximum": 999999999
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "invalid"
+                  ],
+                  "values": [
+                    {
+                      "value": "invalid",
+                      "descriptions": {
+                        "ja": "無効値",
+                        "en": "invalid value"
+                      },
+                      "edt": "0xFFFFFFFF"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "autonomousControlEnergy": {
+            "descriptions": {
+              "ja": "自端制御積算電力量計測値(Wh)",
+              "en": "Cumulative electric energy measurement by autonomous control (Wh)"
+            },
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "number",
+                  "unit": "Wh",
+                  "minimum": 0,
+                  "maximum": 999999999
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "invalid"
+                  ],
+                  "values": [
+                    {
+                      "value": "invalid",
+                      "descriptions": {
+                        "ja": "無効値",
+                        "en": "invalid value"
+                      },
+                      "edt": "0xFFFFFFFF"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "emPlanInformation": {
+      "epc": "0xE0",
+      "descriptions": {
+        "ja": "EM計画情報",
+        "en": "EM planned information"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "updateId": {
+            "descriptions": {
+              "ja": "更新ID",
+              "en": "Update ID"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "numberOfData": {
+            "descriptions": {
+              "ja": "データ数",
+              "en": "Number of data"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 96
+          },
+          "firstDataMmDd": {
+            "descriptions": {
+              "ja": "先頭データ月日 (MMDD)",
+              "en": "First data in the MMDD format."
+            },
+            "type": "string",
+            "format": "date"
+          },
+          "firstDataHhMm": {
+            "descriptions": {
+              "ja": "先頭データ時分 (HHMM)",
+              "en": "Hour and minute of first data in the HHMM format."
+            },
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "note": {
+        "ja": "firstDataMmDdはdate形式だが、YYYY部分は意味のない情報",
+        "en": "YYYY part of firstDataMmDd is meaningless even though its format is date."
+      }
+    },
+    "emPlan1": {
+      "epc": "0xE1",
+      "descriptions": {
+        "ja": "EM計画値1",
+        "en": "EM planned value 1"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "array",
+        "minItems": 48,
+        "maxItems": 48,
+        "items": {
+          "type": "number",
+          "unit": "W",
+          "minimum": -999999999,
+          "maximum": 999999999
+        }
+      }
+    },
+    "emPlan2": {
+      "epc": "0xE2",
+      "descriptions": {
+        "ja": "EM計画値2",
+        "en": "EM planned value 2"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "array",
+        "minItems": 48,
+        "maxItems": 48,
+        "items": {
+          "type": "number",
+          "unit": "W",
+          "minimum": -999999999,
+          "maximum": 999999999
+        }
+      }
+    },
+    "upSupplyPlanInformation": {
+      "epc": "0xE3",
+      "descriptions": {
+        "ja": "上げ調整力供出計画情報",
+        "en": "Information of supply plan for regulation up"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "updateId": {
+            "descriptions": {
+              "ja": "更新ID",
+              "en": "Update ID"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "numberOfData": {
+            "descriptions": {
+              "ja": "データ数",
+              "en": "Number of data"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 96
+          },
+          "firstDataMmDd": {
+            "descriptions": {
+              "ja": "先頭データ月日 (MMDD)",
+              "en": "First data in the MMDD format."
+            },
+            "type": "string",
+            "format": "date"
+          },
+          "firstDataHhMm": {
+            "descriptions": {
+              "ja": "先頭データ時分 (HHMM)",
+              "en": "Hour and minute of first data in the HHMM format."
+            },
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "note": {
+        "ja": "firstDataMmDdはdate形式だが、YYYY部分は意味のない情報",
+        "en": "YYYY part of firstDataMmDd is meaningless even though its format is date."
+      }
+    },
+    "upSupplyPlan1": {
+      "epc": "0xE4",
+      "descriptions": {
+        "ja": "上げ調整力供出計画値1",
+        "en": "Supply plan-1 for regulation up"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "array",
+        "minItems": 48,
+        "maxItems": 48,
+        "items": {
+          "type": "number",
+          "unit": "W",
+          "minimum": -999999999,
+          "maximum": 999999999
+        }
+      }
+    },
+    "upSupplyPlan2": {
+      "epc": "0xE5",
+      "descriptions": {
+        "ja": "上げ調整力供出計画値2",
+        "en": "Supply plan-2 for regulation up"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "array",
+        "minItems": 48,
+        "maxItems": 48,
+        "items": {
+          "type": "number",
+          "unit": "W",
+          "minimum": -999999999,
+          "maximum": 999999999
+        }
+      }
+    },
+    "downSupplyPlanInformation": {
+      "epc": "0xE6",
+      "descriptions": {
+        "ja": "下げ調整力供出計画情報",
+        "en": "Information of supply plan for regulation down"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "updateId": {
+            "descriptions": {
+              "ja": "更新ID",
+              "en": "Update ID"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "numberOfData": {
+            "descriptions": {
+              "ja": "データ数",
+              "en": "Number of data"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 96
+          },
+          "firstDataMmDd": {
+            "descriptions": {
+              "ja": "先頭データ月日 (MMDD)",
+              "en": "First data in the MMDD format."
+            },
+            "type": "string",
+            "format": "date"
+          },
+          "firstDataHhMm": {
+            "descriptions": {
+              "ja": "先頭データ時分 (HHMM)",
+              "en": "Hour and minute of first data in the HHMM format."
+            },
+            "type": "string",
+            "format": "time"
+          }
+        }
+      },
+      "note": {
+        "ja": "firstDataMmDdはdate形式だが、YYYY部分は意味のない情報",
+        "en": "YYYY part of firstDataMmDd is meaningless even though its format is date."
+      }
+    },
+    "downSupplyPlan1": {
+      "epc": "0xE7",
+      "descriptions": {
+        "ja": "下げ調整力供出計画値1",
+        "en": "Supply plan-1 for regulation down"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "array",
+        "minItems": 48,
+        "maxItems": 48,
+        "items": {
+          "type": "number",
+          "unit": "W",
+          "minimum": -999999999,
+          "maximum": 999999999
+        }
+      }
+    },
+    "downSupplyPlan2": {
+      "epc": "0xE8",
+      "descriptions": {
+        "ja": "下げ調整力供出計画値2",
+        "en": "Supply plan-2 for regulation down"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "array",
+        "minItems": 48,
+        "maxItems": 48,
+        "items": {
+          "type": "number",
+          "unit": "W",
+          "minimum": -999999999,
+          "maximum": 999999999
+        }
+      }
+    }
+  }
+}

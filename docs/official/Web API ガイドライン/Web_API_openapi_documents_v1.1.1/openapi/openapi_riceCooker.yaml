@@ -1,0 +1,568 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: RiceCooker
+  description: tag for Rice cooker
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesRiceCooker
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reservation:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Rice cooking reservation setting'
+      operationId: getDevicesPropertiesReservationRiceCooker
+      description: '取得: 炊飯予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reservationRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - RiceCooker
+      summary: 'Set: Rice cooking reservation setting'
+      operationId: putDevicesPropertiesReservationRiceCooker
+      description: '設定: 炊飯予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reservationRiceCooker'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reservationRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reservationTime:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Rice cooking reservation time setting'
+      operationId: getDevicesPropertiesReservationTimeRiceCooker
+      description: '取得: 炊飯予約設定時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reservationTimeRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - RiceCooker
+      summary: 'Set: Rice cooking reservation time setting'
+      operationId: putDevicesPropertiesReservationTimeRiceCooker
+      description: '設定: 炊飯予約設定時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reservationTimeRiceCooker'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reservationTimeRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reservationRelativeTime:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Rice cooking reservation relative time setting'
+      operationId: getDevicesPropertiesReservationRelativeTimeRiceCooker
+      description: '取得: 炊飯予約設定相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reservationRelativeTimeRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - RiceCooker
+      summary: 'Set: Rice cooking reservation relative time setting'
+      operationId: putDevicesPropertiesReservationRelativeTimeRiceCooker
+      description: '設定: 炊飯予約設定相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reservationRelativeTimeRiceCooker'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reservationRelativeTimeRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/coverStatus:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Cover closure status'
+      operationId: getDevicesPropertiesCoverStatusRiceCooker
+      description: '取得: 蓋開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coverStatusRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cookingStatus:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Rice cooking status'
+      operationId: getDevicesPropertiesCookingStatusRiceCooker
+      description: '取得: 炊飯状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cookingStatusRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cookingControl:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Rice cooking control setting'
+      operationId: getDevicesPropertiesCookingControlRiceCooker
+      description: '取得: 炊飯制御設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cookingControlRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - RiceCooker
+      summary: 'Set: Rice cooking control setting'
+      operationId: putDevicesPropertiesCookingControlRiceCooker
+      description: '設定: 炊飯制御設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cookingControlRiceCooker'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cookingControlRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/warmerOperation:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Warmer setting'
+      operationId: getDevicesPropertiesWarmerOperationRiceCooker
+      description: '取得: 保温設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/warmerOperationRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - RiceCooker
+      summary: 'Set: Warmer setting'
+      operationId: putDevicesPropertiesWarmerOperationRiceCooker
+      description: '設定: 保温設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/warmerOperationRiceCooker'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/warmerOperationRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/innerPotRemoved:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Inner pot removal status'
+      operationId: getDevicesPropertiesInnerPotRemovedRiceCooker
+      description: '取得: 内なべ取り外し状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/innerPotRemovedRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/coverRemoved:
+    get:
+      tags:
+      - RiceCooker
+      summary: 'Get: Cover removal status'
+      operationId: getDevicesPropertiesCoverRemovedRiceCooker
+      description: '取得: 蓋取り外し状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coverRemovedRiceCooker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesRiceCooker:
+      description: propertiesRiceCooker
+      type: object
+      properties:
+        reservation:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 炊飯予約設定, en: Rice cooking reservation setting] _on (ja:
+            予約有, en: Reservation on) off (ja: 予約無, en: Reservation off) '
+        reservationTime:
+          type: string
+          format: time
+          description: '[ja: 炊飯予約設定時刻設定値, en: Rice cooking reservation time setting] '
+        reservationRelativeTime:
+          type: string
+          format: time
+          description: '[ja: 炊飯予約設定相対時間設定値, en: Rice cooking reservation relative
+            time setting] '
+        coverStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 蓋開閉状態, en: Cover closure status] _open (ja: 蓋開, en: Cover
+            open) close (ja: 蓋閉, en: Cover close) '
+        cookingStatus:
+          type: string
+          enum:
+          - stop
+          - preheating
+          - cooking
+          - steaming
+          - completion
+          description: '[ja: 炊飯状態, en: Rice cooking status] _stop (ja: 停止, en: Stop)
+            preheating (ja: 予熱, en: Preheating) cooking (ja: 炊飯, en: Rice cooking)
+            steaming (ja: 蒸らし, en: Steaming) completion (ja: 炊飯完了, en: Rice cooking
+            completion) '
+        cookingControl:
+          type: string
+          enum:
+          - running
+          - suspension
+          description: '[ja: 炊飯制御設定, en: Rice cooking control setting] _running (ja:
+            炊飯開始・炊飯再開, en: Rice cooking start/restart) suspension (ja: 炊飯一時停止, en:
+            Rice cooking suspension) '
+        warmerOperation:
+          type: boolean
+          description: '[ja: 保温設定, en: Warmer setting] _True (ja: 保温有, en: Warmer
+            enabled) False (ja: 保温無, en: Warmer disabled) '
+        innerPotRemoved:
+          type: boolean
+          description: '[ja: 内なべ取り外し状態, en: Inner pot removal status] _True (ja: 取り外し有,
+            en: Removed) False (ja: 取り外し無, en: Not removed) '
+        coverRemoved:
+          type: boolean
+          description: '[ja: 蓋取り外し状態, en: Cover removal status] _True (ja: 取り外し有,
+            en: Removed) False (ja: 取り外し無, en: Not removed) '
+    reservationRiceCooker:
+      description: '[ja: 炊飯予約設定, en: Rice cooking reservation setting]'
+      type: object
+      properties:
+        reservation:
+          type: string
+          enum:
+          - 'on'
+          - 'off'
+          description: '[ja: 炊飯予約設定, en: Rice cooking reservation setting] _on (ja:
+            予約有, en: Reservation on) off (ja: 予約無, en: Reservation off) '
+    reservationTimeRiceCooker:
+      description: '[ja: 炊飯予約設定時刻設定値, en: Rice cooking reservation time setting]'
+      type: object
+      properties:
+        reservationTime:
+          type: string
+          format: time
+          description: '[ja: 炊飯予約設定時刻設定値, en: Rice cooking reservation time setting] '
+    reservationRelativeTimeRiceCooker:
+      description: '[ja: 炊飯予約設定相対時間設定値, en: Rice cooking reservation relative time
+        setting]'
+      type: object
+      properties:
+        reservationRelativeTime:
+          type: string
+          format: time
+          description: '[ja: 炊飯予約設定相対時間設定値, en: Rice cooking reservation relative
+            time setting] '
+    coverStatusRiceCooker:
+      description: '[ja: 蓋開閉状態, en: Cover closure status]'
+      type: object
+      properties:
+        coverStatus:
+          type: string
+          enum:
+          - open
+          - close
+          description: '[ja: 蓋開閉状態, en: Cover closure status] _open (ja: 蓋開, en: Cover
+            open) close (ja: 蓋閉, en: Cover close) '
+    cookingStatusRiceCooker:
+      description: '[ja: 炊飯状態, en: Rice cooking status]'
+      type: object
+      properties:
+        cookingStatus:
+          type: string
+          enum:
+          - stop
+          - preheating
+          - cooking
+          - steaming
+          - completion
+          description: '[ja: 炊飯状態, en: Rice cooking status] _stop (ja: 停止, en: Stop)
+            preheating (ja: 予熱, en: Preheating) cooking (ja: 炊飯, en: Rice cooking)
+            steaming (ja: 蒸らし, en: Steaming) completion (ja: 炊飯完了, en: Rice cooking
+            completion) '
+    cookingControlRiceCooker:
+      description: '[ja: 炊飯制御設定, en: Rice cooking control setting]'
+      type: object
+      properties:
+        cookingControl:
+          type: string
+          enum:
+          - running
+          - suspension
+          description: '[ja: 炊飯制御設定, en: Rice cooking control setting] _running (ja:
+            炊飯開始・炊飯再開, en: Rice cooking start/restart) suspension (ja: 炊飯一時停止, en:
+            Rice cooking suspension) '
+    warmerOperationRiceCooker:
+      description: '[ja: 保温設定, en: Warmer setting]'
+      type: object
+      properties:
+        warmerOperation:
+          type: boolean
+          description: '[ja: 保温設定, en: Warmer setting] _True (ja: 保温有, en: Warmer
+            enabled) False (ja: 保温無, en: Warmer disabled) '
+    innerPotRemovedRiceCooker:
+      description: '[ja: 内なべ取り外し状態, en: Inner pot removal status]'
+      type: object
+      properties:
+        innerPotRemoved:
+          type: boolean
+          description: '[ja: 内なべ取り外し状態, en: Inner pot removal status] _True (ja: 取り外し有,
+            en: Removed) False (ja: 取り外し無, en: Not removed) '
+    coverRemovedRiceCooker:
+      description: '[ja: 蓋取り外し状態, en: Cover removal status]'
+      type: object
+      properties:
+        coverRemoved:
+          type: boolean
+          description: '[ja: 蓋取り外し状態, en: Cover removal status] _True (ja: 取り外し有,
+            en: Removed) False (ja: 取り外し無, en: Not removed) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

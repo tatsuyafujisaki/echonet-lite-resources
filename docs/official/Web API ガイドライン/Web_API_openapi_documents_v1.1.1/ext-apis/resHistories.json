@@ -1,0 +1,261 @@
+{
+    "properties": {
+        "descriptions": {
+            "descriptions": {
+                "ja": "resource historyの説明",
+                "en": "explanation of resource history"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "ja": {
+                        "type": "string"
+                    },
+                    "en": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "resourceType": {
+            "descriptions": {
+                "ja": "リソースタイプ",
+                "en": "resource type"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "enum": [
+                    "devices"
+                ]
+            }
+        },
+        "resourceId": {
+            "descriptions": {
+                "ja": "リソースID",
+                "en": "resource ID"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string"
+            }
+        },
+        "valueUnit": {
+            "descriptions": {
+                "ja": "値の単位の組",
+                "en": "array of value units"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "enum": [
+                        "Celsius",
+                        "ppm",
+                        "W",
+                        "kW",
+                        "Wh",
+                        "kWh",
+                        "mA",
+                        "A",
+                        "Ah",
+                        "V",
+                        "second",
+                        "minute",
+                        "hour",
+                        "days",
+                        "degree",
+                        "L",
+                        "MJ",
+                        "m3/h",
+                        "m3",
+                        "kvarh",
+                        "lux",
+                        "klux",
+                        "r/min",
+                        "%",
+                        "none"
+                    ]
+                }
+            }
+        },
+        "valueKind": {
+            "descriptions": {
+                "ja": "値の種類の組",
+                "en": "array of value types"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "timing": {
+            "descriptions": {
+                "ja": "履歴データの取得タイミング",
+                "en": "timing to record history data"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "timingType": {
+                        "type": "string",
+                        "enum": [
+                            "onChange",
+                            "interval"
+                        ]
+                    },
+                    "intervalValue": {
+                        "type": "number"
+                    },
+                    "intervalUnit": {
+                        "type": "string",
+                        "enum": [
+                            "second",
+                            "minute",
+                            "hour",
+                            "day",
+                            "month",
+                            "year"
+                        ]
+                    }
+                }
+            }
+        },
+        "first": {
+            "descriptions": {
+                "ja": "最初の記録時刻",
+                "en": "time of the first record"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "format": "date-time"
+            }
+        },
+        "last": {
+            "descriptions": {
+                "ja": "最後の記録時刻",
+                "en": "time of the last record"
+            },
+            "writable": false,
+            "observable": false,
+            "schema": {
+                "type": "string",
+                "format": "date-time"
+            }
+        }
+    },
+    "actions": {
+        "prepareRetrieveData": {
+            "descriptions": {
+                "ja": "取得用データの準備を指示する",
+                "en": "Prepare data to retrieve"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "to": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "count": {
+                        "type": "number",
+                        "minimum": 0,
+                        "multipleOf": 1
+                    },
+                    "countPerPage": {
+                        "type": "number",
+                        "minimum": 1,
+                        "multipleOf": 1
+                    }
+                }
+            }
+        },
+        "retrieve": {
+            "descriptions": {
+                "ja": "履歴データを取得する",
+                "en": "Retrieve histories data"
+            },
+            "input": {
+                "type": "object",
+                "properties": {
+                    "dataId": {
+                        "type": "string"
+                    },
+                    "page": {
+                        "type": "number",
+                        "minimum": 1,
+                        "multipleOf": 1
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "processStatus": {
+                        "type": "string",
+                        "enum": [
+                            "succeeded",
+                            "failed",
+                            "inProgress"
+                        ]
+                    },
+                    "values": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "at": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                },
+                                "values": {
+                                    "type": "object",
+                                    "properties": {
+                                        "kind": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": [
+                                                "string",
+                                                "number",
+                                                "boolean",
+                                                "object",
+                                                "array"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

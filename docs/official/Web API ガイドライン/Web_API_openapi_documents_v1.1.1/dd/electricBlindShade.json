@@ -1,0 +1,826 @@
+{
+  "deviceType": "electricBlindShade",
+  "metaData": {
+    "version": "1.6.0"
+  },
+  "eoj": "0x0260",
+  "descriptions": {
+    "ja": "電動ブラインド・日よけ",
+    "en": "Electrically operated blind/shade"
+  },
+  "properties": {
+    "faultDescription": {
+      "epc": "0x89",
+      "descriptions": {
+        "ja": "異常内容(復帰可能な異常)",
+        "en": "Fault description (Recoverable faults)"
+      },
+      "writable": false,
+      "observable": true,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "noFault",
+          "trunOffOrUnplug",
+          "resetButton",
+          "setIncorrectly",
+          "supply",
+          "cleaning",
+          "changingBattery",
+          "userDefinable1",
+          "abnormalEventOrSafety",
+          "switch",
+          "sensorSystem",
+          "component",
+          "controlCircuitBoard",
+          "userDefinable2",
+          "fault",
+          "obstacleCaught",
+          "outageRecovery",
+          "timeOut",
+          "batteryLow"
+        ],
+        "values": [
+          {
+            "value": "noFault",
+            "descriptions": {
+              "ja": "異常なし",
+              "en": "No fault"
+            },
+            "edt": "0x0000"
+          },
+          {
+            "value": "trunOffOrUnplug",
+            "descriptions": {
+              "ja": "スイッチを切る/コンセントを抜き再操作",
+              "en": "Faults that can be recovered from by turn off the power or unplug and reoperate."
+            },
+            "edt": "0x0001"
+          },
+          {
+            "value": "resetButton",
+            "descriptions": {
+              "ja": "リセットボタンを押し再操作",
+              "en": "Faults that can be recovered from by pressing the reset button."
+            },
+            "edt": "0x0002"
+          },
+          {
+            "value": "setIncorrectly",
+            "descriptions": {
+              "ja": "セット不良",
+              "en": "Device set incorrectly"
+            },
+            "edt": "0x0003"
+          },
+          {
+            "value": "supply",
+            "descriptions": {
+              "ja": "補給",
+              "en": "Supply"
+            },
+            "edt": "0x0004"
+          },
+          {
+            "value": "cleaning",
+            "descriptions": {
+              "ja": "掃除（フィルタ等）",
+              "en": "Cleaning (filters, etc.)"
+            },
+            "edt": "0x0005"
+          },
+          {
+            "value": "changingBattery",
+            "descriptions": {
+              "ja": "電池交換",
+              "en": "Changing the battery"
+            },
+            "edt": "0x0006"
+          },
+          {
+            "value": "userDefinable1",
+            "descriptions": {
+              "ja": "ユーザ定義領域1",
+              "en": "User-definable domain 1"
+            },
+            "edt": "0x0009"
+          },
+          {
+            "value": "abnormalEventOrSafety",
+            "descriptions": {
+              "ja": "異常現象／安全装置作動",
+              "en": "Abnormal event or the tripping of a safety device."
+            },
+            "edt": "0x000a...0x0013"
+          },
+          {
+            "value": "switch",
+            "descriptions": {
+              "ja": "スイッチ異常",
+              "en": "Fault in a switch."
+            },
+            "edt": "0x0014...0x001D"
+          },
+          {
+            "value": "sensorSystem",
+            "descriptions": {
+              "ja": "センサ異常",
+              "en": "Fault in the sensor system"
+            },
+            "edt": "0x001E...0x003B"
+          },
+          {
+            "value": "component",
+            "descriptions": {
+              "ja": "機能部品異常",
+              "en": "Fault in a component such as an actuator."
+            },
+            "edt": "0x003C...0x0059"
+          },
+          {
+            "value": "controlCircuitBoard",
+            "descriptions": {
+              "ja": "制御基板異常",
+              "en": "Fault in a control circuit board."
+            },
+            "edt": "0x005A...0x006E"
+          },
+          {
+            "value": "userDefinable2",
+            "descriptions": {
+              "ja": "ユーザ定義領域2",
+              "en": "User-definable domain 2"
+            },
+            "edt": "0x006F...0x03E8"
+          },
+          {
+            "value": "fault",
+            "descriptions": {
+              "ja": "異常あり",
+              "en": "Fault"
+            },
+            "edt": "0x03FF"
+          },
+          {
+            "value": "obstacleCaught",
+            "descriptions": {
+              "ja": "障害物挟込み",
+              "en": "Obstacle caught"
+            },
+            "edt": "0x0402"
+          },
+          {
+            "value": "outageRecovery",
+            "descriptions": {
+              "ja": "停電復帰",
+              "en": "Recovery from outage"
+            },
+            "edt": "0x0502"
+          },
+          {
+            "value": "timeOut",
+            "descriptions": {
+              "ja": "タイムアウト",
+              "en": "Time out"
+            },
+            "edt": "0x0602"
+          },
+          {
+            "value": "batteryLow",
+            "descriptions": {
+              "ja": "電池残量低下",
+              "en": "Battery low"
+            },
+            "edt": "0x0702"
+          }
+        ]
+      },
+      "note": {
+        "ja": "下位1バイトは、スーパークラスのリセットボタンを押し再操作(0x02)固定。上位1バイトは、復帰可能な異常内容を小分類まで定義。0x45～0xFFはユーザ定義",
+        "en": "Lower-order one byte: Restarting the device by performing a reset operation = 0x02. Higher-order one byte: The detailed fault classification. 0x45 to 0xFF are defined by user."
+      }
+    },
+    "timerOperationMode": {
+      "epc": "0x90",
+      "descriptions": {
+        "ja": "タイマ動作設定",
+        "en": "Timer operation setting"
+      },
+      "writable": true,
+      "observable": true,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "ON",
+              "en": "ON"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "OFF",
+              "en": "OFF"
+            },
+            "edt": "0x42"
+          }
+        ]
+      }
+    },
+    "windDetection": {
+      "epc": "0xC2",
+      "descriptions": {
+        "ja": "風検知状態",
+        "en": "Wind detection status"
+      },
+      "writable": false,
+      "observable": true,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "検知有",
+              "en": "Detected"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "検知無",
+              "en": "Not detected"
+            },
+            "edt": "0x42"
+          }
+        ]
+      }
+    },
+    "sunlightDetection": {
+      "epc": "0xC3",
+      "descriptions": {
+        "ja": "日差し検知状態",
+        "en": "Sunlight detection status"
+      },
+      "writable": false,
+      "observable": true,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "検知有",
+              "en": "Detected"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "検知無",
+              "en": "Not detected"
+            },
+            "edt": "0x42"
+          }
+        ]
+      }
+    },
+    "openingSpeed": {
+      "epc": "0xD0",
+      "descriptions": {
+        "ja": "開(張出し)速度設定",
+        "en": "Opening (extension) speed setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "values": [
+          {
+            "value": "low",
+            "descriptions": {
+              "ja": "低",
+              "en": "Low"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": "medium",
+            "descriptions": {
+              "ja": "中",
+              "en": "Medium"
+            },
+            "edt": "0x42"
+          },
+          {
+            "value": "high",
+            "descriptions": {
+              "ja": "高",
+              "en": "High"
+            },
+            "edt": "0x43"
+          }
+        ]
+      }
+    },
+    "closingSpeed": {
+      "epc": "0xD1",
+      "descriptions": {
+        "ja": "閉(収納)速度設定",
+        "en": "Closing (retraction) speed setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "values": [
+          {
+            "value": "low",
+            "descriptions": {
+              "ja": "低",
+              "en": "Low"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": "medium",
+            "descriptions": {
+              "ja": "中",
+              "en": "Medium"
+            },
+            "edt": "0x42"
+          },
+          {
+            "value": "high",
+            "descriptions": {
+              "ja": "高",
+              "en": "High"
+            },
+            "edt": "0x43"
+          }
+        ]
+      }
+    },
+    "operationTime": {
+      "epc": "0xD2",
+      "descriptions": {
+        "ja": "動作時間設定値",
+        "en": "Operation time"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "second",
+        "minimum": 0,
+        "maximum": 253
+      }
+    },
+    "automaticOperation": {
+      "epc": "0xD4",
+      "descriptions": {
+        "ja": "自動動作設定",
+        "en": "Automatic operation setting"
+      },
+      "writable": true,
+      "observable": true,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "ON",
+              "en": "ON"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "OFF",
+              "en": "OFF"
+            },
+            "edt": "0x42"
+          }
+        ]
+      }
+    },
+    "openCloseOperation": {
+      "epc": "0xE0",
+      "descriptions": {
+        "ja": "開閉(張出し/収納)動作設定",
+        "en": "Open/close (extension/retraction) setting"
+      },
+      "writable": true,
+      "observable": true,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "open",
+          "close",
+          "stop"
+        ],
+        "values": [
+          {
+            "value": "open",
+            "descriptions": {
+              "ja": "開",
+              "en": "Open"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": "close",
+            "descriptions": {
+              "ja": "閉",
+              "en": "Close"
+            },
+            "edt": "0x42"
+          },
+          {
+            "value": "stop",
+            "descriptions": {
+              "ja": "停止",
+              "en": "Stop"
+            },
+            "edt": "0x43"
+          }
+        ]
+      }
+    },
+    "degreeOfOpening": {
+      "epc": "0xE1",
+      "descriptions": {
+        "ja": "開度レベル設定",
+        "en": "Degree-of-opening level"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "%",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "note": {
+        "ja": "「快適生活支援サービス」「エネルギーサービス」に対応する場合、本プロパティの搭載は必須とする",
+        "en": "In the case where an “energy service” or a “home amenity service” is to be supported, the implementation of this property is mandatory"
+      }
+    },
+    "shadeAngle": {
+      "epc": "0xE2",
+      "descriptions": {
+        "ja": "ブラインド角度設定値",
+        "en": "Shade angle setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "number",
+        "unit": "degree",
+        "minimum": 0,
+        "maximum": 180
+      }
+    },
+    "openCloseSpeed": {
+      "epc": "0xE3",
+      "descriptions": {
+        "ja": "開閉(張出し/収納)速度設定",
+        "en": "Open/close (extension/retraction) speed setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "values": [
+          {
+            "value": "low",
+            "descriptions": {
+              "ja": "低",
+              "en": "Low"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": "medium",
+            "descriptions": {
+              "ja": "中",
+              "en": "Medium"
+            },
+            "edt": "0x42"
+          },
+          {
+            "value": "high",
+            "descriptions": {
+              "ja": "高",
+              "en": "High"
+            },
+            "edt": "0x43"
+          }
+        ]
+      }
+    },
+    "electricLock": {
+      "epc": "0xE5",
+      "descriptions": {
+        "ja": "電気錠設定",
+        "en": "Electric lock setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "施錠",
+              "en": "Lock"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "解錠",
+              "en": "Unlock"
+            },
+            "edt": "0x42"
+          }
+        ]
+      }
+    },
+    "remoteOperation": {
+      "epc": "0xE8",
+      "descriptions": {
+        "ja": "遠隔操作設定状態",
+        "en": "Remote operation setting status"
+      },
+      "writable": false,
+      "observable": true,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "ON (許可)",
+              "en": "ON (permitted)"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "OFF (禁止)",
+              "en": "OFF (prohibited)"
+            },
+            "edt": "0x42"
+          }
+        ]
+      }
+    },
+    "selectiveDegreeOfOpening": {
+      "epc": "0xE9",
+      "descriptions": {
+        "ja": "選択開(張出し)度動作設定",
+        "en": "Selective opening (extension) operation setting"
+      },
+      "writable": true,
+      "observable": true,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "degreeOfOpening",
+          "operationTimeOfOpening",
+          "operationTimeOfClosing",
+          "localSetting"
+        ],
+        "values": [
+          {
+            "value": "degreeOfOpening",
+            "descriptions": {
+              "ja": "開度レベル設定位置開",
+              "en": "Degree-of-opening setting position: Open"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": "operationTimeOfOpening",
+            "descriptions": {
+              "ja": "動作時間設定値開",
+              "en": "Operation time setting value: Open"
+            },
+            "edt": "0x42"
+          },
+          {
+            "value": "operationTimeOfClosing",
+            "descriptions": {
+              "ja": "動作時間設定値閉",
+              "en": "Operation time setting value: Close"
+            },
+            "edt": "0x43"
+          },
+          {
+            "value": "localSetting",
+            "descriptions": {
+              "ja": "ローカル設定位置",
+              "en": "Local setting position"
+            },
+            "edt": "0x44"
+          }
+        ]
+      },
+      "note": {
+        "ja": "0x45以降はユーザ定義(開度レベル設定のショートカットなど)",
+        "en": "0x45 to 0xFF are defined by user. (Shortcut to degree-of-opening setting, etc.)"
+      }
+    },
+    "openCloseStatus": {
+      "epc": "0xEA",
+      "descriptions": {
+        "ja": "開閉(張出し/収納)状態",
+        "en": "Open/closed (extended/retracted) status"
+      },
+      "writable": false,
+      "observable": true,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "fullyOpen",
+          "fullyClosed",
+          "opening",
+          "closing",
+          "stoppedHalfway"
+        ],
+        "values": [
+          {
+            "value": "fullyOpen",
+            "descriptions": {
+              "ja": "全開",
+              "en": "Fully open"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": "fullyClosed",
+            "descriptions": {
+              "ja": "全閉",
+              "en": "Fully closed"
+            },
+            "edt": "0x42"
+          },
+          {
+            "value": "opening",
+            "descriptions": {
+              "ja": "開動作中",
+              "en": "Opening"
+            },
+            "edt": "0x43"
+          },
+          {
+            "value": "closing",
+            "descriptions": {
+              "ja": "閉動作中",
+              "en": "Closing"
+            },
+            "edt": "0x44"
+          },
+          {
+            "value": "stoppedHalfway",
+            "descriptions": {
+              "ja": "途中停止",
+              "en": "Stopped halfway"
+            },
+            "edt": "0x45"
+          }
+        ]
+      }
+    },
+    "oneTimeOpeningSpeed": {
+      "epc": "0xEE",
+      "descriptions": {
+        "ja": "ワンタイム開(張出し)速度設定",
+        "en": "One-time opening (extension) speed setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "none"
+        ],
+        "values": [
+          {
+            "value": "low",
+            "descriptions": {
+              "ja": "低",
+              "en": "Low"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": "medium",
+            "descriptions": {
+              "ja": "中",
+              "en": "Medium"
+            },
+            "edt": "0x42"
+          },
+          {
+            "value": "high",
+            "descriptions": {
+              "ja": "高",
+              "en": "High"
+            },
+            "edt": "0x43"
+          },
+          {
+            "value": "none",
+            "descriptions": {
+              "ja": "無し",
+              "en": "None"
+            },
+            "edt": "0x44"
+          }
+        ]
+      }
+    },
+    "oneTimeClosingSpeed": {
+      "epc": "0xEF",
+      "descriptions": {
+        "ja": "ワンタイム閉(収納)速度設定",
+        "en": "One-time closing (retraction) speed setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "low",
+          "medium",
+          "high",
+          "none"
+        ],
+        "values": [
+          {
+            "value": "low",
+            "descriptions": {
+              "ja": "低",
+              "en": "Low"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": "medium",
+            "descriptions": {
+              "ja": "中",
+              "en": "Medium"
+            },
+            "edt": "0x42"
+          },
+          {
+            "value": "high",
+            "descriptions": {
+              "ja": "高",
+              "en": "High"
+            },
+            "edt": "0x43"
+          },
+          {
+            "value": "none",
+            "descriptions": {
+              "ja": "無し",
+              "en": "None"
+            },
+            "edt": "0x44"
+          }
+        ]
+      }
+    }
+  }
+}

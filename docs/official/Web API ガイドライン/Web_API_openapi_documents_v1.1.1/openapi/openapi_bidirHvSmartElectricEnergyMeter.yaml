@@ -1,0 +1,2147 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: BidirHvSmartElectricEnergyMeter
+  description: tag for Bidirectional high voltage smart electric energy meter
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesBidirHvSmartElectricEnergyMeter
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/routeBId:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Route B Identification number'
+      operationId: getDevicesPropertiesRouteBIdBidirHvSmartElectricEnergyMeter
+      description: '取得: Bルート識別番号'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/routeBIdBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/monthlyMaximumElectricPowerDemand:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Monthly maximum electric power demand (normal and reverse directions)'
+      operationId: getDevicesPropertiesMonthlyMaximumElectricPowerDemandBidirHvSmartElectricEnergyMeter
+      description: '取得: 月間最大需要電力(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/monthlyMaximumElectricPowerDemandBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeMaximumElectricPowerDemand:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Cumulative maximum electric power demand (normal and reverse
+        directions)'
+      operationId: getDevicesPropertiesCumulativeMaximumElectricPowerDemandBidirHvSmartElectricEnergyMeter
+      description: '取得: 累積最大需要電力(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeMaximumElectricPowerDemandBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/averageElectricPowerDemand:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Electric power demand at fixed time (30-minute average electric
+        power) (normal and reverse directions)'
+      operationId: getDevicesPropertiesAverageElectricPowerDemandBidirHvSmartElectricEnergyMeter
+      description: '取得: 定時需要電力(30分平均電力)(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/averageElectricPowerDemandBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/normalDirectionElectricPoweDemandLog:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measured electric power demand (normal direction)'
+      operationId: getDevicesPropertiesNormalDirectionElectricPoweDemandLogBidirHvSmartElectricEnergyMeter
+      description: '取得: 需要電力計測値履歴(正方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/normalDirectionElectricPoweDemandLogBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reverseDirectionElectricPoweDemandLog:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measured electric power demand (reverse direction)'
+      operationId: getDevicesPropertiesReverseDirectionElectricPoweDemandLogBidirHvSmartElectricEnergyMeter
+      description: '取得: 需要電力計測値履歴(逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reverseDirectionElectricPoweDemandLogBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergy:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Measurement data of cumulative amount of reactive electric energy
+        (lag) for power factor (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyBidirHvSmartElectricEnergyMeter
+      description: '取得: 力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergyAtEvery30Min:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Measurement data of cumulative amount of reactive electric energy
+        (lag) at fixed time for power factor (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyAtEvery30MinBidirHvSmartElectricEnergyMeter
+      description: '取得: 定時力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyAtEvery30MinBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/normalDirectionCumulativeReactiveElectricEnergyLog:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measurement data of cumulative amount of reactive
+        electric energy (lag) for power factor (normal direction)'
+      operationId: getDevicesPropertiesNormalDirectionCumulativeReactiveElectricEnergyLogBidirHvSmartElectricEnergyMeter
+      description: '取得: 力測積算無効電力量(遅れ)計測値履歴(正方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/normalDirectionCumulativeReactiveElectricEnergyLogBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reverseDirectionCumulativeReactiveElectricEnergyLog:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measurement data of cumulative amount of reactive
+        electric energy (lag) for power factor (reverse direction)'
+      operationId: getDevicesPropertiesReverseDirectionCumulativeReactiveElectricEnergyLogBidirHvSmartElectricEnergyMeter
+      description: '取得: 力測積算無効電力量(遅れ)計測値履歴(逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reverseDirectionCumulativeReactiveElectricEnergyLogBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeActiveElectricEnergyAtEvery1Min:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: One-minute measured cumulative amount of active electric energy
+        (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeActiveElectricEnergyAtEvery1MinBidirHvSmartElectricEnergyMeter
+      description: '取得: 1分積算有効電力量計測値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeActiveElectricEnergyAtEvery1MinBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergyAtEvery1Min:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: One-minute measurement data of cumulative amount of reactive
+        electric energy (lag) for power factor (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyAtEvery1MinBidirHvSmartElectricEnergyMeter
+      description: '取得: 1分力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyAtEvery1MinBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergyLag:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Present values of measured cumulative amount of reactive electric
+        energy (lag) (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyLagBidirHvSmartElectricEnergyMeter
+      description: '取得: 積算無効電力量計測値(遅れ)現在値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyLagBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergyLead:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Present values of measured cumulative amount of reactive electric
+        energy (lead) (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyLeadBidirHvSmartElectricEnergyMeter
+      description: '取得: 積算無効電力量計測値(進み)現在値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyLeadBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/fixedDate:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Fixed date'
+      operationId: getDevicesPropertiesFixedDateBidirHvSmartElectricEnergyMeter
+      description: '取得: 確定日'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fixedDateBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeActiveElectricEnergy:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Measured cumulative amount of active electric energy (normal
+        and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeActiveElectricEnergyBidirHvSmartElectricEnergyMeter
+      description: '取得: 積算有効電力量計測値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeActiveElectricEnergyBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeActiveElectricEnergyAtEvery30Min:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Cumulative amounts of active electric energy at fixed time (normal
+        and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeActiveElectricEnergyAtEvery30MinBidirHvSmartElectricEnergyMeter
+      description: '取得: 定時積算有効電力量計測値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeActiveElectricEnergyAtEvery30MinBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeActiveElectricEnergyForPowerFactor:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Measurement data of cumulative amount of active electric energy
+        for power factor (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeActiveElectricEnergyForPowerFactorBidirHvSmartElectricEnergyMeter
+      description: '取得: 力測積算有効電力量計測値(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeActiveElectricEnergyForPowerFactorBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/normalDirectionCumulativeActiveElectricEnergyLog:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measured cumulative amount of active electric
+        energy (normal direction)'
+      operationId: getDevicesPropertiesNormalDirectionCumulativeActiveElectricEnergyLogBidirHvSmartElectricEnergyMeter
+      description: '取得: 積算有効電力量計測値履歴(正方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/normalDirectionCumulativeActiveElectricEnergyLogBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/reverseDirectionCumulativeActiveElectricEnergyLog:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measured cumulative amount of active electric
+        energy (reverse direction)'
+      operationId: getDevicesPropertiesReverseDirectionCumulativeActiveElectricEnergyLogBidirHvSmartElectricEnergyMeter
+      description: '取得: 積算有効電力量計測値履歴(逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: day
+        description: day
+        schema:
+          type: number
+          minimum: 0
+          maximum: 99
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reverseDirectionCumulativeActiveElectricEnergyLogBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPower:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Measured instantaneous electric energy'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerBidirHvSmartElectricEnergyMeter
+      description: '取得: 瞬時電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerBidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousCurrents2:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Measured instantaneous currents 2'
+      operationId: getDevicesPropertiesInstantaneousCurrents2BidirHvSmartElectricEnergyMeter
+      description: '取得: 瞬時電流計測値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousCurrents2BidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeActiveElectricEnergyLog2:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measured cumulative amount of active electric
+        energy 2 (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeActiveElectricEnergyLog2BidirHvSmartElectricEnergyMeter
+      description: '取得: 積算有効電力量計測値履歴2(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: dateAndTime
+        description: dateAndTime
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: numberOfCollectionSegments
+        description: numberOfCollectionSegments
+        schema:
+          type: number
+          minimum: 1
+          maximum: 10
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeActiveElectricEnergyLog2BidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeReactiveElectricEnergyLog2:
+    get:
+      tags:
+      - BidirHvSmartElectricEnergyMeter
+      summary: 'Get: Historical data of measurement data of cumulative amount of reactive
+        electric energy (lag) for power factor 2 (normal and reverse directions)'
+      operationId: getDevicesPropertiesCumulativeReactiveElectricEnergyLog2BidirHvSmartElectricEnergyMeter
+      description: '取得: 力測積算無効電力量(遅れ)計測値履歴2(正方向、逆方向計測値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: dateAndTime
+        description: dateAndTime
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: numberOfCollectionSegments
+        description: numberOfCollectionSegments
+        schema:
+          type: number
+          minimum: 1
+          maximum: 10
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeReactiveElectricEnergyLog2BidirHvSmartElectricEnergyMeter'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesBidirHvSmartElectricEnergyMeter:
+      description: propertiesBidirHvSmartElectricEnergyMeter
+      type: object
+      properties:
+        routeBId:
+          type: string
+          description: '[ja: Bルート識別番号, en: Route B Identification number] '
+        monthlyMaximumElectricPowerDemand:
+          type: object
+          properties:
+            normalDirection:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 正方向, en: Normal direction] _'
+            reverseDirection:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 逆方向, en: Reverse direction] _'
+          description: '[ja: 月間最大需要電力(正方向、逆方向計測値), en: Monthly maximum electric power
+            demand (normal and reverse directions)] '
+        cumulativeMaximumElectricPowerDemand:
+          type: object
+          properties:
+            normalDirection:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 正方向, en: Normal direction] _'
+            reverseDirection:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 逆方向, en: Reverse direction] _'
+          description: '[ja: 累積最大需要電力(正方向、逆方向計測値), en: Cumulative maximum electric
+            power demand (normal and reverse directions)] '
+        averageElectricPowerDemand:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionElectricPower:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力 (正方向), en: Electric Power demand (normal direction)]
+                _'
+            reverseDirectionElectricPower:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力 (逆方向), en: Electric Power demand (reverse direction)]
+                _'
+          description: '[ja: 定時需要電力(30分平均電力)(正方向、逆方向計測値), en: Electric power demand
+            at fixed time (30-minute average electric power) (normal and reverse directions)] '
+        normalDirectionElectricPoweDemandLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            normalDirectionElectricPower:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力 (正方向), en: Electric power demand (normal direction)]
+                _'
+          description: '[ja: 需要電力計測値履歴(正方向計測値), en: Historical data of measured electric
+            power demand (normal direction)] '
+        reverseDirectionElectricPoweDemandLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            reverseDirectionElectricPower:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力 (逆方向), en: Electric power demand (reverse direction)]
+                _'
+          description: '[ja: 需要電力計測値履歴(逆方向計測値), en: Historical data of measured electric
+            power demand (reverse direction)] '
+        cumulativeReactiveElectricEnergy:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: Measurement data of
+            cumulative amount of reactive electric energy (lag) for power factor (normal
+            and reverse directions)] '
+        cumulativeReactiveElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 定時力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: Measurement data
+            of cumulative amount of reactive electric energy (lag) at fixed time for
+            power factor (normal and reverse directions)] '
+        normalDirectionCumulativeReactiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            normalDirectionCumulativeReactiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ)(正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+          description: '[ja: 力測積算無効電力量(遅れ)計測値履歴(正方向計測値), en: Historical data of measurement
+            data of cumulative amount of reactive electric energy (lag) for power
+            factor (normal direction)] '
+        reverseDirectionCumulativeReactiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            reverseDirectionCumulativeReactiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ)(逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 力測積算無効電力量(遅れ)計測値履歴(逆方向計測値), en: Historical data of measurement
+            data of cumulative amount of reactive electric energy (lag) for power
+            factor (reverse direction)] '
+        cumulativeActiveElectricEnergyAtEvery1Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 1分積算有効電力量計測値(正方向、逆方向計測値), en: One-minute measured cumulative
+            amount of active electric energy (normal and reverse directions)] '
+        cumulativeReactiveElectricEnergyAtEvery1Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 1分力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: One-minute measurement
+            data of cumulative amount of reactive electric energy (lag) for power
+            factor (normal and reverse directions)] '
+        cumulativeReactiveElectricEnergyLag:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergyLag:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergyLag:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 積算無効電力量計測値(遅れ)現在値(正方向、逆方向計測値), en: Present values of
+            measured cumulative amount of reactive electric energy (lag) (normal and
+            reverse directions)] '
+        cumulativeReactiveElectricEnergyLead:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergyLead:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (進み) (正方向), en: Cumulative amount of reactive
+                electric energy (lead) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergyLead:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (進み) (逆方向), en: Cumulative amount of reactive
+                electric energy (lead) (reverse direction)] _'
+          description: '[ja: 積算無効電力量計測値(進み)現在値(正方向、逆方向計測値), en: Present values of
+            measured cumulative amount of reactive electric energy (lead) (normal
+            and reverse directions)] '
+        fixedDate:
+          type: number
+          minimum: 1
+          maximum: 31
+          description: '[ja: 確定日, en: Fixed date] '
+        cumulativeActiveElectricEnergy:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 積算有効電力量計測値(正方向、逆方向計測値), en: Measured cumulative amount
+            of active electric energy (normal and reverse directions)] '
+        cumulativeActiveElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 定時積算有効電力量計測値(正方向、逆方向計測値), en: Cumulative amounts of active
+            electric energy at fixed time (normal and reverse directions)] '
+        cumulativeActiveElectricEnergyForPowerFactor:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 力測積算有効電力量計測値(正方向、逆方向計測値), en: Measurement data of cumulative
+            amount of active electric energy for power factor (normal and reverse
+            directions)] '
+        normalDirectionCumulativeActiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+          description: '[ja: 積算有効電力量計測値履歴(正方向計測値), en: Historical data of measured
+            cumulative amount of active electric energy (normal direction)] '
+        reverseDirectionCumulativeActiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 積算有効電力量計測値履歴(逆方向計測値), en: Historical data of measured
+            cumulative amount of active electric energy (reverse direction)] '
+        instantaneousElectricPower:
+          oneOf:
+          - type: number
+            minimum: -2147483647
+            maximum: 2147483645
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 瞬時電力計測値, en: Measured instantaneous electric energy] '
+        instantaneousCurrents2:
+          type: object
+          properties:
+            rPhase:
+              oneOf:
+              - type: number
+                minimum: -214748364.7
+                maximum: 214748364.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: R相, en: R phase] _'
+            tPhase:
+              oneOf:
+              - type: number
+                minimum: -214748364.7
+                maximum: 214748364.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: T相, en: T phase] _'
+          description: '[ja: 瞬時電流計測値2, en: Measured instantaneous currents 2] '
+        cumulativeActiveElectricEnergyLog2:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 積算履歴収集日時, en: Date and time for which the historical
+                data is to be retrieved] _'
+            numberOfCollectionSegments:
+              type: number
+              minimum: 1
+              maximum: 10
+              description: '[ja: 収集コマ数, en: Number of collection segments] _'
+            cumulativeActiveElectricEnergy:
+              type: array
+              maxItems: 10
+              items:
+                type: object
+                properties:
+                  normalDirectionCumulativeElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: 正方向, en: Normal direction] _'
+                  reverseDirectionCumulativeElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: 逆方向, en: Reverse direction] _'
+              description: '[ja: 積算有効電力量計測値, en: Measured cumulative amount of active
+                electric energy] _'
+          description: '[ja: 積算有効電力量計測値履歴2(正方向、逆方向計測値), en: Historical data of measured
+            cumulative amount of active electric energy 2 (normal and reverse directions)] '
+        cumulativeReactiveElectricEnergyLog2:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 積算履歴収集日時, en: Date and time for which the historical
+                data is to be retrieved] _'
+            numberOfCollectionSegments:
+              type: number
+              minimum: 1
+              maximum: 10
+              description: '[ja: 収集コマ数, en: Number of collection segments] _'
+            cumulativeReactiveElectricEnergy:
+              type: array
+              maxItems: 10
+              items:
+                type: object
+                properties:
+                  normalDirectionCumulativeElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: 正方向, en: Normal direction] _'
+                  reverseDirectionCumulativeElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: 逆方向, en: Reverse direction] _'
+              description: '[ja: 力測積算無効電力量計測値, en: Measured cumulative amounts of
+                reactive electric energy (lag) for power factor] _'
+          description: '[ja: 力測積算無効電力量(遅れ)計測値履歴2(正方向、逆方向計測値), en: Historical data
+            of measurement data of cumulative amount of reactive electric energy (lag)
+            for power factor 2 (normal and reverse directions)] '
+    routeBIdBidirHvSmartElectricEnergyMeter:
+      description: '[ja: Bルート識別番号, en: Route B Identification number]'
+      type: object
+      properties:
+        routeBId:
+          type: string
+          description: '[ja: Bルート識別番号, en: Route B Identification number] '
+    monthlyMaximumElectricPowerDemandBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 月間最大需要電力(正方向、逆方向計測値), en: Monthly maximum electric power
+        demand (normal and reverse directions)]'
+      type: object
+      properties:
+        monthlyMaximumElectricPowerDemand:
+          type: object
+          properties:
+            normalDirection:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 正方向, en: Normal direction] _'
+            reverseDirection:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 逆方向, en: Reverse direction] _'
+          description: '[ja: 月間最大需要電力(正方向、逆方向計測値), en: Monthly maximum electric power
+            demand (normal and reverse directions)] '
+    cumulativeMaximumElectricPowerDemandBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 累積最大需要電力(正方向、逆方向計測値), en: Cumulative maximum electric power
+        demand (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeMaximumElectricPowerDemand:
+          type: object
+          properties:
+            normalDirection:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 正方向, en: Normal direction] _'
+            reverseDirection:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 逆方向, en: Reverse direction] _'
+          description: '[ja: 累積最大需要電力(正方向、逆方向計測値), en: Cumulative maximum electric
+            power demand (normal and reverse directions)] '
+    averageElectricPowerDemandBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 定時需要電力(30分平均電力)(正方向、逆方向計測値), en: Electric power demand at
+        fixed time (30-minute average electric power) (normal and reverse directions)]'
+      type: object
+      properties:
+        averageElectricPowerDemand:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionElectricPower:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力 (正方向), en: Electric Power demand (normal direction)]
+                _'
+            reverseDirectionElectricPower:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力 (逆方向), en: Electric Power demand (reverse direction)]
+                _'
+          description: '[ja: 定時需要電力(30分平均電力)(正方向、逆方向計測値), en: Electric power demand
+            at fixed time (30-minute average electric power) (normal and reverse directions)] '
+    normalDirectionElectricPoweDemandLogBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 需要電力計測値履歴(正方向計測値), en: Historical data of measured electric
+        power demand (normal direction)]'
+      type: object
+      properties:
+        normalDirectionElectricPoweDemandLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            normalDirectionElectricPower:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力 (正方向), en: Electric power demand (normal direction)]
+                _'
+          description: '[ja: 需要電力計測値履歴(正方向計測値), en: Historical data of measured electric
+            power demand (normal direction)] '
+    reverseDirectionElectricPoweDemandLogBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 需要電力計測値履歴(逆方向計測値), en: Historical data of measured electric
+        power demand (reverse direction)]'
+      type: object
+      properties:
+        reverseDirectionElectricPoweDemandLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            reverseDirectionElectricPower:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 需要電力 (逆方向), en: Electric power demand (reverse direction)]
+                _'
+          description: '[ja: 需要電力計測値履歴(逆方向計測値), en: Historical data of measured electric
+            power demand (reverse direction)] '
+    cumulativeReactiveElectricEnergyBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: Measurement data of cumulative
+        amount of reactive electric energy (lag) for power factor (normal and reverse
+        directions)]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergy:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: Measurement data of
+            cumulative amount of reactive electric energy (lag) for power factor (normal
+            and reverse directions)] '
+    cumulativeReactiveElectricEnergyAtEvery30MinBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 定時力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: Measurement data of cumulative
+        amount of reactive electric energy (lag) at fixed time for power factor (normal
+        and reverse directions)]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 定時力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: Measurement data
+            of cumulative amount of reactive electric energy (lag) at fixed time for
+            power factor (normal and reverse directions)] '
+    normalDirectionCumulativeReactiveElectricEnergyLogBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 力測積算無効電力量(遅れ)計測値履歴(正方向計測値), en: Historical data of measurement
+        data of cumulative amount of reactive electric energy (lag) for power factor
+        (normal direction)]'
+      type: object
+      properties:
+        normalDirectionCumulativeReactiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            normalDirectionCumulativeReactiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ)(正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+          description: '[ja: 力測積算無効電力量(遅れ)計測値履歴(正方向計測値), en: Historical data of measurement
+            data of cumulative amount of reactive electric energy (lag) for power
+            factor (normal direction)] '
+    reverseDirectionCumulativeReactiveElectricEnergyLogBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 力測積算無効電力量(遅れ)計測値履歴(逆方向計測値), en: Historical data of measurement
+        data of cumulative amount of reactive electric energy (lag) for power factor
+        (reverse direction)]'
+      type: object
+      properties:
+        reverseDirectionCumulativeReactiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            reverseDirectionCumulativeReactiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ)(逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 力測積算無効電力量(遅れ)計測値履歴(逆方向計測値), en: Historical data of measurement
+            data of cumulative amount of reactive electric energy (lag) for power
+            factor (reverse direction)] '
+    cumulativeActiveElectricEnergyAtEvery1MinBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 1分積算有効電力量計測値(正方向、逆方向計測値), en: One-minute measured cumulative
+        amount of active electric energy (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeActiveElectricEnergyAtEvery1Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 1分積算有効電力量計測値(正方向、逆方向計測値), en: One-minute measured cumulative
+            amount of active electric energy (normal and reverse directions)] '
+    cumulativeReactiveElectricEnergyAtEvery1MinBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 1分力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: One-minute measurement
+        data of cumulative amount of reactive electric energy (lag) for power factor
+        (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergyAtEvery1Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 1分力測積算無効電力量(遅れ)計測値(正方向、逆方向計測値), en: One-minute measurement
+            data of cumulative amount of reactive electric energy (lag) for power
+            factor (normal and reverse directions)] '
+    cumulativeReactiveElectricEnergyLagBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 積算無効電力量計測値(遅れ)現在値(正方向、逆方向計測値), en: Present values of measured
+        cumulative amount of reactive electric energy (lag) (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergyLag:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergyLag:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (正方向), en: Cumulative amount of reactive
+                electric energy (lag) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergyLag:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (遅れ) (逆方向), en: Cumulative amount of reactive
+                electric energy (lag) (reverse direction)] _'
+          description: '[ja: 積算無効電力量計測値(遅れ)現在値(正方向、逆方向計測値), en: Present values of
+            measured cumulative amount of reactive electric energy (lag) (normal and
+            reverse directions)] '
+    cumulativeReactiveElectricEnergyLeadBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 積算無効電力量計測値(進み)現在値(正方向、逆方向計測値), en: Present values of measured
+        cumulative amount of reactive electric energy (lead) (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergyLead:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeReactiveElectricEnergyLead:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (進み) (正方向), en: Cumulative amount of reactive
+                electric energy (lead) (normal direction)] _'
+            reverseDirectionCumulativeReactiveElectricEnergyLead:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算無効電力量 (進み) (逆方向), en: Cumulative amount of reactive
+                electric energy (lead) (reverse direction)] _'
+          description: '[ja: 積算無効電力量計測値(進み)現在値(正方向、逆方向計測値), en: Present values of
+            measured cumulative amount of reactive electric energy (lead) (normal
+            and reverse directions)] '
+    fixedDateBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 確定日, en: Fixed date]'
+      type: object
+      properties:
+        fixedDate:
+          type: number
+          minimum: 1
+          maximum: 31
+          description: '[ja: 確定日, en: Fixed date] '
+    cumulativeActiveElectricEnergyBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 積算有効電力量計測値(正方向、逆方向計測値), en: Measured cumulative amount of
+        active electric energy (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeActiveElectricEnergy:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 積算有効電力量計測値(正方向、逆方向計測値), en: Measured cumulative amount
+            of active electric energy (normal and reverse directions)] '
+    cumulativeActiveElectricEnergyAtEvery30MinBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 定時積算有効電力量計測値(正方向、逆方向計測値), en: Cumulative amounts of active
+        electric energy at fixed time (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeActiveElectricEnergyAtEvery30Min:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 定時積算有効電力量計測値(正方向、逆方向計測値), en: Cumulative amounts of active
+            electric energy at fixed time (normal and reverse directions)] '
+    cumulativeActiveElectricEnergyForPowerFactorBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 力測積算有効電力量計測値(正方向、逆方向計測値), en: Measurement data of cumulative
+        amount of active electric energy for power factor (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeActiveElectricEnergyForPowerFactor:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 計測日時, en: Date and time of measurement] _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              oneOf:
+              - type: number
+                minimum: 0
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 力測積算有効電力量計測値(正方向、逆方向計測値), en: Measurement data of cumulative
+            amount of active electric energy for power factor (normal and reverse
+            directions)] '
+    normalDirectionCumulativeActiveElectricEnergyLogBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 積算有効電力量計測値履歴(正方向計測値), en: Historical data of measured cumulative
+        amount of active electric energy (normal direction)]'
+      type: object
+      properties:
+        normalDirectionCumulativeActiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            normalDirectionCumulativeActiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (正方向), en: Cumulative amount of active electric
+                energy (normal direction)] _'
+          description: '[ja: 積算有効電力量計測値履歴(正方向計測値), en: Historical data of measured
+            cumulative amount of active electric energy (normal direction)] '
+    reverseDirectionCumulativeActiveElectricEnergyLogBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 積算有効電力量計測値履歴(逆方向計測値), en: Historical data of measured cumulative
+        amount of active electric energy (reverse direction)]'
+      type: object
+      properties:
+        reverseDirectionCumulativeActiveElectricEnergyLog:
+          type: object
+          properties:
+            day:
+              oneOf:
+              - type: number
+                minimum: 0
+                maximum: 99
+              - type: string
+                enum:
+                - defaultValue
+                description: '_defaultValue (ja: 初期値, en: Default value) '
+              description: '[ja: 積算履歴収集日, en: Day for which the historical data of
+                measured cumulative amounts of electric energy is to be retrieved]
+                _'
+            reverseDirectionCumulativeActiveElectricEnergy:
+              type: array
+              minItems: 48
+              maxItems: 48
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                - type: string
+                  enum:
+                  - noData
+                  description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: 積算有効電力量 (逆方向), en: Cumulative amount of active electric
+                energy (reverse direction)] _'
+          description: '[ja: 積算有効電力量計測値履歴(逆方向計測値), en: Historical data of measured
+            cumulative amount of active electric energy (reverse direction)] '
+    instantaneousElectricPowerBidirHvSmartElectricEnergyMeter:
+      description: '[ja: 瞬時電力計測値, en: Measured instantaneous electric energy]'
+      type: object
+      properties:
+        instantaneousElectricPower:
+          oneOf:
+          - type: number
+            minimum: -2147483647
+            maximum: 2147483645
+          - type: string
+            enum:
+            - noData
+            description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 瞬時電力計測値, en: Measured instantaneous electric energy] '
+    instantaneousCurrents2BidirHvSmartElectricEnergyMeter:
+      description: '[ja: 瞬時電流計測値2, en: Measured instantaneous currents 2]'
+      type: object
+      properties:
+        instantaneousCurrents2:
+          type: object
+          properties:
+            rPhase:
+              oneOf:
+              - type: number
+                minimum: -214748364.7
+                maximum: 214748364.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: R相, en: R phase] _'
+            tPhase:
+              oneOf:
+              - type: number
+                minimum: -214748364.7
+                maximum: 214748364.5
+                multipleOf: 0.1
+              - type: string
+                enum:
+                - noData
+                description: '_noData (ja: 未計測, en: Not measured) '
+              description: '[ja: T相, en: T phase] _'
+          description: '[ja: 瞬時電流計測値2, en: Measured instantaneous currents 2] '
+    cumulativeActiveElectricEnergyLog2BidirHvSmartElectricEnergyMeter:
+      description: '[ja: 積算有効電力量計測値履歴2(正方向、逆方向計測値), en: Historical data of measured
+        cumulative amount of active electric energy 2 (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeActiveElectricEnergyLog2:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 積算履歴収集日時, en: Date and time for which the historical
+                data is to be retrieved] _'
+            numberOfCollectionSegments:
+              type: number
+              minimum: 1
+              maximum: 10
+              description: '[ja: 収集コマ数, en: Number of collection segments] _'
+            cumulativeActiveElectricEnergy:
+              type: array
+              maxItems: 10
+              items:
+                type: object
+                properties:
+                  normalDirectionCumulativeElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: 正方向, en: Normal direction] _'
+                  reverseDirectionCumulativeElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: 逆方向, en: Reverse direction] _'
+              description: '[ja: 積算有効電力量計測値, en: Measured cumulative amount of active
+                electric energy] _'
+          description: '[ja: 積算有効電力量計測値履歴2(正方向、逆方向計測値), en: Historical data of measured
+            cumulative amount of active electric energy 2 (normal and reverse directions)] '
+    cumulativeReactiveElectricEnergyLog2BidirHvSmartElectricEnergyMeter:
+      description: '[ja: 力測積算無効電力量(遅れ)計測値履歴2(正方向、逆方向計測値), en: Historical data of measurement
+        data of cumulative amount of reactive electric energy (lag) for power factor
+        2 (normal and reverse directions)]'
+      type: object
+      properties:
+        cumulativeReactiveElectricEnergyLog2:
+          type: object
+          properties:
+            dateAndTime:
+              type: string
+              format: date-time
+              description: '[ja: 積算履歴収集日時, en: Date and time for which the historical
+                data is to be retrieved] _'
+            numberOfCollectionSegments:
+              type: number
+              minimum: 1
+              maximum: 10
+              description: '[ja: 収集コマ数, en: Number of collection segments] _'
+            cumulativeReactiveElectricEnergy:
+              type: array
+              maxItems: 10
+              items:
+                type: object
+                properties:
+                  normalDirectionCumulativeElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: 正方向, en: Normal direction] _'
+                  reverseDirectionCumulativeElectricEnergy:
+                    oneOf:
+                    - type: number
+                      minimum: 0
+                    - type: string
+                      enum:
+                      - noData
+                      description: '_noData (ja: 未計測, en: Not measured) '
+                    description: '[ja: 逆方向, en: Reverse direction] _'
+              description: '[ja: 力測積算無効電力量計測値, en: Measured cumulative amounts of
+                reactive electric energy (lag) for power factor] _'
+          description: '[ja: 力測積算無効電力量(遅れ)計測値履歴2(正方向、逆方向計測値), en: Historical data
+            of measurement data of cumulative amount of reactive electric energy (lag)
+            for power factor 2 (normal and reverse directions)] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

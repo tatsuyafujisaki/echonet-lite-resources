@@ -1,0 +1,1290 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: CookingHeater
+  description: tag for Cooking heater
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesCookingHeater
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOffTimer:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: Relative time settings of off timers'
+      operationId: getDevicesPropertiesRelativeTimeOfOffTimerCookingHeater
+      description: '取得: 切タイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CookingHeater
+      summary: 'Set: Relative time settings of off timers'
+      operationId: putDevicesPropertiesRelativeTimeOfOffTimerCookingHeater
+      description: '設定: 切タイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOffTimerCookingHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/childLock:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: Child lock setting'
+      operationId: getDevicesPropertiesChildLockCookingHeater
+      description: '取得: チャイルドロック設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/childLockCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CookingHeater
+      summary: 'Set: Child lock setting'
+      operationId: putDevicesPropertiesChildLockCookingHeater
+      description: '設定: チャイルドロック設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/childLockCookingHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/childLockCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/radiantHeaterLock:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: Radiant heater lock setting'
+      operationId: getDevicesPropertiesRadiantHeaterLockCookingHeater
+      description: '取得: ラジエントヒータロック設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/radiantHeaterLockCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CookingHeater
+      summary: 'Set: Radiant heater lock setting'
+      operationId: putDevicesPropertiesRadiantHeaterLockCookingHeater
+      description: '設定: ラジエントヒータロック設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/radiantHeaterLockCookingHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/radiantHeaterLockCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heatingStatus:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: Heating status'
+      operationId: getDevicesPropertiesHeatingStatusCookingHeater
+      description: '取得: 加熱状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingStatusCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heatingOperation:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: Heating setting'
+      operationId: getDevicesPropertiesHeatingOperationCookingHeater
+      description: '取得: 加熱設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingOperationCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CookingHeater
+      summary: 'Set: Heating setting'
+      operationId: putDevicesPropertiesHeatingOperationCookingHeater
+      description: '設定: 加熱設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/heatingOperationCookingHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingOperationCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heatingModesOfStoves:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: Heating modes of stoves'
+      operationId: getDevicesPropertiesHeatingModesOfStovesCookingHeater
+      description: '取得: コンロ加熱モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingModesOfStovesCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CookingHeater
+      summary: 'Set: Heating modes of stoves'
+      operationId: putDevicesPropertiesHeatingModesOfStovesCookingHeater
+      description: '設定: コンロ加熱モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/heatingModesOfStovesCookingHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingModesOfStovesCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heatingTemperature:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: Heating temperature setting'
+      operationId: getDevicesPropertiesHeatingTemperatureCookingHeater
+      description: '取得: 加熱温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingTemperatureCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CookingHeater
+      summary: 'Set: Heating temperature setting'
+      operationId: putDevicesPropertiesHeatingTemperatureCookingHeater
+      description: '設定: 加熱温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/heatingTemperatureCookingHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingTemperatureCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heatingPower:
+    get:
+      tags:
+      - CookingHeater
+      summary: 'Get: Heating power setting'
+      operationId: getDevicesPropertiesHeatingPowerCookingHeater
+      description: '取得: 加熱出力設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingPowerCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CookingHeater
+      summary: 'Set: Heating power setting'
+      operationId: putDevicesPropertiesHeatingPowerCookingHeater
+      description: '設定: 加熱出力設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/heatingPowerCookingHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingPowerCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/allStop:
+    post:
+      tags:
+      - CookingHeater
+      summary: 'Post: All stop setting'
+      operationId: postDevicesActionsAllStopCookingHeater
+      description: '実行: 一括停止設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/allStopCookingHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesCookingHeater:
+      description: propertiesCookingHeater
+      type: object
+      properties:
+        relativeTimeOfOffTimer:
+          type: object
+          properties:
+            leftStove:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 左コンロ切タイマ時間, en: Relative time setting of the left
+                stove off timer] _'
+            rightStove:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 右コンロ切タイマ時間, en: Relative time setting of the right
+                stove off timer] _'
+            farSideStove:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 奥コンロ切タイマ時間, en: Relative time setting of the far-side
+                stove off timer] _'
+            roaster:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: ロースタ切タイマ時間, en: Relative time setting of the roaster
+                off timer] _'
+          description: '[ja: 切タイマ相対時間設定値, en: Relative time settings of off timers] '
+        childLock:
+          type: boolean
+          description: '[ja: チャイルドロック設定, en: Child lock setting] _True (ja: チャイルドロックON,
+            en: Child lock on) False (ja: チャイルドロックOFF, en: Child lock off) '
+        radiantHeaterLock:
+          type: boolean
+          description: '[ja: ラジエントヒータロック設定, en: Radiant heater lock setting] _True
+            (ja: ラジエントヒータロックON, en: Radiant heater lock on) False (ja: ラジエントヒータロックOFF,
+            en: Radiant heater lock off) '
+        heatingStatus:
+          type: object
+          properties:
+            leftStove:
+              type: string
+              enum:
+              - standingBy
+              - operating
+              - temporarilyStopped
+              - heatingProhibited
+              - unknown
+              description: '[ja: 左コンロ加熱状態, en: Heating status of the left stove] _standingBy
+                (ja: 待機中, en: Standing by) operating (ja: 運転中, en: Operating) temporarilyStopped
+                (ja: 一時停止中, en: Temporarily stopped) heatingProhibited (ja: 加熱禁止状態,
+                en: Heating prohibited) unknown (ja: 不明, en: Unknown) '
+            rightStove:
+              type: string
+              enum:
+              - standingBy
+              - operating
+              - temporarilyStopped
+              - heatingProhibited
+              - unknown
+              description: '[ja: 右コンロ加熱状態, en: Heating status of the right stove]
+                _standingBy (ja: 待機中, en: Standing by) operating (ja: 運転中, en: Operating)
+                temporarilyStopped (ja: 一時停止中, en: Temporarily stopped) heatingProhibited
+                (ja: 加熱禁止状態, en: Heating prohibited) unknown (ja: 不明, en: Unknown) '
+            farSideStove:
+              type: string
+              enum:
+              - standingBy
+              - operating
+              - temporarilyStopped
+              - heatingProhibited
+              - unknown
+              description: '[ja: 奥コンロ加熱状態, en: Heating status of the far-side stove]
+                _standingBy (ja: 待機中, en: Standing by) operating (ja: 運転中, en: Operating)
+                temporarilyStopped (ja: 一時停止中, en: Temporarily stopped) heatingProhibited
+                (ja: 加熱禁止状態, en: Heating prohibited) unknown (ja: 不明, en: Unknown) '
+            roaster:
+              type: string
+              enum:
+              - standingBy
+              - operating
+              - temporarilyStopped
+              - heatingProhibited
+              - unknown
+              description: '[ja: ロースタ加熱状態, en: Heating status of the roaster] _standingBy
+                (ja: 待機中, en: Standing by) operating (ja: 運転中, en: Operating) temporarilyStopped
+                (ja: 一時停止中, en: Temporarily stopped) heatingProhibited (ja: 加熱禁止状態,
+                en: Heating prohibited) unknown (ja: 不明, en: Unknown) '
+          description: '[ja: 加熱状態, en: Heating status] '
+        heatingOperation:
+          type: object
+          properties:
+            leftStove:
+              type: string
+              enum:
+              - stopHeating
+              - startOrResumeHeating
+              - temporarilyStopHeating
+              - noSetting
+              description: '[ja: 左コンロ設定, en: Left stove setting] _stopHeating (ja:
+                加熱停止, en: Stop heating) startOrResumeHeating (ja: 加熱開始・再開, en: Start/resume
+                heating) temporarilyStopHeating (ja: 加熱一時停止, en: Temporarily stop
+                heating) noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+            rightStove:
+              type: string
+              enum:
+              - stopHeating
+              - startOrResumeHeating
+              - temporarilyStopHeating
+              - noSetting
+              description: '[ja: 右コンロ設定, en: Right stove setting] _stopHeating (ja:
+                加熱停止, en: Stop heating) startOrResumeHeating (ja: 加熱開始・再開, en: Start/resume
+                heating) temporarilyStopHeating (ja: 加熱一時停止, en: Temporarily stop
+                heating) noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+            farSideStove:
+              type: string
+              enum:
+              - stopHeating
+              - startOrResumeHeating
+              - temporarilyStopHeating
+              - noSetting
+              description: '[ja: 奥コンロ設定, en: Far-side stove setting] _stopHeating
+                (ja: 加熱停止, en: Stop heating) startOrResumeHeating (ja: 加熱開始・再開, en:
+                Start/resume heating) temporarilyStopHeating (ja: 加熱一時停止, en: Temporarily
+                stop heating) noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+            roaster:
+              type: string
+              enum:
+              - stopHeating
+              - startOrResumeHeating
+              - temporarilyStopHeating
+              - noSetting
+              description: '[ja: ロースタ設定, en: Roaster setting] _stopHeating (ja: 加熱停止,
+                en: Stop heating) startOrResumeHeating (ja: 加熱開始・再開, en: Start/resume
+                heating) temporarilyStopHeating (ja: 加熱一時停止, en: Temporarily stop
+                heating) noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+          description: '[ja: 加熱設定, en: Heating setting] '
+        heatingModesOfStoves:
+          type: object
+          properties:
+            leftStove:
+              type: string
+              enum:
+              - heatingPowerControl
+              - deepFrying
+              - waterHeating
+              - riceBoiling
+              - stirFrying
+              - noSetting
+              description: '[ja: 左コンロ加熱モード, en: Heating mode of the left stove] _heatingPowerControl
+                (ja: 加熱出力制御モード, en: Heating power control mode) deepFrying (ja: 天ぷら
+                (揚げ物), en: Deep-frying mode (tempura, etc.)) waterHeating (ja: 湯沸し,
+                en: Water heating mode) riceBoiling (ja: 炊飯, en: Rice boiling mode)
+                stirFrying (ja: 炒め物, en: Stir-frying mode) noSetting (ja: 未設定（GET
+                の場合）、設定なし（SET の場合）, en: No setting) '
+            rightStove:
+              type: string
+              enum:
+              - heatingPowerControl
+              - deepFrying
+              - waterHeating
+              - riceBoiling
+              - stirFrying
+              - noSetting
+              description: '[ja: 右コンロ加熱モード, en: Heating mode of the right stove] _heatingPowerControl
+                (ja: 加熱出力制御モード, en: Heating power control mode) deepFrying (ja: 天ぷら
+                (揚げ物), en: Deep-frying mode (tempura, etc.)) waterHeating (ja: 湯沸し,
+                en: Water heating mode) riceBoiling (ja: 炊飯, en: Rice boiling mode)
+                stirFrying (ja: 炒め物, en: Stir-frying mode) noSetting (ja: 未設定（GET
+                の場合）、設定なし（SET の場合）, en: No setting) '
+            farSideStove:
+              type: string
+              enum:
+              - heatingPowerControl
+              - deepFrying
+              - waterHeating
+              - riceBoiling
+              - stirFrying
+              - noSetting
+              description: '[ja: 奥コンロ加熱モード, en: Heating mode of the far-side stove]
+                _heatingPowerControl (ja: 加熱出力制御モード, en: Heating power control mode)
+                deepFrying (ja: 天ぷら (揚げ物), en: Deep-frying mode (tempura, etc.)) waterHeating
+                (ja: 湯沸し, en: Water heating mode) riceBoiling (ja: 炊飯, en: Rice boiling
+                mode) stirFrying (ja: 炒め物, en: Stir-frying mode) noSetting (ja: 未設定（GET
+                の場合）、設定なし（SET の場合）, en: No setting) '
+          description: '[ja: コンロ加熱モード設定, en: Heating modes of stoves] '
+        heatingTemperature:
+          type: object
+          properties:
+            leftStove:
+              oneOf:
+              - type: number
+                minimum: 50
+                maximum: 250
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 左コンロ設定温度, en: Left stove temperature setting] _'
+            rightStove:
+              oneOf:
+              - type: number
+                minimum: 50
+                maximum: 250
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 右コンロ設定温度, en: Right stove temperature setting] _'
+            farSideStove:
+              oneOf:
+              - type: number
+                minimum: 50
+                maximum: 250
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 奥コンロ設定温度, en: Far-side stove temperature setting]
+                _'
+          description: '[ja: 加熱温度設定値, en: Heating temperature setting] '
+        heatingPower:
+          type: object
+          properties:
+            leftStove:
+              oneOf:
+              - type: object
+                properties:
+                  wattage:
+                    type: number
+                    minimum: 0
+                    maximum: 1000
+                    description: '[ja: 出力設定形式, en: Output wattage] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  level:
+                    type: number
+                    minimum: 0
+                    maximum: 16
+                    multipleOf: 1
+                    description: '[ja: レベル設定形式, en: Level] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  stateOfFlame:
+                    type: string
+                    enum:
+                    - veryLowFlame
+                    - lowFlame
+                    - mediumFlame
+                    - highFlame
+                    - highPower
+                    - noSetting
+                    description: '[ja: 状態表現形式, en: The state of flame] _veryLowFlame
+                      (ja: とろ火, en: Very low flame) lowFlame (ja: 弱火, en: Low flame)
+                      mediumFlame (ja: 中火, en: Medium flame) highFlame (ja: 強火, en:
+                      High flame) highPower (ja: ハイパワー, en: High power) noSetting
+                      (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+                additionalProperties: false
+              description: '[ja: 左コンロ加熱出力, en: Heating power of the left stove] _'
+            rightStove:
+              oneOf:
+              - type: object
+                properties:
+                  wattage:
+                    type: number
+                    minimum: 0
+                    maximum: 1000
+                    description: '[ja: 出力設定形式, en: Output wattage] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  level:
+                    type: number
+                    minimum: 0
+                    maximum: 16
+                    multipleOf: 1
+                    description: '[ja: レベル設定形式, en: Level] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  stateOfFlame:
+                    type: string
+                    enum:
+                    - veryLowFlame
+                    - lowFlame
+                    - mediumFlame
+                    - highFlame
+                    - highPower
+                    - noSetting
+                    description: '[ja: 状態表現形式, en: The state of flame] _veryLowFlame
+                      (ja: とろ火, en: Very low flame) lowFlame (ja: 弱火, en: Low flame)
+                      mediumFlame (ja: 中火, en: Medium flame) highFlame (ja: 強火, en:
+                      High flame) highPower (ja: ハイパワー, en: High power) noSetting
+                      (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+                additionalProperties: false
+              description: '[ja: 右コンロ加熱出力, en: Heating power of the right stove] _'
+            farSideStove:
+              oneOf:
+              - type: object
+                properties:
+                  wattage:
+                    type: number
+                    minimum: 0
+                    maximum: 1000
+                    description: '[ja: 出力設定形式, en: Output wattage] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  level:
+                    type: number
+                    minimum: 0
+                    maximum: 16
+                    multipleOf: 1
+                    description: '[ja: レベル設定形式, en: Level] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  stateOfFlame:
+                    type: string
+                    enum:
+                    - veryLowFlame
+                    - lowFlame
+                    - mediumFlame
+                    - highFlame
+                    - highPower
+                    - noSetting
+                    description: '[ja: 状態表現形式, en: The state of flame] _veryLowFlame
+                      (ja: とろ火, en: Very low flame) lowFlame (ja: 弱火, en: Low flame)
+                      mediumFlame (ja: 中火, en: Medium flame) highFlame (ja: 強火, en:
+                      High flame) highPower (ja: ハイパワー, en: High power) noSetting
+                      (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+                additionalProperties: false
+              description: '[ja: 奥コンロ加熱出力, en: Heating power of the far-side stove]
+                _'
+            roaster:
+              oneOf:
+              - type: object
+                properties:
+                  wattage:
+                    type: number
+                    minimum: 0
+                    maximum: 1000
+                    description: '[ja: 出力設定形式, en: Output wattage] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  level:
+                    type: number
+                    minimum: 0
+                    maximum: 16
+                    multipleOf: 1
+                    description: '[ja: レベル設定形式, en: Level] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  stateOfFlame:
+                    type: string
+                    enum:
+                    - veryLowFlame
+                    - lowFlame
+                    - mediumFlame
+                    - highFlame
+                    - highPower
+                    - noSetting
+                    description: '[ja: 状態表現形式, en: The state of flame] _veryLowFlame
+                      (ja: とろ火, en: Very low flame) lowFlame (ja: 弱火, en: Low flame)
+                      mediumFlame (ja: 中火, en: Medium flame) highFlame (ja: 強火, en:
+                      High flame) highPower (ja: ハイパワー, en: High power) noSetting
+                      (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+                additionalProperties: false
+              description: '[ja: ロースタ加熱出力, en: Heating power of the roaster] _'
+          description: '[ja: 加熱出力設定, en: Heating power setting] '
+    relativeTimeOfOffTimerCookingHeater:
+      description: '[ja: 切タイマ相対時間設定値, en: Relative time settings of off timers]'
+      type: object
+      properties:
+        relativeTimeOfOffTimer:
+          type: object
+          properties:
+            leftStove:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 左コンロ切タイマ時間, en: Relative time setting of the left
+                stove off timer] _'
+            rightStove:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 右コンロ切タイマ時間, en: Relative time setting of the right
+                stove off timer] _'
+            farSideStove:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 奥コンロ切タイマ時間, en: Relative time setting of the far-side
+                stove off timer] _'
+            roaster:
+              oneOf:
+              - type: string
+                format: time
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: ロースタ切タイマ時間, en: Relative time setting of the roaster
+                off timer] _'
+          description: '[ja: 切タイマ相対時間設定値, en: Relative time settings of off timers] '
+    childLockCookingHeater:
+      description: '[ja: チャイルドロック設定, en: Child lock setting]'
+      type: object
+      properties:
+        childLock:
+          type: boolean
+          description: '[ja: チャイルドロック設定, en: Child lock setting] _True (ja: チャイルドロックON,
+            en: Child lock on) False (ja: チャイルドロックOFF, en: Child lock off) '
+    radiantHeaterLockCookingHeater:
+      description: '[ja: ラジエントヒータロック設定, en: Radiant heater lock setting]'
+      type: object
+      properties:
+        radiantHeaterLock:
+          type: boolean
+          description: '[ja: ラジエントヒータロック設定, en: Radiant heater lock setting] _True
+            (ja: ラジエントヒータロックON, en: Radiant heater lock on) False (ja: ラジエントヒータロックOFF,
+            en: Radiant heater lock off) '
+    heatingStatusCookingHeater:
+      description: '[ja: 加熱状態, en: Heating status]'
+      type: object
+      properties:
+        heatingStatus:
+          type: object
+          properties:
+            leftStove:
+              type: string
+              enum:
+              - standingBy
+              - operating
+              - temporarilyStopped
+              - heatingProhibited
+              - unknown
+              description: '[ja: 左コンロ加熱状態, en: Heating status of the left stove] _standingBy
+                (ja: 待機中, en: Standing by) operating (ja: 運転中, en: Operating) temporarilyStopped
+                (ja: 一時停止中, en: Temporarily stopped) heatingProhibited (ja: 加熱禁止状態,
+                en: Heating prohibited) unknown (ja: 不明, en: Unknown) '
+            rightStove:
+              type: string
+              enum:
+              - standingBy
+              - operating
+              - temporarilyStopped
+              - heatingProhibited
+              - unknown
+              description: '[ja: 右コンロ加熱状態, en: Heating status of the right stove]
+                _standingBy (ja: 待機中, en: Standing by) operating (ja: 運転中, en: Operating)
+                temporarilyStopped (ja: 一時停止中, en: Temporarily stopped) heatingProhibited
+                (ja: 加熱禁止状態, en: Heating prohibited) unknown (ja: 不明, en: Unknown) '
+            farSideStove:
+              type: string
+              enum:
+              - standingBy
+              - operating
+              - temporarilyStopped
+              - heatingProhibited
+              - unknown
+              description: '[ja: 奥コンロ加熱状態, en: Heating status of the far-side stove]
+                _standingBy (ja: 待機中, en: Standing by) operating (ja: 運転中, en: Operating)
+                temporarilyStopped (ja: 一時停止中, en: Temporarily stopped) heatingProhibited
+                (ja: 加熱禁止状態, en: Heating prohibited) unknown (ja: 不明, en: Unknown) '
+            roaster:
+              type: string
+              enum:
+              - standingBy
+              - operating
+              - temporarilyStopped
+              - heatingProhibited
+              - unknown
+              description: '[ja: ロースタ加熱状態, en: Heating status of the roaster] _standingBy
+                (ja: 待機中, en: Standing by) operating (ja: 運転中, en: Operating) temporarilyStopped
+                (ja: 一時停止中, en: Temporarily stopped) heatingProhibited (ja: 加熱禁止状態,
+                en: Heating prohibited) unknown (ja: 不明, en: Unknown) '
+          description: '[ja: 加熱状態, en: Heating status] '
+    heatingOperationCookingHeater:
+      description: '[ja: 加熱設定, en: Heating setting]'
+      type: object
+      properties:
+        heatingOperation:
+          type: object
+          properties:
+            leftStove:
+              type: string
+              enum:
+              - stopHeating
+              - startOrResumeHeating
+              - temporarilyStopHeating
+              - noSetting
+              description: '[ja: 左コンロ設定, en: Left stove setting] _stopHeating (ja:
+                加熱停止, en: Stop heating) startOrResumeHeating (ja: 加熱開始・再開, en: Start/resume
+                heating) temporarilyStopHeating (ja: 加熱一時停止, en: Temporarily stop
+                heating) noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+            rightStove:
+              type: string
+              enum:
+              - stopHeating
+              - startOrResumeHeating
+              - temporarilyStopHeating
+              - noSetting
+              description: '[ja: 右コンロ設定, en: Right stove setting] _stopHeating (ja:
+                加熱停止, en: Stop heating) startOrResumeHeating (ja: 加熱開始・再開, en: Start/resume
+                heating) temporarilyStopHeating (ja: 加熱一時停止, en: Temporarily stop
+                heating) noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+            farSideStove:
+              type: string
+              enum:
+              - stopHeating
+              - startOrResumeHeating
+              - temporarilyStopHeating
+              - noSetting
+              description: '[ja: 奥コンロ設定, en: Far-side stove setting] _stopHeating
+                (ja: 加熱停止, en: Stop heating) startOrResumeHeating (ja: 加熱開始・再開, en:
+                Start/resume heating) temporarilyStopHeating (ja: 加熱一時停止, en: Temporarily
+                stop heating) noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+            roaster:
+              type: string
+              enum:
+              - stopHeating
+              - startOrResumeHeating
+              - temporarilyStopHeating
+              - noSetting
+              description: '[ja: ロースタ設定, en: Roaster setting] _stopHeating (ja: 加熱停止,
+                en: Stop heating) startOrResumeHeating (ja: 加熱開始・再開, en: Start/resume
+                heating) temporarilyStopHeating (ja: 加熱一時停止, en: Temporarily stop
+                heating) noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+          description: '[ja: 加熱設定, en: Heating setting] '
+    heatingModesOfStovesCookingHeater:
+      description: '[ja: コンロ加熱モード設定, en: Heating modes of stoves]'
+      type: object
+      properties:
+        heatingModesOfStoves:
+          type: object
+          properties:
+            leftStove:
+              type: string
+              enum:
+              - heatingPowerControl
+              - deepFrying
+              - waterHeating
+              - riceBoiling
+              - stirFrying
+              - noSetting
+              description: '[ja: 左コンロ加熱モード, en: Heating mode of the left stove] _heatingPowerControl
+                (ja: 加熱出力制御モード, en: Heating power control mode) deepFrying (ja: 天ぷら
+                (揚げ物), en: Deep-frying mode (tempura, etc.)) waterHeating (ja: 湯沸し,
+                en: Water heating mode) riceBoiling (ja: 炊飯, en: Rice boiling mode)
+                stirFrying (ja: 炒め物, en: Stir-frying mode) noSetting (ja: 未設定（GET
+                の場合）、設定なし（SET の場合）, en: No setting) '
+            rightStove:
+              type: string
+              enum:
+              - heatingPowerControl
+              - deepFrying
+              - waterHeating
+              - riceBoiling
+              - stirFrying
+              - noSetting
+              description: '[ja: 右コンロ加熱モード, en: Heating mode of the right stove] _heatingPowerControl
+                (ja: 加熱出力制御モード, en: Heating power control mode) deepFrying (ja: 天ぷら
+                (揚げ物), en: Deep-frying mode (tempura, etc.)) waterHeating (ja: 湯沸し,
+                en: Water heating mode) riceBoiling (ja: 炊飯, en: Rice boiling mode)
+                stirFrying (ja: 炒め物, en: Stir-frying mode) noSetting (ja: 未設定（GET
+                の場合）、設定なし（SET の場合）, en: No setting) '
+            farSideStove:
+              type: string
+              enum:
+              - heatingPowerControl
+              - deepFrying
+              - waterHeating
+              - riceBoiling
+              - stirFrying
+              - noSetting
+              description: '[ja: 奥コンロ加熱モード, en: Heating mode of the far-side stove]
+                _heatingPowerControl (ja: 加熱出力制御モード, en: Heating power control mode)
+                deepFrying (ja: 天ぷら (揚げ物), en: Deep-frying mode (tempura, etc.)) waterHeating
+                (ja: 湯沸し, en: Water heating mode) riceBoiling (ja: 炊飯, en: Rice boiling
+                mode) stirFrying (ja: 炒め物, en: Stir-frying mode) noSetting (ja: 未設定（GET
+                の場合）、設定なし（SET の場合）, en: No setting) '
+          description: '[ja: コンロ加熱モード設定, en: Heating modes of stoves] '
+    heatingTemperatureCookingHeater:
+      description: '[ja: 加熱温度設定値, en: Heating temperature setting]'
+      type: object
+      properties:
+        heatingTemperature:
+          type: object
+          properties:
+            leftStove:
+              oneOf:
+              - type: number
+                minimum: 50
+                maximum: 250
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 左コンロ設定温度, en: Left stove temperature setting] _'
+            rightStove:
+              oneOf:
+              - type: number
+                minimum: 50
+                maximum: 250
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 右コンロ設定温度, en: Right stove temperature setting] _'
+            farSideStove:
+              oneOf:
+              - type: number
+                minimum: 50
+                maximum: 250
+              - type: string
+                enum:
+                - noSetting
+                description: '_noSetting (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+              description: '[ja: 奥コンロ設定温度, en: Far-side stove temperature setting]
+                _'
+          description: '[ja: 加熱温度設定値, en: Heating temperature setting] '
+    heatingPowerCookingHeater:
+      description: '[ja: 加熱出力設定, en: Heating power setting]'
+      type: object
+      properties:
+        heatingPower:
+          type: object
+          properties:
+            leftStove:
+              oneOf:
+              - type: object
+                properties:
+                  wattage:
+                    type: number
+                    minimum: 0
+                    maximum: 1000
+                    description: '[ja: 出力設定形式, en: Output wattage] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  level:
+                    type: number
+                    minimum: 0
+                    maximum: 16
+                    multipleOf: 1
+                    description: '[ja: レベル設定形式, en: Level] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  stateOfFlame:
+                    type: string
+                    enum:
+                    - veryLowFlame
+                    - lowFlame
+                    - mediumFlame
+                    - highFlame
+                    - highPower
+                    - noSetting
+                    description: '[ja: 状態表現形式, en: The state of flame] _veryLowFlame
+                      (ja: とろ火, en: Very low flame) lowFlame (ja: 弱火, en: Low flame)
+                      mediumFlame (ja: 中火, en: Medium flame) highFlame (ja: 強火, en:
+                      High flame) highPower (ja: ハイパワー, en: High power) noSetting
+                      (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+                additionalProperties: false
+              description: '[ja: 左コンロ加熱出力, en: Heating power of the left stove] _'
+            rightStove:
+              oneOf:
+              - type: object
+                properties:
+                  wattage:
+                    type: number
+                    minimum: 0
+                    maximum: 1000
+                    description: '[ja: 出力設定形式, en: Output wattage] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  level:
+                    type: number
+                    minimum: 0
+                    maximum: 16
+                    multipleOf: 1
+                    description: '[ja: レベル設定形式, en: Level] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  stateOfFlame:
+                    type: string
+                    enum:
+                    - veryLowFlame
+                    - lowFlame
+                    - mediumFlame
+                    - highFlame
+                    - highPower
+                    - noSetting
+                    description: '[ja: 状態表現形式, en: The state of flame] _veryLowFlame
+                      (ja: とろ火, en: Very low flame) lowFlame (ja: 弱火, en: Low flame)
+                      mediumFlame (ja: 中火, en: Medium flame) highFlame (ja: 強火, en:
+                      High flame) highPower (ja: ハイパワー, en: High power) noSetting
+                      (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+                additionalProperties: false
+              description: '[ja: 右コンロ加熱出力, en: Heating power of the right stove] _'
+            farSideStove:
+              oneOf:
+              - type: object
+                properties:
+                  wattage:
+                    type: number
+                    minimum: 0
+                    maximum: 1000
+                    description: '[ja: 出力設定形式, en: Output wattage] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  level:
+                    type: number
+                    minimum: 0
+                    maximum: 16
+                    multipleOf: 1
+                    description: '[ja: レベル設定形式, en: Level] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  stateOfFlame:
+                    type: string
+                    enum:
+                    - veryLowFlame
+                    - lowFlame
+                    - mediumFlame
+                    - highFlame
+                    - highPower
+                    - noSetting
+                    description: '[ja: 状態表現形式, en: The state of flame] _veryLowFlame
+                      (ja: とろ火, en: Very low flame) lowFlame (ja: 弱火, en: Low flame)
+                      mediumFlame (ja: 中火, en: Medium flame) highFlame (ja: 強火, en:
+                      High flame) highPower (ja: ハイパワー, en: High power) noSetting
+                      (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+                additionalProperties: false
+              description: '[ja: 奥コンロ加熱出力, en: Heating power of the far-side stove]
+                _'
+            roaster:
+              oneOf:
+              - type: object
+                properties:
+                  wattage:
+                    type: number
+                    minimum: 0
+                    maximum: 1000
+                    description: '[ja: 出力設定形式, en: Output wattage] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  level:
+                    type: number
+                    minimum: 0
+                    maximum: 16
+                    multipleOf: 1
+                    description: '[ja: レベル設定形式, en: Level] _'
+                additionalProperties: false
+              - type: object
+                properties:
+                  stateOfFlame:
+                    type: string
+                    enum:
+                    - veryLowFlame
+                    - lowFlame
+                    - mediumFlame
+                    - highFlame
+                    - highPower
+                    - noSetting
+                    description: '[ja: 状態表現形式, en: The state of flame] _veryLowFlame
+                      (ja: とろ火, en: Very low flame) lowFlame (ja: 弱火, en: Low flame)
+                      mediumFlame (ja: 中火, en: Medium flame) highFlame (ja: 強火, en:
+                      High flame) highPower (ja: ハイパワー, en: High power) noSetting
+                      (ja: 未設定（GET の場合）、設定なし（SET の場合）, en: No setting) '
+                additionalProperties: false
+              description: '[ja: ロースタ加熱出力, en: Heating power of the roaster] _'
+          description: '[ja: 加熱出力設定, en: Heating power setting] '
+    allStopCookingHeater: {}
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

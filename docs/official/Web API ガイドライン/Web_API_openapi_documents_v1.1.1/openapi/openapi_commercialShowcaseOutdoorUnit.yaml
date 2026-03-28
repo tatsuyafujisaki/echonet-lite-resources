@@ -1,0 +1,408 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: CommercialShowcaseOutdoorUnit
+  description: tag for Commercial show case outdoor unit
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesCommercialShowcaseOutdoorUnit
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/exceptionalStatus:
+    get:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Get: Indicates that the showcase freezer is in an exceptional status.'
+      operationId: getDevicesPropertiesExceptionalStatusCommercialShowcaseOutdoorUnit
+      description: '取得: 特殊状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/exceptionalStatusCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationMode:
+    get:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Get: Operation mode setting'
+      operationId: getDevicesPropertiesOperationModeCommercialShowcaseOutdoorUnit
+      description: '取得: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Set: Operation mode setting'
+      operationId: putDevicesPropertiesOperationModeCommercialShowcaseOutdoorUnit
+      description: '設定: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationModeCommercialShowcaseOutdoorUnit'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outdoorAirTemperature:
+    get:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Get: Used to acquire measurements of outdoor air temperature.'
+      operationId: getDevicesPropertiesOutdoorAirTemperatureCommercialShowcaseOutdoorUnit
+      description: '取得: 外気温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outdoorAirTemperatureCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/groupInformation:
+    get:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Get: Group information'
+      operationId: getDevicesPropertiesGroupInformationCommercialShowcaseOutdoorUnit
+      description: '取得: グループ情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupInformationCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Set: Group information'
+      operationId: putDevicesPropertiesGroupInformationCommercialShowcaseOutdoorUnit
+      description: '設定: グループ情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/groupInformationCommercialShowcaseOutdoorUnit'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupInformationCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/compressorOperationStatus:
+    get:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Get: Indicates compressor ON/OFF status.'
+      operationId: getDevicesPropertiesCompressorOperationStatusCommercialShowcaseOutdoorUnit
+      description: '取得: コンプレッサ動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/compressorOperationStatusCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Set: Indicates compressor ON/OFF status.'
+      operationId: putDevicesPropertiesCompressorOperationStatusCommercialShowcaseOutdoorUnit
+      description: '設定: コンプレッサ動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/compressorOperationStatusCommercialShowcaseOutdoorUnit'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/compressorOperationStatusCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/groupDeviceList:
+    get:
+      tags:
+      - CommercialShowcaseOutdoorUnit
+      summary: 'Get: List of devices in group'
+      operationId: getDevicesPropertiesGroupDeviceListCommercialShowcaseOutdoorUnit
+      description: '取得: グループ内デバイスリスト'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupDeviceListCommercialShowcaseOutdoorUnit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesCommercialShowcaseOutdoorUnit:
+      description: propertiesCommercialShowcaseOutdoorUnit
+      type: object
+      properties:
+        exceptionalStatus:
+          type: boolean
+          description: '[ja: 特殊状態, en: Indicates that the showcase freezer is in an
+            exceptional status.] _True (ja: 除霜状態, en: Defrosting status) False (ja:
+            通常状態, en: Normal status) '
+        operationMode:
+          type: string
+          enum:
+          - cooling
+          - nonCooling
+          description: '[ja: 運転モード設定, en: Operation mode setting] _cooling (ja: 冷却,
+            en: Cooling) nonCooling (ja: 非冷, en: Non-cooling) '
+        outdoorAirTemperature:
+          type: number
+          minimum: -127
+          maximum: 125
+          multipleOf: 1
+          description: '[ja: 外気温度計測値, en: Used to acquire measurements of outdoor
+            air temperature.] '
+        groupInformation:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 253
+          - type: string
+            enum:
+            - none
+            description: '_none (ja: 設定なし, en: None) '
+          description: '[ja: グループ情報, en: Group information] '
+        compressorOperationStatus:
+          type: boolean
+          description: '[ja: コンプレッサ動作状態, en: Indicates compressor ON/OFF status.]
+            _True (ja: ON, en: ON) False (ja: OFF, en: OFF) '
+        groupDeviceList:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              deviceType:
+                type: string
+          description: '[ja: グループ内デバイスリスト, en: List of devices in group] '
+    exceptionalStatusCommercialShowcaseOutdoorUnit:
+      description: '[ja: 特殊状態, en: Indicates that the showcase freezer is in an exceptional
+        status.]'
+      type: object
+      properties:
+        exceptionalStatus:
+          type: boolean
+          description: '[ja: 特殊状態, en: Indicates that the showcase freezer is in an
+            exceptional status.] _True (ja: 除霜状態, en: Defrosting status) False (ja:
+            通常状態, en: Normal status) '
+    operationModeCommercialShowcaseOutdoorUnit:
+      description: '[ja: 運転モード設定, en: Operation mode setting]'
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - cooling
+          - nonCooling
+          description: '[ja: 運転モード設定, en: Operation mode setting] _cooling (ja: 冷却,
+            en: Cooling) nonCooling (ja: 非冷, en: Non-cooling) '
+    outdoorAirTemperatureCommercialShowcaseOutdoorUnit:
+      description: '[ja: 外気温度計測値, en: Used to acquire measurements of outdoor air
+        temperature.]'
+      type: object
+      properties:
+        outdoorAirTemperature:
+          type: number
+          minimum: -127
+          maximum: 125
+          multipleOf: 1
+          description: '[ja: 外気温度計測値, en: Used to acquire measurements of outdoor
+            air temperature.] '
+    groupInformationCommercialShowcaseOutdoorUnit:
+      description: '[ja: グループ情報, en: Group information]'
+      type: object
+      properties:
+        groupInformation:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 253
+          - type: string
+            enum:
+            - none
+            description: '_none (ja: 設定なし, en: None) '
+          description: '[ja: グループ情報, en: Group information] '
+    compressorOperationStatusCommercialShowcaseOutdoorUnit:
+      description: '[ja: コンプレッサ動作状態, en: Indicates compressor ON/OFF status.]'
+      type: object
+      properties:
+        compressorOperationStatus:
+          type: boolean
+          description: '[ja: コンプレッサ動作状態, en: Indicates compressor ON/OFF status.]
+            _True (ja: ON, en: ON) False (ja: OFF, en: OFF) '
+    groupDeviceListCommercialShowcaseOutdoorUnit:
+      description: '[ja: グループ内デバイスリスト, en: List of devices in group]'
+      type: object
+      properties:
+        groupDeviceList:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              deviceType:
+                type: string
+          description: '[ja: グループ内デバイスリスト, en: List of devices in group] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

@@ -1,0 +1,991 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Common
+  description: tag for Super class
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - Common
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesCommon
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationStatus:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Operation status'
+      operationId: getDevicesPropertiesOperationStatusCommon
+      description: '取得: 動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationStatusCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Common
+      summary: 'Set: Operation status'
+      operationId: putDevicesPropertiesOperationStatusCommon
+      description: '設定: 動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationStatusCommon'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationStatusCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/installationLocation:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Installation location'
+      operationId: getDevicesPropertiesInstallationLocationCommon
+      description: '取得: 設置場所'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/installationLocationCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Common
+      summary: 'Set: Installation location'
+      operationId: putDevicesPropertiesInstallationLocationCommon
+      description: '設定: 設置場所'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/installationLocationCommon'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/installationLocationCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/protocol:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Protocol version information'
+      operationId: getDevicesPropertiesProtocolCommon
+      description: '取得: Protocol version情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/protocolCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/id:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Identification number'
+      operationId: getDevicesPropertiesIdCommon
+      description: '取得: 識別番号'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/idCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPowerConsumption:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Measured instantaneous power consumption'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerConsumptionCommon
+      description: '取得: 瞬時消費電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerConsumptionCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/consumedCumulativeElectricEnergy:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Measured cumulative electric energy consumption'
+      operationId: getDevicesPropertiesConsumedCumulativeElectricEnergyCommon
+      description: '取得: 積算消費電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/consumedCumulativeElectricEnergyCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/manufacturerFaultCode:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Manufacturer''s fault code'
+      operationId: getDevicesPropertiesManufacturerFaultCodeCommon
+      description: '取得: メーカ異常コード'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/manufacturerFaultCodeCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/currentLimit:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Current limit setting'
+      operationId: getDevicesPropertiesCurrentLimitCommon
+      description: '取得: 電流制限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentLimitCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Common
+      summary: 'Set: Current limit setting'
+      operationId: putDevicesPropertiesCurrentLimitCommon
+      description: '設定: 電流制限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/currentLimitCommon'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentLimitCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/faultStatus:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Fault status'
+      operationId: getDevicesPropertiesFaultStatusCommon
+      description: '取得: 異常発生状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/faultStatusCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/faultDescription:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Fault description'
+      operationId: getDevicesPropertiesFaultDescriptionCommon
+      description: '取得: 異常内容'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/faultDescriptionCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/manufacturer:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Manufacturer'
+      operationId: getDevicesPropertiesManufacturerCommon
+      description: '取得: 会員ID/メーカー'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/manufacturerCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/businessFacilityCode:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Business facility code'
+      operationId: getDevicesPropertiesBusinessFacilityCodeCommon
+      description: '取得: 事業場コード'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/businessFacilityCodeCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/productCode:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Product code'
+      operationId: getDevicesPropertiesProductCodeCommon
+      description: '取得: 商品コード'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productCodeCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/serialNumber:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Serial number'
+      operationId: getDevicesPropertiesSerialNumberCommon
+      description: '取得: 製造番号'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/serialNumberCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/productionDate:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Production date'
+      operationId: getDevicesPropertiesProductionDateCommon
+      description: '取得: 製造年月日'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productionDateCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerSaving:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Power-saving operation setting'
+      operationId: getDevicesPropertiesPowerSavingCommon
+      description: '取得: 節電動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerSavingCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Common
+      summary: 'Set: Power-saving operation setting'
+      operationId: putDevicesPropertiesPowerSavingCommon
+      description: '設定: 節電動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/powerSavingCommon'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerSavingCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/currentDateAndTime:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Current date and time'
+      operationId: getDevicesPropertiesCurrentDateAndTimeCommon
+      description: '取得: 現在日時'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentDateAndTimeCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Common
+      summary: 'Set: Current date and time'
+      operationId: putDevicesPropertiesCurrentDateAndTimeCommon
+      description: '設定: 現在日時'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/currentDateAndTimeCommon'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/currentDateAndTimeCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerLimit:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Power limit setting'
+      operationId: getDevicesPropertiesPowerLimitCommon
+      description: '取得: 電力制限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerLimitCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - Common
+      summary: 'Set: Power limit setting'
+      operationId: putDevicesPropertiesPowerLimitCommon
+      description: '設定: 電力制限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/powerLimitCommon'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerLimitCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/hourMeter:
+    get:
+      tags:
+      - Common
+      summary: 'Get: Cumulative operating time'
+      operationId: getDevicesPropertiesHourMeterCommon
+      description: '取得: 積算運転時間'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hourMeterCommon'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesCommon:
+      description: propertiesCommon
+      type: object
+      properties:
+        operationStatus:
+          type: boolean
+          description: '[ja: 動作状態, en: Operation status] _True (ja: ON, en: ON) False
+            (ja: OFF, en: OFF) '
+        installationLocation:
+          type: string
+          description: '[ja: 設置場所, en: Installation location] '
+        protocol:
+          type: object
+          properties:
+            type:
+              type: string
+            version:
+              type: string
+          description: '[ja: Protocol version情報, en: Protocol version information] '
+        id:
+          type: string
+          description: '[ja: 識別番号, en: Identification number] '
+        instantaneousElectricPowerConsumption:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 瞬時消費電力計測値, en: Measured instantaneous power consumption] '
+        consumedCumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算消費電力量計測値, en: Measured cumulative electric energy consumption] '
+        manufacturerFaultCode:
+          type: string
+          description: '[ja: メーカ異常コード, en: Manufacturer''s fault code] '
+        currentLimit:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 電流制限設定, en: Current limit setting] '
+        faultStatus:
+          type: boolean
+          description: '[ja: 異常発生状態, en: Fault status] _True (ja: 異常あり, en: Fault
+            occurred.) False (ja: 異常なし, en: No fault has occurred.) '
+        faultDescription:
+          type: string
+          enum:
+          - noFault
+          - trunOffOrUnplug
+          - resetButton
+          - setIncorrectly
+          - supply
+          - cleaning
+          - changingBattery
+          - recoverOperationNoRequired
+          - userDefinable1
+          - abnormalEventOrSafety
+          - switch
+          - sensorSystem
+          - component
+          - controlCircuitBoard
+          - userDefinable2
+          - repairLocationUnkown
+          - fault
+          description: '[ja: 異常内容, en: Fault description] _noFault (ja: 異常なし, en:
+            No fault) trunOffOrUnplug (ja: スイッチを切る/コンセントを抜き再操作, en: Faults that can
+            be recovered from by turn off the power or unplug and reoperate.) resetButton
+            (ja: リセットボタンを押し再操作, en: Faults that can be recovered from by pressing
+            the reset button.) setIncorrectly (ja: セット不良, en: Device set incorrectly)
+            supply (ja: 補給, en: Supply) cleaning (ja: 掃除（フィルタ等）, en: Cleaning (filters,
+            etc.)) changingBattery (ja: 電池交換, en: Changing the battery) recoverOperationNoRequired
+            (ja: 復帰操作不要, en: Recover operation no required) userDefinable1 (ja: ユーザ定義領域1,
+            en: User-definable domain 1) abnormalEventOrSafety (ja: 異常現象／安全装置作動, en:
+            Abnormal event or the tripping of a safety device.) switch (ja: スイッチ異常,
+            en: Fault in a switch) sensorSystem (ja: センサ異常, en: Fault in the sensor
+            system) component (ja: 機能部品異常, en: Fault in a component such as an actuator.)
+            controlCircuitBoard (ja: 制御基板異常, en: Fault in a control circuit board.)
+            userDefinable2 (ja: ユーザ定義領域2, en: User-definable domain 2) repairLocationUnkown
+            (ja: 修理箇所不明, en: Repair location unknown) fault (ja: 異常あり, en: Fault) '
+        manufacturer:
+          type: object
+          properties:
+            code:
+              type: string
+            description: _
+          description: '[ja: 会員ID/メーカー, en: Manufacturer] '
+        businessFacilityCode:
+          type: string
+          description: '[ja: 事業場コード, en: Business facility code] '
+        productCode:
+          type: string
+          description: '[ja: 商品コード, en: Product code] '
+        serialNumber:
+          type: string
+          description: '[ja: 製造番号, en: Serial number] '
+        productionDate:
+          type: string
+          format: date
+          description: '[ja: 製造年月日, en: Production date] '
+        powerSaving:
+          type: boolean
+          description: '[ja: 節電動作設定, en: Power-saving operation setting] _True (ja:
+            節電動作中, en: Power saving Operation) False (ja: 通常動作中, en: Normal Operation) '
+        currentDateAndTime:
+          type: string
+          format: date-time
+          description: '[ja: 現在日時, en: Current date and time] '
+        powerLimit:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 電力制限設定, en: Power limit setting] '
+        hourMeter:
+          type: object
+          properties:
+            time:
+              type: number
+              minimum: 0
+              maximum: 4294967295
+              description: '[ja: 時間, en: time] _'
+          description: '[ja: 積算運転時間, en: Cumulative operating time] '
+    operationStatusCommon:
+      description: '[ja: 動作状態, en: Operation status]'
+      type: object
+      properties:
+        operationStatus:
+          type: boolean
+          description: '[ja: 動作状態, en: Operation status] _True (ja: ON, en: ON) False
+            (ja: OFF, en: OFF) '
+    installationLocationCommon:
+      description: '[ja: 設置場所, en: Installation location]'
+      type: object
+      properties:
+        installationLocation:
+          type: string
+          description: '[ja: 設置場所, en: Installation location] '
+    protocolCommon:
+      description: '[ja: Protocol version情報, en: Protocol version information]'
+      type: object
+      properties:
+        protocol:
+          type: object
+          properties:
+            type:
+              type: string
+            version:
+              type: string
+          description: '[ja: Protocol version情報, en: Protocol version information] '
+    idCommon:
+      description: '[ja: 識別番号, en: Identification number]'
+      type: object
+      properties:
+        id:
+          type: string
+          description: '[ja: 識別番号, en: Identification number] '
+    instantaneousElectricPowerConsumptionCommon:
+      description: '[ja: 瞬時消費電力計測値, en: Measured instantaneous power consumption]'
+      type: object
+      properties:
+        instantaneousElectricPowerConsumption:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 瞬時消費電力計測値, en: Measured instantaneous power consumption] '
+    consumedCumulativeElectricEnergyCommon:
+      description: '[ja: 積算消費電力量計測値, en: Measured cumulative electric energy consumption]'
+      type: object
+      properties:
+        consumedCumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算消費電力量計測値, en: Measured cumulative electric energy consumption] '
+    manufacturerFaultCodeCommon:
+      description: '[ja: メーカ異常コード, en: Manufacturer''s fault code]'
+      type: object
+      properties:
+        manufacturerFaultCode:
+          type: string
+          description: '[ja: メーカ異常コード, en: Manufacturer''s fault code] '
+    currentLimitCommon:
+      description: '[ja: 電流制限設定, en: Current limit setting]'
+      type: object
+      properties:
+        currentLimit:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 電流制限設定, en: Current limit setting] '
+    faultStatusCommon:
+      description: '[ja: 異常発生状態, en: Fault status]'
+      type: object
+      properties:
+        faultStatus:
+          type: boolean
+          description: '[ja: 異常発生状態, en: Fault status] _True (ja: 異常あり, en: Fault
+            occurred.) False (ja: 異常なし, en: No fault has occurred.) '
+    faultDescriptionCommon:
+      description: '[ja: 異常内容, en: Fault description]'
+      type: object
+      properties:
+        faultDescription:
+          type: string
+          enum:
+          - noFault
+          - trunOffOrUnplug
+          - resetButton
+          - setIncorrectly
+          - supply
+          - cleaning
+          - changingBattery
+          - recoverOperationNoRequired
+          - userDefinable1
+          - abnormalEventOrSafety
+          - switch
+          - sensorSystem
+          - component
+          - controlCircuitBoard
+          - userDefinable2
+          - repairLocationUnkown
+          - fault
+          description: '[ja: 異常内容, en: Fault description] _noFault (ja: 異常なし, en:
+            No fault) trunOffOrUnplug (ja: スイッチを切る/コンセントを抜き再操作, en: Faults that can
+            be recovered from by turn off the power or unplug and reoperate.) resetButton
+            (ja: リセットボタンを押し再操作, en: Faults that can be recovered from by pressing
+            the reset button.) setIncorrectly (ja: セット不良, en: Device set incorrectly)
+            supply (ja: 補給, en: Supply) cleaning (ja: 掃除（フィルタ等）, en: Cleaning (filters,
+            etc.)) changingBattery (ja: 電池交換, en: Changing the battery) recoverOperationNoRequired
+            (ja: 復帰操作不要, en: Recover operation no required) userDefinable1 (ja: ユーザ定義領域1,
+            en: User-definable domain 1) abnormalEventOrSafety (ja: 異常現象／安全装置作動, en:
+            Abnormal event or the tripping of a safety device.) switch (ja: スイッチ異常,
+            en: Fault in a switch) sensorSystem (ja: センサ異常, en: Fault in the sensor
+            system) component (ja: 機能部品異常, en: Fault in a component such as an actuator.)
+            controlCircuitBoard (ja: 制御基板異常, en: Fault in a control circuit board.)
+            userDefinable2 (ja: ユーザ定義領域2, en: User-definable domain 2) repairLocationUnkown
+            (ja: 修理箇所不明, en: Repair location unknown) fault (ja: 異常あり, en: Fault) '
+    manufacturerCommon:
+      description: '[ja: 会員ID/メーカー, en: Manufacturer]'
+      type: object
+      properties:
+        manufacturer:
+          type: object
+          properties:
+            code:
+              type: string
+            description: _
+          description: '[ja: 会員ID/メーカー, en: Manufacturer] '
+    businessFacilityCodeCommon:
+      description: '[ja: 事業場コード, en: Business facility code]'
+      type: object
+      properties:
+        businessFacilityCode:
+          type: string
+          description: '[ja: 事業場コード, en: Business facility code] '
+    productCodeCommon:
+      description: '[ja: 商品コード, en: Product code]'
+      type: object
+      properties:
+        productCode:
+          type: string
+          description: '[ja: 商品コード, en: Product code] '
+    serialNumberCommon:
+      description: '[ja: 製造番号, en: Serial number]'
+      type: object
+      properties:
+        serialNumber:
+          type: string
+          description: '[ja: 製造番号, en: Serial number] '
+    productionDateCommon:
+      description: '[ja: 製造年月日, en: Production date]'
+      type: object
+      properties:
+        productionDate:
+          type: string
+          format: date
+          description: '[ja: 製造年月日, en: Production date] '
+    powerSavingCommon:
+      description: '[ja: 節電動作設定, en: Power-saving operation setting]'
+      type: object
+      properties:
+        powerSaving:
+          type: boolean
+          description: '[ja: 節電動作設定, en: Power-saving operation setting] _True (ja:
+            節電動作中, en: Power saving Operation) False (ja: 通常動作中, en: Normal Operation) '
+    currentDateAndTimeCommon:
+      description: '[ja: 現在日時, en: Current date and time]'
+      type: object
+      properties:
+        currentDateAndTime:
+          type: string
+          format: date-time
+          description: '[ja: 現在日時, en: Current date and time] '
+    powerLimitCommon:
+      description: '[ja: 電力制限設定, en: Power limit setting]'
+      type: object
+      properties:
+        powerLimit:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 電力制限設定, en: Power limit setting] '
+    hourMeterCommon:
+      description: '[ja: 積算運転時間, en: Cumulative operating time]'
+      type: object
+      properties:
+        hourMeter:
+          type: object
+          properties:
+            time:
+              type: number
+              minimum: 0
+              maximum: 4294967295
+              description: '[ja: 時間, en: time] _'
+          description: '[ja: 積算運転時間, en: Cumulative operating time] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

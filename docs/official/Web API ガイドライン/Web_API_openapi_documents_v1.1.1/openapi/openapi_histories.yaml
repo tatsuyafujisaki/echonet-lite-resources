@@ -1,0 +1,561 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: Histories
+  description: tag for Histories
+security:
+- api_key: []
+paths:
+  /elapi/v1/histories/{historyID}/properties:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: properties'
+      operationId: getHistoriesPropertiesHistories
+      description: '取得: properties'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/descriptions:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: explanation of history'
+      operationId: getHistoriesPropertiesDescriptionsHistories
+      description: '取得: historyの説明'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/descriptionsHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/deviceId:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: device ID of the device for which data are recorded'
+      operationId: getHistoriesPropertiesDeviceIdHistories
+      description: '取得: 履歴データ記録対象機器のdevice ID'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceIdHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/deviceType:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: deviceType of the device for which data are recorded'
+      operationId: getHistoriesPropertiesDeviceTypeHistories
+      description: '取得: 履歴データ記録対象機器のdeviceType'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/deviceTypeHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/resourceType:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: resource type (property, action, event)'
+      operationId: getHistoriesPropertiesResourceTypeHistories
+      description: '取得: リソースタイプ(property, action, event)'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resourceTypeHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/resourceName:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: resource name'
+      operationId: getHistoriesPropertiesResourceNameHistories
+      description: '取得: リソース名'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resourceNameHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/timing:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: timing to record history data'
+      operationId: getHistoriesPropertiesTimingHistories
+      description: '取得: 履歴データの取得タイミング'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timingHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/first:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: time of the first record'
+      operationId: getHistoriesPropertiesFirstHistories
+      description: '取得: 最初の記録時刻'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/firstHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/last:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: time of the last record'
+      operationId: getHistoriesPropertiesLastHistories
+      description: '取得: 最後の記録時刻'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/lastHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/properties/total:
+    get:
+      tags:
+      - Histories
+      summary: 'Get: total count of the history data'
+      operationId: getHistoriesPropertiesTotalHistories
+      description: '取得: 履歴データの総個数'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/totalHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/actions/prepareRetrieveData:
+    post:
+      tags:
+      - Histories
+      summary: 'Post: Prepare data to retrieve'
+      operationId: postHistoriesActionsPrepareRetrieveDataHistories
+      description: '実行: 取得用データの準備を指示する'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/prepareRetrieveDataInputHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prepareRetrieveDataHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/histories/{historyID}/actions/retrieve:
+    post:
+      tags:
+      - Histories
+      summary: 'Post: Retrieve histories data'
+      operationId: postHistoriesActionsRetrieveHistories
+      description: '実行: 履歴データを取得する'
+      parameters:
+      - description: history id
+        name: historyID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/retrieveInputHistories'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/retrieveHistories'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesHistories:
+      description: propertiesHistories
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: historyの説明, en: explanation of history] '
+        deviceId:
+          type: string
+          description: '[ja: 履歴データ記録対象機器のdevice ID, en: device ID of the device for
+            which data are recorded] '
+        deviceType:
+          type: string
+          description: '[ja: 履歴データ記録対象機器のdeviceType, en: deviceType of the device
+            for which data are recorded] '
+        resourceType:
+          type: string
+          enum:
+          - property
+          - action
+          - event
+          description: '[ja: リソースタイプ(property, action, event), en: resource type (property,
+            action, event)] '
+        resourceName:
+          type: string
+          description: '[ja: リソース名, en: resource name] '
+        timing:
+          type: object
+          properties:
+            timingType:
+              type: string
+              enum:
+              - onChange
+              - interval
+            intervalValue:
+              type: number
+            intervalUnit:
+              type: string
+              enum:
+              - sec
+              - min
+              - hour
+              - day
+              - month
+              - year
+          description: '[ja: 履歴データの取得タイミング, en: timing to record history data] '
+        first:
+          type: string
+          format: date-time
+          description: '[ja: 最初の記録時刻, en: time of the first record] '
+        last:
+          type: string
+          format: date-time
+          description: '[ja: 最後の記録時刻, en: time of the last record] '
+        total:
+          type: number
+          minimum: 0
+          multipleOf: 1
+          description: '[ja: 履歴データの総個数, en: total count of the history data] '
+    descriptionsHistories:
+      description: '[ja: historyの説明, en: explanation of history]'
+      type: object
+      properties:
+        descriptions:
+          type: object
+          properties:
+            ja:
+              type: string
+            en:
+              type: string
+          description: '[ja: historyの説明, en: explanation of history] '
+    deviceIdHistories:
+      description: '[ja: 履歴データ記録対象機器のdevice ID, en: device ID of the device for which
+        data are recorded]'
+      type: object
+      properties:
+        deviceId:
+          type: string
+          description: '[ja: 履歴データ記録対象機器のdevice ID, en: device ID of the device for
+            which data are recorded] '
+    deviceTypeHistories:
+      description: '[ja: 履歴データ記録対象機器のdeviceType, en: deviceType of the device for
+        which data are recorded]'
+      type: object
+      properties:
+        deviceType:
+          type: string
+          description: '[ja: 履歴データ記録対象機器のdeviceType, en: deviceType of the device
+            for which data are recorded] '
+    resourceTypeHistories:
+      description: '[ja: リソースタイプ(property, action, event), en: resource type (property,
+        action, event)]'
+      type: object
+      properties:
+        resourceType:
+          type: string
+          enum:
+          - property
+          - action
+          - event
+          description: '[ja: リソースタイプ(property, action, event), en: resource type (property,
+            action, event)] '
+    resourceNameHistories:
+      description: '[ja: リソース名, en: resource name]'
+      type: object
+      properties:
+        resourceName:
+          type: string
+          description: '[ja: リソース名, en: resource name] '
+    timingHistories:
+      description: '[ja: 履歴データの取得タイミング, en: timing to record history data]'
+      type: object
+      properties:
+        timing:
+          type: object
+          properties:
+            timingType:
+              type: string
+              enum:
+              - onChange
+              - interval
+            intervalValue:
+              type: number
+            intervalUnit:
+              type: string
+              enum:
+              - sec
+              - min
+              - hour
+              - day
+              - month
+              - year
+          description: '[ja: 履歴データの取得タイミング, en: timing to record history data] '
+    firstHistories:
+      description: '[ja: 最初の記録時刻, en: time of the first record]'
+      type: object
+      properties:
+        first:
+          type: string
+          format: date-time
+          description: '[ja: 最初の記録時刻, en: time of the first record] '
+    lastHistories:
+      description: '[ja: 最後の記録時刻, en: time of the last record]'
+      type: object
+      properties:
+        last:
+          type: string
+          format: date-time
+          description: '[ja: 最後の記録時刻, en: time of the last record] '
+    totalHistories:
+      description: '[ja: 履歴データの総個数, en: total count of the history data]'
+      type: object
+      properties:
+        total:
+          type: number
+          minimum: 0
+          multipleOf: 1
+          description: '[ja: 履歴データの総個数, en: total count of the history data] '
+    prepareRetrieveDataHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        count:
+          type: number
+          minimum: 0
+          multipleOf: 1
+        countPerPage:
+          type: number
+          minimum: 1
+          multipleOf: 1
+    prepareRetrieveDataInputHistories:
+      type: object
+      properties:
+        from:
+          type: string
+          format: date-time
+        to:
+          type: string
+          format: date-time
+    retrieveHistories:
+      type: object
+      properties:
+        processStatus:
+          type: string
+          enum:
+          - succeeded
+          - failed
+          - inProgress
+        resourceType:
+          type: string
+          enum:
+          - property
+          - action
+          - event
+        resourceName:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              time:
+                type: string
+                format: date-time
+              value:
+                type:
+                - string
+                - number
+                - boolean
+                - object
+                - array
+    retrieveInputHistories:
+      type: object
+      properties:
+        dataId:
+          type: string
+        page:
+          type: number
+          minimum: 1
+          multipleOf: 1
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

@@ -1,0 +1,176 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: BathHeatingStatusSensor
+  description: tag for Bath heating status sensor
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - BathHeatingStatusSensor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesBathHeatingStatusSensor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesBathHeatingStatusSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/thresholdLevel:
+    get:
+      tags:
+      - BathHeatingStatusSensor
+      summary: 'Get: Detection threshold level'
+      operationId: getDevicesPropertiesThresholdLevelBathHeatingStatusSensor
+      description: '取得: 検知閾値レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thresholdLevelBathHeatingStatusSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathHeatingStatusSensor
+      summary: 'Set: Detection threshold level'
+      operationId: putDevicesPropertiesThresholdLevelBathHeatingStatusSensor
+      description: '設定: 検知閾値レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/thresholdLevelBathHeatingStatusSensor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/thresholdLevelBathHeatingStatusSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/detection:
+    get:
+      tags:
+      - BathHeatingStatusSensor
+      summary: 'Get: Bath heating detection status'
+      operationId: getDevicesPropertiesDetectionBathHeatingStatusSensor
+      description: '取得: 風呂沸き上がり検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detectionBathHeatingStatusSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesBathHeatingStatusSensor:
+      description: propertiesBathHeatingStatusSensor
+      type: object
+      properties:
+        thresholdLevel:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 検知閾値レベル設定, en: Detection threshold level] '
+        detection:
+          type: boolean
+          description: '[ja: 風呂沸き上がり検知状態, en: Bath heating detection status] _True
+            (ja: 検知有, en: Detected) False (ja: 検知無, en: Not detected) '
+    thresholdLevelBathHeatingStatusSensor:
+      description: '[ja: 検知閾値レベル設定, en: Detection threshold level]'
+      type: object
+      properties:
+        thresholdLevel:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 検知閾値レベル設定, en: Detection threshold level] '
+    detectionBathHeatingStatusSensor:
+      description: '[ja: 風呂沸き上がり検知状態, en: Bath heating detection status]'
+      type: object
+      properties:
+        detection:
+          type: boolean
+          description: '[ja: 風呂沸き上がり検知状態, en: Bath heating detection status] _True
+            (ja: 検知有, en: Detected) False (ja: 検知無, en: Not detected) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

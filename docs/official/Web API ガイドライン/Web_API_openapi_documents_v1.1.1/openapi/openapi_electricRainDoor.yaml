@@ -1,0 +1,1170 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: ElectricRainDoor
+  description: tag for Electrically operated rain sliding door/shutter
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesElectricRainDoor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/faultDescription:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Fault description (Recoverable faults)'
+      operationId: getDevicesPropertiesFaultDescriptionElectricRainDoor
+      description: '取得: 異常内容(復帰可能な異常)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/faultDescriptionElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timerOperationMode:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Timer operation setting'
+      operationId: getDevicesPropertiesTimerOperationModeElectricRainDoor
+      description: '取得: タイマ動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timerOperationModeElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Timer operation setting'
+      operationId: putDevicesPropertiesTimerOperationModeElectricRainDoor
+      description: '設定: タイマ動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timerOperationModeElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timerOperationModeElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/openingSpeed:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Opening speed setting'
+      operationId: getDevicesPropertiesOpeningSpeedElectricRainDoor
+      description: '取得: 開速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openingSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Opening speed setting'
+      operationId: putDevicesPropertiesOpeningSpeedElectricRainDoor
+      description: '設定: 開速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/openingSpeedElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openingSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/closingSpeed:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Closing speed setting'
+      operationId: getDevicesPropertiesClosingSpeedElectricRainDoor
+      description: '取得: 閉速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/closingSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Closing speed setting'
+      operationId: putDevicesPropertiesClosingSpeedElectricRainDoor
+      description: '設定: 閉速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/closingSpeedElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/closingSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationTime:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Operation time'
+      operationId: getDevicesPropertiesOperationTimeElectricRainDoor
+      description: '取得: 動作時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationTimeElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Operation time'
+      operationId: putDevicesPropertiesOperationTimeElectricRainDoor
+      description: '設定: 動作時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationTimeElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationTimeElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/openCloseOperation:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Open/close operation setting'
+      operationId: getDevicesPropertiesOpenCloseOperationElectricRainDoor
+      description: '取得: 開閉動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseOperationElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Open/close operation setting'
+      operationId: putDevicesPropertiesOpenCloseOperationElectricRainDoor
+      description: '設定: 開閉動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/openCloseOperationElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseOperationElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/degreeOfOpening:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Degree-of-opening setting'
+      operationId: getDevicesPropertiesDegreeOfOpeningElectricRainDoor
+      description: '取得: 開度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/degreeOfOpeningElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Degree-of-opening setting'
+      operationId: putDevicesPropertiesDegreeOfOpeningElectricRainDoor
+      description: '設定: 開度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/degreeOfOpeningElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/degreeOfOpeningElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/blindAngle:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Blind angle setting'
+      operationId: getDevicesPropertiesBlindAngleElectricRainDoor
+      description: '取得: ブラインド角度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blindAngleElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Blind angle setting'
+      operationId: putDevicesPropertiesBlindAngleElectricRainDoor
+      description: '設定: ブラインド角度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/blindAngleElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blindAngleElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/openCloseSpeed:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Opening/closing speed setting'
+      operationId: getDevicesPropertiesOpenCloseSpeedElectricRainDoor
+      description: '取得: 開閉速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Opening/closing speed setting'
+      operationId: putDevicesPropertiesOpenCloseSpeedElectricRainDoor
+      description: '設定: 開閉速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/openCloseSpeedElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/electricLock:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Electric lock setting'
+      operationId: getDevicesPropertiesElectricLockElectricRainDoor
+      description: '取得: 電気錠設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/electricLockElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Electric lock setting'
+      operationId: putDevicesPropertiesElectricLockElectricRainDoor
+      description: '設定: 電気錠設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/electricLockElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/electricLockElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remoteOperation:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Remote operation setting status'
+      operationId: getDevicesPropertiesRemoteOperationElectricRainDoor
+      description: '取得: 遠隔操作設定状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remoteOperationElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/selectiveDegreeOfOpening:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Selective degree-of-opening setting'
+      operationId: getDevicesPropertiesSelectiveDegreeOfOpeningElectricRainDoor
+      description: '取得: 選択開度動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/selectiveDegreeOfOpeningElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Selective degree-of-opening setting'
+      operationId: putDevicesPropertiesSelectiveDegreeOfOpeningElectricRainDoor
+      description: '設定: 選択開度動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/selectiveDegreeOfOpeningElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/selectiveDegreeOfOpeningElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/openCloseStatus:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Open/closed status'
+      operationId: getDevicesPropertiesOpenCloseStatusElectricRainDoor
+      description: '取得: 開閉状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseStatusElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/slitDegreeOfOpening:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: Slit degree-of-opening'
+      operationId: getDevicesPropertiesSlitDegreeOfOpeningElectricRainDoor
+      description: '取得: スリット開度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/slitDegreeOfOpeningElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: Slit degree-of-opening'
+      operationId: putDevicesPropertiesSlitDegreeOfOpeningElectricRainDoor
+      description: '設定: スリット開度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/slitDegreeOfOpeningElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/slitDegreeOfOpeningElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/oneTimeOpeningSpeed:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: One-time opening speed setting'
+      operationId: getDevicesPropertiesOneTimeOpeningSpeedElectricRainDoor
+      description: '取得: ワンタイム開速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/oneTimeOpeningSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: One-time opening speed setting'
+      operationId: putDevicesPropertiesOneTimeOpeningSpeedElectricRainDoor
+      description: '設定: ワンタイム開速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/oneTimeOpeningSpeedElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/oneTimeOpeningSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/oneTimeClosingSpeed:
+    get:
+      tags:
+      - ElectricRainDoor
+      summary: 'Get: One-time closing speed setting'
+      operationId: getDevicesPropertiesOneTimeClosingSpeedElectricRainDoor
+      description: '取得: ワンタイム閉速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/oneTimeClosingSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricRainDoor
+      summary: 'Set: One-time closing speed setting'
+      operationId: putDevicesPropertiesOneTimeClosingSpeedElectricRainDoor
+      description: '設定: ワンタイム閉速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/oneTimeClosingSpeedElectricRainDoor'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/oneTimeClosingSpeedElectricRainDoor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesElectricRainDoor:
+      description: propertiesElectricRainDoor
+      type: object
+      properties:
+        faultDescription:
+          type: string
+          enum:
+          - noFault
+          - trunOffOrUnplug
+          - resetButton
+          - setIncorrectly
+          - supply
+          - cleaning
+          - changingBattery
+          - userDefinable1
+          - abnormalEventOrSafety
+          - switch
+          - sensorSystem
+          - component
+          - controlCircuitBoard
+          - userDefinable2
+          - fault
+          - obstacleCaught
+          - outageRecovery
+          - timeOut
+          - batteryLow
+          description: '[ja: 異常内容(復帰可能な異常), en: Fault description (Recoverable faults)]
+            _noFault (ja: 異常なし, en: No fault) trunOffOrUnplug (ja: スイッチを切る/コンセントを抜き再操作,
+            en: Faults that can be recovered from by turn off the power or unplug
+            and reoperate.) resetButton (ja: リセットボタンを押し再操作, en: Faults that can be
+            recovered from by pressing the reset button.) setIncorrectly (ja: セット不良,
+            en: Device set incorrectly) supply (ja: 補給, en: Supply) cleaning (ja:
+            掃除（フィルタ等）, en: Cleaning (filters, etc.)) changingBattery (ja: 電池交換, en:
+            Changing the battery) userDefinable1 (ja: ユーザ定義領域1, en: User-definable
+            domain 1) abnormalEventOrSafety (ja: 異常現象／安全装置作動, en: Abnormal event or
+            the tripping of a safety device.) switch (ja: スイッチ異常, en: Fault in a switch.)
+            sensorSystem (ja: センサ異常, en: Fault in the sensor system) component (ja:
+            機能部品異常, en: Fault in a component such as an actuator.) controlCircuitBoard
+            (ja: 制御基板異常, en: Fault in a control circuit board.) userDefinable2 (ja:
+            ユーザ定義領域2, en: User-definable domain 2) fault (ja: 異常あり, en: Fault) obstacleCaught
+            (ja: 障害物挟込み, en: Obstacle caught) outageRecovery (ja: 停電復帰, en: Recovery
+            from outage) timeOut (ja: タイムアウト, en: Time out) batteryLow (ja: 電池残量低下,
+            en: Battery low) '
+        timerOperationMode:
+          type: boolean
+          description: '[ja: タイマ動作設定, en: Timer operation setting] _True (ja: ON,
+            en: ON) False (ja: OFF, en: OFF) '
+        openingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 開速度設定, en: Opening speed setting] _low (ja: 低, en: Low)
+            medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+        closingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 閉速度設定, en: Closing speed setting] _low (ja: 低, en: Low)
+            medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+        operationTime:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 動作時間設定値, en: Operation time] '
+        openCloseOperation:
+          type: string
+          enum:
+          - open
+          - close
+          - stop
+          description: '[ja: 開閉動作設定, en: Open/close operation setting] _open (ja:
+            開, en: Open) close (ja: 閉, en: Close) stop (ja: 停止, en: Stop) '
+        degreeOfOpening:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 開度レベル設定, en: Degree-of-opening setting] '
+        blindAngle:
+          type: number
+          minimum: 0
+          maximum: 180
+          description: '[ja: ブラインド角度設定値, en: Blind angle setting] '
+        openCloseSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 開閉速度設定, en: Opening/closing speed setting] _low (ja:
+            低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+        electricLock:
+          type: boolean
+          description: '[ja: 電気錠設定, en: Electric lock setting] _True (ja: 施錠, en:
+            Lock) False (ja: 解錠, en: Unlock) '
+        remoteOperation:
+          type: boolean
+          description: '[ja: 遠隔操作設定状態, en: Remote operation setting status] _True
+            (ja: ON (許可), en: ON (permitted)) False (ja: OFF (禁止), en: OFF (prohibited)) '
+        selectiveDegreeOfOpening:
+          type: string
+          enum:
+          - degreeOfOpening
+          - operationTimeOfOpening
+          - operationTimeOfClosing
+          - localSetting
+          - slitDegreeOfOpening
+          description: '[ja: 選択開度動作設定, en: Selective degree-of-opening setting] _degreeOfOpening
+            (ja: 開度レベル設定位置開, en: Degree-of-opening setting position: Open) operationTimeOfOpening
+            (ja: 動作時間設定値開, en: Operation time setting value: Open) operationTimeOfClosing
+            (ja: 動作時間設定値閉, en: Operation time setting value: Close) localSetting (ja:
+            ローカル設定位置, en: Local setting position) slitDegreeOfOpening (ja: スリット開度設定,
+            en: Slit degree-of-opening setting) '
+        openCloseStatus:
+          type: string
+          enum:
+          - fullyOpen
+          - fullyClosed
+          - opening
+          - closing
+          - stoppedHalfway
+          description: '[ja: 開閉状態, en: Open/closed status] _fullyOpen (ja: 全開, en:
+            Fully open) fullyClosed (ja: 全閉, en: Fully closed) opening (ja: 開動作中,
+            en: Opening) closing (ja: 閉動作中, en: Closing) stoppedHalfway (ja: 途中停止,
+            en: Stopped halfway) '
+        slitDegreeOfOpening:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: スリット開度設定, en: Slit degree-of-opening] '
+        oneTimeOpeningSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          description: '[ja: ワンタイム開速度設定, en: One-time opening speed setting] _low
+            (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) none
+            (ja: 無し, en: None) '
+        oneTimeClosingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          description: '[ja: ワンタイム閉速度設定, en: One-time closing speed setting] _low
+            (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) none
+            (ja: 無し, en: None) '
+    faultDescriptionElectricRainDoor:
+      description: '[ja: 異常内容(復帰可能な異常), en: Fault description (Recoverable faults)]'
+      type: object
+      properties:
+        faultDescription:
+          type: string
+          enum:
+          - noFault
+          - trunOffOrUnplug
+          - resetButton
+          - setIncorrectly
+          - supply
+          - cleaning
+          - changingBattery
+          - userDefinable1
+          - abnormalEventOrSafety
+          - switch
+          - sensorSystem
+          - component
+          - controlCircuitBoard
+          - userDefinable2
+          - fault
+          - obstacleCaught
+          - outageRecovery
+          - timeOut
+          - batteryLow
+          description: '[ja: 異常内容(復帰可能な異常), en: Fault description (Recoverable faults)]
+            _noFault (ja: 異常なし, en: No fault) trunOffOrUnplug (ja: スイッチを切る/コンセントを抜き再操作,
+            en: Faults that can be recovered from by turn off the power or unplug
+            and reoperate.) resetButton (ja: リセットボタンを押し再操作, en: Faults that can be
+            recovered from by pressing the reset button.) setIncorrectly (ja: セット不良,
+            en: Device set incorrectly) supply (ja: 補給, en: Supply) cleaning (ja:
+            掃除（フィルタ等）, en: Cleaning (filters, etc.)) changingBattery (ja: 電池交換, en:
+            Changing the battery) userDefinable1 (ja: ユーザ定義領域1, en: User-definable
+            domain 1) abnormalEventOrSafety (ja: 異常現象／安全装置作動, en: Abnormal event or
+            the tripping of a safety device.) switch (ja: スイッチ異常, en: Fault in a switch.)
+            sensorSystem (ja: センサ異常, en: Fault in the sensor system) component (ja:
+            機能部品異常, en: Fault in a component such as an actuator.) controlCircuitBoard
+            (ja: 制御基板異常, en: Fault in a control circuit board.) userDefinable2 (ja:
+            ユーザ定義領域2, en: User-definable domain 2) fault (ja: 異常あり, en: Fault) obstacleCaught
+            (ja: 障害物挟込み, en: Obstacle caught) outageRecovery (ja: 停電復帰, en: Recovery
+            from outage) timeOut (ja: タイムアウト, en: Time out) batteryLow (ja: 電池残量低下,
+            en: Battery low) '
+    timerOperationModeElectricRainDoor:
+      description: '[ja: タイマ動作設定, en: Timer operation setting]'
+      type: object
+      properties:
+        timerOperationMode:
+          type: boolean
+          description: '[ja: タイマ動作設定, en: Timer operation setting] _True (ja: ON,
+            en: ON) False (ja: OFF, en: OFF) '
+    openingSpeedElectricRainDoor:
+      description: '[ja: 開速度設定, en: Opening speed setting]'
+      type: object
+      properties:
+        openingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 開速度設定, en: Opening speed setting] _low (ja: 低, en: Low)
+            medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+    closingSpeedElectricRainDoor:
+      description: '[ja: 閉速度設定, en: Closing speed setting]'
+      type: object
+      properties:
+        closingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 閉速度設定, en: Closing speed setting] _low (ja: 低, en: Low)
+            medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+    operationTimeElectricRainDoor:
+      description: '[ja: 動作時間設定値, en: Operation time]'
+      type: object
+      properties:
+        operationTime:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 動作時間設定値, en: Operation time] '
+    openCloseOperationElectricRainDoor:
+      description: '[ja: 開閉動作設定, en: Open/close operation setting]'
+      type: object
+      properties:
+        openCloseOperation:
+          type: string
+          enum:
+          - open
+          - close
+          - stop
+          description: '[ja: 開閉動作設定, en: Open/close operation setting] _open (ja:
+            開, en: Open) close (ja: 閉, en: Close) stop (ja: 停止, en: Stop) '
+    degreeOfOpeningElectricRainDoor:
+      description: '[ja: 開度レベル設定, en: Degree-of-opening setting]'
+      type: object
+      properties:
+        degreeOfOpening:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 開度レベル設定, en: Degree-of-opening setting] '
+    blindAngleElectricRainDoor:
+      description: '[ja: ブラインド角度設定値, en: Blind angle setting]'
+      type: object
+      properties:
+        blindAngle:
+          type: number
+          minimum: 0
+          maximum: 180
+          description: '[ja: ブラインド角度設定値, en: Blind angle setting] '
+    openCloseSpeedElectricRainDoor:
+      description: '[ja: 開閉速度設定, en: Opening/closing speed setting]'
+      type: object
+      properties:
+        openCloseSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 開閉速度設定, en: Opening/closing speed setting] _low (ja:
+            低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+    electricLockElectricRainDoor:
+      description: '[ja: 電気錠設定, en: Electric lock setting]'
+      type: object
+      properties:
+        electricLock:
+          type: boolean
+          description: '[ja: 電気錠設定, en: Electric lock setting] _True (ja: 施錠, en:
+            Lock) False (ja: 解錠, en: Unlock) '
+    remoteOperationElectricRainDoor:
+      description: '[ja: 遠隔操作設定状態, en: Remote operation setting status]'
+      type: object
+      properties:
+        remoteOperation:
+          type: boolean
+          description: '[ja: 遠隔操作設定状態, en: Remote operation setting status] _True
+            (ja: ON (許可), en: ON (permitted)) False (ja: OFF (禁止), en: OFF (prohibited)) '
+    selectiveDegreeOfOpeningElectricRainDoor:
+      description: '[ja: 選択開度動作設定, en: Selective degree-of-opening setting]'
+      type: object
+      properties:
+        selectiveDegreeOfOpening:
+          type: string
+          enum:
+          - degreeOfOpening
+          - operationTimeOfOpening
+          - operationTimeOfClosing
+          - localSetting
+          - slitDegreeOfOpening
+          description: '[ja: 選択開度動作設定, en: Selective degree-of-opening setting] _degreeOfOpening
+            (ja: 開度レベル設定位置開, en: Degree-of-opening setting position: Open) operationTimeOfOpening
+            (ja: 動作時間設定値開, en: Operation time setting value: Open) operationTimeOfClosing
+            (ja: 動作時間設定値閉, en: Operation time setting value: Close) localSetting (ja:
+            ローカル設定位置, en: Local setting position) slitDegreeOfOpening (ja: スリット開度設定,
+            en: Slit degree-of-opening setting) '
+    openCloseStatusElectricRainDoor:
+      description: '[ja: 開閉状態, en: Open/closed status]'
+      type: object
+      properties:
+        openCloseStatus:
+          type: string
+          enum:
+          - fullyOpen
+          - fullyClosed
+          - opening
+          - closing
+          - stoppedHalfway
+          description: '[ja: 開閉状態, en: Open/closed status] _fullyOpen (ja: 全開, en:
+            Fully open) fullyClosed (ja: 全閉, en: Fully closed) opening (ja: 開動作中,
+            en: Opening) closing (ja: 閉動作中, en: Closing) stoppedHalfway (ja: 途中停止,
+            en: Stopped halfway) '
+    slitDegreeOfOpeningElectricRainDoor:
+      description: '[ja: スリット開度設定, en: Slit degree-of-opening]'
+      type: object
+      properties:
+        slitDegreeOfOpening:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: スリット開度設定, en: Slit degree-of-opening] '
+    oneTimeOpeningSpeedElectricRainDoor:
+      description: '[ja: ワンタイム開速度設定, en: One-time opening speed setting]'
+      type: object
+      properties:
+        oneTimeOpeningSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          description: '[ja: ワンタイム開速度設定, en: One-time opening speed setting] _low
+            (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) none
+            (ja: 無し, en: None) '
+    oneTimeClosingSpeedElectricRainDoor:
+      description: '[ja: ワンタイム閉速度設定, en: One-time closing speed setting]'
+      type: object
+      properties:
+        oneTimeClosingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          description: '[ja: ワンタイム閉速度設定, en: One-time closing speed setting] _low
+            (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) none
+            (ja: 無し, en: None) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

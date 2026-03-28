@@ -1,0 +1,148 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: IlluminanceSensor
+  description: tag for Illuminance sensor
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - IlluminanceSensor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesIlluminanceSensor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesIlluminanceSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/valueInLux:
+    get:
+      tags:
+      - IlluminanceSensor
+      summary: 'Get: Measured illuminance value 1'
+      operationId: getDevicesPropertiesValueInLuxIlluminanceSensor
+      description: '取得: 照度計測値1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/valueInLuxIlluminanceSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/valueInKlux:
+    get:
+      tags:
+      - IlluminanceSensor
+      summary: 'Get: Measured illuminance value 2'
+      operationId: getDevicesPropertiesValueInKluxIlluminanceSensor
+      description: '取得: 照度計測値2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/valueInKluxIlluminanceSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesIlluminanceSensor:
+      description: propertiesIlluminanceSensor
+      type: object
+      properties:
+        valueInLux:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 照度計測値1, en: Measured illuminance value 1] '
+        valueInKlux:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 照度計測値2, en: Measured illuminance value 2] '
+    valueInLuxIlluminanceSensor:
+      description: '[ja: 照度計測値1, en: Measured illuminance value 1]'
+      type: object
+      properties:
+        valueInLux:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 照度計測値1, en: Measured illuminance value 1] '
+    valueInKluxIlluminanceSensor:
+      description: '[ja: 照度計測値2, en: Measured illuminance value 2]'
+      type: object
+      properties:
+        valueInKlux:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 照度計測値2, en: Measured illuminance value 2] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

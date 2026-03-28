@@ -1,0 +1,1436 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: BathroomHeaterDryer
+  description: tag for Bathroom heater dryer
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesBathroomHeaterDryer
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservation1:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: On timer reservation setting 1'
+      operationId: getDevicesPropertiesOnTimerReservation1BathroomHeaterDryer
+      description: '取得: ONタイマ予約設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservation1BathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: On timer reservation setting 1'
+      operationId: putDevicesPropertiesOnTimerReservation1BathroomHeaterDryer
+      description: '設定: ONタイマ予約設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservation1BathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservation1BathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOnTimer:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: On timer setting value'
+      operationId: getDevicesPropertiesTimeOfOnTimerBathroomHeaterDryer
+      description: '取得: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOnTimerBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: On timer setting value'
+      operationId: putDevicesPropertiesTimeOfOnTimerBathroomHeaterDryer
+      description: '設定: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOnTimerBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOnTimerBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timeOfOffTimer:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: On relative timer setting value'
+      operationId: getDevicesPropertiesTimeOfOffTimerBathroomHeaterDryer
+      description: '取得: ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: On relative timer setting value'
+      operationId: putDevicesPropertiesTimeOfOffTimerBathroomHeaterDryer
+      description: '設定: ONタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timeOfOffTimerBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timeOfOffTimerBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/offTimerReservation:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Off timer reservation setting'
+      operationId: getDevicesPropertiesOffTimerReservationBathroomHeaterDryer
+      description: '取得: OFFタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Off timer reservation setting'
+      operationId: putDevicesPropertiesOffTimerReservationBathroomHeaterDryer
+      description: '設定: OFFタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/offTimerReservationBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offTimerReservationBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOnTimer:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: OFF timer setting value'
+      operationId: getDevicesPropertiesRelativeTimeOfOnTimerBathroomHeaterDryer
+      description: '取得: OFFタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: OFF timer setting value'
+      operationId: putDevicesPropertiesRelativeTimeOfOnTimerBathroomHeaterDryer
+      description: '設定: OFFタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOnTimerBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOnTimerBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeOfOffTimer:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Off relative timer setting value'
+      operationId: getDevicesPropertiesRelativeTimeOfOffTimerBathroomHeaterDryer
+      description: '取得: OFFタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Off relative timer setting value'
+      operationId: putDevicesPropertiesRelativeTimeOfOffTimerBathroomHeaterDryer
+      description: '設定: OFFタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeOfOffTimerBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeOfOffTimerBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationSetting:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Operation setting'
+      operationId: getDevicesPropertiesOperationSettingBathroomHeaterDryer
+      description: '取得: 運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationSettingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Operation setting'
+      operationId: putDevicesPropertiesOperationSettingBathroomHeaterDryer
+      description: '設定: 運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationSettingBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationSettingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ventilationSetting:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Ventilation operation setting'
+      operationId: getDevicesPropertiesVentilationSettingBathroomHeaterDryer
+      description: '取得: 換気運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationSettingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Ventilation operation setting'
+      operationId: putDevicesPropertiesVentilationSettingBathroomHeaterDryer
+      description: '設定: 換気運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ventilationSettingBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationSettingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathroomPrewarming:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Bathroom prewarming operation setting'
+      operationId: getDevicesPropertiesBathroomPrewarmingBathroomHeaterDryer
+      description: '取得: 入浴前予備暖房運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomPrewarmingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Bathroom prewarming operation setting'
+      operationId: putDevicesPropertiesBathroomPrewarmingBathroomHeaterDryer
+      description: '設定: 入浴前予備暖房運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathroomPrewarmingBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomPrewarmingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathroomHeating:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Bathroom heating operation setting'
+      operationId: getDevicesPropertiesBathroomHeatingBathroomHeaterDryer
+      description: '取得: 入浴中暖房運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomHeatingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Bathroom heating operation setting'
+      operationId: putDevicesPropertiesBathroomHeatingBathroomHeaterDryer
+      description: '設定: 入浴中暖房運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathroomHeatingBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomHeatingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathroomDrying:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Bathroom drying operation setting'
+      operationId: getDevicesPropertiesBathroomDryingBathroomHeaterDryer
+      description: '取得: 乾燥運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomDryingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Bathroom drying operation setting'
+      operationId: putDevicesPropertiesBathroomDryingBathroomHeaterDryer
+      description: '設定: 乾燥運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathroomDryingBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomDryingBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/coolAirCirculation:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Cool air circulation operation setting'
+      operationId: getDevicesPropertiesCoolAirCirculationBathroomHeaterDryer
+      description: '取得: 涼風運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coolAirCirculationBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Cool air circulation operation setting'
+      operationId: putDevicesPropertiesCoolAirCirculationBathroomHeaterDryer
+      description: '設定: 涼風運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/coolAirCirculationBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/coolAirCirculationBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/mistSauna:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Mist sauna operation setting'
+      operationId: getDevicesPropertiesMistSaunaBathroomHeaterDryer
+      description: '取得: ミストサウナ運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mistSaunaBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Mist sauna operation setting'
+      operationId: putDevicesPropertiesMistSaunaBathroomHeaterDryer
+      description: '設定: ミストサウナ運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mistSaunaBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mistSaunaBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterMist:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Water mist operation setting'
+      operationId: getDevicesPropertiesWaterMistBathroomHeaterDryer
+      description: '取得: 水ミスト運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterMistBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Water mist operation setting'
+      operationId: putDevicesPropertiesWaterMistBathroomHeaterDryer
+      description: '設定: 水ミスト運転設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterMistBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterMistBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathroomHumidity:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Measured value of bathroom relative humidity'
+      operationId: getDevicesPropertiesBathroomHumidityBathroomHeaterDryer
+      description: '取得: 浴室内相対湿度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomHumidityBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathroomTemperature:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Measured value of bathroom temperature'
+      operationId: getDevicesPropertiesBathroomTemperatureBathroomHeaterDryer
+      description: '取得: 浴室内温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomTemperatureBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ventilationAirFlowLevel:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Ventilation air flow rate setting'
+      operationId: getDevicesPropertiesVentilationAirFlowLevelBathroomHeaterDryer
+      description: '取得: 換気風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationAirFlowLevelBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Ventilation air flow rate setting'
+      operationId: putDevicesPropertiesVentilationAirFlowLevelBathroomHeaterDryer
+      description: '設定: 換気風量設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ventilationAirFlowLevelBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ventilationAirFlowLevelBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/filterCleaningReminderSign:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Filter cleaning reminder sign setting'
+      operationId: getDevicesPropertiesFilterCleaningReminderSignBathroomHeaterDryer
+      description: '取得: フィルタサイン設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filterCleaningReminderSignBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: Filter cleaning reminder sign setting'
+      operationId: putDevicesPropertiesFilterCleaningReminderSignBathroomHeaterDryer
+      description: '設定: フィルタサイン設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/filterCleaningReminderSignBathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filterCleaningReminderSignBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/humanBodyDetectionStatus:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: Human body detection status'
+      operationId: getDevicesPropertiesHumanBodyDetectionStatusBathroomHeaterDryer
+      description: '取得: 人体検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/humanBodyDetectionStatusBathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservation2:
+    get:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Get: On timer reservation setting 2'
+      operationId: getDevicesPropertiesOnTimerReservation2BathroomHeaterDryer
+      description: '取得: ONタイマ予約設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservation2BathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - BathroomHeaterDryer
+      summary: 'Set: On timer reservation setting 2'
+      operationId: putDevicesPropertiesOnTimerReservation2BathroomHeaterDryer
+      description: '設定: ONタイマ予約設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservation2BathroomHeaterDryer'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservation2BathroomHeaterDryer'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesBathroomHeaterDryer:
+      description: propertiesBathroomHeaterDryer
+      type: object
+      properties:
+        onTimerReservation1:
+          type: boolean
+          description: '[ja: ONタイマ予約設定1, en: On timer reservation setting 1] _True
+            (ja: 予約入, en: Reservation on) False (ja: 予約切, en: Reservation off) '
+        timeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: On timer setting value] '
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ相対時間設定値, en: On relative timer setting value] '
+        offTimerReservation:
+          type: boolean
+          description: '[ja: OFFタイマ予約設定, en: Off timer reservation setting] _True
+            (ja: 予約入, en: Reservation on) False (ja: 予約切, en: Reservation off) '
+        relativeTimeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ時刻設定値, en: OFF timer setting value] '
+        relativeTimeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ相対時間設定値, en: Off relative timer setting value] '
+        operationSetting:
+          type: string
+          enum:
+          - ventilation
+          - prewarming
+          - heating
+          - drying
+          - circulation
+          - mistSauna
+          - waterMist
+          - stop
+          description: '[ja: 運転設定, en: Operation setting] _ventilation (ja: 換気運転,
+            en: Ventilation) prewarming (ja: 入浴前予備暖房運転, en: Prewarming operation)
+            heating (ja: 入浴中暖房運転, en: Heating operation) drying (ja: 乾燥運転, en: Drying
+            operation) circulation (ja: 涼風運転, en: Circulation) mistSauna (ja: ミストサウナ運転,
+            en: Mist sauna operation) waterMist (ja: 水ミスト運転, en: Water mist operation)
+            stop (ja: 停止, en: Stop) '
+        ventilationSetting:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 換気運転設定, en: Ventilation operation setting] '
+        bathroomPrewarming:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 入浴前予備暖房運転設定, en: Bathroom prewarming operation setting] '
+        bathroomHeating:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 入浴中暖房運転設定, en: Bathroom heating operation setting] '
+        bathroomDrying:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 乾燥運転設定, en: Bathroom drying operation setting] '
+        coolAirCirculation:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 涼風運転設定, en: Cool air circulation operation setting] '
+        mistSauna:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: ミストサウナ運転設定, en: Mist sauna operation setting] '
+        waterMist:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 水ミスト運転設定, en: Water mist operation setting] '
+        bathroomHumidity:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 浴室内相対湿度計測値, en: Measured value of bathroom relative humidity] '
+        bathroomTemperature:
+          type: number
+          minimum: -127
+          maximum: 125
+          description: '[ja: 浴室内温度計測値, en: Measured value of bathroom temperature] '
+        ventilationAirFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Auto) '
+          description: '[ja: 換気風量設定, en: Ventilation air flow rate setting] '
+        filterCleaningReminderSign:
+          type: boolean
+          description: '[ja: フィルタサイン設定, en: Filter cleaning reminder sign setting]
+            _True (ja: 点灯, en: Lit) False (ja: 消灯, en: Not lit) '
+        humanBodyDetectionStatus:
+          type: boolean
+          description: '[ja: 人体検知状態, en: Human body detection status] _True (ja: 人体検知あり,
+            en: Detected) False (ja: 人体検知なし, en: Not detected) '
+        onTimerReservation2:
+          type: string
+          enum:
+          - ventilationReservation
+          - prewarmingReservation
+          - heatingReservation
+          - dryingReservation
+          - circulationReservation
+          - mistSaunaReservation
+          - waterMistReservation
+          - noReservation
+          description: '[ja: ONタイマ予約設定2, en: On timer reservation setting 2] _ventilationReservation
+            (ja: 換気運転予約, en: Ventilation reservation) prewarmingReservation (ja: 入浴前予備暖房運転予約,
+            en: Prewarming operation reservation) heatingReservation (ja: 入浴中暖房運転予約,
+            en: Heating operation reservation) dryingReservation (ja: 乾燥運転予約, en:
+            Drying operation reservation) circulationReservation (ja: 涼風運転予約, en:
+            Circulation reservation) mistSaunaReservation (ja: ミストサウナ運転予約, en: Mist
+            sauna operation reservation) waterMistReservation (ja: 水ミスト運転予約, en: Water
+            mist operation reservation) noReservation (ja: 予約切, en: No reservation) '
+    onTimerReservation1BathroomHeaterDryer:
+      description: '[ja: ONタイマ予約設定1, en: On timer reservation setting 1]'
+      type: object
+      properties:
+        onTimerReservation1:
+          type: boolean
+          description: '[ja: ONタイマ予約設定1, en: On timer reservation setting 1] _True
+            (ja: 予約入, en: Reservation on) False (ja: 予約切, en: Reservation off) '
+    timeOfOnTimerBathroomHeaterDryer:
+      description: '[ja: ONタイマ時刻設定値, en: On timer setting value]'
+      type: object
+      properties:
+        timeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: On timer setting value] '
+    timeOfOffTimerBathroomHeaterDryer:
+      description: '[ja: ONタイマ相対時間設定値, en: On relative timer setting value]'
+      type: object
+      properties:
+        timeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: ONタイマ相対時間設定値, en: On relative timer setting value] '
+    offTimerReservationBathroomHeaterDryer:
+      description: '[ja: OFFタイマ予約設定, en: Off timer reservation setting]'
+      type: object
+      properties:
+        offTimerReservation:
+          type: boolean
+          description: '[ja: OFFタイマ予約設定, en: Off timer reservation setting] _True
+            (ja: 予約入, en: Reservation on) False (ja: 予約切, en: Reservation off) '
+    relativeTimeOfOnTimerBathroomHeaterDryer:
+      description: '[ja: OFFタイマ時刻設定値, en: OFF timer setting value]'
+      type: object
+      properties:
+        relativeTimeOfOnTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ時刻設定値, en: OFF timer setting value] '
+    relativeTimeOfOffTimerBathroomHeaterDryer:
+      description: '[ja: OFFタイマ相対時間設定値, en: Off relative timer setting value]'
+      type: object
+      properties:
+        relativeTimeOfOffTimer:
+          type: string
+          format: time
+          description: '[ja: OFFタイマ相対時間設定値, en: Off relative timer setting value] '
+    operationSettingBathroomHeaterDryer:
+      description: '[ja: 運転設定, en: Operation setting]'
+      type: object
+      properties:
+        operationSetting:
+          type: string
+          enum:
+          - ventilation
+          - prewarming
+          - heating
+          - drying
+          - circulation
+          - mistSauna
+          - waterMist
+          - stop
+          description: '[ja: 運転設定, en: Operation setting] _ventilation (ja: 換気運転,
+            en: Ventilation) prewarming (ja: 入浴前予備暖房運転, en: Prewarming operation)
+            heating (ja: 入浴中暖房運転, en: Heating operation) drying (ja: 乾燥運転, en: Drying
+            operation) circulation (ja: 涼風運転, en: Circulation) mistSauna (ja: ミストサウナ運転,
+            en: Mist sauna operation) waterMist (ja: 水ミスト運転, en: Water mist operation)
+            stop (ja: 停止, en: Stop) '
+    ventilationSettingBathroomHeaterDryer:
+      description: '[ja: 換気運転設定, en: Ventilation operation setting]'
+      type: object
+      properties:
+        ventilationSetting:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 換気運転設定, en: Ventilation operation setting] '
+    bathroomPrewarmingBathroomHeaterDryer:
+      description: '[ja: 入浴前予備暖房運転設定, en: Bathroom prewarming operation setting]'
+      type: object
+      properties:
+        bathroomPrewarming:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 入浴前予備暖房運転設定, en: Bathroom prewarming operation setting] '
+    bathroomHeatingBathroomHeaterDryer:
+      description: '[ja: 入浴中暖房運転設定, en: Bathroom heating operation setting]'
+      type: object
+      properties:
+        bathroomHeating:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 入浴中暖房運転設定, en: Bathroom heating operation setting] '
+    bathroomDryingBathroomHeaterDryer:
+      description: '[ja: 乾燥運転設定, en: Bathroom drying operation setting]'
+      type: object
+      properties:
+        bathroomDrying:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 乾燥運転設定, en: Bathroom drying operation setting] '
+    coolAirCirculationBathroomHeaterDryer:
+      description: '[ja: 涼風運転設定, en: Cool air circulation operation setting]'
+      type: object
+      properties:
+        coolAirCirculation:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 涼風運転設定, en: Cool air circulation operation setting] '
+    mistSaunaBathroomHeaterDryer:
+      description: '[ja: ミストサウナ運転設定, en: Mist sauna operation setting]'
+      type: object
+      properties:
+        mistSauna:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: ミストサウナ運転設定, en: Mist sauna operation setting] '
+    waterMistBathroomHeaterDryer:
+      description: '[ja: 水ミスト運転設定, en: Water mist operation setting]'
+      type: object
+      properties:
+        waterMist:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            - standard
+            description: '_auto (ja: 自動, en: Auto) standard (ja: 標準, en: Standard) '
+          description: '[ja: 水ミスト運転設定, en: Water mist operation setting] '
+    bathroomHumidityBathroomHeaterDryer:
+      description: '[ja: 浴室内相対湿度計測値, en: Measured value of bathroom relative humidity]'
+      type: object
+      properties:
+        bathroomHumidity:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 浴室内相対湿度計測値, en: Measured value of bathroom relative humidity] '
+    bathroomTemperatureBathroomHeaterDryer:
+      description: '[ja: 浴室内温度計測値, en: Measured value of bathroom temperature]'
+      type: object
+      properties:
+        bathroomTemperature:
+          type: number
+          minimum: -127
+          maximum: 125
+          description: '[ja: 浴室内温度計測値, en: Measured value of bathroom temperature] '
+    ventilationAirFlowLevelBathroomHeaterDryer:
+      description: '[ja: 換気風量設定, en: Ventilation air flow rate setting]'
+      type: object
+      properties:
+        ventilationAirFlowLevel:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 8
+            multipleOf: 1
+          - type: string
+            enum:
+            - auto
+            description: '_auto (ja: 自動, en: Auto) '
+          description: '[ja: 換気風量設定, en: Ventilation air flow rate setting] '
+    filterCleaningReminderSignBathroomHeaterDryer:
+      description: '[ja: フィルタサイン設定, en: Filter cleaning reminder sign setting]'
+      type: object
+      properties:
+        filterCleaningReminderSign:
+          type: boolean
+          description: '[ja: フィルタサイン設定, en: Filter cleaning reminder sign setting]
+            _True (ja: 点灯, en: Lit) False (ja: 消灯, en: Not lit) '
+    humanBodyDetectionStatusBathroomHeaterDryer:
+      description: '[ja: 人体検知状態, en: Human body detection status]'
+      type: object
+      properties:
+        humanBodyDetectionStatus:
+          type: boolean
+          description: '[ja: 人体検知状態, en: Human body detection status] _True (ja: 人体検知あり,
+            en: Detected) False (ja: 人体検知なし, en: Not detected) '
+    onTimerReservation2BathroomHeaterDryer:
+      description: '[ja: ONタイマ予約設定2, en: On timer reservation setting 2]'
+      type: object
+      properties:
+        onTimerReservation2:
+          type: string
+          enum:
+          - ventilationReservation
+          - prewarmingReservation
+          - heatingReservation
+          - dryingReservation
+          - circulationReservation
+          - mistSaunaReservation
+          - waterMistReservation
+          - noReservation
+          description: '[ja: ONタイマ予約設定2, en: On timer reservation setting 2] _ventilationReservation
+            (ja: 換気運転予約, en: Ventilation reservation) prewarmingReservation (ja: 入浴前予備暖房運転予約,
+            en: Prewarming operation reservation) heatingReservation (ja: 入浴中暖房運転予約,
+            en: Heating operation reservation) dryingReservation (ja: 乾燥運転予約, en:
+            Drying operation reservation) circulationReservation (ja: 涼風運転予約, en:
+            Circulation reservation) mistSaunaReservation (ja: ミストサウナ運転予約, en: Mist
+            sauna operation reservation) waterMistReservation (ja: 水ミスト運転予約, en: Water
+            mist operation reservation) noReservation (ja: 予約切, en: No reservation) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

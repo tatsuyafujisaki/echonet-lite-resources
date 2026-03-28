@@ -1,0 +1,1282 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: CommercialShowcase
+  description: tag for Commercial showcase
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesCommercialShowcase
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationMode:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Operation mode setting'
+      operationId: getDevicesPropertiesOperationModeCommercialShowcase
+      description: '取得: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcase
+      summary: 'Set: Operation mode setting'
+      operationId: putDevicesPropertiesOperationModeCommercialShowcase
+      description: '設定: 運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationModeCommercialShowcase'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationModeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/dischargeTemperature:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Used to acquire measurements of discharge temperature.'
+      operationId: getDevicesPropertiesDischargeTemperatureCommercialShowcase
+      description: '取得: 吐出温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dischargeTemperatureCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/groupInformation:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Group information'
+      operationId: getDevicesPropertiesGroupInformationCommercialShowcase
+      description: '取得: グループ情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupInformationCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcase
+      summary: 'Set: Group information'
+      operationId: putDevicesPropertiesGroupInformationCommercialShowcase
+      description: '設定: グループ情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/groupInformationCommercialShowcase'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupInformationCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/showcaseType:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: This property indicates the type of the showcase.'
+      operationId: getDevicesPropertiesShowcaseTypeCommercialShowcase
+      description: '取得: ショーケースタイプ情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/showcaseTypeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/doorType:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: This property indicates the type of the showcase door.'
+      operationId: getDevicesPropertiesDoorTypeCommercialShowcase
+      description: '取得: ドアタイプ情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/doorTypeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/refrigeratorType:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: This property indicates refrigerator type, such as built-in or
+        separate.'
+      operationId: getDevicesPropertiesRefrigeratorTypeCommercialShowcase
+      description: '取得: 冷凍機内蔵型か冷凍機別置型かを示すショーケース構成情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refrigeratorTypeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/shapeType:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: This property indicates the shape of the showcase.'
+      operationId: getDevicesPropertiesShapeTypeCommercialShowcase
+      description: '取得: ショーケース形状情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/shapeTypeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/purposeType:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: This property indicates the purpose of the showcase, either refrigeration
+        or freezing.'
+      operationId: getDevicesPropertiesPurposeTypeCommercialShowcase
+      description: '取得: 冷蔵用途か冷凍用途かを示す庫内温度帯情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/purposeTypeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/internalLightingOperationStatus:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates on/off status of lighting installed inside the showcase.'
+      operationId: getDevicesPropertiesInternalLightingOperationStatusCommercialShowcase
+      description: '取得: 庫内照明動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internalLightingOperationStatusCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcase
+      summary: 'Set: Indicates on/off status of lighting installed inside the showcase.'
+      operationId: putDevicesPropertiesInternalLightingOperationStatusCommercialShowcase
+      description: '設定: 庫内照明動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/internalLightingOperationStatusCommercialShowcase'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internalLightingOperationStatusCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/externalLightingOperationStatus:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates ON/OFF status of lighting installed outside the showcase.'
+      operationId: getDevicesPropertiesExternalLightingOperationStatusCommercialShowcase
+      description: '取得: 庫外照明動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/externalLightingOperationStatusCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcase
+      summary: 'Set: Indicates ON/OFF status of lighting installed outside the showcase.'
+      operationId: putDevicesPropertiesExternalLightingOperationStatusCommercialShowcase
+      description: '設定: 庫外照明動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/externalLightingOperationStatusCommercialShowcase'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/externalLightingOperationStatusCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/compressorOperationStatus:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates on/off status of compressor when showcase and compressor
+        are a single unit.'
+      operationId: getDevicesPropertiesCompressorOperationStatusCommercialShowcase
+      description: '取得: コンプレッサ動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/compressorOperationStatusCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcase
+      summary: 'Set: Indicates on/off status of compressor when showcase and compressor
+        are a single unit.'
+      operationId: putDevicesPropertiesCompressorOperationStatusCommercialShowcase
+      description: '設定: コンプレッサ動作状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/compressorOperationStatusCommercialShowcase'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/compressorOperationStatusCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/internalTemperature:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Used to acquire internal temperature measurements inside the
+        showcase.'
+      operationId: getDevicesPropertiesInternalTemperatureCommercialShowcase
+      description: '取得: 庫内温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/internalTemperatureCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedElectricPowerForFreezing:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates rated power consumption necessary when showcase is
+        cooling.'
+      operationId: getDevicesPropertiesRatedElectricPowerForFreezingCommercialShowcase
+      description: '取得: 冷却時に要する定格消費電力 (冷凍能力値)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricPowerForFreezingCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedElectricPowerForDefrostingHeater:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates rated power consumption when heater is operating during
+        showcase defrosting.'
+      operationId: getDevicesPropertiesRatedElectricPowerForDefrostingHeaterCommercialShowcase
+      description: '取得: 霜取りヒータ稼働時の定格消費電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricPowerForDefrostingHeaterCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedElectricPowerForFanMotor:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates rated power consumption when showcase is operating
+        fan motor.'
+      operationId: getDevicesPropertiesRatedElectricPowerForFanMotorCommercialShowcase
+      description: '取得: ファンモータ稼働時の定格消費電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricPowerForFanMotorCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heaterOperationStatus:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates on/off status of showcases with heater for hot function.'
+      operationId: getDevicesPropertiesHeaterOperationStatusCommercialShowcase
+      description: '取得: ホット用ヒーター動作状態 (ヒーターモード)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heaterOperationStatusCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/insideLightingType:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates type of lighting installed inside the showcase.'
+      operationId: getDevicesPropertiesInsideLightingTypeCommercialShowcase
+      description: '取得: 庫内照明タイプ'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/insideLightingTypeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outsideLightingType:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates type of lighting installed outside the showcase.'
+      operationId: getDevicesPropertiesOutsideLightingTypeCommercialShowcase
+      description: '取得: 庫外照明タイプ'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outsideLightingTypeCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetInsideBrightness:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates lighting level in % installed inside of the showcase.'
+      operationId: getDevicesPropertiesTargetInsideBrightnessCommercialShowcase
+      description: '取得: 庫内照明照度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetInsideBrightnessCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcase
+      summary: 'Set: Indicates lighting level in % installed inside of the showcase.'
+      operationId: putDevicesPropertiesTargetInsideBrightnessCommercialShowcase
+      description: '設定: 庫内照明照度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetInsideBrightnessCommercialShowcase'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetInsideBrightnessCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetOutsideBrightness:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Indicates lighting level in % installed outside of the showcase.'
+      operationId: getDevicesPropertiesTargetOutsideBrightnessCommercialShowcase
+      description: '取得: 庫外照明照度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetOutsideBrightnessCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcase
+      summary: 'Set: Indicates lighting level in % installed outside of the showcase.'
+      operationId: putDevicesPropertiesTargetOutsideBrightnessCommercialShowcase
+      description: '設定: 庫外照明照度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetOutsideBrightnessCommercialShowcase'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetOutsideBrightnessCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetInsideTemperature:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: Set temperature setting of inside the case and acquire the current
+        setting.'
+      operationId: getDevicesPropertiesTargetInsideTemperatureCommercialShowcase
+      description: '取得: 庫内温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetInsideTemperatureCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - CommercialShowcase
+      summary: 'Set: Set temperature setting of inside the case and acquire the current
+        setting.'
+      operationId: putDevicesPropertiesTargetInsideTemperatureCommercialShowcase
+      description: '設定: 庫内温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetInsideTemperatureCommercialShowcase'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetInsideTemperatureCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/groupDeviceList:
+    get:
+      tags:
+      - CommercialShowcase
+      summary: 'Get: List of devices in group'
+      operationId: getDevicesPropertiesGroupDeviceListCommercialShowcase
+      description: '取得: グループ内デバイスリスト'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/groupDeviceListCommercialShowcase'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesCommercialShowcase:
+      description: propertiesCommercialShowcase
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - cooling
+          - nonCooling
+          - defrosting
+          - other
+          description: '[ja: 運転モード設定, en: Operation mode setting] _cooling (ja: 冷却,
+            en: Cooling) nonCooling (ja: 非冷, en: Non-cooling) defrosting (ja: 霜取り,
+            en: Defrosting) other (ja: その他, en: Others) '
+        dischargeTemperature:
+          type: number
+          minimum: -127
+          maximum: 125
+          multipleOf: 1
+          description: '[ja: 吐出温度計測値, en: Used to acquire measurements of discharge
+            temperature.] '
+        groupInformation:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 253
+          - type: string
+            enum:
+            - none
+            description: '_none (ja: 設定なし, en: None) '
+          description: '[ja: グループ情報, en: Group information] '
+        showcaseType:
+          type: string
+          enum:
+          - nonFluorocarbonInverter
+          - inverter
+          - other
+          description: '[ja: ショーケースタイプ情報, en: This property indicates the type of
+            the showcase.] _nonFluorocarbonInverter (ja: ノンフロンインバータ (CO2), en: Non-fluorocarbon
+            inverter (CO2)) inverter (ja: インバータ, en: Inverter) other (ja: その他, en:
+            Other) '
+        doorType:
+          type: string
+          enum:
+          - open
+          - closed
+          description: '[ja: ドアタイプ情報, en: This property indicates the type of the
+            showcase door.] _open (ja: オープン, en: Open) closed (ja: クローズ, en: Closed) '
+        refrigeratorType:
+          type: string
+          enum:
+          - separate
+          - builtIn
+          description: '[ja: 冷凍機内蔵型か冷凍機別置型かを示すショーケース構成情報, en: This property indicates
+            refrigerator type, such as built-in or separate.] _separate (ja: 別置型,
+            en: Separate type) builtIn (ja: 内蔵型, en: Built-in type) '
+        shapeType:
+          type: string
+          enum:
+          - box
+          - desktop
+          - tripleGlass
+          - quadrupleQuintupleGlass
+          - reachIn
+          - glassTop
+          - multistageOpenAndCeilingBlowoff
+          - multistageOpenAndBacksideBlowoff
+          - flat
+          - walkIn
+          - other
+          description: '[ja: ショーケース形状情報, en: This property indicates the shape of
+            the showcase.] _box (ja: 箱形, en: Box type) desktop (ja: 卓上形, en: Desktop
+            type) tripleGlass (ja: 三面ガラス式, en: Triple glass type) quadrupleQuintupleGlass
+            (ja: 四面 (五面) ガラス式, en: Quadruple (quintuple) glass type) reachIn (ja:
+            リーチイン, en: Reach-in type) glassTop (ja: ガラストップ, en: Glass top type) multistageOpenAndCeilingBlowoff
+            (ja: 多段形オープン (天井吹出形), en: Multistage open (ceiling blowoff type)) multistageOpenAndBacksideBlowoff
+            (ja: 多段形オープン (背面吹出形), en: Multistage open (backside blowoff type)) flat
+            (ja: 平形, en: Flat type) walkIn (ja: ウォークイン, en: Walk-in type) other (ja:
+            その他, en: Other) '
+        purposeType:
+          type: string
+          enum:
+          - refrigeration
+          - freezing
+          description: '[ja: 冷蔵用途か冷凍用途かを示す庫内温度帯情報, en: This property indicates the
+            purpose of the showcase, either refrigeration or freezing.] _refrigeration
+            (ja: 冷蔵, en: Refrigeration) freezing (ja: 冷凍, en: Freezing) '
+        internalLightingOperationStatus:
+          type: boolean
+          description: '[ja: 庫内照明動作状態, en: Indicates on/off status of lighting installed
+            inside the showcase.] _True (ja: ON, en: On) False (ja: OFF, en: Off) '
+        externalLightingOperationStatus:
+          type: boolean
+          description: '[ja: 庫外照明動作状態, en: Indicates ON/OFF status of lighting installed
+            outside the showcase.] _True (ja: ON, en: On) False (ja: OFF, en: Off) '
+        compressorOperationStatus:
+          type: boolean
+          description: '[ja: コンプレッサ動作状態, en: Indicates on/off status of compressor
+            when showcase and compressor are a single unit.] _True (ja: ON, en: On)
+            False (ja: OFF, en: Off) '
+        internalTemperature:
+          type: number
+          minimum: -127
+          maximum: 125
+          multipleOf: 1
+          description: '[ja: 庫内温度計測値, en: Used to acquire internal temperature measurements
+            inside the showcase.] '
+        ratedElectricPowerForFreezing:
+          type: number
+          minimum: 0
+          maximum: 65533
+          multipleOf: 1
+          description: '[ja: 冷却時に要する定格消費電力 (冷凍能力値), en: Indicates rated power consumption
+            necessary when showcase is cooling.] '
+        ratedElectricPowerForDefrostingHeater:
+          type: number
+          minimum: 0
+          maximum: 65533
+          multipleOf: 1
+          description: '[ja: 霜取りヒータ稼働時の定格消費電力, en: Indicates rated power consumption
+            when heater is operating during showcase defrosting.] '
+        ratedElectricPowerForFanMotor:
+          type: number
+          minimum: 0
+          maximum: 65533
+          multipleOf: 1
+          description: '[ja: ファンモータ稼働時の定格消費電力, en: Indicates rated power consumption
+            when showcase is operating fan motor.] '
+        heaterOperationStatus:
+          type: boolean
+          description: '[ja: ホット用ヒーター動作状態 (ヒーターモード), en: Indicates on/off status of
+            showcases with heater for hot function.] _True (ja: ON, en: On) False
+            (ja: OFF, en: Off) '
+        insideLightingType:
+          type: string
+          enum:
+          - fluorescent
+          - led
+          - noLighting
+          - other
+          description: '[ja: 庫内照明タイプ, en: Indicates type of lighting installed inside
+            the showcase.] _fluorescent (ja: 蛍光灯, en: Fluorescent light) led (ja:
+            LED, en: LED) noLighting (ja: 照明無し, en: No lighting) other (ja: その他, en:
+            Other) '
+        outsideLightingType:
+          type: string
+          enum:
+          - fluorescent
+          - led
+          - noLighting
+          - other
+          description: '[ja: 庫外照明タイプ, en: Indicates type of lighting installed outside
+            the showcase.] _fluorescent (ja: 蛍光灯, en: Fluorescent light) led (ja:
+            LED, en: LED) noLighting (ja: 照明無し, en: No lighting) other (ja: その他, en:
+            Other) '
+        targetInsideBrightness:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 庫内照明照度レベル設定, en: Indicates lighting level in % installed
+            inside of the showcase.] '
+        targetOutsideBrightness:
+          type: number
+          minimum: 0
+          maximum: 100
+          multipleOf: 1
+          description: '[ja: 庫外照明照度レベル設定, en: Indicates lighting level in % installed
+            outside of the showcase.] '
+        targetInsideTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          multipleOf: 1
+          description: '[ja: 庫内温度設定値, en: Set temperature setting of inside the case
+            and acquire the current setting.] '
+        groupDeviceList:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              deviceType:
+                type: string
+          description: '[ja: グループ内デバイスリスト, en: List of devices in group] '
+    operationModeCommercialShowcase:
+      description: '[ja: 運転モード設定, en: Operation mode setting]'
+      type: object
+      properties:
+        operationMode:
+          type: string
+          enum:
+          - cooling
+          - nonCooling
+          - defrosting
+          - other
+          description: '[ja: 運転モード設定, en: Operation mode setting] _cooling (ja: 冷却,
+            en: Cooling) nonCooling (ja: 非冷, en: Non-cooling) defrosting (ja: 霜取り,
+            en: Defrosting) other (ja: その他, en: Others) '
+    dischargeTemperatureCommercialShowcase:
+      description: '[ja: 吐出温度計測値, en: Used to acquire measurements of discharge temperature.]'
+      type: object
+      properties:
+        dischargeTemperature:
+          type: number
+          minimum: -127
+          maximum: 125
+          multipleOf: 1
+          description: '[ja: 吐出温度計測値, en: Used to acquire measurements of discharge
+            temperature.] '
+    groupInformationCommercialShowcase:
+      description: '[ja: グループ情報, en: Group information]'
+      type: object
+      properties:
+        groupInformation:
+          oneOf:
+          - type: number
+            minimum: 1
+            maximum: 253
+          - type: string
+            enum:
+            - none
+            description: '_none (ja: 設定なし, en: None) '
+          description: '[ja: グループ情報, en: Group information] '
+    showcaseTypeCommercialShowcase:
+      description: '[ja: ショーケースタイプ情報, en: This property indicates the type of the
+        showcase.]'
+      type: object
+      properties:
+        showcaseType:
+          type: string
+          enum:
+          - nonFluorocarbonInverter
+          - inverter
+          - other
+          description: '[ja: ショーケースタイプ情報, en: This property indicates the type of
+            the showcase.] _nonFluorocarbonInverter (ja: ノンフロンインバータ (CO2), en: Non-fluorocarbon
+            inverter (CO2)) inverter (ja: インバータ, en: Inverter) other (ja: その他, en:
+            Other) '
+    doorTypeCommercialShowcase:
+      description: '[ja: ドアタイプ情報, en: This property indicates the type of the showcase
+        door.]'
+      type: object
+      properties:
+        doorType:
+          type: string
+          enum:
+          - open
+          - closed
+          description: '[ja: ドアタイプ情報, en: This property indicates the type of the
+            showcase door.] _open (ja: オープン, en: Open) closed (ja: クローズ, en: Closed) '
+    refrigeratorTypeCommercialShowcase:
+      description: '[ja: 冷凍機内蔵型か冷凍機別置型かを示すショーケース構成情報, en: This property indicates
+        refrigerator type, such as built-in or separate.]'
+      type: object
+      properties:
+        refrigeratorType:
+          type: string
+          enum:
+          - separate
+          - builtIn
+          description: '[ja: 冷凍機内蔵型か冷凍機別置型かを示すショーケース構成情報, en: This property indicates
+            refrigerator type, such as built-in or separate.] _separate (ja: 別置型,
+            en: Separate type) builtIn (ja: 内蔵型, en: Built-in type) '
+    shapeTypeCommercialShowcase:
+      description: '[ja: ショーケース形状情報, en: This property indicates the shape of the
+        showcase.]'
+      type: object
+      properties:
+        shapeType:
+          type: string
+          enum:
+          - box
+          - desktop
+          - tripleGlass
+          - quadrupleQuintupleGlass
+          - reachIn
+          - glassTop
+          - multistageOpenAndCeilingBlowoff
+          - multistageOpenAndBacksideBlowoff
+          - flat
+          - walkIn
+          - other
+          description: '[ja: ショーケース形状情報, en: This property indicates the shape of
+            the showcase.] _box (ja: 箱形, en: Box type) desktop (ja: 卓上形, en: Desktop
+            type) tripleGlass (ja: 三面ガラス式, en: Triple glass type) quadrupleQuintupleGlass
+            (ja: 四面 (五面) ガラス式, en: Quadruple (quintuple) glass type) reachIn (ja:
+            リーチイン, en: Reach-in type) glassTop (ja: ガラストップ, en: Glass top type) multistageOpenAndCeilingBlowoff
+            (ja: 多段形オープン (天井吹出形), en: Multistage open (ceiling blowoff type)) multistageOpenAndBacksideBlowoff
+            (ja: 多段形オープン (背面吹出形), en: Multistage open (backside blowoff type)) flat
+            (ja: 平形, en: Flat type) walkIn (ja: ウォークイン, en: Walk-in type) other (ja:
+            その他, en: Other) '
+    purposeTypeCommercialShowcase:
+      description: '[ja: 冷蔵用途か冷凍用途かを示す庫内温度帯情報, en: This property indicates the purpose
+        of the showcase, either refrigeration or freezing.]'
+      type: object
+      properties:
+        purposeType:
+          type: string
+          enum:
+          - refrigeration
+          - freezing
+          description: '[ja: 冷蔵用途か冷凍用途かを示す庫内温度帯情報, en: This property indicates the
+            purpose of the showcase, either refrigeration or freezing.] _refrigeration
+            (ja: 冷蔵, en: Refrigeration) freezing (ja: 冷凍, en: Freezing) '
+    internalLightingOperationStatusCommercialShowcase:
+      description: '[ja: 庫内照明動作状態, en: Indicates on/off status of lighting installed
+        inside the showcase.]'
+      type: object
+      properties:
+        internalLightingOperationStatus:
+          type: boolean
+          description: '[ja: 庫内照明動作状態, en: Indicates on/off status of lighting installed
+            inside the showcase.] _True (ja: ON, en: On) False (ja: OFF, en: Off) '
+    externalLightingOperationStatusCommercialShowcase:
+      description: '[ja: 庫外照明動作状態, en: Indicates ON/OFF status of lighting installed
+        outside the showcase.]'
+      type: object
+      properties:
+        externalLightingOperationStatus:
+          type: boolean
+          description: '[ja: 庫外照明動作状態, en: Indicates ON/OFF status of lighting installed
+            outside the showcase.] _True (ja: ON, en: On) False (ja: OFF, en: Off) '
+    compressorOperationStatusCommercialShowcase:
+      description: '[ja: コンプレッサ動作状態, en: Indicates on/off status of compressor when
+        showcase and compressor are a single unit.]'
+      type: object
+      properties:
+        compressorOperationStatus:
+          type: boolean
+          description: '[ja: コンプレッサ動作状態, en: Indicates on/off status of compressor
+            when showcase and compressor are a single unit.] _True (ja: ON, en: On)
+            False (ja: OFF, en: Off) '
+    internalTemperatureCommercialShowcase:
+      description: '[ja: 庫内温度計測値, en: Used to acquire internal temperature measurements
+        inside the showcase.]'
+      type: object
+      properties:
+        internalTemperature:
+          type: number
+          minimum: -127
+          maximum: 125
+          multipleOf: 1
+          description: '[ja: 庫内温度計測値, en: Used to acquire internal temperature measurements
+            inside the showcase.] '
+    ratedElectricPowerForFreezingCommercialShowcase:
+      description: '[ja: 冷却時に要する定格消費電力 (冷凍能力値), en: Indicates rated power consumption
+        necessary when showcase is cooling.]'
+      type: object
+      properties:
+        ratedElectricPowerForFreezing:
+          type: number
+          minimum: 0
+          maximum: 65533
+          multipleOf: 1
+          description: '[ja: 冷却時に要する定格消費電力 (冷凍能力値), en: Indicates rated power consumption
+            necessary when showcase is cooling.] '
+    ratedElectricPowerForDefrostingHeaterCommercialShowcase:
+      description: '[ja: 霜取りヒータ稼働時の定格消費電力, en: Indicates rated power consumption when
+        heater is operating during showcase defrosting.]'
+      type: object
+      properties:
+        ratedElectricPowerForDefrostingHeater:
+          type: number
+          minimum: 0
+          maximum: 65533
+          multipleOf: 1
+          description: '[ja: 霜取りヒータ稼働時の定格消費電力, en: Indicates rated power consumption
+            when heater is operating during showcase defrosting.] '
+    ratedElectricPowerForFanMotorCommercialShowcase:
+      description: '[ja: ファンモータ稼働時の定格消費電力, en: Indicates rated power consumption when
+        showcase is operating fan motor.]'
+      type: object
+      properties:
+        ratedElectricPowerForFanMotor:
+          type: number
+          minimum: 0
+          maximum: 65533
+          multipleOf: 1
+          description: '[ja: ファンモータ稼働時の定格消費電力, en: Indicates rated power consumption
+            when showcase is operating fan motor.] '
+    heaterOperationStatusCommercialShowcase:
+      description: '[ja: ホット用ヒーター動作状態 (ヒーターモード), en: Indicates on/off status of showcases
+        with heater for hot function.]'
+      type: object
+      properties:
+        heaterOperationStatus:
+          type: boolean
+          description: '[ja: ホット用ヒーター動作状態 (ヒーターモード), en: Indicates on/off status of
+            showcases with heater for hot function.] _True (ja: ON, en: On) False
+            (ja: OFF, en: Off) '
+    insideLightingTypeCommercialShowcase:
+      description: '[ja: 庫内照明タイプ, en: Indicates type of lighting installed inside
+        the showcase.]'
+      type: object
+      properties:
+        insideLightingType:
+          type: string
+          enum:
+          - fluorescent
+          - led
+          - noLighting
+          - other
+          description: '[ja: 庫内照明タイプ, en: Indicates type of lighting installed inside
+            the showcase.] _fluorescent (ja: 蛍光灯, en: Fluorescent light) led (ja:
+            LED, en: LED) noLighting (ja: 照明無し, en: No lighting) other (ja: その他, en:
+            Other) '
+    outsideLightingTypeCommercialShowcase:
+      description: '[ja: 庫外照明タイプ, en: Indicates type of lighting installed outside
+        the showcase.]'
+      type: object
+      properties:
+        outsideLightingType:
+          type: string
+          enum:
+          - fluorescent
+          - led
+          - noLighting
+          - other
+          description: '[ja: 庫外照明タイプ, en: Indicates type of lighting installed outside
+            the showcase.] _fluorescent (ja: 蛍光灯, en: Fluorescent light) led (ja:
+            LED, en: LED) noLighting (ja: 照明無し, en: No lighting) other (ja: その他, en:
+            Other) '
+    targetInsideBrightnessCommercialShowcase:
+      description: '[ja: 庫内照明照度レベル設定, en: Indicates lighting level in % installed
+        inside of the showcase.]'
+      type: object
+      properties:
+        targetInsideBrightness:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 庫内照明照度レベル設定, en: Indicates lighting level in % installed
+            inside of the showcase.] '
+    targetOutsideBrightnessCommercialShowcase:
+      description: '[ja: 庫外照明照度レベル設定, en: Indicates lighting level in % installed
+        outside of the showcase.]'
+      type: object
+      properties:
+        targetOutsideBrightness:
+          type: number
+          minimum: 0
+          maximum: 100
+          multipleOf: 1
+          description: '[ja: 庫外照明照度レベル設定, en: Indicates lighting level in % installed
+            outside of the showcase.] '
+    targetInsideTemperatureCommercialShowcase:
+      description: '[ja: 庫内温度設定値, en: Set temperature setting of inside the case and
+        acquire the current setting.]'
+      type: object
+      properties:
+        targetInsideTemperature:
+          type: number
+          minimum: -127
+          maximum: 126
+          multipleOf: 1
+          description: '[ja: 庫内温度設定値, en: Set temperature setting of inside the case
+            and acquire the current setting.] '
+    groupDeviceListCommercialShowcase:
+      description: '[ja: グループ内デバイスリスト, en: List of devices in group]'
+      type: object
+      properties:
+        groupDeviceList:
+          type: array
+          items:
+            type: object
+            properties:
+              deviceId:
+                type: string
+              deviceType:
+                type: string
+          description: '[ja: グループ内デバイスリスト, en: List of devices in group] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

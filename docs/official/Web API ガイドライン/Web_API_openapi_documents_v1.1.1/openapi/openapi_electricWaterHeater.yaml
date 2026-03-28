@@ -1,0 +1,2878 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: ElectricWaterHeater
+  description: tag for Electric water heater
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesElectricWaterHeater
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerReservation:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: ON timer setting'
+      operationId: getDevicesPropertiesOnTimerReservationElectricWaterHeater
+      description: '取得: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: ON timer setting'
+      operationId: putDevicesPropertiesOnTimerReservationElectricWaterHeater
+      description: '設定: ONタイマ予約設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerReservationElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerReservationElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/onTimerTime:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: ON timer setting'
+      operationId: getDevicesPropertiesOnTimerTimeElectricWaterHeater
+      description: '取得: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerTimeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: ON timer setting'
+      operationId: putDevicesPropertiesOnTimerTimeElectricWaterHeater
+      description: '設定: ONタイマ時刻設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/onTimerTimeElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/onTimerTimeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticWaterHeating:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Automatic water heating setting'
+      operationId: getDevicesPropertiesAutomaticWaterHeatingElectricWaterHeater
+      description: '取得: 沸き上げ自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticWaterHeatingElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Automatic water heating setting'
+      operationId: putDevicesPropertiesAutomaticWaterHeatingElectricWaterHeater
+      description: '設定: 沸き上げ自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticWaterHeatingElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticWaterHeatingElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticWaterHeatingTemperatureControl:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Automatic water temperature control setting'
+      operationId: getDevicesPropertiesAutomaticWaterHeatingTemperatureControlElectricWaterHeater
+      description: '取得: 沸き上げ湯温自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticWaterHeatingTemperatureControlElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Automatic water temperature control setting'
+      operationId: putDevicesPropertiesAutomaticWaterHeatingTemperatureControlElectricWaterHeater
+      description: '設定: 沸き上げ湯温自動設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticWaterHeatingTemperatureControlElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticWaterHeatingTemperatureControlElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterHeatingStatus:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Water heater status'
+      operationId: getDevicesPropertiesWaterHeatingStatusElectricWaterHeater
+      description: '取得: 沸き上げ中状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterHeatingStatusElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetWaterHeatingTemperature:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Water heating temperature setting'
+      operationId: getDevicesPropertiesTargetWaterHeatingTemperatureElectricWaterHeater
+      description: '取得: 沸き上げ湯温設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetWaterHeatingTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Water heating temperature setting'
+      operationId: putDevicesPropertiesTargetWaterHeatingTemperatureElectricWaterHeater
+      description: '設定: 沸き上げ湯温設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetWaterHeatingTemperatureElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetWaterHeatingTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/heatingStopDays:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Manual water heating stop days setting'
+      operationId: getDevicesPropertiesHeatingStopDaysElectricWaterHeater
+      description: '取得: 手動沸き上げ停止日数設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingStopDaysElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Manual water heating stop days setting'
+      operationId: putDevicesPropertiesHeatingStopDaysElectricWaterHeater
+      description: '設定: 手動沸き上げ停止日数設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/heatingStopDaysElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/heatingStopDaysElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeHeatingOff:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Relative time setting value for manual water heating OFF'
+      operationId: getDevicesPropertiesRelativeTimeHeatingOffElectricWaterHeater
+      description: '取得: 手動沸き上げOFFタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeHeatingOffElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Relative time setting value for manual water heating OFF'
+      operationId: putDevicesPropertiesRelativeTimeHeatingOffElectricWaterHeater
+      description: '設定: 手動沸き上げOFFタイマ相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeHeatingOffElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeHeatingOffElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/tankOperationMode:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Tank operation mode setting'
+      operationId: getDevicesPropertiesTankOperationModeElectricWaterHeater
+      description: '取得: タンク運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tankOperationModeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Tank operation mode setting'
+      operationId: putDevicesPropertiesTankOperationModeElectricWaterHeater
+      description: '設定: タンク運転モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tankOperationModeElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tankOperationModeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/daytimeReheatingPermission:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Daytime reheating permission setting'
+      operationId: getDevicesPropertiesDaytimeReheatingPermissionElectricWaterHeater
+      description: '取得: 昼間沸き増し許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/daytimeReheatingPermissionElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Daytime reheating permission setting'
+      operationId: putDevicesPropertiesDaytimeReheatingPermissionElectricWaterHeater
+      description: '設定: 昼間沸き増し許可設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/daytimeReheatingPermissionElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/daytimeReheatingPermissionElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/tankWaterTemperature:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Measured temperature of water in water heater'
+      operationId: getDevicesPropertiesTankWaterTemperatureElectricWaterHeater
+      description: '取得: 温水器湯温計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tankWaterTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/alarmStatus:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Alarm status'
+      operationId: getDevicesPropertiesAlarmStatusElectricWaterHeater
+      description: '取得: 警報発生状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/alarmStatusElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/hotWaterSupplyStatus:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Hot water supply status'
+      operationId: getDevicesPropertiesHotWaterSupplyStatusElectricWaterHeater
+      description: '取得: 給湯中状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hotWaterSupplyStatusElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/relativeTimeKeepingTemperature:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Relative time setting for keeping bath temperature'
+      operationId: getDevicesPropertiesRelativeTimeKeepingTemperatureElectricWaterHeater
+      description: '取得: 風呂保温運転相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeKeepingTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Relative time setting for keeping bath temperature'
+      operationId: putDevicesPropertiesRelativeTimeKeepingTemperatureElectricWaterHeater
+      description: '設定: 風呂保温運転相対時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/relativeTimeKeepingTemperatureElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/relativeTimeKeepingTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/energyShiftParticipation:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Participation in energy shift'
+      operationId: getDevicesPropertiesEnergyShiftParticipationElectricWaterHeater
+      description: '取得: エネルギーシフト参加状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/energyShiftParticipationElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Participation in energy shift'
+      operationId: putDevicesPropertiesEnergyShiftParticipationElectricWaterHeater
+      description: '設定: エネルギーシフト参加状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/energyShiftParticipationElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/energyShiftParticipationElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/standardTimeToStartHeating:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Standard time to start heating'
+      operationId: getDevicesPropertiesStandardTimeToStartHeatingElectricWaterHeater
+      description: '取得: 沸き上げ開始基準時刻'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/standardTimeToStartHeatingElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/numberOfEnergyShifts:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Number of energy shifts'
+      operationId: getDevicesPropertiesNumberOfEnergyShiftsElectricWaterHeater
+      description: '取得: エネルギーシフト回数'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/numberOfEnergyShiftsElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterHeatingShiftTime1:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Daytime heating shift time 1'
+      operationId: getDevicesPropertiesWaterHeatingShiftTime1ElectricWaterHeater
+      description: '取得: 昼間沸き上げシフト時刻1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterHeatingShiftTime1ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Daytime heating shift time 1'
+      operationId: putDevicesPropertiesWaterHeatingShiftTime1ElectricWaterHeater
+      description: '設定: 昼間沸き上げシフト時刻1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterHeatingShiftTime1ElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterHeatingShiftTime1ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/estimatedElectricEnergyAtShiftTime1:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Expected electric energy at daytime heating shift time 1'
+      operationId: getDevicesPropertiesEstimatedElectricEnergyAtShiftTime1ElectricWaterHeater
+      description: '取得: 昼間沸き上げシフト時刻1での沸き上げ予測電力量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/estimatedElectricEnergyAtShiftTime1ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/electricEnergyConsumptionRate1:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Consumption of electric energy per hour 1'
+      operationId: getDevicesPropertiesElectricEnergyConsumptionRate1ElectricWaterHeater
+      description: '取得: 時間あたり消費電力量1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/electricEnergyConsumptionRate1ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/waterHeatingShiftTime2:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Daytime heating shift time 2'
+      operationId: getDevicesPropertiesWaterHeatingShiftTime2ElectricWaterHeater
+      description: '取得: 昼間沸き上げシフト時刻2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterHeatingShiftTime2ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Daytime heating shift time 2'
+      operationId: putDevicesPropertiesWaterHeatingShiftTime2ElectricWaterHeater
+      description: '設定: 昼間沸き上げシフト時刻2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/waterHeatingShiftTime2ElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/waterHeatingShiftTime2ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/estimatedElectricEnergyAtShiftTime2:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Expected electric energy at daytime heating shift time 2'
+      operationId: getDevicesPropertiesEstimatedElectricEnergyAtShiftTime2ElectricWaterHeater
+      description: '取得: 昼間沸き上げシフト時刻2での沸き上げ予測電力量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/estimatedElectricEnergyAtShiftTime2ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/electricEnergyConsumptionRate2:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Consumption of electric energy per hour 2'
+      operationId: getDevicesPropertiesElectricEnergyConsumptionRate2ElectricWaterHeater
+      description: '取得: 時間あたり消費電力量2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/electricEnergyConsumptionRate2ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetSuppliedWaterTemperature:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Temperature of supplied water setting'
+      operationId: getDevicesPropertiesTargetSuppliedWaterTemperatureElectricWaterHeater
+      description: '取得: 給湯温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetSuppliedWaterTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Temperature of supplied water setting'
+      operationId: putDevicesPropertiesTargetSuppliedWaterTemperatureElectricWaterHeater
+      description: '設定: 給湯温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetSuppliedWaterTemperatureElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetSuppliedWaterTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetBathWaterTemperature:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bath water temperature setting'
+      operationId: getDevicesPropertiesTargetBathWaterTemperatureElectricWaterHeater
+      description: '取得: 風呂温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetBathWaterTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Bath water temperature setting'
+      operationId: putDevicesPropertiesTargetBathWaterTemperatureElectricWaterHeater
+      description: '設定: 風呂温度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetBathWaterTemperatureElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetBathWaterTemperatureElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterVolume4:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bath water volume setting4'
+      operationId: getDevicesPropertiesBathWaterVolume4ElectricWaterHeater
+      description: '取得: 風呂湯量設定4'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume4ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Bath water volume setting4'
+      operationId: putDevicesPropertiesBathWaterVolume4ElectricWaterHeater
+      description: '設定: 風呂湯量設定4'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathWaterVolume4ElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume4ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/maximumAllowableWaterVolume4:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bath water volume setting4 maximum settable level'
+      operationId: getDevicesPropertiesMaximumAllowableWaterVolume4ElectricWaterHeater
+      description: '取得: 風呂湯量設定4設定可能最大レベル'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/maximumAllowableWaterVolume4ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/volume:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Volume setting'
+      operationId: getDevicesPropertiesVolumeElectricWaterHeater
+      description: '取得: 音量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/volumeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Volume setting'
+      operationId: putDevicesPropertiesVolumeElectricWaterHeater
+      description: '設定: 音量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/volumeElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/volumeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/mute:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Mute setting'
+      operationId: getDevicesPropertiesMuteElectricWaterHeater
+      description: '取得: ミュート設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/muteElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Mute setting'
+      operationId: putDevicesPropertiesMuteElectricWaterHeater
+      description: '設定: ミュート設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/muteElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/muteElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingWaterVolume:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Remaining hot water volume'
+      operationId: getDevicesPropertiesRemainingWaterVolumeElectricWaterHeater
+      description: '取得: 給湯可能湯量値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingWaterVolumeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/surplusPowerPrediction:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Surplus electric energy power prediction value'
+      operationId: getDevicesPropertiesSurplusPowerPredictionElectricWaterHeater
+      description: '取得: 余剰電力量予測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/surplusPowerPredictionElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Surplus electric energy power prediction value'
+      operationId: putDevicesPropertiesSurplusPowerPredictionElectricWaterHeater
+      description: '設定: 余剰電力量予測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/surplusPowerPredictionElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/surplusPowerPredictionElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/winterRatedPower:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Rated power consumption of H/P unit in wintertime'
+      operationId: getDevicesPropertiesWinterRatedPowerElectricWaterHeater
+      description: '取得: 冬季H/Pユニット定格消費電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/winterRatedPowerElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/betweenSeasonRatedPower:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Rated power consumption of H/P unit in in-between seasons'
+      operationId: getDevicesPropertiesBetweenSeasonRatedPowerElectricWaterHeater
+      description: '取得: 中間期H/Pユニット定格消費電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/betweenSeasonRatedPowerElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/summerRatedPower:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Rated power consumption of H/P unit in summertime'
+      operationId: getDevicesPropertiesSummerRatedPowerElectricWaterHeater
+      description: '取得: 夏季H/Pユニット定格消費電力'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/summerRatedPowerElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/targetWaterHeatingVolume:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bath water volume setting'
+      operationId: getDevicesPropertiesTargetWaterHeatingVolumeElectricWaterHeater
+      description: '取得: 沸き上げ湯量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetWaterHeatingVolumeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Bath water volume setting'
+      operationId: putDevicesPropertiesTargetWaterHeatingVolumeElectricWaterHeater
+      description: '設定: 沸き上げ湯量設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/targetWaterHeatingVolumeElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/targetWaterHeatingVolumeElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remainingWater:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Measured amount of water remaining in tank'
+      operationId: getDevicesPropertiesRemainingWaterElectricWaterHeater
+      description: '取得: 残湯量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remainingWaterElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/tankCapacity:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Tank capacity'
+      operationId: getDevicesPropertiesTankCapacityElectricWaterHeater
+      description: '取得: タンク容量値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tankCapacityElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticBathOperation:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Automatic Bath Water Heating Mode Setting'
+      operationId: getDevicesPropertiesAutomaticBathOperationElectricWaterHeater
+      description: '取得: 風呂自動モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticBathOperationElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Automatic Bath Water Heating Mode Setting'
+      operationId: putDevicesPropertiesAutomaticBathOperationElectricWaterHeater
+      description: '設定: 風呂自動モード設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticBathOperationElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticBathOperationElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathReheatingOperation:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Manual bath reheating operation setting'
+      operationId: getDevicesPropertiesBathReheatingOperationElectricWaterHeater
+      description: '取得: 手動風呂追い焚き動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathReheatingOperationElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Manual bath reheating operation setting'
+      operationId: putDevicesPropertiesBathReheatingOperationElectricWaterHeater
+      description: '設定: 手動風呂追い焚き動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathReheatingOperationElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathReheatingOperationElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathHotWaterAddition:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Manual bath hot water addition function setting'
+      operationId: getDevicesPropertiesBathHotWaterAdditionElectricWaterHeater
+      description: '取得: 手動風呂足し湯動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathHotWaterAdditionElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Manual bath hot water addition function setting'
+      operationId: putDevicesPropertiesBathHotWaterAdditionElectricWaterHeater
+      description: '設定: 手動風呂足し湯動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathHotWaterAdditionElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathHotWaterAdditionElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathLukewarmWaterFunction:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Manual lukewarm water temperature lowering function setting.'
+      operationId: getDevicesPropertiesBathLukewarmWaterFunctionElectricWaterHeater
+      description: '取得: 手動風呂ぬるめ動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathLukewarmWaterFunctionElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Manual lukewarm water temperature lowering function setting.'
+      operationId: putDevicesPropertiesBathLukewarmWaterFunctionElectricWaterHeater
+      description: '設定: 手動風呂ぬるめ動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathLukewarmWaterFunctionElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathLukewarmWaterFunctionElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterVolume1:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bath water volume setting 1'
+      operationId: getDevicesPropertiesBathWaterVolume1ElectricWaterHeater
+      description: '取得: 風呂湯量設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume1ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Bath water volume setting 1'
+      operationId: putDevicesPropertiesBathWaterVolume1ElectricWaterHeater
+      description: '設定: 風呂湯量設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathWaterVolume1ElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume1ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterVolume2:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bath water volume setting 2'
+      operationId: getDevicesPropertiesBathWaterVolume2ElectricWaterHeater
+      description: '取得: 風呂湯量設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume2ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Bath water volume setting 2'
+      operationId: putDevicesPropertiesBathWaterVolume2ElectricWaterHeater
+      description: '設定: 風呂湯量設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathWaterVolume2ElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume2ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathroomPriority:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bathroom priority setting'
+      operationId: getDevicesPropertiesBathroomPriorityElectricWaterHeater
+      description: '取得: 浴室優先設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathroomPriorityElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathOperationStatusMonitor:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bath Operation Status Monitor'
+      operationId: getDevicesPropertiesBathOperationStatusMonitorElectricWaterHeater
+      description: '取得: 風呂動作状態監視'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathOperationStatusMonitorElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/bathWaterVolume3:
+    get:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Get: Bath water volume setting 3'
+      operationId: getDevicesPropertiesBathWaterVolume3ElectricWaterHeater
+      description: '取得: 風呂湯量設定3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume3ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricWaterHeater
+      summary: 'Set: Bath water volume setting 3'
+      operationId: putDevicesPropertiesBathWaterVolume3ElectricWaterHeater
+      description: '設定: 風呂湯量設定3'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bathWaterVolume3ElectricWaterHeater'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bathWaterVolume3ElectricWaterHeater'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesElectricWaterHeater:
+      description: propertiesElectricWaterHeater
+      type: object
+      properties:
+        onTimerReservation:
+          type: boolean
+          description: '[ja: ONタイマ予約設定, en: ON timer setting] _True (ja: 予約入, en:
+            Reservation ON) False (ja: 予約切, en: Reservation OFF) '
+        onTimerTime:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting] '
+        automaticWaterHeating:
+          type: string
+          enum:
+          - auto
+          - manualNoHeating
+          - manualHeating
+          description: '[ja: 沸き上げ自動設定, en: Automatic water heating setting] _auto
+            (ja: 自動沸き上げ, en: Automatic water heating function used) manualNoHeating
+            (ja: 手動沸き上げ停止, en: Non-automatic water heating function stopped) manualHeating
+            (ja: 手動沸き上げ, en: Non-automatic water heating function used) '
+        automaticWaterHeatingTemperatureControl:
+          type: boolean
+          description: '[ja: 沸き上げ湯温自動設定, en: Automatic water temperature control setting]
+            _True (ja: Auto, en: Automatic water temperature control function used)
+            False (ja: 非Auto, en: Automatic water temperature control function not
+            used) '
+        waterHeatingStatus:
+          type: boolean
+          description: '[ja: 沸き上げ中状態, en: Water heater status] _True (ja: 沸き上げ中, en:
+            Heating) False (ja: 非沸き上げ中, en: Not heating) '
+        targetWaterHeatingTemperature:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 沸き上げ湯温設定値, en: Water heating temperature setting] '
+        heatingStopDays:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 252
+          - type: string
+            enum:
+            - infinite
+            description: '_infinite (ja: 無限, en: No time limit) '
+          description: '[ja: 手動沸き上げ停止日数設定値, en: Manual water heating stop days setting] '
+        relativeTimeHeatingOff:
+          type: string
+          format: time
+          description: '[ja: 手動沸き上げOFFタイマ相対時間設定値, en: Relative time setting value
+            for manual water heating OFF] '
+        tankOperationMode:
+          type: string
+          enum:
+          - standard
+          - saving
+          - extra
+          description: '[ja: タンク運転モード設定, en: Tank operation mode setting] _standard
+            (ja: 標準, en: Standard) saving (ja: 節約, en: Saving) extra (ja: 多め, en:
+            Extra) '
+        daytimeReheatingPermission:
+          type: boolean
+          description: '[ja: 昼間沸き増し許可設定, en: Daytime reheating permission setting]
+            _True (ja: 昼間沸き増し許可, en: Daytime reheating permitted) False (ja: 昼間沸き増し禁止,
+            en: Daytime reheating not permitted) '
+        tankWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 温水器湯温計測値, en: Measured temperature of water in water
+            heater] '
+        alarmStatus:
+          type: object
+          properties:
+            noHotWater:
+              type: boolean
+              description: '[ja: 湯切れ警報, en: No Hot Water] _False (ja: 発生, en: Alarm)
+                True (ja: 正常, en: No Alarm) '
+            leaking:
+              type: boolean
+              description: '[ja: 漏水警報, en: Leaking] _False (ja: 発生, en: Alarm) True
+                (ja: 正常, en: No Alarm) '
+            freezing:
+              type: boolean
+              description: '[ja: 凍結警報, en: Freezing] _False (ja: 発生, en: Alarm) True
+                (ja: 正常, en: No Alarm) '
+          description: '[ja: 警報発生状態, en: Alarm status] '
+        hotWaterSupplyStatus:
+          type: boolean
+          description: '[ja: 給湯中状態, en: Hot water supply status] _True (ja: 給湯中, en:
+            Supplying hot water) False (ja: 非給湯中, en: Not supplying hot water) '
+        relativeTimeKeepingTemperature:
+          type: string
+          format: time
+          description: '[ja: 風呂保温運転相対時間設定値, en: Relative time setting for keeping
+            bath temperature] '
+        energyShiftParticipation:
+          type: boolean
+          description: '[ja: エネルギーシフト参加状態, en: Participation in energy shift] _True
+            (ja: 参加, en: Participation) False (ja: 不参加, en: Non Participation) '
+        standardTimeToStartHeating:
+          type: number
+          description: '[ja: 沸き上げ開始基準時刻, en: Standard time to start heating] '
+        numberOfEnergyShifts:
+          type: number
+          minimum: 1
+          maximum: 2
+          description: '[ja: エネルギーシフト回数, en: Number of energy shifts] '
+        waterHeatingShiftTime1:
+          oneOf:
+          - type: string
+            enum:
+            - at0900
+            - at1000
+            - at1100
+            - at1200
+            - at1300
+            - at1400
+            - at1500
+            - at1600
+            - at1700
+            description: '_at0900 (ja: 9時, en: 09:00) at1000 (ja: 10時, en: 10:00)
+              at1100 (ja: 11時, en: 11:00) at1200 (ja: 12時, en: 12:00) at1300 (ja:
+              13時, en: 13:00) at1400 (ja: 14時, en: 14:00) at1500 (ja: 15時, en: 15:00)
+              at1600 (ja: 16時, en: 16:00) at1700 (ja: 17時(エネルギーシフト回数が2回の場合はこの値無効になる),
+              en: 17:00 (this value is nullified if energy shifts occur twice.)) '
+          - type: string
+            enum:
+            - cleared
+            description: '_cleared (ja: クリア状態, en: Undefined) '
+          description: '[ja: 昼間沸き上げシフト時刻1, en: Daytime heating shift time 1] '
+        estimatedElectricEnergyAtShiftTime1:
+          type: object
+          properties:
+            at1000:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 10時, en: 10:00] _'
+            at1300:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 13時, en: 13:00] _'
+            at1500:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 15時, en: 15:00] _'
+            at1700:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 17時, en: 17:00] _'
+          description: '[ja: 昼間沸き上げシフト時刻1での沸き上げ予測電力量, en: Expected electric energy
+            at daytime heating shift time 1] '
+        electricEnergyConsumptionRate1:
+          type: object
+          properties:
+            at1000:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 10時シフト時, en: 10:00] _'
+            at1300:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 13時シフト時, en: 13:00] _'
+            at1500:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 15時シフト時, en: 15:00] _'
+            at1700:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 17時シフト時, en: 17:00] _'
+          description: '[ja: 時間あたり消費電力量1, en: Consumption of electric energy per hour
+            1] '
+        waterHeatingShiftTime2:
+          oneOf:
+          - type: string
+            enum:
+            - at1000
+            - at1100
+            - at1200
+            - at1300
+            - at1400
+            - at1500
+            - at1600
+            - at1700
+            description: '_at1000 (ja: 10時, en: 10:00) at1100 (ja: 11時, en: 11:00)
+              at1200 (ja: 12時, en: 12:00) at1300 (ja: 13時, en: 13:00) at1400 (ja:
+              14時, en: 14:00) at1500 (ja: 15時, en: 15:00) at1600 (ja: 16時, en: 16:00)
+              at1700 (ja: 17時, en: 17:00) '
+          - type: string
+            enum:
+            - cleared
+            description: '_cleared (ja: クリア状態, en: Undefined) '
+          description: '[ja: 昼間沸き上げシフト時刻2, en: Daytime heating shift time 2] '
+        estimatedElectricEnergyAtShiftTime2:
+          type: object
+          properties:
+            at1300:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 13時, en: 13:00] _'
+            at1500:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 15時, en: 15:00] _'
+            at1700:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 17時, en: 17:00] _'
+          description: '[ja: 昼間沸き上げシフト時刻2での沸き上げ予測電力量, en: Expected electric energy
+            at daytime heating shift time 2] '
+        electricEnergyConsumptionRate2:
+          type: object
+          properties:
+            at1300:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 13時シフト時, en: 13:00] _'
+            at1500:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 15時シフト時, en: 15:00] _'
+            at1700:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 17時シフト時, en: 17:00] _'
+          description: '[ja: 時間あたり消費電力量2, en: Consumption of electric energy per hour
+            2] '
+        targetSuppliedWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 給湯温度設定値, en: Temperature of supplied water setting] '
+        targetBathWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 風呂温度設定値, en: Bath water temperature setting] '
+        bathWaterVolume4:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 風呂湯量設定4, en: Bath water volume setting4] '
+        maximumAllowableWaterVolume4:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 風呂湯量設定4設定可能最大レベル, en: Bath water volume setting4 maximum
+            settable level] '
+        volume:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 音量設定値, en: Volume setting] '
+        mute:
+          type: boolean
+          description: '[ja: ミュート設定, en: Mute setting] _True (ja: ミュートON, en: Mute
+            ON) False (ja: ミュートOFF, en: Mute OFF) '
+        remainingWaterVolume:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 給湯可能湯量値, en: Remaining hot water volume] '
+        surplusPowerPrediction:
+          type: object
+          properties:
+            month:
+              type: number
+              minimum: 1
+              maximum: 12
+              description: '[ja: 基点日時：月, en: Base date and time: Month] _'
+            day:
+              type: number
+              minimum: 1
+              maximum: 31
+              description: '[ja: 基点日時：日, en: Base date and time: Day] _'
+            hour:
+              type: number
+              minimum: 0
+              maximum: 23
+              description: '[ja: 基点日時：時, en: Base date and time: Hour] _'
+            surplusEnergyPredictionValue:
+              type: array
+              minItems: 24
+              maxItems: 24
+              items:
+                oneOf:
+                - type: number
+                  minimum: -327670
+                  maximum: 327650
+                  multipleOf: 10
+                - type: string
+                  enum:
+                  - invalid
+                  description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: １時間単位の余剰電力量予測値, en: Surplus power prediction value
+                in units of 1 hour] _'
+          description: '[ja: 余剰電力量予測値, en: Surplus electric energy power prediction
+            value] '
+        winterRatedPower:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 冬季H/Pユニット定格消費電力, en: Rated power consumption of H/P unit
+            in wintertime] '
+        betweenSeasonRatedPower:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 中間期H/Pユニット定格消費電力, en: Rated power consumption of H/P
+            unit in in-between seasons] '
+        summerRatedPower:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 夏季H/Pユニット定格消費電力, en: Rated power consumption of H/P unit
+            in summertime] '
+        targetWaterHeatingVolume:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 沸き上げ湯量設定値, en: Bath water volume setting] '
+        remainingWater:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 残湯量計測値, en: Measured amount of water remaining in tank] '
+        tankCapacity:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: タンク容量値, en: Tank capacity] '
+        automaticBathOperation:
+          type: boolean
+          description: '[ja: 風呂自動モード設定, en: Automatic Bath Water Heating Mode Setting]
+            _True (ja: 自動入, en: Automatic bath water heating mode ON) False (ja: 自動解除,
+            en: Automatic bath water heating mode OFF) '
+        bathReheatingOperation:
+          type: boolean
+          description: '[ja: 手動風呂追い焚き動作設定, en: Manual bath reheating operation setting]
+            _True (ja: 追い焚き入, en: Bath reheating ON) False (ja: 追い焚き切, en: Bath reheating
+            OFF) '
+        bathHotWaterAddition:
+          type: boolean
+          description: '[ja: 手動風呂足し湯動作設定, en: Manual bath hot water addition function
+            setting] _True (ja: 足し湯入, en: Addition of hot water function ON) False
+            (ja: 足し湯切, en: Addition of hot water function OFF) '
+        bathLukewarmWaterFunction:
+          type: boolean
+          description: '[ja: 手動風呂ぬるめ動作設定, en: Manual lukewarm water temperature lowering
+            function setting.] _True (ja: ぬるめ入, en: Lukewarm water temperature function
+            ON) False (ja: ぬるめ切, en: Lukewarm water temperature function OFF) '
+        bathWaterVolume1:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 風呂湯量設定1, en: Bath water volume setting 1] '
+        bathWaterVolume2:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 風呂湯量設定2, en: Bath water volume setting 2] '
+        bathroomPriority:
+          type: boolean
+          description: '[ja: 浴室優先設定, en: Bathroom priority setting] _True (ja: 浴室優先入,
+            en: Priority bath ON) False (ja: 浴室優先切, en: Priority bath OFF) '
+        bathOperationStatusMonitor:
+          type: string
+          enum:
+          - runningHotWater
+          - noOperation
+          - keepingTemperature
+          description: '[ja: 風呂動作状態監視, en: Bath Operation Status Monitor] _runningHotWater
+            (ja: 湯張り中, en: Filling hot water) noOperation (ja: 停止中, en: Stopped) keepingTemperature
+            (ja: 保温中, en: Keeping temperature) '
+        bathWaterVolume3:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 風呂湯量設定3, en: Bath water volume setting 3] '
+    onTimerReservationElectricWaterHeater:
+      description: '[ja: ONタイマ予約設定, en: ON timer setting]'
+      type: object
+      properties:
+        onTimerReservation:
+          type: boolean
+          description: '[ja: ONタイマ予約設定, en: ON timer setting] _True (ja: 予約入, en:
+            Reservation ON) False (ja: 予約切, en: Reservation OFF) '
+    onTimerTimeElectricWaterHeater:
+      description: '[ja: ONタイマ時刻設定値, en: ON timer setting]'
+      type: object
+      properties:
+        onTimerTime:
+          type: string
+          format: time
+          description: '[ja: ONタイマ時刻設定値, en: ON timer setting] '
+    automaticWaterHeatingElectricWaterHeater:
+      description: '[ja: 沸き上げ自動設定, en: Automatic water heating setting]'
+      type: object
+      properties:
+        automaticWaterHeating:
+          type: string
+          enum:
+          - auto
+          - manualNoHeating
+          - manualHeating
+          description: '[ja: 沸き上げ自動設定, en: Automatic water heating setting] _auto
+            (ja: 自動沸き上げ, en: Automatic water heating function used) manualNoHeating
+            (ja: 手動沸き上げ停止, en: Non-automatic water heating function stopped) manualHeating
+            (ja: 手動沸き上げ, en: Non-automatic water heating function used) '
+    automaticWaterHeatingTemperatureControlElectricWaterHeater:
+      description: '[ja: 沸き上げ湯温自動設定, en: Automatic water temperature control setting]'
+      type: object
+      properties:
+        automaticWaterHeatingTemperatureControl:
+          type: boolean
+          description: '[ja: 沸き上げ湯温自動設定, en: Automatic water temperature control setting]
+            _True (ja: Auto, en: Automatic water temperature control function used)
+            False (ja: 非Auto, en: Automatic water temperature control function not
+            used) '
+    waterHeatingStatusElectricWaterHeater:
+      description: '[ja: 沸き上げ中状態, en: Water heater status]'
+      type: object
+      properties:
+        waterHeatingStatus:
+          type: boolean
+          description: '[ja: 沸き上げ中状態, en: Water heater status] _True (ja: 沸き上げ中, en:
+            Heating) False (ja: 非沸き上げ中, en: Not heating) '
+    targetWaterHeatingTemperatureElectricWaterHeater:
+      description: '[ja: 沸き上げ湯温設定値, en: Water heating temperature setting]'
+      type: object
+      properties:
+        targetWaterHeatingTemperature:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 100
+          - type: string
+            enum:
+            - undefined
+            description: '_undefined (ja: 不明, en: Undefined) '
+          description: '[ja: 沸き上げ湯温設定値, en: Water heating temperature setting] '
+    heatingStopDaysElectricWaterHeater:
+      description: '[ja: 手動沸き上げ停止日数設定値, en: Manual water heating stop days setting]'
+      type: object
+      properties:
+        heatingStopDays:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 252
+          - type: string
+            enum:
+            - infinite
+            description: '_infinite (ja: 無限, en: No time limit) '
+          description: '[ja: 手動沸き上げ停止日数設定値, en: Manual water heating stop days setting] '
+    relativeTimeHeatingOffElectricWaterHeater:
+      description: '[ja: 手動沸き上げOFFタイマ相対時間設定値, en: Relative time setting value for
+        manual water heating OFF]'
+      type: object
+      properties:
+        relativeTimeHeatingOff:
+          type: string
+          format: time
+          description: '[ja: 手動沸き上げOFFタイマ相対時間設定値, en: Relative time setting value
+            for manual water heating OFF] '
+    tankOperationModeElectricWaterHeater:
+      description: '[ja: タンク運転モード設定, en: Tank operation mode setting]'
+      type: object
+      properties:
+        tankOperationMode:
+          type: string
+          enum:
+          - standard
+          - saving
+          - extra
+          description: '[ja: タンク運転モード設定, en: Tank operation mode setting] _standard
+            (ja: 標準, en: Standard) saving (ja: 節約, en: Saving) extra (ja: 多め, en:
+            Extra) '
+    daytimeReheatingPermissionElectricWaterHeater:
+      description: '[ja: 昼間沸き増し許可設定, en: Daytime reheating permission setting]'
+      type: object
+      properties:
+        daytimeReheatingPermission:
+          type: boolean
+          description: '[ja: 昼間沸き増し許可設定, en: Daytime reheating permission setting]
+            _True (ja: 昼間沸き増し許可, en: Daytime reheating permitted) False (ja: 昼間沸き増し禁止,
+            en: Daytime reheating not permitted) '
+    tankWaterTemperatureElectricWaterHeater:
+      description: '[ja: 温水器湯温計測値, en: Measured temperature of water in water heater]'
+      type: object
+      properties:
+        tankWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 温水器湯温計測値, en: Measured temperature of water in water
+            heater] '
+    alarmStatusElectricWaterHeater:
+      description: '[ja: 警報発生状態, en: Alarm status]'
+      type: object
+      properties:
+        alarmStatus:
+          type: object
+          properties:
+            noHotWater:
+              type: boolean
+              description: '[ja: 湯切れ警報, en: No Hot Water] _False (ja: 発生, en: Alarm)
+                True (ja: 正常, en: No Alarm) '
+            leaking:
+              type: boolean
+              description: '[ja: 漏水警報, en: Leaking] _False (ja: 発生, en: Alarm) True
+                (ja: 正常, en: No Alarm) '
+            freezing:
+              type: boolean
+              description: '[ja: 凍結警報, en: Freezing] _False (ja: 発生, en: Alarm) True
+                (ja: 正常, en: No Alarm) '
+          description: '[ja: 警報発生状態, en: Alarm status] '
+    hotWaterSupplyStatusElectricWaterHeater:
+      description: '[ja: 給湯中状態, en: Hot water supply status]'
+      type: object
+      properties:
+        hotWaterSupplyStatus:
+          type: boolean
+          description: '[ja: 給湯中状態, en: Hot water supply status] _True (ja: 給湯中, en:
+            Supplying hot water) False (ja: 非給湯中, en: Not supplying hot water) '
+    relativeTimeKeepingTemperatureElectricWaterHeater:
+      description: '[ja: 風呂保温運転相対時間設定値, en: Relative time setting for keeping bath
+        temperature]'
+      type: object
+      properties:
+        relativeTimeKeepingTemperature:
+          type: string
+          format: time
+          description: '[ja: 風呂保温運転相対時間設定値, en: Relative time setting for keeping
+            bath temperature] '
+    energyShiftParticipationElectricWaterHeater:
+      description: '[ja: エネルギーシフト参加状態, en: Participation in energy shift]'
+      type: object
+      properties:
+        energyShiftParticipation:
+          type: boolean
+          description: '[ja: エネルギーシフト参加状態, en: Participation in energy shift] _True
+            (ja: 参加, en: Participation) False (ja: 不参加, en: Non Participation) '
+    standardTimeToStartHeatingElectricWaterHeater:
+      description: '[ja: 沸き上げ開始基準時刻, en: Standard time to start heating]'
+      type: object
+      properties:
+        standardTimeToStartHeating:
+          type: number
+          description: '[ja: 沸き上げ開始基準時刻, en: Standard time to start heating] '
+    numberOfEnergyShiftsElectricWaterHeater:
+      description: '[ja: エネルギーシフト回数, en: Number of energy shifts]'
+      type: object
+      properties:
+        numberOfEnergyShifts:
+          type: number
+          minimum: 1
+          maximum: 2
+          description: '[ja: エネルギーシフト回数, en: Number of energy shifts] '
+    waterHeatingShiftTime1ElectricWaterHeater:
+      description: '[ja: 昼間沸き上げシフト時刻1, en: Daytime heating shift time 1]'
+      type: object
+      properties:
+        waterHeatingShiftTime1:
+          oneOf:
+          - type: string
+            enum:
+            - at0900
+            - at1000
+            - at1100
+            - at1200
+            - at1300
+            - at1400
+            - at1500
+            - at1600
+            - at1700
+            description: '_at0900 (ja: 9時, en: 09:00) at1000 (ja: 10時, en: 10:00)
+              at1100 (ja: 11時, en: 11:00) at1200 (ja: 12時, en: 12:00) at1300 (ja:
+              13時, en: 13:00) at1400 (ja: 14時, en: 14:00) at1500 (ja: 15時, en: 15:00)
+              at1600 (ja: 16時, en: 16:00) at1700 (ja: 17時(エネルギーシフト回数が2回の場合はこの値無効になる),
+              en: 17:00 (this value is nullified if energy shifts occur twice.)) '
+          - type: string
+            enum:
+            - cleared
+            description: '_cleared (ja: クリア状態, en: Undefined) '
+          description: '[ja: 昼間沸き上げシフト時刻1, en: Daytime heating shift time 1] '
+    estimatedElectricEnergyAtShiftTime1ElectricWaterHeater:
+      description: '[ja: 昼間沸き上げシフト時刻1での沸き上げ予測電力量, en: Expected electric energy at
+        daytime heating shift time 1]'
+      type: object
+      properties:
+        estimatedElectricEnergyAtShiftTime1:
+          type: object
+          properties:
+            at1000:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 10時, en: 10:00] _'
+            at1300:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 13時, en: 13:00] _'
+            at1500:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 15時, en: 15:00] _'
+            at1700:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 17時, en: 17:00] _'
+          description: '[ja: 昼間沸き上げシフト時刻1での沸き上げ予測電力量, en: Expected electric energy
+            at daytime heating shift time 1] '
+    electricEnergyConsumptionRate1ElectricWaterHeater:
+      description: '[ja: 時間あたり消費電力量1, en: Consumption of electric energy per hour
+        1]'
+      type: object
+      properties:
+        electricEnergyConsumptionRate1:
+          type: object
+          properties:
+            at1000:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 10時シフト時, en: 10:00] _'
+            at1300:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 13時シフト時, en: 13:00] _'
+            at1500:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 15時シフト時, en: 15:00] _'
+            at1700:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 17時シフト時, en: 17:00] _'
+          description: '[ja: 時間あたり消費電力量1, en: Consumption of electric energy per hour
+            1] '
+    waterHeatingShiftTime2ElectricWaterHeater:
+      description: '[ja: 昼間沸き上げシフト時刻2, en: Daytime heating shift time 2]'
+      type: object
+      properties:
+        waterHeatingShiftTime2:
+          oneOf:
+          - type: string
+            enum:
+            - at1000
+            - at1100
+            - at1200
+            - at1300
+            - at1400
+            - at1500
+            - at1600
+            - at1700
+            description: '_at1000 (ja: 10時, en: 10:00) at1100 (ja: 11時, en: 11:00)
+              at1200 (ja: 12時, en: 12:00) at1300 (ja: 13時, en: 13:00) at1400 (ja:
+              14時, en: 14:00) at1500 (ja: 15時, en: 15:00) at1600 (ja: 16時, en: 16:00)
+              at1700 (ja: 17時, en: 17:00) '
+          - type: string
+            enum:
+            - cleared
+            description: '_cleared (ja: クリア状態, en: Undefined) '
+          description: '[ja: 昼間沸き上げシフト時刻2, en: Daytime heating shift time 2] '
+    estimatedElectricEnergyAtShiftTime2ElectricWaterHeater:
+      description: '[ja: 昼間沸き上げシフト時刻2での沸き上げ予測電力量, en: Expected electric energy at
+        daytime heating shift time 2]'
+      type: object
+      properties:
+        estimatedElectricEnergyAtShiftTime2:
+          type: object
+          properties:
+            at1300:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 13時, en: 13:00] _'
+            at1500:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 15時, en: 15:00] _'
+            at1700:
+              type: number
+              minimum: 0
+              maximum: 4294967293
+              description: '[ja: 17時, en: 17:00] _'
+          description: '[ja: 昼間沸き上げシフト時刻2での沸き上げ予測電力量, en: Expected electric energy
+            at daytime heating shift time 2] '
+    electricEnergyConsumptionRate2ElectricWaterHeater:
+      description: '[ja: 時間あたり消費電力量2, en: Consumption of electric energy per hour
+        2]'
+      type: object
+      properties:
+        electricEnergyConsumptionRate2:
+          type: object
+          properties:
+            at1300:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 13時シフト時, en: 13:00] _'
+            at1500:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 15時シフト時, en: 15:00] _'
+            at1700:
+              type: number
+              minimum: 0
+              maximum: 65533
+              description: '[ja: 17時シフト時, en: 17:00] _'
+          description: '[ja: 時間あたり消費電力量2, en: Consumption of electric energy per hour
+            2] '
+    targetSuppliedWaterTemperatureElectricWaterHeater:
+      description: '[ja: 給湯温度設定値, en: Temperature of supplied water setting]'
+      type: object
+      properties:
+        targetSuppliedWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 給湯温度設定値, en: Temperature of supplied water setting] '
+    targetBathWaterTemperatureElectricWaterHeater:
+      description: '[ja: 風呂温度設定値, en: Bath water temperature setting]'
+      type: object
+      properties:
+        targetBathWaterTemperature:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 風呂温度設定値, en: Bath water temperature setting] '
+    bathWaterVolume4ElectricWaterHeater:
+      description: '[ja: 風呂湯量設定4, en: Bath water volume setting4]'
+      type: object
+      properties:
+        bathWaterVolume4:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 風呂湯量設定4, en: Bath water volume setting4] '
+    maximumAllowableWaterVolume4ElectricWaterHeater:
+      description: '[ja: 風呂湯量設定4設定可能最大レベル, en: Bath water volume setting4 maximum
+        settable level]'
+      type: object
+      properties:
+        maximumAllowableWaterVolume4:
+          type: number
+          minimum: 1
+          maximum: 255
+          description: '[ja: 風呂湯量設定4設定可能最大レベル, en: Bath water volume setting4 maximum
+            settable level] '
+    volumeElectricWaterHeater:
+      description: '[ja: 音量設定値, en: Volume setting]'
+      type: object
+      properties:
+        volume:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 音量設定値, en: Volume setting] '
+    muteElectricWaterHeater:
+      description: '[ja: ミュート設定, en: Mute setting]'
+      type: object
+      properties:
+        mute:
+          type: boolean
+          description: '[ja: ミュート設定, en: Mute setting] _True (ja: ミュートON, en: Mute
+            ON) False (ja: ミュートOFF, en: Mute OFF) '
+    remainingWaterVolumeElectricWaterHeater:
+      description: '[ja: 給湯可能湯量値, en: Remaining hot water volume]'
+      type: object
+      properties:
+        remainingWaterVolume:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 給湯可能湯量値, en: Remaining hot water volume] '
+    surplusPowerPredictionElectricWaterHeater:
+      description: '[ja: 余剰電力量予測値, en: Surplus electric energy power prediction value]'
+      type: object
+      properties:
+        surplusPowerPrediction:
+          type: object
+          properties:
+            month:
+              type: number
+              minimum: 1
+              maximum: 12
+              description: '[ja: 基点日時：月, en: Base date and time: Month] _'
+            day:
+              type: number
+              minimum: 1
+              maximum: 31
+              description: '[ja: 基点日時：日, en: Base date and time: Day] _'
+            hour:
+              type: number
+              minimum: 0
+              maximum: 23
+              description: '[ja: 基点日時：時, en: Base date and time: Hour] _'
+            surplusEnergyPredictionValue:
+              type: array
+              minItems: 24
+              maxItems: 24
+              items:
+                oneOf:
+                - type: number
+                  minimum: -327670
+                  maximum: 327650
+                  multipleOf: 10
+                - type: string
+                  enum:
+                  - invalid
+                  description: '_invalid (ja: 無効値, en: Invalid data) '
+              description: '[ja: １時間単位の余剰電力量予測値, en: Surplus power prediction value
+                in units of 1 hour] _'
+          description: '[ja: 余剰電力量予測値, en: Surplus electric energy power prediction
+            value] '
+    winterRatedPowerElectricWaterHeater:
+      description: '[ja: 冬季H/Pユニット定格消費電力, en: Rated power consumption of H/P unit
+        in wintertime]'
+      type: object
+      properties:
+        winterRatedPower:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 冬季H/Pユニット定格消費電力, en: Rated power consumption of H/P unit
+            in wintertime] '
+    betweenSeasonRatedPowerElectricWaterHeater:
+      description: '[ja: 中間期H/Pユニット定格消費電力, en: Rated power consumption of H/P unit
+        in in-between seasons]'
+      type: object
+      properties:
+        betweenSeasonRatedPower:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 中間期H/Pユニット定格消費電力, en: Rated power consumption of H/P
+            unit in in-between seasons] '
+    summerRatedPowerElectricWaterHeater:
+      description: '[ja: 夏季H/Pユニット定格消費電力, en: Rated power consumption of H/P unit
+        in summertime]'
+      type: object
+      properties:
+        summerRatedPower:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 夏季H/Pユニット定格消費電力, en: Rated power consumption of H/P unit
+            in summertime] '
+    targetWaterHeatingVolumeElectricWaterHeater:
+      description: '[ja: 沸き上げ湯量設定値, en: Bath water volume setting]'
+      type: object
+      properties:
+        targetWaterHeatingVolume:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 沸き上げ湯量設定値, en: Bath water volume setting] '
+    remainingWaterElectricWaterHeater:
+      description: '[ja: 残湯量計測値, en: Measured amount of water remaining in tank]'
+      type: object
+      properties:
+        remainingWater:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 残湯量計測値, en: Measured amount of water remaining in tank] '
+    tankCapacityElectricWaterHeater:
+      description: '[ja: タンク容量値, en: Tank capacity]'
+      type: object
+      properties:
+        tankCapacity:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: タンク容量値, en: Tank capacity] '
+    automaticBathOperationElectricWaterHeater:
+      description: '[ja: 風呂自動モード設定, en: Automatic Bath Water Heating Mode Setting]'
+      type: object
+      properties:
+        automaticBathOperation:
+          type: boolean
+          description: '[ja: 風呂自動モード設定, en: Automatic Bath Water Heating Mode Setting]
+            _True (ja: 自動入, en: Automatic bath water heating mode ON) False (ja: 自動解除,
+            en: Automatic bath water heating mode OFF) '
+    bathReheatingOperationElectricWaterHeater:
+      description: '[ja: 手動風呂追い焚き動作設定, en: Manual bath reheating operation setting]'
+      type: object
+      properties:
+        bathReheatingOperation:
+          type: boolean
+          description: '[ja: 手動風呂追い焚き動作設定, en: Manual bath reheating operation setting]
+            _True (ja: 追い焚き入, en: Bath reheating ON) False (ja: 追い焚き切, en: Bath reheating
+            OFF) '
+    bathHotWaterAdditionElectricWaterHeater:
+      description: '[ja: 手動風呂足し湯動作設定, en: Manual bath hot water addition function
+        setting]'
+      type: object
+      properties:
+        bathHotWaterAddition:
+          type: boolean
+          description: '[ja: 手動風呂足し湯動作設定, en: Manual bath hot water addition function
+            setting] _True (ja: 足し湯入, en: Addition of hot water function ON) False
+            (ja: 足し湯切, en: Addition of hot water function OFF) '
+    bathLukewarmWaterFunctionElectricWaterHeater:
+      description: '[ja: 手動風呂ぬるめ動作設定, en: Manual lukewarm water temperature lowering
+        function setting.]'
+      type: object
+      properties:
+        bathLukewarmWaterFunction:
+          type: boolean
+          description: '[ja: 手動風呂ぬるめ動作設定, en: Manual lukewarm water temperature lowering
+            function setting.] _True (ja: ぬるめ入, en: Lukewarm water temperature function
+            ON) False (ja: ぬるめ切, en: Lukewarm water temperature function OFF) '
+    bathWaterVolume1ElectricWaterHeater:
+      description: '[ja: 風呂湯量設定1, en: Bath water volume setting 1]'
+      type: object
+      properties:
+        bathWaterVolume1:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 風呂湯量設定1, en: Bath water volume setting 1] '
+    bathWaterVolume2ElectricWaterHeater:
+      description: '[ja: 風呂湯量設定2, en: Bath water volume setting 2]'
+      type: object
+      properties:
+        bathWaterVolume2:
+          type: number
+          minimum: 1
+          maximum: 8
+          multipleOf: 1
+          description: '[ja: 風呂湯量設定2, en: Bath water volume setting 2] '
+    bathroomPriorityElectricWaterHeater:
+      description: '[ja: 浴室優先設定, en: Bathroom priority setting]'
+      type: object
+      properties:
+        bathroomPriority:
+          type: boolean
+          description: '[ja: 浴室優先設定, en: Bathroom priority setting] _True (ja: 浴室優先入,
+            en: Priority bath ON) False (ja: 浴室優先切, en: Priority bath OFF) '
+    bathOperationStatusMonitorElectricWaterHeater:
+      description: '[ja: 風呂動作状態監視, en: Bath Operation Status Monitor]'
+      type: object
+      properties:
+        bathOperationStatusMonitor:
+          type: string
+          enum:
+          - runningHotWater
+          - noOperation
+          - keepingTemperature
+          description: '[ja: 風呂動作状態監視, en: Bath Operation Status Monitor] _runningHotWater
+            (ja: 湯張り中, en: Filling hot water) noOperation (ja: 停止中, en: Stopped) keepingTemperature
+            (ja: 保温中, en: Keeping temperature) '
+    bathWaterVolume3ElectricWaterHeater:
+      description: '[ja: 風呂湯量設定3, en: Bath water volume setting 3]'
+      type: object
+      properties:
+        bathWaterVolume3:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 風呂湯量設定3, en: Bath water volume setting 3] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

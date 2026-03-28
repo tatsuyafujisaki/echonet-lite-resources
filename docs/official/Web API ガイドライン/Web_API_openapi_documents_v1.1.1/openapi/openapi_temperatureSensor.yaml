@@ -1,0 +1,113 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: TemperatureSensor
+  description: tag for Temperature sensor
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - TemperatureSensor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesTemperatureSensor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesTemperatureSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/value:
+    get:
+      tags:
+      - TemperatureSensor
+      summary: 'Get: Measured temperature value'
+      operationId: getDevicesPropertiesValueTemperatureSensor
+      description: '取得: 温度計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/valueTemperatureSensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesTemperatureSensor:
+      description: propertiesTemperatureSensor
+      type: object
+      properties:
+        value:
+          type: number
+          minimum: -273.2
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 温度計測値, en: Measured temperature value] '
+    valueTemperatureSensor:
+      description: '[ja: 温度計測値, en: Measured temperature value]'
+      type: object
+      properties:
+        value:
+          type: number
+          minimum: -273.2
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 温度計測値, en: Measured temperature value] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

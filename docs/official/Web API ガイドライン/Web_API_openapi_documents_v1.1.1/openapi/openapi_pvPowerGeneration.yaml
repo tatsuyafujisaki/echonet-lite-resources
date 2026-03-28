@@ -1,0 +1,1389 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: PvPowerGeneration
+  description: tag for Household solar power generation
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesPvPowerGeneration
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outputPowerControl1:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Output power control setting 1'
+      operationId: getDevicesPropertiesOutputPowerControl1PvPowerGeneration
+      description: '取得: 出力制御設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outputPowerControl1PvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: Output power control setting 1'
+      operationId: putDevicesPropertiesOutputPowerControl1PvPowerGeneration
+      description: '設定: 出力制御設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/outputPowerControl1PvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outputPowerControl1PvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outputPowerControl2:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Output power control setting 2'
+      operationId: getDevicesPropertiesOutputPowerControl2PvPowerGeneration
+      description: '取得: 出力制御設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outputPowerControl2PvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: Output power control setting 2'
+      operationId: putDevicesPropertiesOutputPowerControl2PvPowerGeneration
+      description: '設定: 出力制御設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/outputPowerControl2PvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outputPowerControl2PvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/surplusPurchaseControl:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Function to control purchase surplus electricity setting'
+      operationId: getDevicesPropertiesSurplusPurchaseControlPvPowerGeneration
+      description: '取得: 余剰買取制御機能設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/surplusPurchaseControlPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: Function to control purchase surplus electricity setting'
+      operationId: putDevicesPropertiesSurplusPurchaseControlPvPowerGeneration
+      description: '設定: 余剰買取制御機能設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/surplusPurchaseControlPvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/surplusPurchaseControlPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outputPowerControlSchedule:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Output power controlling schedule'
+      operationId: getDevicesPropertiesOutputPowerControlSchedulePvPowerGeneration
+      description: '取得: 出力制御スケジュール'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outputPowerControlSchedulePvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/updateScheduleDateAndTime:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Next access date and time'
+      operationId: getDevicesPropertiesUpdateScheduleDateAndTimePvPowerGeneration
+      description: '取得: 次回アクセス日時'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateScheduleDateAndTimePvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/surplusPurchaseControlType:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Function to control the type of surplus electricity purchase'
+      operationId: getDevicesPropertiesSurplusPurchaseControlTypePvPowerGeneration
+      description: '取得: 余剰買取制御機能タイプ'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/surplusPurchaseControlTypePvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outputPowerChangeTime:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Output power change time setting value'
+      operationId: getDevicesPropertiesOutputPowerChangeTimePvPowerGeneration
+      description: '取得: 出力変化時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outputPowerChangeTimePvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/upperLimitClip:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Upper limit clip setting value'
+      operationId: getDevicesPropertiesUpperLimitClipPvPowerGeneration
+      description: '取得: 上限クリップ設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/upperLimitClipPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operatingPowerFactor:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Operation power factor setting value'
+      operationId: getDevicesPropertiesOperatingPowerFactorPvPowerGeneration
+      description: '取得: 運転力率設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operatingPowerFactorPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/contractType:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: FIT contract type'
+      operationId: getDevicesPropertiesContractTypePvPowerGeneration
+      description: '取得: FIT契約タイプ'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contractTypePvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: FIT contract type'
+      operationId: putDevicesPropertiesContractTypePvPowerGeneration
+      description: '設定: FIT契約タイプ'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contractTypePvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contractTypePvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/selfConsumptionType:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Self-consumption type'
+      operationId: getDevicesPropertiesSelfConsumptionTypePvPowerGeneration
+      description: '取得: 自家消費タイプ'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/selfConsumptionTypePvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/approvedCapacity:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Capacity approved by equipment'
+      operationId: getDevicesPropertiesApprovedCapacityPvPowerGeneration
+      description: '取得: 設備認定容量'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/approvedCapacityPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/conversionCoefficient:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Conversion coefficient'
+      operationId: getDevicesPropertiesConversionCoefficientPvPowerGeneration
+      description: '取得: 換算係数'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conversionCoefficientPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerSystemInterconnectionStatus:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: System-interconnected type'
+      operationId: getDevicesPropertiesPowerSystemInterconnectionStatusPvPowerGeneration
+      description: '取得: 系統連系状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerSystemInterconnectionStatusPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/outputPowerRestraintStatus:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Output power restraint status'
+      operationId: getDevicesPropertiesOutputPowerRestraintStatusPvPowerGeneration
+      description: '取得: 出力抑制状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/outputPowerRestraintStatusPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/instantaneousElectricPowerGeneration:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Measured instantaneous amount of electricity generated'
+      operationId: getDevicesPropertiesInstantaneousElectricPowerGenerationPvPowerGeneration
+      description: '取得: 瞬時発電電力計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/instantaneousElectricPowerGenerationPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeElectricEnergyOfGeneration:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Measured cumulative amount of electric energy generated'
+      operationId: getDevicesPropertiesCumulativeElectricEnergyOfGenerationPvPowerGeneration
+      description: '取得: 積算発電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeElectricEnergyOfGenerationPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeElectricEnergySold:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Measured cumulative amount of electric energy sold'
+      operationId: getDevicesPropertiesCumulativeElectricEnergySoldPvPowerGeneration
+      description: '取得: 積算売電電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeElectricEnergySoldPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerGenerationOutputLimit1:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Power generation output limit setting 1'
+      operationId: getDevicesPropertiesPowerGenerationOutputLimit1PvPowerGeneration
+      description: '取得: 発電電力制限設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationOutputLimit1PvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: Power generation output limit setting 1'
+      operationId: putDevicesPropertiesPowerGenerationOutputLimit1PvPowerGeneration
+      description: '設定: 発電電力制限設定1'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/powerGenerationOutputLimit1PvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationOutputLimit1PvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/powerGenerationOutputLimit2:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Power generation output limit setting 2'
+      operationId: getDevicesPropertiesPowerGenerationOutputLimit2PvPowerGeneration
+      description: '取得: 発電電力制限設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationOutputLimit2PvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: Power generation output limit setting 2'
+      operationId: putDevicesPropertiesPowerGenerationOutputLimit2PvPowerGeneration
+      description: '設定: 発電電力制限設定2'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/powerGenerationOutputLimit2PvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/powerGenerationOutputLimit2PvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/limitElectricEnergySold:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Limit setting for the amount of electricity sold'
+      operationId: getDevicesPropertiesLimitElectricEnergySoldPvPowerGeneration
+      description: '取得: 売電電力制限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/limitElectricEnergySoldPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: Limit setting for the amount of electricity sold'
+      operationId: putDevicesPropertiesLimitElectricEnergySoldPvPowerGeneration
+      description: '設定: 売電電力制限設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/limitElectricEnergySoldPvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/limitElectricEnergySoldPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedElectricPowerOfgeneration:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Rated power generation output (System-interconnected)'
+      operationId: getDevicesPropertiesRatedElectricPowerOfgenerationPvPowerGeneration
+      description: '取得: 定格発電電力値(系統連系時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricPowerOfgenerationPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: Rated power generation output (System-interconnected)'
+      operationId: putDevicesPropertiesRatedElectricPowerOfgenerationPvPowerGeneration
+      description: '設定: 定格発電電力値(系統連系時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ratedElectricPowerOfgenerationPvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricPowerOfgenerationPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/ratedElectricPowerOfgenerationIndependent:
+    get:
+      tags:
+      - PvPowerGeneration
+      summary: 'Get: Rated power generation output (Independent)'
+      operationId: getDevicesPropertiesRatedElectricPowerOfgenerationIndependentPvPowerGeneration
+      description: '取得: 定格発電電力値(独立時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricPowerOfgenerationIndependentPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - PvPowerGeneration
+      summary: 'Set: Rated power generation output (Independent)'
+      operationId: putDevicesPropertiesRatedElectricPowerOfgenerationIndependentPvPowerGeneration
+      description: '設定: 定格発電電力値(独立時)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ratedElectricPowerOfgenerationIndependentPvPowerGeneration'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ratedElectricPowerOfgenerationIndependentPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/resetCumulativeElectricEnergyOfGeneration:
+    post:
+      tags:
+      - PvPowerGeneration
+      summary: 'Post: Resetting cumulative amount of electric energy generated'
+      operationId: postDevicesActionsResetCumulativeElectricEnergyOfGenerationPvPowerGeneration
+      description: '実行: 積算発電電力量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resetCumulativeElectricEnergyOfGenerationPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/actions/resetCumulativeElectricEnergySold:
+    post:
+      tags:
+      - PvPowerGeneration
+      summary: 'Post: Resetting cumulative amount of electric energy sold'
+      operationId: postDevicesActionsResetCumulativeElectricEnergySoldPvPowerGeneration
+      description: '実行: 積算売電電力量リセット設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/resetCumulativeElectricEnergySoldPvPowerGeneration'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesPvPowerGeneration:
+      description: propertiesPvPowerGeneration
+      type: object
+      properties:
+        outputPowerControl1:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 出力制御設定1, en: Output power control setting 1] '
+        outputPowerControl2:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 出力制御設定2, en: Output power control setting 2] '
+        surplusPurchaseControl:
+          type: boolean
+          description: '[ja: 余剰買取制御機能設定, en: Function to control purchase surplus
+            electricity setting] _True (ja: 有効, en: Valid) False (ja: 無効, en: Invalid) '
+        outputPowerControlSchedule:
+          type: object
+          properties:
+            startDateAndTime:
+              oneOf:
+              - type: string
+                format: date-time
+              - type: string
+                enum:
+                - unknown
+                description: '_unknown (ja: 不明, en: Unknown) '
+              description: '[ja: 現在年月日, en: Current date (YYYY: MM: DD)] _'
+            intervalTime:
+              type: number
+              minimum: 0
+              maximum: 1800
+              multipleOf: 30
+            powerControlRatio:
+              type: array
+              minItems: 96
+              maxItems: 96
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 100
+                - type: string
+                  enum:
+                  - undefined
+                  description: '_undefined (ja: 不明, en: Unknown) '
+              description: '[ja: 0x00～0x64 (0～100%) x 96 (30分毎の値、2日分), en: 0x00-0x64
+                (0-100%) x 96 (values every 30 minutes, for 2 days)] _'
+          description: '[ja: 出力制御スケジュール, en: Output power controlling schedule] '
+        updateScheduleDateAndTime:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: string
+            enum:
+            - noControlNoSchedule
+            description: '_noControlNoSchedule (ja: 出力制御スケジュールによる出力制御が必要ない太陽光発電および、出力制御スケジュールが取得できていない場合,
+              en: Solar power generation that requires no output power control by
+              output power controlling schedule and cases where output power controlling
+              schedule has not been acquired) '
+          description: '[ja: 次回アクセス日時, en: Next access date and time] '
+        surplusPurchaseControlType:
+          type: boolean
+          description: '[ja: 余剰買取制御機能タイプ, en: Function to control the type of surplus
+            electricity purchase] _True (ja: 有効, en: Valid) False (ja: 無効, en: Invalid) '
+        outputPowerChangeTime:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 出力変化時間設定値, en: Output power change time setting value] '
+        upperLimitClip:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 65533
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: 上限クリップ設定値, en: Upper limit clip setting value] '
+        operatingPowerFactor:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 運転力率設定値, en: Operation power factor setting value] '
+        contractType:
+          type: string
+          enum:
+          - fit
+          - non_fit
+          - undefined
+          description: '[ja: FIT契約タイプ, en: FIT contract type] _fit (ja: FIT, en: FIT)
+            non_fit (ja: 非FIT, en: Non-FIT) undefined (ja: 未設定, en: No setting) '
+        selfConsumptionType:
+          type: string
+          enum:
+          - withSelfConsumption
+          - withoutSelfConsumption
+          - unknown
+          description: '[ja: 自家消費タイプ, en: Self-consumption type] _withSelfConsumption
+            (ja: 自家消費有, en: With self-consumption) withoutSelfConsumption (ja: 自家消費無,
+            en: Without self-consumption) unknown (ja: 不明, en: Unknown) '
+        approvedCapacity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 65533
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: 設備認定容量, en: Capacity approved by equipment] '
+        conversionCoefficient:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 換算係数, en: Conversion coefficient] '
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          - unknown
+          description: '[ja: 系統連系状態, en: System-interconnected type] _reversePowerFlowAcceptable
+            (ja: 系統連系(逆潮流可), en: System-interconnected type (reverse power flow acceptable))
+            independent (ja: 独立, en: Independent type) reversePowerFlowNotAcceptable
+            (ja: 系統連系(逆潮流不可), en: System-interconnected type (reverse power flow not
+            acceptable)) unknown (ja: 不明, en: Unknown) '
+        outputPowerRestraintStatus:
+          type: string
+          enum:
+          - outputControl
+          - exceptControl
+          - reasonUnknown
+          - notPowerRestraint
+          - unknown
+          description: '[ja: 出力抑制状態, en: Output power restraint status] _outputControl
+            (ja: 抑制中(出力制御), en: Ongoing restraint (output power control)) exceptControl
+            (ja: 抑制中(出力制御以外), en: Ongoing restraint (except output power control))
+            reasonUnknown (ja: 抑制中(抑制要因不明), en: Ongoing restraint (reason for restraint
+            is unknown)) notPowerRestraint (ja: 抑制未実施, en: Not restraining) unknown
+            (ja: 不明, en: Unknown) '
+        instantaneousElectricPowerGeneration:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 瞬時発電電力計測値, en: Measured instantaneous amount of electricity
+            generated] '
+        cumulativeElectricEnergyOfGeneration:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算発電電力量計測値, en: Measured cumulative amount of electric
+            energy generated] '
+        cumulativeElectricEnergySold:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算売電電力量計測値, en: Measured cumulative amount of electric
+            energy sold] '
+        powerGenerationOutputLimit1:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 発電電力制限設定1, en: Power generation output limit setting
+            1] '
+        powerGenerationOutputLimit2:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 発電電力制限設定2, en: Power generation output limit setting
+            2] '
+        limitElectricEnergySold:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 売電電力制限設定, en: Limit setting for the amount of electricity
+            sold] '
+        ratedElectricPowerOfgeneration:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 65533
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: 定格発電電力値(系統連系時), en: Rated power generation output (System-interconnected)] '
+        ratedElectricPowerOfgenerationIndependent:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 定格発電電力値(独立時), en: Rated power generation output (Independent)] '
+    outputPowerControl1PvPowerGeneration:
+      description: '[ja: 出力制御設定1, en: Output power control setting 1]'
+      type: object
+      properties:
+        outputPowerControl1:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 出力制御設定1, en: Output power control setting 1] '
+    outputPowerControl2PvPowerGeneration:
+      description: '[ja: 出力制御設定2, en: Output power control setting 2]'
+      type: object
+      properties:
+        outputPowerControl2:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 出力制御設定2, en: Output power control setting 2] '
+    surplusPurchaseControlPvPowerGeneration:
+      description: '[ja: 余剰買取制御機能設定, en: Function to control purchase surplus electricity
+        setting]'
+      type: object
+      properties:
+        surplusPurchaseControl:
+          type: boolean
+          description: '[ja: 余剰買取制御機能設定, en: Function to control purchase surplus
+            electricity setting] _True (ja: 有効, en: Valid) False (ja: 無効, en: Invalid) '
+    outputPowerControlSchedulePvPowerGeneration:
+      description: '[ja: 出力制御スケジュール, en: Output power controlling schedule]'
+      type: object
+      properties:
+        outputPowerControlSchedule:
+          type: object
+          properties:
+            startDateAndTime:
+              oneOf:
+              - type: string
+                format: date-time
+              - type: string
+                enum:
+                - unknown
+                description: '_unknown (ja: 不明, en: Unknown) '
+              description: '[ja: 現在年月日, en: Current date (YYYY: MM: DD)] _'
+            intervalTime:
+              type: number
+              minimum: 0
+              maximum: 1800
+              multipleOf: 30
+            powerControlRatio:
+              type: array
+              minItems: 96
+              maxItems: 96
+              items:
+                oneOf:
+                - type: number
+                  minimum: 0
+                  maximum: 100
+                - type: string
+                  enum:
+                  - undefined
+                  description: '_undefined (ja: 不明, en: Unknown) '
+              description: '[ja: 0x00～0x64 (0～100%) x 96 (30分毎の値、2日分), en: 0x00-0x64
+                (0-100%) x 96 (values every 30 minutes, for 2 days)] _'
+          description: '[ja: 出力制御スケジュール, en: Output power controlling schedule] '
+    updateScheduleDateAndTimePvPowerGeneration:
+      description: '[ja: 次回アクセス日時, en: Next access date and time]'
+      type: object
+      properties:
+        updateScheduleDateAndTime:
+          oneOf:
+          - type: string
+            format: date-time
+          - type: string
+            enum:
+            - noControlNoSchedule
+            description: '_noControlNoSchedule (ja: 出力制御スケジュールによる出力制御が必要ない太陽光発電および、出力制御スケジュールが取得できていない場合,
+              en: Solar power generation that requires no output power control by
+              output power controlling schedule and cases where output power controlling
+              schedule has not been acquired) '
+          description: '[ja: 次回アクセス日時, en: Next access date and time] '
+    surplusPurchaseControlTypePvPowerGeneration:
+      description: '[ja: 余剰買取制御機能タイプ, en: Function to control the type of surplus
+        electricity purchase]'
+      type: object
+      properties:
+        surplusPurchaseControlType:
+          type: boolean
+          description: '[ja: 余剰買取制御機能タイプ, en: Function to control the type of surplus
+            electricity purchase] _True (ja: 有効, en: Valid) False (ja: 無効, en: Invalid) '
+    outputPowerChangeTimePvPowerGeneration:
+      description: '[ja: 出力変化時間設定値, en: Output power change time setting value]'
+      type: object
+      properties:
+        outputPowerChangeTime:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 出力変化時間設定値, en: Output power change time setting value] '
+    upperLimitClipPvPowerGeneration:
+      description: '[ja: 上限クリップ設定値, en: Upper limit clip setting value]'
+      type: object
+      properties:
+        upperLimitClip:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 65533
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: 上限クリップ設定値, en: Upper limit clip setting value] '
+    operatingPowerFactorPvPowerGeneration:
+      description: '[ja: 運転力率設定値, en: Operation power factor setting value]'
+      type: object
+      properties:
+        operatingPowerFactor:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 運転力率設定値, en: Operation power factor setting value] '
+    contractTypePvPowerGeneration:
+      description: '[ja: FIT契約タイプ, en: FIT contract type]'
+      type: object
+      properties:
+        contractType:
+          type: string
+          enum:
+          - fit
+          - non_fit
+          - undefined
+          description: '[ja: FIT契約タイプ, en: FIT contract type] _fit (ja: FIT, en: FIT)
+            non_fit (ja: 非FIT, en: Non-FIT) undefined (ja: 未設定, en: No setting) '
+    selfConsumptionTypePvPowerGeneration:
+      description: '[ja: 自家消費タイプ, en: Self-consumption type]'
+      type: object
+      properties:
+        selfConsumptionType:
+          type: string
+          enum:
+          - withSelfConsumption
+          - withoutSelfConsumption
+          - unknown
+          description: '[ja: 自家消費タイプ, en: Self-consumption type] _withSelfConsumption
+            (ja: 自家消費有, en: With self-consumption) withoutSelfConsumption (ja: 自家消費無,
+            en: Without self-consumption) unknown (ja: 不明, en: Unknown) '
+    approvedCapacityPvPowerGeneration:
+      description: '[ja: 設備認定容量, en: Capacity approved by equipment]'
+      type: object
+      properties:
+        approvedCapacity:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 65533
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: 設備認定容量, en: Capacity approved by equipment] '
+    conversionCoefficientPvPowerGeneration:
+      description: '[ja: 換算係数, en: Conversion coefficient]'
+      type: object
+      properties:
+        conversionCoefficient:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 換算係数, en: Conversion coefficient] '
+    powerSystemInterconnectionStatusPvPowerGeneration:
+      description: '[ja: 系統連系状態, en: System-interconnected type]'
+      type: object
+      properties:
+        powerSystemInterconnectionStatus:
+          type: string
+          enum:
+          - reversePowerFlowAcceptable
+          - independent
+          - reversePowerFlowNotAcceptable
+          - unknown
+          description: '[ja: 系統連系状態, en: System-interconnected type] _reversePowerFlowAcceptable
+            (ja: 系統連系(逆潮流可), en: System-interconnected type (reverse power flow acceptable))
+            independent (ja: 独立, en: Independent type) reversePowerFlowNotAcceptable
+            (ja: 系統連系(逆潮流不可), en: System-interconnected type (reverse power flow not
+            acceptable)) unknown (ja: 不明, en: Unknown) '
+    outputPowerRestraintStatusPvPowerGeneration:
+      description: '[ja: 出力抑制状態, en: Output power restraint status]'
+      type: object
+      properties:
+        outputPowerRestraintStatus:
+          type: string
+          enum:
+          - outputControl
+          - exceptControl
+          - reasonUnknown
+          - notPowerRestraint
+          - unknown
+          description: '[ja: 出力抑制状態, en: Output power restraint status] _outputControl
+            (ja: 抑制中(出力制御), en: Ongoing restraint (output power control)) exceptControl
+            (ja: 抑制中(出力制御以外), en: Ongoing restraint (except output power control))
+            reasonUnknown (ja: 抑制中(抑制要因不明), en: Ongoing restraint (reason for restraint
+            is unknown)) notPowerRestraint (ja: 抑制未実施, en: Not restraining) unknown
+            (ja: 不明, en: Unknown) '
+    instantaneousElectricPowerGenerationPvPowerGeneration:
+      description: '[ja: 瞬時発電電力計測値, en: Measured instantaneous amount of electricity
+        generated]'
+      type: object
+      properties:
+        instantaneousElectricPowerGeneration:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 瞬時発電電力計測値, en: Measured instantaneous amount of electricity
+            generated] '
+    cumulativeElectricEnergyOfGenerationPvPowerGeneration:
+      description: '[ja: 積算発電電力量計測値, en: Measured cumulative amount of electric energy
+        generated]'
+      type: object
+      properties:
+        cumulativeElectricEnergyOfGeneration:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算発電電力量計測値, en: Measured cumulative amount of electric
+            energy generated] '
+    cumulativeElectricEnergySoldPvPowerGeneration:
+      description: '[ja: 積算売電電力量計測値, en: Measured cumulative amount of electric energy
+        sold]'
+      type: object
+      properties:
+        cumulativeElectricEnergySold:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算売電電力量計測値, en: Measured cumulative amount of electric
+            energy sold] '
+    powerGenerationOutputLimit1PvPowerGeneration:
+      description: '[ja: 発電電力制限設定1, en: Power generation output limit setting 1]'
+      type: object
+      properties:
+        powerGenerationOutputLimit1:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 発電電力制限設定1, en: Power generation output limit setting
+            1] '
+    powerGenerationOutputLimit2PvPowerGeneration:
+      description: '[ja: 発電電力制限設定2, en: Power generation output limit setting 2]'
+      type: object
+      properties:
+        powerGenerationOutputLimit2:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 発電電力制限設定2, en: Power generation output limit setting
+            2] '
+    limitElectricEnergySoldPvPowerGeneration:
+      description: '[ja: 売電電力制限設定, en: Limit setting for the amount of electricity
+        sold]'
+      type: object
+      properties:
+        limitElectricEnergySold:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 売電電力制限設定, en: Limit setting for the amount of electricity
+            sold] '
+    ratedElectricPowerOfgenerationPvPowerGeneration:
+      description: '[ja: 定格発電電力値(系統連系時), en: Rated power generation output (System-interconnected)]'
+      type: object
+      properties:
+        ratedElectricPowerOfgeneration:
+          oneOf:
+          - type: number
+            minimum: 0
+            maximum: 65533
+          - type: string
+            enum:
+            - noSetting
+            description: '_noSetting (ja: 設定なし, en: No setting) '
+          description: '[ja: 定格発電電力値(系統連系時), en: Rated power generation output (System-interconnected)] '
+    ratedElectricPowerOfgenerationIndependentPvPowerGeneration:
+      description: '[ja: 定格発電電力値(独立時), en: Rated power generation output (Independent)]'
+      type: object
+      properties:
+        ratedElectricPowerOfgenerationIndependent:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 定格発電電力値(独立時), en: Rated power generation output (Independent)] '
+    resetCumulativeElectricEnergyOfGenerationPvPowerGeneration: {}
+    resetCumulativeElectricEnergySoldPvPowerGeneration: {}
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

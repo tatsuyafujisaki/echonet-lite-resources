@@ -1,0 +1,208 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: BasePath
+  description: tag for BasePath
+security:
+- api_key: []
+paths:
+  /elapi:
+    get:
+      tags:
+      - BasePath
+      summary: 'Get: a list of versions'
+      operationId: getElapi
+      description: '取得: a list of versions'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/elapi'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1:
+    get:
+      tags:
+      - BasePath
+      summary: 'Get: a list of service resources'
+      operationId: getElapiV1
+      description: '取得: a list of service resources'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices:
+    get:
+      tags:
+      - BasePath
+      summary: 'Get: a list of devices'
+      operationId: getDevices
+      description: '取得: a list of devices'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/devices'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}:
+    get:
+      tags:
+      - BasePath
+      summary: 'Get: a device description'
+      operationId: getDeviceDescription
+      description: '取得: a device description'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                oneOf:
+                -  $ref: '#/components/schemas/xxDeviceDescription'
+                -  $ref: '#/components/schemas/yyDeviceDescription'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    elapi:
+      description: elapi
+      type: object
+      properties:
+        versions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              status:
+                type: string
+                enum:
+                - CURRENT
+                - SUPPORTED
+                - DEPRECATED
+                - EXPERIMENTAL
+              updated:
+                type: string
+                format: date-time
+        ECHONET-member-id:
+          type: string
+          minLength: 6 
+          maxLength: 6
+          pattern: '^[0-9a-fA-F]{6}$'
+    v1:
+      description: version 1
+      type: object
+      properties:
+        v1:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                enum:
+                - devices
+                - bulks
+                - groups
+                - histories
+                - resHistories
+              descriptions:
+                type: object
+                properties:
+                  ja:
+                    type: string
+                  en:
+                    type: string
+              total:
+                type: number
+                multipleOf: 1
+                minimum: 0
+    devices:
+      description: a list of devices
+      type: object
+      properties:
+        devices:
+          type: object
+          properties:
+            id:
+              type: string
+            deviceType:
+              type: string
+            protocol:
+              type: object
+              properties:
+                type:
+                  type: string
+                version:
+                  type: string
+            manufacturer:
+              type: object
+              properties:
+                code:
+                  type: string
+                descriptions:
+                  type: object
+                  properties:
+                    ja:
+                      type: string
+                    en:
+                      type: string
+    xxDeviceDescription:
+      description: sample device description 1 
+    yyDeviceDescription:
+      description: sample device description 2
+    
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

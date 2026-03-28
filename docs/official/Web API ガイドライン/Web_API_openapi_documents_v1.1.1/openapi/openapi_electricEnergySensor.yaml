@@ -1,0 +1,334 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: ElectricEnergySensor
+  description: tag for Electric energy sensor
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - ElectricEnergySensor
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesElectricEnergySensor
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesElectricEnergySensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/cumulativeElectricEnergy:
+    get:
+      tags:
+      - ElectricEnergySensor
+      summary: 'Get: Cumulative amounts of electric energy'
+      operationId: getDevicesPropertiesCumulativeElectricEnergyElectricEnergySensor
+      description: '取得: 積算電力量計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cumulativeElectricEnergyElectricEnergySensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/mediumCapacitySensorValue:
+    get:
+      tags:
+      - ElectricEnergySensor
+      summary: 'Get: Medium-capacity sensor instantaneous electric energy'
+      operationId: getDevicesPropertiesMediumCapacitySensorValueElectricEnergySensor
+      description: '取得: 中容量センサ瞬時電力値計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mediumCapacitySensorValueElectricEnergySensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/smallCapacitySensorValue:
+    get:
+      tags:
+      - ElectricEnergySensor
+      summary: 'Get: Small-capacity sensor instantaneous electric energy'
+      operationId: getDevicesPropertiesSmallCapacitySensorValueElectricEnergySensor
+      description: '取得: 小容量センサ瞬時電力値計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/smallCapacitySensorValueElectricEnergySensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/largeCapacitySensorValue:
+    get:
+      tags:
+      - ElectricEnergySensor
+      summary: 'Get: Large-capacity sensor instantaneous electric energy'
+      operationId: getDevicesPropertiesLargeCapacitySensorValueElectricEnergySensor
+      description: '取得: 大容量センサ瞬時電力値計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/largeCapacitySensorValueElectricEnergySensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/log:
+    get:
+      tags:
+      - ElectricEnergySensor
+      summary: 'Get: Cumulative amounts of electric energy measurement log'
+      operationId: getDevicesPropertiesLogElectricEnergySensor
+      description: '取得: 積算電力量計測履歴情報'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/logElectricEnergySensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/effectiveVoltageValue:
+    get:
+      tags:
+      - ElectricEnergySensor
+      summary: 'Get: Effective voltage value'
+      operationId: getDevicesPropertiesEffectiveVoltageValueElectricEnergySensor
+      description: '取得: 実効電圧値計測値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/effectiveVoltageValueElectricEnergySensor'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesElectricEnergySensor:
+      description: propertiesElectricEnergySensor
+      type: object
+      properties:
+        cumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy] '
+        mediumCapacitySensorValue:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: 中容量センサ瞬時電力値計測値, en: Medium-capacity sensor instantaneous
+            electric energy] '
+        smallCapacitySensorValue:
+          type: number
+          minimum: -3276.7
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 小容量センサ瞬時電力値計測値, en: Small-capacity sensor instantaneous
+            electric energy] '
+        largeCapacitySensorValue:
+          type: number
+          minimum: -3276.7
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 大容量センサ瞬時電力値計測値, en: Large-capacity sensor instantaneous
+            electric energy] '
+        log:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+              maximum: 999999.999
+              multipleOf: 0.001
+            - type: string
+              enum:
+              - noData
+              description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測履歴情報, en: Cumulative amounts of electric energy
+            measurement log] '
+        effectiveVoltageValue:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 実効電圧値計測値, en: Effective voltage value] '
+    cumulativeElectricEnergyElectricEnergySensor:
+      description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy]'
+      type: object
+      properties:
+        cumulativeElectricEnergy:
+          type: number
+          minimum: 0
+          maximum: 999999.999
+          multipleOf: 0.001
+          description: '[ja: 積算電力量計測値, en: Cumulative amounts of electric energy] '
+    mediumCapacitySensorValueElectricEnergySensor:
+      description: '[ja: 中容量センサ瞬時電力値計測値, en: Medium-capacity sensor instantaneous
+        electric energy]'
+      type: object
+      properties:
+        mediumCapacitySensorValue:
+          type: number
+          minimum: -999999999
+          maximum: 999999999
+          description: '[ja: 中容量センサ瞬時電力値計測値, en: Medium-capacity sensor instantaneous
+            electric energy] '
+    smallCapacitySensorValueElectricEnergySensor:
+      description: '[ja: 小容量センサ瞬時電力値計測値, en: Small-capacity sensor instantaneous electric
+        energy]'
+      type: object
+      properties:
+        smallCapacitySensorValue:
+          type: number
+          minimum: -3276.7
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 小容量センサ瞬時電力値計測値, en: Small-capacity sensor instantaneous
+            electric energy] '
+    largeCapacitySensorValueElectricEnergySensor:
+      description: '[ja: 大容量センサ瞬時電力値計測値, en: Large-capacity sensor instantaneous electric
+        energy]'
+      type: object
+      properties:
+        largeCapacitySensorValue:
+          type: number
+          minimum: -3276.7
+          maximum: 3276.6
+          multipleOf: 0.1
+          description: '[ja: 大容量センサ瞬時電力値計測値, en: Large-capacity sensor instantaneous
+            electric energy] '
+    logElectricEnergySensor:
+      description: '[ja: 積算電力量計測履歴情報, en: Cumulative amounts of electric energy measurement
+        log]'
+      type: object
+      properties:
+        log:
+          type: array
+          minItems: 48
+          maxItems: 48
+          items:
+            oneOf:
+            - type: number
+              minimum: 0
+              maximum: 999999.999
+              multipleOf: 0.001
+            - type: string
+              enum:
+              - noData
+              description: '_noData (ja: 未計測, en: Not measured) '
+          description: '[ja: 積算電力量計測履歴情報, en: Cumulative amounts of electric energy
+            measurement log] '
+    effectiveVoltageValueElectricEnergySensor:
+      description: '[ja: 実効電圧値計測値, en: Effective voltage value]'
+      type: object
+      properties:
+        effectiveVoltageValue:
+          type: number
+          minimum: 0
+          maximum: 65533
+          description: '[ja: 実効電圧値計測値, en: Effective voltage value] '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key

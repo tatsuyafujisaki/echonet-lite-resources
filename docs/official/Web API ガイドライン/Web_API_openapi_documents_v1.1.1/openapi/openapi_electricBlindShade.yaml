@@ -1,0 +1,1240 @@
+openapi: 3.0.3
+servers:
+- url: https://dev.xxx.com
+  description: Development server
+- url: https://prod.xxx.com
+  description: Production server
+info:
+  version: 1.0.0
+  title: ECHONET Lite Web APIs
+  description: API server with EL Web APIs
+  termsOfService: https://xxxx.com/terms/
+  contact:
+    name: API support
+    url: https://xxx.com/support/
+    email: support@xxx.com
+  license:
+    name: MIT License
+    url: https://opensource.org/license/mit/
+tags:
+- name: ElectricBlindShade
+  description: tag for Electrically operated blind/shade
+security:
+- api_key: []
+paths:
+  /elapi/v1/devices/{device_id}/properties:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: properties'
+      operationId: getDevicesPropertiesElectricBlindShade
+      description: '取得: properties'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/propertiesElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/faultDescription:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Fault description (Recoverable faults)'
+      operationId: getDevicesPropertiesFaultDescriptionElectricBlindShade
+      description: '取得: 異常内容(復帰可能な異常)'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/faultDescriptionElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/timerOperationMode:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Timer operation setting'
+      operationId: getDevicesPropertiesTimerOperationModeElectricBlindShade
+      description: '取得: タイマ動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timerOperationModeElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Timer operation setting'
+      operationId: putDevicesPropertiesTimerOperationModeElectricBlindShade
+      description: '設定: タイマ動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timerOperationModeElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/timerOperationModeElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/windDetection:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Wind detection status'
+      operationId: getDevicesPropertiesWindDetectionElectricBlindShade
+      description: '取得: 風検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/windDetectionElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/sunlightDetection:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Sunlight detection status'
+      operationId: getDevicesPropertiesSunlightDetectionElectricBlindShade
+      description: '取得: 日差し検知状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sunlightDetectionElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/openingSpeed:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Opening (extension) speed setting'
+      operationId: getDevicesPropertiesOpeningSpeedElectricBlindShade
+      description: '取得: 開(張出し)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openingSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Opening (extension) speed setting'
+      operationId: putDevicesPropertiesOpeningSpeedElectricBlindShade
+      description: '設定: 開(張出し)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/openingSpeedElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openingSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/closingSpeed:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Closing (retraction) speed setting'
+      operationId: getDevicesPropertiesClosingSpeedElectricBlindShade
+      description: '取得: 閉(収納)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/closingSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Closing (retraction) speed setting'
+      operationId: putDevicesPropertiesClosingSpeedElectricBlindShade
+      description: '設定: 閉(収納)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/closingSpeedElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/closingSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/operationTime:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Operation time'
+      operationId: getDevicesPropertiesOperationTimeElectricBlindShade
+      description: '取得: 動作時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationTimeElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Operation time'
+      operationId: putDevicesPropertiesOperationTimeElectricBlindShade
+      description: '設定: 動作時間設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/operationTimeElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operationTimeElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/automaticOperation:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Automatic operation setting'
+      operationId: getDevicesPropertiesAutomaticOperationElectricBlindShade
+      description: '取得: 自動動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticOperationElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Automatic operation setting'
+      operationId: putDevicesPropertiesAutomaticOperationElectricBlindShade
+      description: '設定: 自動動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/automaticOperationElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/automaticOperationElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/openCloseOperation:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Open/close (extension/retraction) setting'
+      operationId: getDevicesPropertiesOpenCloseOperationElectricBlindShade
+      description: '取得: 開閉(張出し/収納)動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseOperationElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Open/close (extension/retraction) setting'
+      operationId: putDevicesPropertiesOpenCloseOperationElectricBlindShade
+      description: '設定: 開閉(張出し/収納)動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/openCloseOperationElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseOperationElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/degreeOfOpening:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Degree-of-opening level'
+      operationId: getDevicesPropertiesDegreeOfOpeningElectricBlindShade
+      description: '取得: 開度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/degreeOfOpeningElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Degree-of-opening level'
+      operationId: putDevicesPropertiesDegreeOfOpeningElectricBlindShade
+      description: '設定: 開度レベル設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/degreeOfOpeningElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/degreeOfOpeningElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/shadeAngle:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Shade angle setting'
+      operationId: getDevicesPropertiesShadeAngleElectricBlindShade
+      description: '取得: ブラインド角度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/shadeAngleElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Shade angle setting'
+      operationId: putDevicesPropertiesShadeAngleElectricBlindShade
+      description: '設定: ブラインド角度設定値'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/shadeAngleElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/shadeAngleElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/openCloseSpeed:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Open/close (extension/retraction) speed setting'
+      operationId: getDevicesPropertiesOpenCloseSpeedElectricBlindShade
+      description: '取得: 開閉(張出し/収納)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Open/close (extension/retraction) speed setting'
+      operationId: putDevicesPropertiesOpenCloseSpeedElectricBlindShade
+      description: '設定: 開閉(張出し/収納)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/openCloseSpeedElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/electricLock:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Electric lock setting'
+      operationId: getDevicesPropertiesElectricLockElectricBlindShade
+      description: '取得: 電気錠設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/electricLockElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Electric lock setting'
+      operationId: putDevicesPropertiesElectricLockElectricBlindShade
+      description: '設定: 電気錠設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/electricLockElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/electricLockElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/remoteOperation:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Remote operation setting status'
+      operationId: getDevicesPropertiesRemoteOperationElectricBlindShade
+      description: '取得: 遠隔操作設定状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/remoteOperationElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/selectiveDegreeOfOpening:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Selective opening (extension) operation setting'
+      operationId: getDevicesPropertiesSelectiveDegreeOfOpeningElectricBlindShade
+      description: '取得: 選択開(張出し)度動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/selectiveDegreeOfOpeningElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: Selective opening (extension) operation setting'
+      operationId: putDevicesPropertiesSelectiveDegreeOfOpeningElectricBlindShade
+      description: '設定: 選択開(張出し)度動作設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/selectiveDegreeOfOpeningElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/selectiveDegreeOfOpeningElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/openCloseStatus:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: Open/closed (extended/retracted) status'
+      operationId: getDevicesPropertiesOpenCloseStatusElectricBlindShade
+      description: '取得: 開閉(張出し/収納)状態'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/openCloseStatusElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/oneTimeOpeningSpeed:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: One-time opening (extension) speed setting'
+      operationId: getDevicesPropertiesOneTimeOpeningSpeedElectricBlindShade
+      description: '取得: ワンタイム開(張出し)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/oneTimeOpeningSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: One-time opening (extension) speed setting'
+      operationId: putDevicesPropertiesOneTimeOpeningSpeedElectricBlindShade
+      description: '設定: ワンタイム開(張出し)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/oneTimeOpeningSpeedElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/oneTimeOpeningSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /elapi/v1/devices/{device_id}/properties/oneTimeClosingSpeed:
+    get:
+      tags:
+      - ElectricBlindShade
+      summary: 'Get: One-time closing (retraction) speed setting'
+      operationId: getDevicesPropertiesOneTimeClosingSpeedElectricBlindShade
+      description: '取得: ワンタイム閉(収納)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/oneTimeClosingSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags:
+      - ElectricBlindShade
+      summary: 'Set: One-time closing (retraction) speed setting'
+      operationId: putDevicesPropertiesOneTimeClosingSpeedElectricBlindShade
+      description: '設定: ワンタイム閉(収納)速度設定'
+      parameters:
+      - description: device id
+        name: device_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/oneTimeClosingSpeedElectricBlindShade'
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/oneTimeClosingSpeedElectricBlindShade'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      description: error with type and message
+      type: object
+      properties:
+        type:
+          type: string
+        message:
+          type: string
+    propertiesElectricBlindShade:
+      description: propertiesElectricBlindShade
+      type: object
+      properties:
+        faultDescription:
+          type: string
+          enum:
+          - noFault
+          - trunOffOrUnplug
+          - resetButton
+          - setIncorrectly
+          - supply
+          - cleaning
+          - changingBattery
+          - userDefinable1
+          - abnormalEventOrSafety
+          - switch
+          - sensorSystem
+          - component
+          - controlCircuitBoard
+          - userDefinable2
+          - fault
+          - obstacleCaught
+          - outageRecovery
+          - timeOut
+          - batteryLow
+          description: '[ja: 異常内容(復帰可能な異常), en: Fault description (Recoverable faults)]
+            _noFault (ja: 異常なし, en: No fault) trunOffOrUnplug (ja: スイッチを切る/コンセントを抜き再操作,
+            en: Faults that can be recovered from by turn off the power or unplug
+            and reoperate.) resetButton (ja: リセットボタンを押し再操作, en: Faults that can be
+            recovered from by pressing the reset button.) setIncorrectly (ja: セット不良,
+            en: Device set incorrectly) supply (ja: 補給, en: Supply) cleaning (ja:
+            掃除（フィルタ等）, en: Cleaning (filters, etc.)) changingBattery (ja: 電池交換, en:
+            Changing the battery) userDefinable1 (ja: ユーザ定義領域1, en: User-definable
+            domain 1) abnormalEventOrSafety (ja: 異常現象／安全装置作動, en: Abnormal event or
+            the tripping of a safety device.) switch (ja: スイッチ異常, en: Fault in a switch.)
+            sensorSystem (ja: センサ異常, en: Fault in the sensor system) component (ja:
+            機能部品異常, en: Fault in a component such as an actuator.) controlCircuitBoard
+            (ja: 制御基板異常, en: Fault in a control circuit board.) userDefinable2 (ja:
+            ユーザ定義領域2, en: User-definable domain 2) fault (ja: 異常あり, en: Fault) obstacleCaught
+            (ja: 障害物挟込み, en: Obstacle caught) outageRecovery (ja: 停電復帰, en: Recovery
+            from outage) timeOut (ja: タイムアウト, en: Time out) batteryLow (ja: 電池残量低下,
+            en: Battery low) '
+        timerOperationMode:
+          type: boolean
+          description: '[ja: タイマ動作設定, en: Timer operation setting] _True (ja: ON,
+            en: ON) False (ja: OFF, en: OFF) '
+        windDetection:
+          type: boolean
+          description: '[ja: 風検知状態, en: Wind detection status] _True (ja: 検知有, en:
+            Detected) False (ja: 検知無, en: Not detected) '
+        sunlightDetection:
+          type: boolean
+          description: '[ja: 日差し検知状態, en: Sunlight detection status] _True (ja: 検知有,
+            en: Detected) False (ja: 検知無, en: Not detected) '
+        openingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 開(張出し)速度設定, en: Opening (extension) speed setting] _low
+            (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+        closingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 閉(収納)速度設定, en: Closing (retraction) speed setting] _low
+            (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+        operationTime:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 動作時間設定値, en: Operation time] '
+        automaticOperation:
+          type: boolean
+          description: '[ja: 自動動作設定, en: Automatic operation setting] _True (ja: ON,
+            en: ON) False (ja: OFF, en: OFF) '
+        openCloseOperation:
+          type: string
+          enum:
+          - open
+          - close
+          - stop
+          description: '[ja: 開閉(張出し/収納)動作設定, en: Open/close (extension/retraction)
+            setting] _open (ja: 開, en: Open) close (ja: 閉, en: Close) stop (ja: 停止,
+            en: Stop) '
+        degreeOfOpening:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 開度レベル設定, en: Degree-of-opening level] '
+        shadeAngle:
+          type: number
+          minimum: 0
+          maximum: 180
+          description: '[ja: ブラインド角度設定値, en: Shade angle setting] '
+        openCloseSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 開閉(張出し/収納)速度設定, en: Open/close (extension/retraction)
+            speed setting] _low (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja:
+            高, en: High) '
+        electricLock:
+          type: boolean
+          description: '[ja: 電気錠設定, en: Electric lock setting] _True (ja: 施錠, en:
+            Lock) False (ja: 解錠, en: Unlock) '
+        remoteOperation:
+          type: boolean
+          description: '[ja: 遠隔操作設定状態, en: Remote operation setting status] _True
+            (ja: ON (許可), en: ON (permitted)) False (ja: OFF (禁止), en: OFF (prohibited)) '
+        selectiveDegreeOfOpening:
+          type: string
+          enum:
+          - degreeOfOpening
+          - operationTimeOfOpening
+          - operationTimeOfClosing
+          - localSetting
+          description: '[ja: 選択開(張出し)度動作設定, en: Selective opening (extension) operation
+            setting] _degreeOfOpening (ja: 開度レベル設定位置開, en: Degree-of-opening setting
+            position: Open) operationTimeOfOpening (ja: 動作時間設定値開, en: Operation time
+            setting value: Open) operationTimeOfClosing (ja: 動作時間設定値閉, en: Operation
+            time setting value: Close) localSetting (ja: ローカル設定位置, en: Local setting
+            position) '
+        openCloseStatus:
+          type: string
+          enum:
+          - fullyOpen
+          - fullyClosed
+          - opening
+          - closing
+          - stoppedHalfway
+          description: '[ja: 開閉(張出し/収納)状態, en: Open/closed (extended/retracted) status]
+            _fullyOpen (ja: 全開, en: Fully open) fullyClosed (ja: 全閉, en: Fully closed)
+            opening (ja: 開動作中, en: Opening) closing (ja: 閉動作中, en: Closing) stoppedHalfway
+            (ja: 途中停止, en: Stopped halfway) '
+        oneTimeOpeningSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          description: '[ja: ワンタイム開(張出し)速度設定, en: One-time opening (extension) speed
+            setting] _low (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高,
+            en: High) none (ja: 無し, en: None) '
+        oneTimeClosingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          description: '[ja: ワンタイム閉(収納)速度設定, en: One-time closing (retraction) speed
+            setting] _low (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高,
+            en: High) none (ja: 無し, en: None) '
+    faultDescriptionElectricBlindShade:
+      description: '[ja: 異常内容(復帰可能な異常), en: Fault description (Recoverable faults)]'
+      type: object
+      properties:
+        faultDescription:
+          type: string
+          enum:
+          - noFault
+          - trunOffOrUnplug
+          - resetButton
+          - setIncorrectly
+          - supply
+          - cleaning
+          - changingBattery
+          - userDefinable1
+          - abnormalEventOrSafety
+          - switch
+          - sensorSystem
+          - component
+          - controlCircuitBoard
+          - userDefinable2
+          - fault
+          - obstacleCaught
+          - outageRecovery
+          - timeOut
+          - batteryLow
+          description: '[ja: 異常内容(復帰可能な異常), en: Fault description (Recoverable faults)]
+            _noFault (ja: 異常なし, en: No fault) trunOffOrUnplug (ja: スイッチを切る/コンセントを抜き再操作,
+            en: Faults that can be recovered from by turn off the power or unplug
+            and reoperate.) resetButton (ja: リセットボタンを押し再操作, en: Faults that can be
+            recovered from by pressing the reset button.) setIncorrectly (ja: セット不良,
+            en: Device set incorrectly) supply (ja: 補給, en: Supply) cleaning (ja:
+            掃除（フィルタ等）, en: Cleaning (filters, etc.)) changingBattery (ja: 電池交換, en:
+            Changing the battery) userDefinable1 (ja: ユーザ定義領域1, en: User-definable
+            domain 1) abnormalEventOrSafety (ja: 異常現象／安全装置作動, en: Abnormal event or
+            the tripping of a safety device.) switch (ja: スイッチ異常, en: Fault in a switch.)
+            sensorSystem (ja: センサ異常, en: Fault in the sensor system) component (ja:
+            機能部品異常, en: Fault in a component such as an actuator.) controlCircuitBoard
+            (ja: 制御基板異常, en: Fault in a control circuit board.) userDefinable2 (ja:
+            ユーザ定義領域2, en: User-definable domain 2) fault (ja: 異常あり, en: Fault) obstacleCaught
+            (ja: 障害物挟込み, en: Obstacle caught) outageRecovery (ja: 停電復帰, en: Recovery
+            from outage) timeOut (ja: タイムアウト, en: Time out) batteryLow (ja: 電池残量低下,
+            en: Battery low) '
+    timerOperationModeElectricBlindShade:
+      description: '[ja: タイマ動作設定, en: Timer operation setting]'
+      type: object
+      properties:
+        timerOperationMode:
+          type: boolean
+          description: '[ja: タイマ動作設定, en: Timer operation setting] _True (ja: ON,
+            en: ON) False (ja: OFF, en: OFF) '
+    windDetectionElectricBlindShade:
+      description: '[ja: 風検知状態, en: Wind detection status]'
+      type: object
+      properties:
+        windDetection:
+          type: boolean
+          description: '[ja: 風検知状態, en: Wind detection status] _True (ja: 検知有, en:
+            Detected) False (ja: 検知無, en: Not detected) '
+    sunlightDetectionElectricBlindShade:
+      description: '[ja: 日差し検知状態, en: Sunlight detection status]'
+      type: object
+      properties:
+        sunlightDetection:
+          type: boolean
+          description: '[ja: 日差し検知状態, en: Sunlight detection status] _True (ja: 検知有,
+            en: Detected) False (ja: 検知無, en: Not detected) '
+    openingSpeedElectricBlindShade:
+      description: '[ja: 開(張出し)速度設定, en: Opening (extension) speed setting]'
+      type: object
+      properties:
+        openingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 開(張出し)速度設定, en: Opening (extension) speed setting] _low
+            (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+    closingSpeedElectricBlindShade:
+      description: '[ja: 閉(収納)速度設定, en: Closing (retraction) speed setting]'
+      type: object
+      properties:
+        closingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 閉(収納)速度設定, en: Closing (retraction) speed setting] _low
+            (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高, en: High) '
+    operationTimeElectricBlindShade:
+      description: '[ja: 動作時間設定値, en: Operation time]'
+      type: object
+      properties:
+        operationTime:
+          type: number
+          minimum: 0
+          maximum: 253
+          description: '[ja: 動作時間設定値, en: Operation time] '
+    automaticOperationElectricBlindShade:
+      description: '[ja: 自動動作設定, en: Automatic operation setting]'
+      type: object
+      properties:
+        automaticOperation:
+          type: boolean
+          description: '[ja: 自動動作設定, en: Automatic operation setting] _True (ja: ON,
+            en: ON) False (ja: OFF, en: OFF) '
+    openCloseOperationElectricBlindShade:
+      description: '[ja: 開閉(張出し/収納)動作設定, en: Open/close (extension/retraction) setting]'
+      type: object
+      properties:
+        openCloseOperation:
+          type: string
+          enum:
+          - open
+          - close
+          - stop
+          description: '[ja: 開閉(張出し/収納)動作設定, en: Open/close (extension/retraction)
+            setting] _open (ja: 開, en: Open) close (ja: 閉, en: Close) stop (ja: 停止,
+            en: Stop) '
+    degreeOfOpeningElectricBlindShade:
+      description: '[ja: 開度レベル設定, en: Degree-of-opening level]'
+      type: object
+      properties:
+        degreeOfOpening:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: '[ja: 開度レベル設定, en: Degree-of-opening level] '
+    shadeAngleElectricBlindShade:
+      description: '[ja: ブラインド角度設定値, en: Shade angle setting]'
+      type: object
+      properties:
+        shadeAngle:
+          type: number
+          minimum: 0
+          maximum: 180
+          description: '[ja: ブラインド角度設定値, en: Shade angle setting] '
+    openCloseSpeedElectricBlindShade:
+      description: '[ja: 開閉(張出し/収納)速度設定, en: Open/close (extension/retraction) speed
+        setting]'
+      type: object
+      properties:
+        openCloseSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          description: '[ja: 開閉(張出し/収納)速度設定, en: Open/close (extension/retraction)
+            speed setting] _low (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja:
+            高, en: High) '
+    electricLockElectricBlindShade:
+      description: '[ja: 電気錠設定, en: Electric lock setting]'
+      type: object
+      properties:
+        electricLock:
+          type: boolean
+          description: '[ja: 電気錠設定, en: Electric lock setting] _True (ja: 施錠, en:
+            Lock) False (ja: 解錠, en: Unlock) '
+    remoteOperationElectricBlindShade:
+      description: '[ja: 遠隔操作設定状態, en: Remote operation setting status]'
+      type: object
+      properties:
+        remoteOperation:
+          type: boolean
+          description: '[ja: 遠隔操作設定状態, en: Remote operation setting status] _True
+            (ja: ON (許可), en: ON (permitted)) False (ja: OFF (禁止), en: OFF (prohibited)) '
+    selectiveDegreeOfOpeningElectricBlindShade:
+      description: '[ja: 選択開(張出し)度動作設定, en: Selective opening (extension) operation
+        setting]'
+      type: object
+      properties:
+        selectiveDegreeOfOpening:
+          type: string
+          enum:
+          - degreeOfOpening
+          - operationTimeOfOpening
+          - operationTimeOfClosing
+          - localSetting
+          description: '[ja: 選択開(張出し)度動作設定, en: Selective opening (extension) operation
+            setting] _degreeOfOpening (ja: 開度レベル設定位置開, en: Degree-of-opening setting
+            position: Open) operationTimeOfOpening (ja: 動作時間設定値開, en: Operation time
+            setting value: Open) operationTimeOfClosing (ja: 動作時間設定値閉, en: Operation
+            time setting value: Close) localSetting (ja: ローカル設定位置, en: Local setting
+            position) '
+    openCloseStatusElectricBlindShade:
+      description: '[ja: 開閉(張出し/収納)状態, en: Open/closed (extended/retracted) status]'
+      type: object
+      properties:
+        openCloseStatus:
+          type: string
+          enum:
+          - fullyOpen
+          - fullyClosed
+          - opening
+          - closing
+          - stoppedHalfway
+          description: '[ja: 開閉(張出し/収納)状態, en: Open/closed (extended/retracted) status]
+            _fullyOpen (ja: 全開, en: Fully open) fullyClosed (ja: 全閉, en: Fully closed)
+            opening (ja: 開動作中, en: Opening) closing (ja: 閉動作中, en: Closing) stoppedHalfway
+            (ja: 途中停止, en: Stopped halfway) '
+    oneTimeOpeningSpeedElectricBlindShade:
+      description: '[ja: ワンタイム開(張出し)速度設定, en: One-time opening (extension) speed setting]'
+      type: object
+      properties:
+        oneTimeOpeningSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          description: '[ja: ワンタイム開(張出し)速度設定, en: One-time opening (extension) speed
+            setting] _low (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高,
+            en: High) none (ja: 無し, en: None) '
+    oneTimeClosingSpeedElectricBlindShade:
+      description: '[ja: ワンタイム閉(収納)速度設定, en: One-time closing (retraction) speed setting]'
+      type: object
+      properties:
+        oneTimeClosingSpeed:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+          - none
+          description: '[ja: ワンタイム閉(収納)速度設定, en: One-time closing (retraction) speed
+            setting] _low (ja: 低, en: Low) medium (ja: 中, en: Medium) high (ja: 高,
+            en: High) none (ja: 無し, en: None) '
+  requestBodies: {}
+  responses:
+    Unauthorized:
+      description: Unauthorized.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: X-Elapi-key
