@@ -1,7 +1,7 @@
 {
   "deviceType": "electricWaterHeater",
   "metaData": {
-    "version": "1.4.0"
+    "version": "1.7.0"
   },
   "eoj": "0x026B",
   "descriptions": {
@@ -1484,6 +1484,39 @@
         "unit": "L",
         "minimum": 0,
         "maximum": 65533
+      }
+    },
+    "bathHeatingCompletion": {
+      "descriptions": {
+        "ja": "風呂沸き上がり完了状態",
+        "en": "Bath heating completion status"
+      },
+      "writable": false,
+      "observable": true,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "完了",
+              "en": "Completed"
+            },
+            "edt": "0x41"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "非完了",
+              "en": "Not completed"
+            },
+            "edt": "0x42"
+          }
+        ]
+      },
+      "note": {
+        "ja": "このプロパティの実装は任意である。風呂沸き上がりセンサのdetectionと同じ機能",
+        "en": "This property is optional to implement. This property provides the same functionality as the detection property of the bathHeatingStatusSensor."
       }
     }
   }

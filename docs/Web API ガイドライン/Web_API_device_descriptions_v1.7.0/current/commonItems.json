@@ -1,7 +1,7 @@
 {
   "deviceType": "common",
   "metaData": {
-    "version": "1.6.0"
+    "version": "1.7.0"
   },
   "eoj": "0x0000",
   "descriptions": {
@@ -551,6 +551,21 @@
             "maximum": 4294967295
           }
         }
+      }
+    },
+    "nickname": {
+      "descriptions": {
+        "ja": "ニックネーム",
+        "en": "Nickname"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string"
+      },
+      "note": {
+        "ja": "ECHONET Lite では規定されていない機能。サーバーで実装する。",
+        "en": "This property is not defined in the specification of ECHONET Lite. It should be implemented in the server."
       }
     }
   }

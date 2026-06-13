@@ -20,9 +20,6 @@
 - [Web API ガイドラインのダウンロード ファイルリスト](https://echonet.jp/web_api_guideline)
   - [API仕様部](https://echonet.jp/web_api_guideline/#:~:text=API%E4%BB%95%E6%A7%98%E9%83%A8)
   - [機器仕様部](https://echonet.jp/web_api_guideline/#:~:text=%E6%A9%9F%E5%99%A8%E4%BB%95%E6%A7%98%E9%83%A8)
-    - [List of EOJ devices](https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/web_api/ECHONET_Lite_Web_API_Dev_Specs_v1.6.1.pdf#page=29)
+    - [List of (EOJ) devices](https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/web_api/ECHONET_Lite_Web_API_Dev_Specs_v1.7.0.pdf#page=29)
   - [Device Description(JSON)](https://echonet.jp/web_api_guideline/#:~:text=Device%20Description(JSON))
-    - This ("Web_API_device_descriptions_v1.6.1.zip") is a subset of "Web_API_openapi_documents_v1.1.1.zip".
   - [DR関連サービス仕様](https://echonet.jp/web_api_guideline/#:~:text=DR%E9%96%A2%E9%80%A3%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E4%BB%95%E6%A7%98)
-  - [OpenAPI Document (YAML)](https://echonet.jp/web_api_guideline/#:~:text=OpenAPI%20Document%20(YAML))
-    - This ("Web_API_openapi_documents_v1.1.1.zip") is a superset of "Web_API_device_descriptions_v1.6.1.zip".

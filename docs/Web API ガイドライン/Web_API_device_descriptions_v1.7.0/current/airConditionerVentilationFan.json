@@ -1,7 +1,7 @@
 {
   "deviceType": "airConditionerVentilationFan",
   "metaData": {
-    "version": "1.4.0"
+    "version": "1.7.0"
   },
   "eoj": "0x0134",
   "descriptions": {
@@ -686,7 +686,7 @@
             "value": false,
             "descriptions": {
               "ja": "熱交換機OFF",
-              "en": "Heat exchanger ON"
+              "en": "Heat exchanger OFF"
             },
             "edt": "0x42"
           }

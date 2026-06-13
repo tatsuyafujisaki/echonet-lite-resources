@@ -1,7 +1,7 @@
 {
   "deviceType": "frequencyRegulation",
   "metaData": {
-    "version": "1.6.0"
+    "version": "1.7.0"
   },
   "eoj": "0x02A7",
   "descriptions": {
@@ -57,7 +57,7 @@
           "frequencyRegulationMode": {
             "descriptions": {
               "ja": "周波数制御モード",
-              "en": "frequency regulation mode"
+              "en": "Frequency regulation mode"
             },
             "type": "object",
             "properties": {
@@ -177,8 +177,8 @@
         }
       },
       "note": {
-        "ja": "周波数制御モードと周波数制御情報は指令制御、自端制御の何れかおよび、EM目標値制御の搭載を必須とする。",
-        "en": "Frequency regulation mode in \"Frequency regulation parameter setting\" property and \"Information of frequency regulation\" property are required to install \"EM target value control\" and either \"command control\" or \"autonomous control\"."
+        "ja": "周波数制御パラメータ設定の周波数制御モードと周波数制御情報の周波数制御状態は、指令制御、自端制御の何れかおよび、EM 目標値制御の搭載を必須とし、周波数制御情報の周波数調整サービスへの参加可否は、指令制御、自端制御、指令制御＋自端制御の何れかおよび、EM 目標値制御の搭載を必須とする",
+        "en": "Frequency regulation mode of 'frequency regulation parameter setting' and frequency regulation state of 'information of frequency regulation' are required to install either 'command control' or 'autonomous control', and 'EM target value control'. Also, frequency regulation service is possible or not possible of 'Information of frequency regulation' is required to install either 'command control' or 'autonomous control' or 'command control and autonomous control', and 'EM target value control'."
       }
     },
     "emTargetPowerValue": {
@@ -229,7 +229,7 @@
         }
       },
       "note": {
-        "ja": "指令制御機能を有する機器は搭載を必須とする。",
+        "ja": "指令制御機能を有する機器は搭載を必須とする",
         "en": "Devices with command control functions are mandatory."
       }
     },
@@ -304,7 +304,7 @@
             "minimum": 0,
             "maximum": 999999999
           },
-          "abnormalFrequencyDeviationThreshold (mHz)": {
+          "abnormalFrequencyDeviationThreshold": {
             "descriptions": {
               "ja": "異常周波数偏差閾値(mHz)",
               "en": "Abnormal frequency deviation threshold (mHz)"
@@ -445,6 +445,284 @@
         "maximum": 100
       }
     },
+    "frequencyRegulationPrioritized": {
+      "epc": "0xC8",
+      "descriptions": {
+        "ja": "周波数制御優先設定",
+        "en": "Frequency regulation priority setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "ON",
+              "en": "On"
+            },
+            "edt": "0x30"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "OFF",
+              "en": "Off"
+            },
+            "edt": "0x31"
+          }
+        ]
+      }
+    },
+    "currentTime": {
+      "epc": "0xC9",
+      "descriptions": {
+        "ja": "現在時分秒設定",
+        "en": "Current hour, minute and second setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "format": "time"
+      },
+      "note": {
+        "ja": "瞬時電力計測値履歴蓄積を保持する周波数制御PCSは搭載を必須とする",
+        "en": "Frequency control PCSs that maintain a history of instantaneous power measurements must support this property."
+      }
+    },
+    "timeSynchronizationStatus": {
+      "epc": "0xCA",
+      "descriptions": {
+        "ja": "時刻同期状態",
+        "en": "Time synchronization status"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "string",
+        "enum": [
+          "noSynch",
+          "success",
+          "fail",
+          "notImplemented"
+        ],
+        "values": [
+          {
+            "value": "noSynch",
+            "descriptions": {
+              "ja": "時刻同期なし",
+              "en": "No time synchronization"
+            },
+            "edt": "0x00"
+          },
+          {
+            "value": "success",
+            "descriptions": {
+              "ja": "時刻同期成功",
+              "en": "Time synchronization successful"
+            },
+            "edt": "0x01"
+          },
+          {
+            "value": "fail",
+            "descriptions": {
+              "ja": "時刻同期失敗",
+              "en": "Time synchronization failed"
+            },
+            "edt": "0x02"
+          },
+          {
+            "value": "notImplemented",
+            "descriptions": {
+              "ja": "時刻同期機能未搭載",
+              "en": "Time synchronization function not implemented"
+            },
+            "edt": "0xFF"
+          }
+        ]
+      }
+    },
+    "instantaneousPowerHistoryInfo": {
+      "epc": "0xCB",
+      "descriptions": {
+        "ja": "瞬時電力計測値履歴蓄積情報",
+        "en": "Instantaneous power measurement value history Information"
+      },
+      "writable": false,
+      "observable": false,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "numberOfStoredEntries": {
+            "descriptions": {
+              "ja": "履歴蓄積件数",
+              "en": "The number of history entries stored"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "numberOfTotalEntries": {
+            "descriptions": {
+              "ja": "履歴蓄積可能件数",
+              "en": "The number of total history entries"
+            },
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "oldestDateTime": {
+            "descriptions": {
+              "ja": "履歴最古年月日時分",
+              "en": "The oldest history date and time"
+            },
+            "type": "string",
+            "format": "date-time"
+          },
+          "latestDateTime": {
+            "descriptions": {
+              "ja": "履歴最新年月日時分",
+              "en": "The latest history date and time"
+            },
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "note": {
+        "ja": "瞬時電力計測値履歴蓄積を保持する周波数制御PCSは搭載を必須とする",
+        "en": "Frequency control PCSs that maintain a history of instantaneous power measurements must support this property."
+      }
+    },
+    "instantaneousPowerHistoryEnabled": {
+      "epc": "0xCC",
+      "descriptions": {
+        "ja": "瞬時電力計測値履歴蓄積設定",
+        "en": "Instantaneous power measurement value history storage setting"
+      },
+      "writable": true,
+      "observable": false,
+      "schema": {
+        "type": "boolean",
+        "values": [
+          {
+            "value": true,
+            "descriptions": {
+              "ja": "ON",
+              "en": "On"
+            },
+            "edt": "0x30"
+          },
+          {
+            "value": false,
+            "descriptions": {
+              "ja": "OFF",
+              "en": "Off"
+            },
+            "edt": "0x31"
+          }
+        ]
+      },
+      "note": {
+        "ja": "瞬時電力計測値履歴蓄積を保持する周波数制御PCSは搭載を必須とする",
+        "en": "Frequency control PCSs that maintain a history of instantaneous power measurements must support this property."
+      }
+    },
+    "instantaneousPowerLog": {
+      "epc": "0xCE",
+      "epcAtomic": "0xCD",
+      "descriptions": {
+        "ja": "瞬時電力計測値履歴",
+        "en": "Historical data of instantaneous power measurement"
+      },
+      "writable": false,
+      "observable": false,
+      "urlParameters": {
+        "dateTime": {
+          "descriptions": {
+            "ja": "瞬時電力計測値履歴を取得する日時をISO 8601形式で示す。秒の値は意味を持たない",
+            "en": "This property indicates the date and time when the historical data of instantaneous power measurements is acquired in ISO 8601 format. The value of 'second' is meaningless."
+          },
+          "schema": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "required": true
+        }
+      },
+      "schema": {
+        "type": "object",
+        "properties": {
+          "dateTime": {
+            "descriptions": {
+              "ja": "計測年月日時分",
+              "en": "Date and time of measurement"
+            },
+            "type": "string",
+            "format": "date-time"
+          },
+          "measuredPower": {
+            "descriptions": {
+              "ja": "計測電力値",
+              "en": "Measured power"
+            },
+            "type": "array",
+            "minItems": 60,
+            "maxItems": 60,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "number",
+                  "unit": "W",
+                  "minimum": -999999999,
+                  "maximum": 999999999
+                },
+                {
+                  "type": "string",
+                  "enum": [
+                    "noData",
+                    "underflow",
+                    "overflow"
+                  ],
+                  "values": [
+                    {
+                      "value": "noData",
+                      "descriptions": {
+                        "ja": "計測データなし",
+                        "en": "No measurement data"
+                      },
+                      "edt": "0x7FFFFFFE"
+                    },
+                    {
+                      "value": "underflow",
+                      "descriptions": {
+                        "ja": "アンダーフロー",
+                        "en": "Underflow"
+                      },
+                      "edt": "0x80000000"
+                    },
+                    {
+                      "value": "overflow",
+                      "descriptions": {
+                        "ja": "オーバフロー",
+                        "en": "Overflow"
+                      },
+                      "edt": "0x7FFFFFFF"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      },
+      "note": {
+        "ja": "瞬時電力計測値履歴蓄積を保持する周波数制御PCSは搭載を必須とする。クエリパラメータは履歴取得日時",
+        "en": "Frequency control PCSs that maintain a history of instantaneous power measurements must support this property. Query parameter is the date and time when the historical data of instantaneous power measurements is acquired."
+      }
+    },
     "transmittableReceivableCycle": {
       "epc": "0xD0",
       "descriptions": {
@@ -457,7 +735,7 @@
         "type": "number",
         "unit": "ms",
         "minimum": 0,
-        "maximum": 655350,
+        "maximum": 20000,
         "multipleOf": 10
       }
     },
@@ -596,7 +874,7 @@
         }
       },
       "note": {
-        "ja": "自端制御機能を有する機器は搭載を必須とする。",
+        "ja": "自端制御機能を有する機器は搭載を必須とする",
         "en": "Devices with autonomous control functions are mandatory."
       }
     },
@@ -614,7 +892,7 @@
           "possibilityToParticipate": {
             "descriptions": {
               "ja": "周波数調整サービスへの参加可否",
-              "en": "Possibility to participate in the frequency regulation service."
+              "en": "Possibility to participate in the frequency regulation service"
             },
             "type": "object",
             "properties": {
@@ -739,7 +1017,7 @@
           "frequencyRegulationStatus": {
             "descriptions": {
               "ja": "周波数制御状態",
-              "en": "frequency regulation status."
+              "en": "Frequency regulation status"
             },
             "type": "object",
             "properties": {
@@ -873,8 +1151,8 @@
         }
       },
       "note": {
-        "ja": "周波数制御モードと周波数制御情報は指令制御、自端制御の何れかおよび、EM 目標値制御の搭載を必須とする。",
-        "en": "Frequency regulation mode and frequency regulation state must be either command control or autonomous control, and EM target value control must be installed."
+        "ja": "周波数制御パラメータ設定の周波数制御モードと周波数制御情報の周波数制御状態は、指令制御、自端制御の何れかおよび、EM 目標値制御の搭載を必須とし、周波数制御情報の周波数調整サービスへの参加可否は、指令制御、自端制御、指令制御＋自端制御の何れかおよび、EM 目標値制御の搭載を必須とする",
+        "en": "Frequency regulation mode of 'frequency regulation parameter setting' and frequency regulation state of 'information of frequency regulation' are required to install either 'command control' or 'autonomous control', and 'EM target value control'. Also, frequency regulation service is possible or not possible of 'Information of frequency regulation' is required to install either 'command control' or 'autonomous control' or 'command control and autonomous control', and 'EM target value control'."
       }
     },
     "informationOnControlContinuation": {
@@ -890,7 +1168,7 @@
       },
       "note": {
         "ja": "上位バイトは制御続行の可否状態を示し、下位バイトは制御制限や継続不可の詳細情報を示す。APPENDIXの「制御続行可否詳細情報プロパティ」詳細説明参照",
-        "en": "The upper byte indicates whether control can be continued or not. The lower byte indicates detailed information on control restrictions and continuation impossibility. Refer to \"(18) Detailed information of whether the device can continue to control\" in APPENDIX."
+        "en": "The upper byte indicates whether control can be continued or not. The lower byte indicates detailed information on control restrictions and continuation impossibility. Refer to '(18) Detailed information of whether the device can continue to control' in APPENDIX."
       }
     },
     "emInformation": {
@@ -935,7 +1213,7 @@
           "chargeEndTime": {
             "descriptions": {
               "ja": "充電終了時刻 (HH:MM)",
-              "en": "Charge end time in the HH:MM format."
+              "en": "Charge end time in the HH:MM format"
             },
             "oneOf": [
               {
@@ -963,7 +1241,7 @@
           "dischargeStartTime": {
             "descriptions": {
               "ja": "放電開始時刻 (HH:MM)",
-              "en": "Discharge start time in the HH:MM format."
+              "en": "Discharge start time in the HH:MM format"
             },
             "oneOf": [
               {
@@ -991,7 +1269,7 @@
           "dischargeEndTime": {
             "descriptions": {
               "ja": "放電終了時刻 (HH:MM)",
-              "en": "Discharge end time in the HH:MM format."
+              "en": "Discharge end time in the HH:MM format"
             },
             "oneOf": [
               {
@@ -1058,7 +1336,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1069,7 +1347,7 @@
           "peakCutEnergyThreshold": {
             "descriptions": {
               "ja": "ピークカット電力量閾値(Wh)",
-              "en": "Peak cut electric energy threshold. (Wh)"
+              "en": "Peak cut electric energy threshold (Wh)"
             },
             "oneOf": [
               {
@@ -1088,7 +1366,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1099,7 +1377,7 @@
           "pvSurplusCharging": {
             "descriptions": {
               "ja": "PV余剰充電有無",
-              "en": "Existence of PV surplus charging."
+              "en": "Existence of PV surplus charging"
             },
             "type": "boolean",
             "values": [
@@ -1124,7 +1402,7 @@
           "pvReversePowerFlow": {
             "descriptions": {
               "ja": "PV逆潮有無",
-              "en": "Existence of PV reverse power flow."
+              "en": "Existence of PV reverse power flow"
             },
             "type": "boolean",
             "values": [
@@ -1149,7 +1427,7 @@
           "pcsPushUpEffect": {
             "descriptions": {
               "ja": "押し上げ効果有無",
-              "en": "Existence of PCS push-up effect."
+              "en": "Existence of PCS push-up effect"
             },
             "type": "boolean",
             "values": [
@@ -1188,7 +1466,7 @@
           "frequency": {
             "descriptions": {
               "ja": "周波数計測値(mHz)",
-              "en": "Frequency measurement value. (mHz)"
+              "en": "Frequency measurement value (mHz)"
             },
             "oneOf": [
               {
@@ -1218,7 +1496,7 @@
           "powerAtDevicePoint": {
             "descriptions": {
               "ja": "機器点瞬時電力計測値(W)",
-              "en": "Instantaneous power measurement value at device point. (W)"
+              "en": "Instantaneous power measurement value at device point (W)"
             },
             "type": "number",
             "unit": "W",
@@ -1228,7 +1506,7 @@
           "powerAtReceivingPoint": {
             "descriptions": {
               "ja": "受電点瞬時電力計測値(W)",
-              "en": "Instantaneous power measurement value at power receiving point. (W)"
+              "en": "Instantaneous power measurement value at power receiving point (W)"
             },
             "oneOf": [
               {
@@ -1258,7 +1536,7 @@
         }
       },
       "note": {
-        "ja": "受電点を制御ポイントとできる機器は、受電点瞬時電力計測値(W)の搭載を必須とし、無効値を許容しない。",
+        "ja": "受電点を制御ポイントとできる機器は、受電点瞬時電力計測値(W)の搭載を必須とし、無効値を許容しない",
         "en": "Devices that can use the power receiving point as a control point must implement the instantaneous power measurement value (W) at the power receiving point, and invalid are not allowed."
       }
     },
@@ -1276,7 +1554,7 @@
           "acPower": {
             "descriptions": {
               "ja": "AC瞬時電力計測値(W)",
-              "en": "AC power measurement. (W)"
+              "en": "AC power measurement (W)"
             },
             "type": "number",
             "unit": "W",
@@ -1286,7 +1564,7 @@
           "emControlPower": {
             "descriptions": {
               "ja": "EM制御電力値(W)",
-              "en": "Power value of EM control. (W)"
+              "en": "Power value of EM control (W)"
             },
             "oneOf": [
               {
@@ -1305,7 +1583,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1316,7 +1594,7 @@
           "commandControlPower": {
             "descriptions": {
               "ja": "指令制御電力値(W)",
-              "en": "Power value of command control. (W)"
+              "en": "Power value of command control (W)"
             },
             "oneOf": [
               {
@@ -1346,7 +1624,7 @@
           "autonomousControlPower": {
             "descriptions": {
               "ja": "自端制御電力値(W)",
-              "en": "Power value of autonomous control. (W)"
+              "en": "Power value of autonomous control (W)"
             },
             "oneOf": [
               {
@@ -1376,7 +1654,7 @@
           "instructionNo": {
             "descriptions": {
               "ja": "電力指令制御指示No.",
-              "en": "Command control instruction number."
+              "en": "Command control instruction number"
             },
             "oneOf": [
               {
@@ -1394,7 +1672,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1405,7 +1683,7 @@
           "frequencyDeviation": {
             "descriptions": {
               "ja": "系統周波数偏差(mHz)",
-              "en": "Grid frequency deviation. (mHz)"
+              "en": "Grid frequency deviation (mHz)"
             },
             "type": "number",
             "unit": "mHz",
@@ -1415,7 +1693,7 @@
         }
       },
       "note": {
-        "ja": "当該する制御を行っていない場合は無効値とする。",
+        "ja": "当該する制御を行っていない場合は無効値とする",
         "en": "If the relevant control is not performed, the value is invalid."
       }
     },
@@ -1433,7 +1711,7 @@
           "input": {
             "descriptions": {
               "ja": "瞬時入力可能電力値(W)",
-              "en": "Instantaneous input power capability value."
+              "en": "Instantaneous input power capability value"
             },
             "type": "number",
             "unit": "W",
@@ -1443,7 +1721,7 @@
           "output": {
             "descriptions": {
               "ja": "瞬時出力可能電力値(W)",
-              "en": "Instantaneous output power capability value."
+              "en": "Instantaneous output power capability value"
             },
             "type": "number",
             "unit": "W",
@@ -1467,7 +1745,7 @@
           "chargeablePower": {
             "descriptions": {
               "ja": "瞬時充電可能電力値(W)",
-              "en": "Instantaneous chargeable power value. (W)"
+              "en": "Instantaneous chargeable power value (W)"
             },
             "type": "number",
             "unit": "W",
@@ -1477,7 +1755,7 @@
           "dischargeablePower": {
             "descriptions": {
               "ja": "瞬時放電可能電力値(W)",
-              "en": "Instantaneous dischargeable power value. (W)"
+              "en": "Instantaneous dischargeable power value (W)"
             },
             "type": "number",
             "unit": "W",
@@ -1501,7 +1779,7 @@
           "chargeableEnergy": {
             "descriptions": {
               "ja": "充電可能電力量(Wh)",
-              "en": "Chargeable electric energy value. (AC value) (Wh)"
+              "en": "Chargeable electric energy value (AC value) (Wh)"
             },
             "type": "number",
             "unit": "Wh",
@@ -1511,7 +1789,7 @@
           "dischargeableEnergy": {
             "descriptions": {
               "ja": "放電可能電力量(Wh)",
-              "en": "Dischargeable electric energy value. (AC value) (Wh)"
+              "en": "Dischargeable electric energy value (AC value) (Wh)"
             },
             "type": "number",
             "unit": "Wh",
@@ -1521,7 +1799,7 @@
           "storedEnergy": {
             "descriptions": {
               "ja": "蓄電残量(DC値)(Wh)",
-              "en": "Remaining stored electricity. (DC value) (Wh)"
+              "en": "Remaining stored electricity (DC value) (Wh)"
             },
             "oneOf": [
               {
@@ -1540,7 +1818,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1551,7 +1829,7 @@
           "storedEnergyPercent": {
             "descriptions": {
               "ja": "蓄電残量(%)",
-              "en": "Remaining stored electricity. (State of charge) (%)"
+              "en": "Remaining stored electricity (State of charge) (%)"
             },
             "oneOf": [
               {
@@ -1581,7 +1859,7 @@
           "healthState": {
             "descriptions": {
               "ja": "劣化状態(健康状態)(%)",
-              "en": "State of Health. (%)"
+              "en": "State of Health (%)"
             },
             "oneOf": [
               {
@@ -1611,7 +1889,7 @@
         }
       },
       "note": {
-        "ja": "充電可能電力量(Wh) 、放電可能電力量(Wh) の搭載を必須とする。また、蓄電残量(DC Wh) と蓄電残量(%) の何れかの搭載を必須とする。なお、非搭載の値は無効値とする。",
+        "ja": "充電可能電力量(Wh) 、放電可能電力量(Wh) の搭載を必須とする。また、蓄電残量(DC Wh) と蓄電残量(%) の何れかの搭載を必須とする。なお、非搭載の値は無効値とする",
         "en": "It is mandatory to implement chargeable power (Wh) and dischargeable power (Wh). In addition, it is mandatory to implement either the remaining stored electricity (DC Wh) or the state of charge (%). And non-implemented values should be treated as invalid values."
       }
     },
@@ -1629,7 +1907,7 @@
           "inputEnergyAtDevicePoint": {
             "descriptions": {
               "ja": "積算入力電力量計測値(機器点順方向 Wh)",
-              "en": "Measured cumulative amount of input electric energy for PCS. (Normal direction at device point) (Wh)"
+              "en": "Measured cumulative amount of input electric energy for PCS (Normal direction at device point) (Wh)"
             },
             "type": "number",
             "unit": "Wh",
@@ -1639,7 +1917,7 @@
           "outputEnergyAtDevicePoint": {
             "descriptions": {
               "ja": "積算出力電力量計測値(機器点逆方向 Wh)",
-              "en": "Measured cumulative amount of output electric energy by PCS. (Reverse direction at device point) (Wh)"
+              "en": "Measured cumulative amount of output electric energy by PCS (Reverse direction at device point) (Wh)"
             },
             "type": "number",
             "unit": "Wh",
@@ -1649,7 +1927,7 @@
           "boughtEnergy": {
             "descriptions": {
               "ja": "積算系統買電電力量計測値(Wh)",
-              "en": "Measured cumulative amount of electric energy bought from grid. (Wh)"
+              "en": "Measured cumulative amount of electric energy bought from grid (Wh)"
             },
             "oneOf": [
               {
@@ -1668,7 +1946,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1679,7 +1957,7 @@
           "soldEnergy": {
             "descriptions": {
               "ja": "積算系統売電電力量計測値(Wh)",
-              "en": "Measured cumulative amount of electric energy sold for grid. (Wh)"
+              "en": "Measured cumulative amount of electric energy sold for grid (Wh)"
             },
             "oneOf": [
               {
@@ -1698,7 +1976,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1709,7 +1987,7 @@
           "loadEnergy": {
             "descriptions": {
               "ja": "積算負荷電力量計測(Wh)",
-              "en": "Measured cumulative amount of load electric energy. (Wh)"
+              "en": "Measured cumulative amount of load electric energy (Wh)"
             },
             "oneOf": [
               {
@@ -1728,7 +2006,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1739,7 +2017,7 @@
           "pvEnergy": {
             "descriptions": {
               "ja": "積算太陽光発電電力量計測値(DC Wh)",
-              "en": "Measured cumulative amount of electric energy by PV. (DC value) (Wh)"
+              "en": "Measured cumulative amount of electric energy by PV (DC value) (Wh)"
             },
             "oneOf": [
               {
@@ -1758,7 +2036,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1769,7 +2047,7 @@
           "chargeEnergy": {
             "descriptions": {
               "ja": "積算充電電力量計測値(DC Wh)",
-              "en": "Measured cumulative amount of charge electric energy to battery. (DC value) (Wh)"
+              "en": "Measured cumulative amount of charge electric energy to battery (DC value) (Wh)"
             },
             "oneOf": [
               {
@@ -1788,7 +2066,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1799,7 +2077,7 @@
           "dischargeEnergy": {
             "descriptions": {
               "ja": "積算放電電力量計測値(DC Wh)",
-              "en": "Measured cumulative amount of discharge electric energy from battery. (DC value) (Wh)"
+              "en": "Measured cumulative amount of discharge electric energy from battery (DC value) (Wh)"
             },
             "oneOf": [
               {
@@ -1818,7 +2096,7 @@
                     "value": "invalid",
                     "descriptions": {
                       "ja": "無効値",
-                      "en": "invalid value"
+                      "en": "Invalid value"
                     },
                     "edt": "0xFFFFFFFF"
                   }
@@ -1829,7 +2107,7 @@
         }
       },
       "note": {
-        "ja": "積算入力電力量計測値（機器点順方向 Wh）、積算出力電力量計測値（機器点逆方向 Wh）の搭載を必須とし、非搭載の値は無効値とする。また、受電点を制御ポイントとできる機器は積算系統買電電力量計測値(Wh)、積算系統売電電力量計測値(Wh)の搭載を推奨する。",
+        "ja": "積算入力電力量計測値(機器点順方向 Wh)、積算出力電力量計測値(機器点逆方向 Wh)の搭載を必須とし、非搭載の値は無効値とする。また、受電点を制御ポイントとできる機器は積算系統買電電力量計測値(Wh)、積算系統売電電力量計測値(Wh)の搭載を推奨する",
         "en": "It is mandatory to install the measured cumulative amount of input electric energy (normal direction at device point) (Wh) and the measured cumulative amount of output electric energy (reverse direction at device point) (Wh).In addition, it is recommended that devices that can use the power receiving point as a control point should be equipped with the measured cumulative amount of electric energy bought from grid (Wh) and the measured cumulative amount of electric energy sold to grid (Wh)."
       }
     },
@@ -1885,7 +2163,7 @@
                       "value": "invalid",
                       "descriptions": {
                         "ja": "無効値",
-                        "en": "invalid value"
+                        "en": "Invalid value"
                       },
                       "edt": "0xFFFFFFFF"
                     }
@@ -1920,7 +2198,7 @@
                       "value": "invalid",
                       "descriptions": {
                         "ja": "無効値",
-                        "en": "invalid value"
+                        "en": "Invalid value"
                       },
                       "edt": "0xFFFFFFFF"
                     }
@@ -1964,7 +2242,7 @@
           "firstDataMmDd": {
             "descriptions": {
               "ja": "先頭データ月日 (MMDD)",
-              "en": "First data in the MMDD format."
+              "en": "First data in the MMDD format"
             },
             "type": "string",
             "format": "date"
@@ -1972,7 +2250,7 @@
           "firstDataHhMm": {
             "descriptions": {
               "ja": "先頭データ時分 (HHMM)",
-              "en": "Hour and minute of first data in the HHMM format."
+              "en": "Hour and minute of first data in the HHMM format"
             },
             "type": "string",
             "format": "time"
@@ -2056,7 +2334,7 @@
           "firstDataMmDd": {
             "descriptions": {
               "ja": "先頭データ月日 (MMDD)",
-              "en": "First data in the MMDD format."
+              "en": "First data in the MMDD format"
             },
             "type": "string",
             "format": "date"
@@ -2064,7 +2342,7 @@
           "firstDataHhMm": {
             "descriptions": {
               "ja": "先頭データ時分 (HHMM)",
-              "en": "Hour and minute of first data in the HHMM format."
+              "en": "Hour and minute of first data in the HHMM format"
             },
             "type": "string",
             "format": "time"
@@ -2148,7 +2426,7 @@
           "firstDataMmDd": {
             "descriptions": {
               "ja": "先頭データ月日 (MMDD)",
-              "en": "First data in the MMDD format."
+              "en": "First data in the MMDD format"
             },
             "type": "string",
             "format": "date"
@@ -2156,7 +2434,7 @@
           "firstDataHhMm": {
             "descriptions": {
               "ja": "先頭データ時分 (HHMM)",
-              "en": "Hour and minute of first data in the HHMM format."
+              "en": "Hour and minute of first data in the HHMM format"
             },
             "type": "string",
             "format": "time"
