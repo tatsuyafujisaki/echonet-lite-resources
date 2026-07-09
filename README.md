@@ -1,23 +1,91 @@
-- [規格書・仕様書など](https://echonet.jp/spec_g)
-  - [ECHONET Lite規格書](https://echonet.jp/spec_g/#standard-01)
-    - [ECHONET Lite規格書全体目次](https://echonet.jp/spec_v114_lite/#:~:text=ECHONET%20Lite%E8%A6%8F%E6%A0%BC%E6%9B%B8%E5%85%A8%E4%BD%93%E7%9B%AE%E6%AC%A1)
-      - [用語の定義](https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(00).pdf#page=13)
-    - [第1部 ECHONET Liteの概要](https://echonet.jp/spec_v114_lite/#:~:text=%E7%AC%AC1%E9%83%A8%20ECHONET%20Lite%E3%81%AE%E6%A6%82%E8%A6%81)
-    - [第2部 ECHONET Lite 通信ミドルウェア仕様](https://echonet.jp/spec_v114_lite/#:~:text=%E7%AC%AC2%E9%83%A8%20ECHONET%20Lite%20%E9%80%9A%E4%BF%A1%E3%83%9F%E3%83%89%E3%83%AB%E3%82%A6%E3%82%A7%E3%82%A2%E4%BB%95%E6%A7%98)
-    - [第3部 ECHONET Lite 通信装置仕様](https://echonet.jp/spec_v114_lite/#:~:text=%E7%AC%AC3%E9%83%A8%20ECHONET%20Lite%20%E9%80%9A%E4%BF%A1%E8%A3%85%E7%BD%AE%E4%BB%95%E6%A7%98)
-    - [第4部 ECHONET Lite ゲートウェイ仕様](https://echonet.jp/spec_v114_lite/#:~:text=%E7%AC%AC4%E9%83%A8%20ECHONET%20Lite%20%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4%E4%BB%95%E6%A7%98)
-    - [第5部 ECHONET Lite システム設計指針](https://echonet.jp/spec_v114_lite/#:~:text=%E7%AC%AC5%E9%83%A8%20ECHONET%20Lite%20%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E8%A8%AD%E8%A8%88%E6%8C%87%E9%87%9D)
-  - [アプリケーション通信インタフェース仕様書](https://echonet.jp/spec_g/#standard-02)
-  - [ECHONET Liteシステム設計指針](https://echonet.jp/spec_g/#standard-03)
-  - [ECHONET Lite機器を用いたシステム全体の信頼性確保に関する指針](https://echonet.jp/spec_g/#standard-04)
-  - [APPENDIX ECHONET機器オブジェクト詳細規定](https://echonet.jp/spec_g/#standard-05)
-  - [ECHONET Lite Web APIを活用したサービス連携のためのガイダンス](https://echonet.jp/spec_g#:~:text=ECHONET%20Lite%20Web%20API%E3%82%92%E6%B4%BB%E7%94%A8%E3%81%97%E3%81%9F%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E9%80%A3%E6%90%BA%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%AC%E3%82%A4%E3%83%80%E3%83%B3%E3%82%B9)
-  - [Machine Readable Appendix Release](https://echonet.jp/spec_g/#:~:text=Machine%20Readable%20Appendix%20Release)
-    - [MRAデータ](https://echonet.jp/spec_mra_rr3/#:~:text=MRA%E3%83%87%E3%83%BC%E3%82%BF)
-    - [ガイドブック](https://echonet.jp/spec_mra_rr3/#:~:text=%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF,-Version)
-- [Web API ガイドラインのダウンロード ファイルリスト](https://echonet.jp/web_api_guideline)
-  - [API仕様部](https://echonet.jp/web_api_guideline/#:~:text=API%E4%BB%95%E6%A7%98%E9%83%A8)
-  - [機器仕様部](https://echonet.jp/web_api_guideline/#:~:text=%E6%A9%9F%E5%99%A8%E4%BB%95%E6%A7%98%E9%83%A8)
-    - [List of (EOJ) devices](https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/web_api/ECHONET_Lite_Web_API_Dev_Specs_v1.7.0.pdf#page=29)
-  - [Device Description(JSON)](https://echonet.jp/web_api_guideline/#:~:text=Device%20Description(JSON))
-  - [DR関連サービス仕様](https://echonet.jp/web_api_guideline/#:~:text=DR%E9%96%A2%E9%80%A3%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E4%BB%95%E6%A7%98)
+## ECHONET Lite規格書
+https://echonet.jp/spec_v114_lite/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(00).pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(01).pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(02).pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(03).pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(04).pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(05).pdf
+```
+
+## アプリケーション通信インタフェース仕様書
+https://echonet.jp/spec_g/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/lvsm/lvsm_aif_ver1.10.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/hvsm/hvsm_aif_ver1.01.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/bdhvsm/bdhvsm_aif_ver1.00_r1.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/der/der_aif_ver1.10.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/hp/hp_aif_ver1.10.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/ac/ac_aif_ver1.10.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/pv/pv_aif_ver1.20.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/pv/pv_aif_ver1.20.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/lt/LT_app_interface_spec_ver1.00.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/sb/sb_aif_ver1.30.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/evps_evse/evps_evse_aif_ver1.41.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/fc/fc_aif_ver1.10.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/hwh/hwh_ver1.00.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/fr/fr_aif_ver.1.00.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/ca/ca_aif_ver1.00.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/rs/rs_aif_ver1.00.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/ls/ls_aif_ver1.00.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/els/els_aif_ver1.00.pdf
+```
+
+## ECHONET Liteシステム設計指針
+https://echonet.jp/el_design_guide_4th/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/design_guideline/ECHONET-Lite_System_Design_Guidelines_4th.pdf
+```
+
+## ECHONET Lite機器を用いたシステム全体の信頼性確保に関する指針
+https://echonet.jp/spec_g/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/Release/system_guideline_Ver.1.pdf
+```
+
+## APPENDIX ECHONET機器オブジェクト詳細規定
+https://echonet.jp/spec_object_rr4/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/Release/Release_R/Appendix_Release_R_r4.pdf
+```
+
+## CHAdeMO−ECHONET Lite連携ガイドライン
+https://echonet.jp/chademo-echo_v110/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/chademo-echo/CHAdeMO-ECHONET_Guideline_Ver.1.10.pdf
+```
+
+## Matter ECHONET Liteブリッジ適用事例
+https://echonet.jp/spec_g/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/matter-el/Matter-EL_Bridge_case_study_1st_edition.pdf
+```
+
+## Web APIを活用したサービス連携のためのガイダンス
+https://echonet.jp/spec_g/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ELWA/ELWA_service_collab_guidance_Ver1.00
+```
+
+## エコーネットコンソーシアム-PCHAデータ連携に関するガイダンス
+https://echonet.jp/spec_g/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/pcha-echo/pcha-echonet_guidance_v101.pdf
+```
+
+## Machine Readable Appendix
+https://echonet.jp/spec_mra_rr3/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/MRA/MRA_guidebook_jp_v1.2.0.pdf
+```
+[MRAデータ](https://echonet.jp/spec_mra_rr3/#:~:text=MRA%E3%83%87%E3%83%BC%E3%82%BF)
+   
+## Web API ガイドラインのダウンロード ファイルリスト
+https://echonet.jp/web_api_guideline
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/web_api/ECHONET_Lite_Web_API_Specs_v1.2.1.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/web_api/ECHONET_Lite_Web_API_Dev_Specs_v1.7.0.pdf
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/web_api/ECHONET_Lite_Web_API_DR_Specs_v1.0.0.pdf
+```
+[Device Description(JSON)](https://echonet.jp/web_api_guideline/#:~:text=Device%20Description(JSON))
