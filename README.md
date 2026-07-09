@@ -8,8 +8,6 @@
     - [第4部 ECHONET Lite ゲートウェイ仕様](https://echonet.jp/spec_v114_lite/#:~:text=%E7%AC%AC4%E9%83%A8%20ECHONET%20Lite%20%E3%82%B2%E3%83%BC%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A4%E4%BB%95%E6%A7%98)
     - [第5部 ECHONET Lite システム設計指針](https://echonet.jp/spec_v114_lite/#:~:text=%E7%AC%AC5%E9%83%A8%20ECHONET%20Lite%20%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E8%A8%AD%E8%A8%88%E6%8C%87%E9%87%9D)
   - [アプリケーション通信インタフェース仕様書](https://echonet.jp/spec_g/#standard-02)
-    - [電気自動車充放電器／電気自動車充電器・HEMSコントローラ間](https://echonet.jp/spec_g/#:~:text=%E9%9B%BB%E6%B0%97%E8%87%AA%E5%8B%95%E8%BB%8A%E5%85%85%E6%94%BE%E9%9B%BB%E5%99%A8%EF%BC%8F,%E9%9B%BB%E6%B0%97%E8%87%AA%E5%8B%95%E8%BB%8A%E5%85%85%E9%9B%BB%E5%99%A8%E3%83%BBHEMS%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E9%96%93)
-      - [オブジェクト別搭載ECHONET プロパティ（EPC）](https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/AIF/evps_evse/evps_evse_aif_ver1.41.pdf#page=12)
   - [ECHONET Liteシステム設計指針](https://echonet.jp/spec_g/#standard-03)
   - [ECHONET Lite機器を用いたシステム全体の信頼性確保に関する指針](https://echonet.jp/spec_g/#standard-04)
   - [APPENDIX ECHONET機器オブジェクト詳細規定](https://echonet.jp/spec_g/#standard-05)
