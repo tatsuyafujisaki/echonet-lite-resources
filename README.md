@@ -9,9 +9,6 @@ https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14
 https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(05).pdf
 ```
 
-第0部|第1部|第2部|第3部|第4部|第5部
---|--|--|--|--|--
-ECHONET Lite規格書全体目次|ECHONET Liteの概要|ECHONET Lite 通信ミドルウェア仕様|ECHONET Lite 通信装置仕様|ECHONET Lite ゲートウェイ仕様|ECHONET Lite システム設計指針
 ![](https://github.com/user-attachments/assets/537ed8df-f6f6-4c5e-942f-50eda06a4e48)
 
 ## アプリケーション通信インタフェース仕様書
