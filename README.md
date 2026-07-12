@@ -9,7 +9,7 @@ https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14
 https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/ECHONET_lite_V1_14_jp/ECHONET-Lite_Ver.1.14(05).pdf
 ```
 
-![](https://github.com/user-attachments/assets/537ed8df-f6f6-4c5e-942f-50eda06a4e48)
+![](https://github.com/user-attachments/assets/e5ec98b4-4124-4f49-8569-d6a85a242dcc)
 
 ## アプリケーション通信インタフェース仕様書
 https://echonet.jp/spec_g/
