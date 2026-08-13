@@ -82,7 +82,7 @@ https://echonet.jp/spec_mra_rr3/
 https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/MRA/MRA_guidebook_jp_v1.2.0.pdf
 ```
 [MRAデータ](https://echonet.jp/spec_mra_rr3/#:~:text=MRA%E3%83%87%E3%83%BC%E3%82%BF)
-   
+
 ## Web API ガイドラインのダウンロード ファイルリスト
 https://echonet.jp/web_api_guideline
 ```
@@ -91,3 +91,9 @@ https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/web_api/ECHONET_Li
 https://echonet.jp/wp/wp-content/uploads/pdf/General/Standard/web_api/ECHONET_Lite_Web_API_DR_Specs_v1.0.0.pdf
 ```
 [Device Description(JSON)](https://echonet.jp/web_api_guideline/#:~:text=Device%20Description(JSON))
+
+## エコーネットコンソーシアム会員企業のECHONET Lite対応販売機器一覧
+https://echonet.jp/shipments/
+```
+https://echonet.jp/wp/wp-content/uploads/pdf/General/Download/el_hanbai_list-2026.pdf
+```
