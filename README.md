@@ -1,3 +1,7 @@
+## Introduction
+
+This repository is a collection of ECHONET Lite resources curated for both human developers and generative AI. It is not meant to be used as a standalone project; instead, I use it as a reference to copy and paste files and directories into other repositories where I am working with ECHONET Lite.
+
 ## ECHONET Lite規格書
 https://echonet.jp/spec_v114_lite/
 ```
